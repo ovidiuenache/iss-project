@@ -1,0 +1,19 @@
+Exemplu #1
+-----------------------
+Numele cazului: Alegerea sectiunii
+Actori: Ascultatorii
+Fluxul de evenimente: Ascultatorii isi aleg una sau mai multe sectiuni la care vor sa participe din cele la care sunt idei
+si sistemul salveaza optiunea acestora in baza de date pentru a tine cont de ea la distribuirea camerelor pe sectiuni
+Pre-conditii: Ascultatorul este logat in contul lui. Are acces la internet. Sistemul este conectat la baza de date
+Post-conditii: Ascultatorul este marcat ca fiind participant in sectiunile alese
+Constrangeri: Alegerea sectiunii de catre ascultatori se face intr-un interval de timp dat (deadline)
+
+Exemplu #2
+-----------------------
+Numele cazului: Prezentarea lucrarilor
+Actori: Autorii lucrarilor ajunse in etap finala
+Fluxul de evenimente: Autorii isi sustin prezentarea lucrarii in contextul stabilit (sectiunea corespunzatoare si publicul distribuit
+conform cerintelor anterioare)
+Pre-conditii: Autorii au creat o lucrare care a ajuns in etapa finala. Distributia pe sectiuni a fost facuta.
+Post-conditii: Prezentarea a avut loc. S-au ales lucrarile care vor fi publicate
+Constrangeri: Prezentarea dureaza maximum 2 ore.
