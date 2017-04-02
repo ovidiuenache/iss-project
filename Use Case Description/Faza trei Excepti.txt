@@ -1,0 +1,5 @@
+Exceptie #1
+-----------------------
+Niciun ascultator nu isi alege pana la finalul deadline-ului sectiunea la care vrea sa participe.
+PC nu poate face, astfel, distributia pe camere / sectiuni
+Rezolvare: Se prelungeste perioada de inscriere si sunt notificati pe email toti ascultatorii
