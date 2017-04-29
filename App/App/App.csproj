@@ -46,6 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\AbstractCommiteeMember.cs" />
+    <Compile Include="Entity\AbstractNonCommiteeMember.cs" />
+    <Compile Include="Entity\AbstractUser.cs" />
+    <Compile Include="Entity\Author.cs" />
+    <Compile Include="Entity\Chair.cs" />
+    <Compile Include="Entity\Conference.cs" />
+    <Compile Include="Entity\IUser.cs" />
+    <Compile Include="Entity\Listener.cs" />
+    <Compile Include="Entity\Phase.cs" />
+    <Compile Include="Entity\Proposal.cs" />
+    <Compile Include="Entity\ProposalMetaInformation.cs" />
+    <Compile Include="Entity\Review.cs" />
+    <Compile Include="Entity\Reviewer.cs" />
+    <Compile Include="Entity\Topic.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +90,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
