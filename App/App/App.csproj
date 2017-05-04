@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exception\BaseException.cs" />
+    <Compile Include="Exception\InvalidCredentialsException.cs" />
+    <Compile Include="Exception\InvalidEmailAddressException.cs" />
+    <Compile Include="Exception\InvalidPasswordException.cs" />
+    <Compile Include="Exception\InvalidQualifierException.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
