@@ -12,15 +12,46 @@ namespace App.Utils
     {
         public void validate(IUser entity)
         {
+            string errors = "";
             if (!validateName(entity.getFirstName()))
             {
-
+                errors += "The firstname must have between 2 and 30 letters!\n";
             }
             if (!validateName(entity.getLastName()))
             {
-
+                errors += "The lastname must have between 2 and 30 letters!\n";
             }
             if (!validateBirthDate(entity.getBirthdate()))
+            {
+                errors += "The birthdate must be between 01.01.1930 and 01.01.2000!\n";
+            }
+            if (!validateEmail(entity.getEmail()))
+            {
+                errors += "You have introduced an invalid email !\n";
+            }
+            if (!validateTelephone(entity.getTelephone()))
+            {
+                errors += "The phone number must have exactly 10 digits!\n";
+            }
+            if (!validatePassword(entity.getPassword()))
+            {
+                errors += "The password must have between 8 and 30 characters and at least one number, one uppercase and one " +
+                    "lowercase characer!\n";
+            }
+            if (!validateAdress(entity.getAddress()))
+            {
+                errors += "The adress must contain between 5 and 40 characters ( digits and letters )!\n";
+            }
+            if (!validateCity(entity.getCity()))
+            {
+                errors += "The city must have between 3 and 25 letters !\n";
+            }
+            if (!validateCountry(entity.getCountry()))
+            {
+                errors += "The country must have between 3 and 25 letters !\n";
+            }
+
+            if (errors.Length != 0)
             {
 
             }
@@ -104,7 +135,7 @@ namespace App.Utils
         /// <summary>
         /// Checks if a passwords is valid
         /// A passwords is considered valid if it has between 8 and 30 characters and at least one number, one lowercase letter and 
-        /// at leas one upper case letter
+        /// at least one upper case letter
         /// </summary>
         /// <param name="password"></param>
         /// <returns></returns>
@@ -114,15 +145,7 @@ namespace App.Utils
             {
                 return false;
             }
-            if (!password.Any(c => char.IsDigit(c)))
-            {
-                return false;
-            }
-            if (!password.Any(c => char.IsUpper(c)))
-            {
-                return false;
-            }
-            if (!password.Any(c => char.IsLower(c)))
+            if (Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$"))
             {
                 return false;
             }
@@ -141,7 +164,7 @@ namespace App.Utils
             {
                 return false;
             }
-            if (Regex.IsMatch(country, @"^[a-zA-Z]*$"))
+            if (Regex.IsMatch(country, @"^[a-zA-Z ]*$"))
             {
                 return true;
             }
@@ -160,7 +183,7 @@ namespace App.Utils
             {
                 return false;
             }
-            if (Regex.IsMatch(adress, @"^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9 ]*$"))
+            if (Regex.IsMatch(adress, @"^[0-9A-Za-z ]*$"))
             {
                 return true;
             }
@@ -179,7 +202,7 @@ namespace App.Utils
             {
                 return false;
             }
-            if (Regex.IsMatch(city, @"^[a-zA-Z]*$"))
+            if (Regex.IsMatch(city, @"^[a-zA-Z ]*$"))
             {
                 return true;
             } 
