@@ -1,0 +1,7 @@
+D:\iss-project\App\TestApp\bin\Debug\TestApp.dll
+D:\iss-project\App\TestApp\bin\Debug\TestApp.pdb
+D:\iss-project\App\TestApp\bin\Debug\App.exe
+D:\iss-project\App\TestApp\bin\Debug\App.pdb
+D:\iss-project\App\TestApp\obj\Debug\TestApp.csprojResolveAssemblyReference.cache
+D:\iss-project\App\TestApp\obj\Debug\TestApp.dll
+D:\iss-project\App\TestApp\obj\Debug\TestApp.pdb

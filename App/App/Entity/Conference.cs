@@ -157,5 +157,15 @@ namespace App.Entity
 
             return id == item.getId();
         }
+
+        public float getConferenceFee()
+        {
+            return conferenceFee;
+        }
+
+        public void setConferenceFee(float conferenceFee)
+        {
+            this.conferenceFee = conferenceFee;
+        }
     }
 }
