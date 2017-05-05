@@ -68,8 +68,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Utils\IValidator.cs" />
     <Compile Include="Utils\UserValidator.cs" />
+=======
+    <Compile Include="Exception\ValidationException.cs" />
+>>>>>>> 66fbf04565d554ff60dd52181877f9cc3e3689a3
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

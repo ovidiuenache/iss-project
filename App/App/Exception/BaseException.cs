@@ -1,5 +1,9 @@
 ﻿namespace App.Exception
 {
+    /// <summary>
+    /// BaseException Class
+    /// Author: Alexandru Emil Popa
+    /// </summary>
     public abstract class BaseException : System.Exception
     {
         private string message;
