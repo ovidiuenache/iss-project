@@ -6,3 +6,4 @@ G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug
 G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.csproj.GenerateResource.Cache
 G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.exe
 G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.pdb
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.csprojResolveAssemblyReference.cache

@@ -71,7 +71,7 @@ namespace App.Utils
 
         /// <summary>
         /// Gets as parameter a DateTime value
-        /// Check if the value is between 01.01.1930 and 01.01.2000
+        /// Check if the value is between 01.01.1930 and 01.01.2010
         /// </summary>
         /// <param name="birthDate"></param>
         /// <returns></returns>
@@ -81,7 +81,7 @@ namespace App.Utils
             {
                 return false;
             }
-            if (birthDate > new DateTime(2000,01,01) || birthDate < new DateTime(1930, 01, 01))
+            if (birthDate > new DateTime(2010,01,01) || birthDate < new DateTime(1930, 01, 01))
             {
                 return false;
             }
@@ -110,16 +110,23 @@ namespace App.Utils
         /// <summary>
         /// Checks if the phone number got as paramter is valid
         /// A phone number is considered valid if it has exactly 10 characters, only digits
+        /// Here are some valid numbers:
+        /// +93483227359
+        /// +1 703 335 65123
+        /// 001 (703) 332-6261
+        /// 34565464
+        /// (111)123-4567
+        ///  111-123-4567
         /// </summary>
         /// <param name="telehpone"></param>
         /// <returns></returns>
-        private bool validateTelephone(string telehpone)
+        public bool validateTelephone(string telehpone)
         {
-            if (telehpone.Length != 10)
+            if (telehpone.Length < 10 || telehpone.Length > 20)
             {
                 return false;
             }
-            if (!Regex.IsMatch(telehpone, @"^[0-9]+$"))
+            if (!Regex.IsMatch(telehpone, @"^\+?(\d[\d- ]+)?(\([\d- ]+\))?[\d- ]+\d$"))
             {
                 return false;
             }
@@ -138,7 +145,7 @@ namespace App.Utils
                 var addr = new System.Net.Mail.MailAddress(email);
                 return addr.Address == email;
             }
-            catch
+            catch (FormatException exception)
             {
                 return false;
             }
@@ -167,16 +174,17 @@ namespace App.Utils
         /// <summary>
         /// Checks if the string got as parameter is a valid country name
         /// The string is valid if it contains between 3 and 25 characters, only letters
+        /// A country can contain hyphens
         /// </summary>
         /// <param name="country"></param>
         /// <returns></returns>
-        private bool validateCountry(string country)
+        public bool validateCountry(string country)
         {
             if (country.Length < 3 || country.Length > 25)
             {
                 return false;
             }
-            if (!Regex.IsMatch(country, @"^[a-zA-Z ]+$"))
+            if (!Regex.IsMatch(country, @"^[a-zA-Z- ]+$"))
             {
                 return false;
             }
@@ -186,6 +194,7 @@ namespace App.Utils
         /// <summary>
         /// Checks if the string got as parameter is a valid adress
         /// A valid adress cotains between 5 and 40 characters, only letters and digits
+        /// An adress cand cotain hyphens
         /// </summary>
         /// <param name="adress"></param>
         /// <returns></returns>
@@ -195,7 +204,7 @@ namespace App.Utils
             {
                 return false;
             }
-            if (!Regex.IsMatch(adress, @"^[0-9A-Za-z ]+$"))
+            if (!Regex.IsMatch(adress, @"^[0-9A-Za-z- ]+$"))
             {
                 return false;
             }
@@ -205,6 +214,7 @@ namespace App.Utils
         /// <summary>
         /// Checks if the string got as parameter is a valid city name
         /// A valid city name has between 2 and 25 characters, only letters
+        /// A city name can cotain hyphens
         /// </summary>
         /// <param name="city"></param>
         /// <returns></returns>
@@ -214,7 +224,7 @@ namespace App.Utils
             {
                 return false;
             }
-            if (!Regex.IsMatch(city, @"^[a-zA-Z ]+$"))
+            if (!Regex.IsMatch(city, @"^[a-zA-Z- ]+$"))
             {
                 return false;
             } 
