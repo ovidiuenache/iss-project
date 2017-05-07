@@ -15,13 +15,13 @@ namespace App
         [STAThread]
         static void Main()
         {
-            /* Application.EnableVisualStyles();
+           /*  Application.EnableVisualStyles();
              Application.SetCompatibleTextRenderingDefault(false);
              Application.Run(new Form1());*/
 
             MailSender sender = new MailSender();
-            sender.sendMail(new System.Net.Mail.MailAddress("dad@gmail.com"), 
-                new System.Net.Mail.MailAddress("cata1511@yahoo.com"), "test", "subject");
+            sender.sendMailFromGmail(new System.Net.Mail.MailAddress("iss.cmsmailer@yahoo.com"), 
+                new System.Net.Mail.MailAddress("cata1511@yahoo.com"), "test", "test11");
         }
     }
 }

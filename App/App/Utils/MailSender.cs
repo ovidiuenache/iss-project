@@ -8,31 +8,41 @@ using System.Threading.Tasks;
 
 namespace App.Utils
 {
+    /// <summary>
+    /// 
+    /// Mail sendig class
+    /// Author : Catalin Radoiu
+    /// 
+    /// </summary>
     class MailSender
     {
-        public void sendMail(MailAddress sender, MailAddress receiver, string message, string subject)
-        {
-            MailMessage mail = new MailMessage(sender, receiver);
-            mail.Subject = subject;
-            mail.Body = message;
 
+        /// <summary>
+        /// This method sends an email from a gmail account
+        /// Gets as paraeter a sender, which has to be a gmail account in order to work
+        /// The receiver can be any other email adress, does not have to be a gmail adress like the sender 
+        /// The mailBody and the mailSubject params represent the body and the subject of the mail that will be sended
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="receiver"></param>
+        /// <param name="mailBody"></param>
+        /// <param name="mailSubject"></param>
+        public void sendMailFromGmail(MailAddress sender, MailAddress receiver, string mailBody, string mailSubject)
+        {
+            MailMessage mail = new MailMessage();
             SmtpClient client = new SmtpClient();
-            client.Host = "dad@gmail.com";
-            client.EnableSsl = false;
-            client.Port = 26;
-            client.Credentials = new NetworkCredential("username", "password");
+
+            mail.From = sender;
+            mail.To.Add(receiver);
+            mail.Subject = mailSubject;
+            mail.Body = mailBody;
+
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+            client.Credentials = new System.Net.NetworkCredential("iss.cmsmailer@gmail.com", "issteam0");
+            client.EnableSsl = true;
 
             client.Send(mail);
-            /*
-            SmtpClient client = new SmtpClient();
-            client.Port = 557;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("user", "pass");
-            client.Host = "smtp.gmail.com";
-            mail.Subject = subject;
-            mail.Body = message;
-            client.Send(mail);*/
         }
     }
 }

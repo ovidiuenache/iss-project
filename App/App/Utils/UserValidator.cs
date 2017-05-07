@@ -1,4 +1,5 @@
 ﻿using App.Entity;
+using App.Exception;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,19 @@ using System.Threading.Tasks;
 
 namespace App.Utils
 {
+    /// <summary>
+    /// 
+    /// User vaidator class
+    /// Author : Catalin Radoiu 
+    /// 
+    /// </summary>
     class UserValidator : IValidator<IUser>
     {
+        /// <summary>
+        /// This method checks if all the fields of a user are valid
+        /// If a single field is not valid, ValidationException will be thrown
+        /// </summary>
+        /// <param name="entity"></param>
         public void validate(IUser entity)
         {
             string errors = "";
@@ -27,7 +39,7 @@ namespace App.Utils
             }
             if (!validateEmail(entity.getEmail()))
             {
-                errors += "You have introduced an invalid email !\n";
+                errors += "YSou have introduced an invalid email !\n";
             }
             if (!validateTelephone(entity.getTelephone()))
             {
@@ -53,7 +65,7 @@ namespace App.Utils
 
             if (errors.Length != 0)
             {
-
+                throw new ValidationException(errors);
             }
         }
 
@@ -88,9 +100,9 @@ namespace App.Utils
             {
                 return false;
             }
-            if (Regex.IsMatch(name, @"^[a-zA-Z]*$"))
+            if (!Regex.IsMatch(name, @"^[a-zA-Z]+$"))
             {
-                return true;
+                return false;
             }
             return true;
         }
@@ -107,9 +119,9 @@ namespace App.Utils
             {
                 return false;
             }
-            if (Regex.IsMatch(telehpone, @"^[0-9]*$"))
+            if (!Regex.IsMatch(telehpone, @"^[0-9]+$"))
             {
-                return true;
+                return false;
             }
             return true;
         }
@@ -145,7 +157,7 @@ namespace App.Utils
             {
                 return false;
             }
-            if (Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$"))
+            if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$"))
             {
                 return false;
             }
@@ -164,9 +176,9 @@ namespace App.Utils
             {
                 return false;
             }
-            if (Regex.IsMatch(country, @"^[a-zA-Z ]*$"))
+            if (!Regex.IsMatch(country, @"^[a-zA-Z ]+$"))
             {
-                return true;
+                return false;
             }
             return true;
         }
@@ -183,9 +195,9 @@ namespace App.Utils
             {
                 return false;
             }
-            if (Regex.IsMatch(adress, @"^[0-9A-Za-z ]*$"))
+            if (!Regex.IsMatch(adress, @"^[0-9A-Za-z ]+$"))
             {
-                return true;
+                return false;
             }
             return true;
         }
@@ -202,9 +214,9 @@ namespace App.Utils
             {
                 return false;
             }
-            if (Regex.IsMatch(city, @"^[a-zA-Z ]*$"))
+            if (!Regex.IsMatch(city, @"^[a-zA-Z ]+$"))
             {
-                return true;
+                return false;
             } 
             return true;
         }
