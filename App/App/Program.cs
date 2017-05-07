@@ -16,7 +16,7 @@ namespace App
         static void Main()
         {
             //Use this for dummy data
-            //UserContextSeed.Seed();
+            UserContextSeed.Seed();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

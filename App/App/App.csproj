@@ -155,6 +155,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\ConferenceContext.cs" />
     <Compile Include="Context\UserContext.cs" />
     <Compile Include="Entity\AbstractComiteeMember.cs" />
     <Compile Include="Entity\AbstractNonCommiteeMember.cs" />

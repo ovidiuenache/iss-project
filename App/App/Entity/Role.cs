@@ -17,6 +17,10 @@ namespace App.Entity
         public int UserId { get; set; }
         public User User { get; set; }
 
+        public Role()
+        {
+        }
+
         public Role(string title, string slug)
         {
             Title = title;
