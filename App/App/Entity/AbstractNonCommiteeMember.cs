@@ -6,7 +6,7 @@
     /// Author: Ioan Ovidiu Enache
     /// 
     /// </summary>
-    public abstract class AbstractNonCommiteeMember : AbstractUser
+    public abstract class AbstractNonCommiteeMember : User
     {
     }
 }

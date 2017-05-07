@@ -7,36 +7,37 @@ namespace App.Entity
     /// 
     /// Class Conference
     /// Author: Ioan Ovidiu Enache
+    /// Author: Claudiu Nicola
     /// 
     /// </summary>
     public class Conference
     {
-        private int id;
+        public int ConferenceId;
 
-        private string name;
+        public string Name;
 
-        private IList<Phase> phases;
+        public IList<Phase> Phases;
 
-        private DateTime startDate;
+        public DateTime StartDate;
 
-        private Phase activePhase;
+        public Phase ActivePhase;
 
-        private IList<AbstractCommiteeMember> commiteeMembers;
+        public IList<AbstractCommiteeMember> CommiteeMembers;
 
-        private IList<Topic> topics;
+        public IList<Topic> Topics;
 
-        private float conferenceFee;
+        public float ConferenceFee;
 
         public Conference()
         {
-            id = -1;
-            name = "";
-            phases = new List<Phase>();
-            startDate = new DateTime();
-            activePhase = null;
-            commiteeMembers = new List<AbstractCommiteeMember>();
-            topics = new List<Topic>();
-            conferenceFee = 0;
+            ConferenceId = -1;
+            Name = "";
+            Phases = new List<Phase>();
+            StartDate = new DateTime();
+            ActivePhase = null;
+            CommiteeMembers = new List<AbstractCommiteeMember>();
+            Topics = new List<Topic>();
+            ConferenceFee = 0;
         }
 
         public Conference(
@@ -48,114 +49,54 @@ namespace App.Entity
             float conferenceFee
         )
         {
-            this.name = name;
-            this.phases = phases;
-            this.startDate = startDate;
-            this.activePhase = activePhase;
-            this.commiteeMembers = commiteeMembers;
-            this.conferenceFee = conferenceFee;
+            this.Name = name;
+            this.Phases = phases;
+            this.StartDate = startDate;
+            this.ActivePhase = activePhase;
+            this.CommiteeMembers = commiteeMembers;
+            this.ConferenceFee = conferenceFee;
         }
 
-        public int getId()
+        public void AddPhase(Phase phase)
         {
-            return id;
+            Phases.Add(phase);
         }
 
-        public string getName()
+        public void RemovePhase(Phase phase)
         {
-            return name;
+            Phases.Remove(phase);
         }
 
-        public void setName(string name)
+        public void SetCommiteeMembers(IList<AbstractCommiteeMember> commiteeMembers)
         {
-            this.name = name;
+            this.CommiteeMembers = commiteeMembers;
         }
 
-        public IList<Phase> getPhases()
+        public void AddCommiteeMember(AbstractCommiteeMember commiteeMember)
         {
-            return phases;
+            CommiteeMembers.Add(commiteeMember);
         }
 
-        public DateTime getStartDate()
+        public void RemoveCommiteeMember(AbstractCommiteeMember commiteeMember)
         {
-            return startDate;
+            CommiteeMembers.Remove(commiteeMember);
         }
 
-        public Phase getActivePhase()
+        public void AddTopic(Topic topic)
         {
-            return activePhase;
+            Topics.Add(topic);
         }
 
-        public IList<AbstractCommiteeMember> getCommiteeMembers()
+        public void RemoveTopic(Topic topic)
         {
-            return commiteeMembers;
-        }
-
-        public void setActivePhase(Phase activePhase)
-        {
-            this.activePhase = activePhase;
-        }
-
-        public void setPhases(IList<Phase> phases)
-        {
-            this.phases = phases;
-        }
-
-        public void addPhase(Phase phase)
-        {
-            phases.Add(phase);
-        }
-
-        public void removePhase(Phase phase)
-        {
-            phases.Remove(phase);
-        }
-
-        public void setCommiteeMembers(IList<AbstractCommiteeMember> commiteeMembers)
-        {
-            this.commiteeMembers = commiteeMembers;
-        }
-
-        public void addCommiteeMember(AbstractCommiteeMember commiteeMember)
-        {
-            commiteeMembers.Add(commiteeMember);
-        }
-
-        public void removeCommiteeMember(AbstractCommiteeMember commiteeMember)
-        {
-            commiteeMembers.Remove(commiteeMember);
-        }
-
-        public IList<Topic> getTopics()
-        {
-            return topics;
-        }
-
-        public void setTopics(IList<Topic> topics)
-        {
-            this.topics = topics;
-        }
-
-        public void addTopic(Topic topic)
-        {
-            topics.Add(topic);
-        }
-
-        public void removeTopic(Topic topic)
-        {
-            topics.Remove(topic);
+            Topics.Remove(topic);
         }
 
         public override bool Equals(object obj)
         {
             var item = obj as Conference;
 
-            if (item == null)
-            {
-                return false;
-            }
-
-            return id == item.getId();
+            return ConferenceId == item?.ConferenceId;
         }
     }
 }
