@@ -17,6 +17,12 @@ namespace App.Entity
         public int UserId { get; set; }
         public User User { get; set; }
 
+        public Role(string title, string slug)
+        {
+            Title = title;
+            Slug = slug;
+        }
+
         /// <inheritdoc />
         public override bool Equals(object obj)
         {
