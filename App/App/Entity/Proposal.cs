@@ -4,75 +4,36 @@
     /// 
     /// Class Proposal
     /// Author: Ioan Ovidiu Enache
+    /// Author: Claudiu Nicola
     /// 
     /// </summary>
     public class Proposal
     {
-        private int id;
-        private ProposalMetaInformation metaInformation;
-        private string fullPaper;
-        private string abstractPaper;
+        public int ProposalId { get; set; }
+        public ProposalMetaInformation MetaInformation { get; set; }
+        public string FullPaper { get; set; }
+        public string AbstractPaper { get; set; }
 
         public Proposal()
         {
-            id = -1;
-            metaInformation = null;
-            fullPaper = "";
-            abstractPaper = "";
+            ProposalId = -1;
+            MetaInformation = null;
+            FullPaper = "";
+            AbstractPaper = "";
         }
 
         public Proposal(ProposalMetaInformation metaInformation, string fullPaper, string abstractPaper)
         {
-            this.metaInformation = metaInformation;
-            this.fullPaper = fullPaper;
-            this.abstractPaper = abstractPaper;
-        }
-
-        public int getId()
-        {
-            return id;
-        }
-
-        public ProposalMetaInformation getMetaInformation()
-        {
-            return metaInformation;
-        }
-
-        public string getFullPaper()
-        {
-            return fullPaper;
-        }
-
-        public string getAbstractPaper()
-        {
-            return abstractPaper;
-        }
-
-        public void setMetaInformation(ProposalMetaInformation metaInformation)
-        {
-            this.metaInformation = metaInformation;
-        }
-
-        public void setFullPaper(string fullPaper)
-        {
-            this.fullPaper = fullPaper;
-        }
-
-        public void setAbstractPaper(string abstractPaper)
-        {
-            this.abstractPaper = abstractPaper;
+            this.MetaInformation = metaInformation;
+            this.FullPaper = fullPaper;
+            this.AbstractPaper = abstractPaper;
         }
 
         public override bool Equals(object obj)
         {
             var item = obj as Proposal;
 
-            if (item == null)
-            {
-                return false;
-            }
-
-            return id == item.getId();
+            return ProposalId == item?.ProposalId;
         }
     }
 }

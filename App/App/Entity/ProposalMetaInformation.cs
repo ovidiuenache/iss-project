@@ -6,93 +6,42 @@ namespace App.Entity
     /// 
     /// Class ProposalMetaInformation
     /// Author: Ioan Ovidiu Enache
+    /// Author: Claudiu Nicola
     /// 
     /// </summary>
     public class ProposalMetaInformation
-    {
-        private int id;
-        private string title;
-        private IList<Author> authors;
-        private int year;
-        private string description;
+    { 
+        public int ProposalMetaInformationId{get; set; }
+        public string Title { get; set; }
+        public IList<User> Authors { get; set; }
+        public int Year { get; set; }
+        public string Description { get; set; }
+
+        public int ProposalForeignKey { get; set; }
+        public Proposal Proposal { get; set; }
 
         public ProposalMetaInformation()
         {
-            id = -1;
-            title = "";
-            authors = new List<Author>();
-            year = -1;
-            description = "";
+            ProposalMetaInformationId = -1;
+            Title = "";
+            Authors = new List<User>();
+            Year = -1;
+            Description = "";
         }
 
-        public ProposalMetaInformation(string title, IList<Author> authors, int year, string description)
+        public ProposalMetaInformation(string title, IList<User> authors, int year, string description)
         {
-            this.title = title;
-            this.authors = authors;
-            this.year = year;
-            this.description = description;
-        }
-
-        public int getId()
-        {
-            return id;
-        }
-
-        public string getTitle()
-        {
-            return title;
-        }
-
-        public IList<Author> getAuthors()
-        {
-            return authors;
-        }
-
-        public int getYear()
-        {
-            return year;
-        }
-
-        public string getDescription()
-        {
-            return description;
-        }
-
-        public void setTitle(string title)
-        {
-            this.title = title;
-        }
-
-        public void setAuthors(IList<Author> authors)
-        {
-            this.authors = authors;
-        }
-
-        public void addAuthor(Author author)
-        {
-            authors.Add(author);
-        }
-
-        public void removeAuthor(Author author)
-        {
-            authors.Remove(author);
-        }
-
-        public void setDescription(string description)
-        {
-            this.description = description;
+            this.Title = title;
+            this.Authors = authors;
+            this.Year = year;
+            this.Description = description;
         }
 
         public override bool Equals(object obj)
         {
             var item = obj as ProposalMetaInformation;
 
-            if (item == null)
-            {
-                return false;
-            }
-
-            return id == item.getId();
+            return ProposalMetaInformationId == item?.ProposalMetaInformationId;
         }
     }
 }
