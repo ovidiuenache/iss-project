@@ -12,3 +12,11 @@ C:\Users\Andu\Desktop\iss-project\App\App\obj\Debug\App.pdb
 D:\ISS\iss-project\App\App\bin\Debug\App.exe.config
 D:\ISS\iss-project\App\App\obj\Debug\App.exe
 D:\ISS\iss-project\App\App\obj\Debug\App.pdb
+D:\iss-project\App\App\bin\Debug\App.exe.config
+D:\iss-project\App\App\obj\Debug\App.exe
+D:\iss-project\App\App\obj\Debug\App.pdb
+D:\iss-project\App\App\obj\Debug\App.csprojResolveAssemblyReference.cache
+D:\iss-project\App\App\obj\Debug\App.ConferenceDetails.resources
+D:\iss-project\App\App\obj\Debug\App.Login.resources
+D:\iss-project\App\App\obj\Debug\App.Properties.Resources.resources
+D:\iss-project\App\App\obj\Debug\App.csproj.GenerateResource.Cache
