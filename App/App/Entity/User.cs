@@ -17,16 +17,16 @@ namespace App.Entity
         public string Email { get; set; }
         public string Password { get; set; }
         public string Country { get; set; }
-        public List<Role> Roles { get; set; }
+        public List<UserRole> UserRoles { get; set; }
+        public List<ConferenceUser> ConferenceUsers { get; set; }
 
-        public User(string firstName, string lastName, string email, string password, string country, List<Role> roles)
+        public User(string firstName, string lastName, string email, string password, string country)
         {
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             Password = password;
             Country = country;
-            Roles = roles;
         }
 
         protected User()

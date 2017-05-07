@@ -17,6 +17,9 @@ namespace App.Entity
         public int Year { get; set; }
         public string Description { get; set; }
 
+        public int ProposalForeignKey { get; set; }
+        public Proposal Proposal { get; set; }
+
         public ProposalMetaInformation()
         {
             ProposalMetaInformationId = -1;
@@ -32,16 +35,6 @@ namespace App.Entity
             this.Authors = authors;
             this.Year = year;
             this.Description = description;
-        }
-
-        public void AddAuthor(User author)
-        {
-            Authors.Add(author);
-        }
-
-        public void RemoveAuthor(User author)
-        {
-            Authors.Remove(author);
         }
 
         public override bool Equals(object obj)

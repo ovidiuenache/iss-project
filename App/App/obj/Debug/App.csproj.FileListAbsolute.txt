@@ -64,3 +64,4 @@ E:\Facultate\anul2\semestrul2\iss\iss-project\App\App\bin\Debug\Microsoft.Extens
 E:\Facultate\anul2\semestrul2\iss\iss-project\App\App\bin\Debug\Remotion.Linq.xml
 E:\Facultate\anul2\semestrul2\iss\iss-project\App\App\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 E:\Facultate\anul2\semestrul2\iss\iss-project\App\App\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Facultate\anul2\semestrul2\iss\iss-project\App\App\obj\Debug\App.csprojResolveAssemblyReference.cache
