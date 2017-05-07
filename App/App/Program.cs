@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +15,13 @@ namespace App
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            /* Application.EnableVisualStyles();
+             Application.SetCompatibleTextRenderingDefault(false);
+             Application.Run(new Form1());*/
+
+            MailSender sender = new MailSender();
+            sender.sendMail(new System.Net.Mail.MailAddress("dad@gmail.com"), 
+                new System.Net.Mail.MailAddress("cata1511@yahoo.com"), "test", "subject");
         }
     }
 }
