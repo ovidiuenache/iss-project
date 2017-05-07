@@ -6,64 +6,36 @@ namespace App.Entity
     /// 
     /// Class Phase
     /// Author: Ioan Ovidiu Enache
+    /// Author: Claudiu Nicola
     /// 
     /// </summary>
     public class Phase
     {
-        private int id;
+        public int PhaseId { get; set; }
 
-        private string name;
+        public string Name { get; set; }
 
-        private DateTime deadline;
+        public DateTime Deadline { get; set; }
 
         public Phase()
         {
-            id = -1;
-            name = "";
-            deadline = new DateTime();
+            PhaseId = -1;
+            Name = "";
+            Deadline = new DateTime();
         }
 
         public Phase(string name, DateTime deadline)
         {
-            this.name = name;
-            this.deadline = deadline;
+            this.Name = name;
+            this.Deadline = deadline;
         }
 
-        public int getId()
-        {
-            return id;
-        }
-
-        public string getName()
-        {
-            return name;
-        }
-
-        public void setName(string name)
-        {
-            this.name = name;
-        }
-
-        public DateTime getDeadline()
-        {
-            return deadline;
-        }
-
-        public void setDeadline(DateTime deadline)
-        {
-            this.deadline = deadline;
-        }
 
         public override bool Equals(object obj)
         {
             var item = obj as Phase;
 
-            if (item == null)
-            {
-                return false;
-            }
-
-            return id == item.getId();
+            return PhaseId == item?.PhaseId;
         }
     }
 }

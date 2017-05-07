@@ -4,62 +4,33 @@
     /// 
     /// Class Topic
     /// Author: Ioan Ovidiu Enache
+    /// Author: Claudiu Nicola
     /// 
     /// </summary>
     public class Topic
     {
-        private int id;
-        private string name;
-        private string description;
+        public int TopicId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
 
         public Topic()
         {
-            id = -1;
-            name = "";
-            description = "";
+            TopicId = -1;
+            Name = "";
+            Description = "";
         }
 
         public Topic(string name, string description)
         {
-            this.name = name;
-            this.description = description;
-        }
-
-        public int getId()
-        {
-            return id;
-        }
-
-        public string getName()
-        {
-            return name;
-        }
-
-        public void setName(string name)
-        {
-            this.name = name;
-        }
-
-        public string getDescription()
-        {
-            return description;
-        }
-
-        public void setDescription(string description)
-        {
-            this.description = description;
+            this.Name = name;
+            this.Description = description;
         }
 
         public override bool Equals(object obj)
         {
             var item = obj as Topic;
 
-            if (item == null)
-            {
-                return false;
-            }
-
-            return id == item.getId();
+            return TopicId == item?.TopicId;
         }
     }
 }
