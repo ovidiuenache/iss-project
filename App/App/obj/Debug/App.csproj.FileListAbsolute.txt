@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\bin\Debug\App.exe.config
 G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\bin\Debug\App.exe
 G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\bin\Debug\App.pdb
@@ -6,3 +7,19 @@ G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug
 G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.csproj.GenerateResource.Cache
 G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.exe
 G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.pdb
+=======
+C:\Users\John\Desktop\iss-project\App\App\bin\Debug\App.exe.config
+C:\Users\John\Desktop\iss-project\App\App\bin\Debug\App.exe
+C:\Users\John\Desktop\iss-project\App\App\bin\Debug\App.pdb
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.csprojResolveAssemblyReference.cache
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.Properties.Resources.resources
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.csproj.GenerateResource.Cache
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.exe
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.pdb
+C:\Users\Andu\Desktop\iss-project\App\App\bin\Debug\App.exe.config
+C:\Users\Andu\Desktop\iss-project\App\App\obj\Debug\App.exe
+C:\Users\Andu\Desktop\iss-project\App\App\obj\Debug\App.pdb
+D:\ISS\iss-project\App\App\bin\Debug\App.exe.config
+D:\ISS\iss-project\App\App\obj\Debug\App.exe
+D:\ISS\iss-project\App\App\obj\Debug\App.pdb
+>>>>>>> ed30da90d29ddd6bfe22560f873b8dd7a6b620d5
