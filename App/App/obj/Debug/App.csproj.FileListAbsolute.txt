@@ -59,3 +59,4 @@ C:\Users\John\Desktop\iss-project\App\App\bin\Debug\System.Runtime.CompilerServi
 C:\Users\John\Desktop\iss-project\App\App\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.ConferenceDetails.resources
 C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.Login.resources
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.Register.resources
