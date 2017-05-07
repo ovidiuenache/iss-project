@@ -13,7 +13,7 @@ namespace App.Entity
     { 
         public int ProposalMetaInformationId{get; set; }
         public string Title { get; set; }
-        public IList<Author> Authors { get; set; }
+        public IList<User> Authors { get; set; }
         public int Year { get; set; }
         public string Description { get; set; }
 
@@ -21,12 +21,12 @@ namespace App.Entity
         {
             ProposalMetaInformationId = -1;
             Title = "";
-            Authors = new List<Author>();
+            Authors = new List<User>();
             Year = -1;
             Description = "";
         }
 
-        public ProposalMetaInformation(string title, IList<Author> authors, int year, string description)
+        public ProposalMetaInformation(string title, IList<User> authors, int year, string description)
         {
             this.Title = title;
             this.Authors = authors;
@@ -34,12 +34,12 @@ namespace App.Entity
             this.Description = description;
         }
 
-        public void AddAuthor(Author author)
+        public void AddAuthor(User author)
         {
             Authors.Add(author);
         }
 
-        public void RemoveAuthor(Author author)
+        public void RemoveAuthor(User author)
         {
             Authors.Remove(author);
         }

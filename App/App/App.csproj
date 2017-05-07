@@ -158,17 +158,13 @@
     <Compile Include="Context\UserContext.cs" />
     <Compile Include="Entity\AbstractComiteeMember.cs" />
     <Compile Include="Entity\AbstractNonCommiteeMember.cs" />
-    <Compile Include="Entity\Author.cs" />
-    <Compile Include="Entity\Chair.cs" />
     <Compile Include="Entity\Conference.cs" />
     <Compile Include="Entity\Entity.cs" />
     <Compile Include="Entity\IUser.cs" />
-    <Compile Include="Entity\Listener.cs" />
     <Compile Include="Entity\Phase.cs" />
     <Compile Include="Entity\Proposal.cs" />
     <Compile Include="Entity\ProposalMetaInformation.cs" />
     <Compile Include="Entity\Review.cs" />
-    <Compile Include="Entity\Reviewer.cs" />
     <Compile Include="Entity\Role.cs" />
     <Compile Include="Entity\Topic.cs" />
     <Compile Include="Entity\User.cs" />
@@ -182,6 +178,7 @@
     <Compile Include="Migrations\20170507091000_AddUserContext.designer.cs">
       <DependentUpon>20170507091000_AddUserContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Seed\UserContextSeed.cs" />
     <Compile Include="Migrations\UserContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

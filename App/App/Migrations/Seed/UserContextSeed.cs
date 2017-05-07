@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,15 @@ namespace App.Migrations.Seed
     /// 
     /// Author: Claudiu Nicola
     /// </summary>
-    public class UserContextSeed : Migration
+    public static class UserContextSeed
     {
-        protected override void Up(MigrationBuilder migrationBuilder)
+        /// <summary>
+        /// This method is used at startup of App
+        /// for populate db with dummy data.
+        /// Usage: UserContextSeed.Seed()
+        /// 
+        /// </summary>
+        public static void Seed()
         {
             using (var db = new UserContext())
             {
@@ -26,20 +33,21 @@ namespace App.Migrations.Seed
                 var listner = new Role("Listner", "listner");
                 var reviewer = new Role("Reviewer", "reviewer");
                 db.Roles.Add(chair);
+                Console.WriteLine("Add role" + chair.ToString());
                 db.Roles.Add(author);
                 db.Roles.Add(speaker);
                 db.Roles.Add(listner);
                 db.Roles.Add(reviewer);
 
-                var user = new User("Andu","Popa","popa@gmail.com","parola","ro", new List<Role> { chair });
+                var user = new User("Andu", "Popa", "popa@gmail.com", "parola", "ro", new List<Role> { chair });
                 db.Users.Add(user);
-                user = new User("Zuluf", "Matea","matea@gmail.com", "parola", "ro", new List<Role> { author });
+                user = new User("Zuluf", "Matea", "matea@gmail.com", "parola", "ro", new List<Role> { author });
                 db.Users.Add(user);
-                user = new User("Razvi", "DejuDeju28","deju@gmail.com", "parola", "ro", new List<Role> { speaker });
+                user = new User("Razvi", "DejuDeju28", "deju@gmail.com", "parola", "ro", new List<Role> { speaker });
                 db.Users.Add(user);
-                user = new User("Alex", "Bjz","bjz@gmail.com", "parola", "ro", new List<Role> { listner });
+                user = new User("Alex", "Bjz", "bjz@gmail.com", "parola", "ro", new List<Role> { listner });
                 db.Users.Add(user);
-                user = new User("Bobo", "LaMisto","misto@gmail.com", "parola", "ro", new List<Role> { reviewer });
+                user = new User("Bobo", "LaMisto", "misto@gmail.com", "parola", "ro", new List<Role> { reviewer });
                 db.Users.Add(user);
 
                 db.SaveChanges();

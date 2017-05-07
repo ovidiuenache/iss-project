@@ -51,8 +51,6 @@ namespace App.Migrations
                 name: "IX_Roles_UserId",
                 table: "Roles",
                 column: "UserId");
-
-
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
