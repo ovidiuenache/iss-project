@@ -14,9 +14,9 @@ namespace App.Controller
     /// Author: Vancea Vlad
     /// </summary>
     /// 
-    public class ControllerServiceLogin
+    public class LoginController
     {
-        public ControllerServiceLogin() { }
+        public LoginController() { }
 
         public bool areCredentialsValid(string username, string password)
         {
@@ -31,12 +31,17 @@ namespace App.Controller
         }
 
 
-        public IEnumerable<string> getRoleOfUser(User user)
+        public IEnumerable<string> getUserRole(User user)
         {
             throw new NotImplementedException();
         }
 
         public User findByUsername(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Phase currentPhase()
         {
             throw new NotImplementedException();
         }

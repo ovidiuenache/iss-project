@@ -14,8 +14,8 @@ namespace App
 {
     public partial class Login : Form
     {
-        ControllerServiceLogin controllerLogin;
-        public Login(ControllerServiceLogin controllerLogin)
+        LoginController controllerLogin;
+        public Login(LoginController controllerLogin)
         {
             InitializeComponent();
             this.controllerLogin = controllerLogin;
@@ -31,25 +31,20 @@ namespace App
         {
 
         }
-        /// <summary>
-        /// 
-        /// Author: Vancea Vlad
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+     
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string userName = this.UserNameTextBox.Text;
+            string username = this.UserNameTextBox.Text;
             string password = this.PasswordTextBox.Text;
 
-            User user = controllerLogin.findByUsername(userName);
+            User user = controllerLogin.findByUsername(username);
             Role chairRole = new Role("Chair", "chair");
 
-            if (!userName.Equals("") && !password.Equals(""))
+            if (!username.Equals("") && !password.Equals(""))
             {
-                if (controllerLogin.areCredentialsValid(userName,password) == true)
+                if (controllerLogin.areCredentialsValid(username, password) == true)
                 {
-                    if(controllerLogin.getRoleOfUser(user).Contains(chairRole.Title))
+                    if(controllerLogin.getUserRole(user).Contains(chairRole.Title))
                     {
                         if (controllerLogin.isConferenceActive()==true)
                         {
