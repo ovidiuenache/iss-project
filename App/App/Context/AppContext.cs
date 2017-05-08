@@ -53,7 +53,7 @@ namespace App.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Data Source=DESKTOP-MB4097H\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
+                @"Data Source=DESKTOP-DU76OB9\\SQLEXPRESS;Initial Catalog=issDB;Integrated Security=True");
         }
     }
 }
