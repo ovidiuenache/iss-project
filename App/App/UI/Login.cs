@@ -31,7 +31,12 @@ namespace App
         {
 
         }
-
+        /// <summary>
+        /// 
+        /// Author: Vancea Vlad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoginButton_Click(object sender, EventArgs e)
         {
             string userName = this.UserNameTextBox.Text;
