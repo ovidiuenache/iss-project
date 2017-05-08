@@ -12,6 +12,10 @@ using System.Windows.Forms;
 
 namespace App
 {
+    /// <summary>
+    /// Class Login
+    /// Author: Vancea Vlad
+    /// </summary>
     public partial class Login : Form
     {
         LoginController controllerLogin;
@@ -40,32 +44,32 @@ namespace App
             User user = controllerLogin.findByUsername(username);
             Role chairRole = new Role("Chair", "chair");
 
-            if (!username.Equals("") && !password.Equals(""))
+            try
             {
-                if (controllerLogin.areCredentialsValid(username, password) == true)
+                controllerLogin.areCredentialsValid(username, password);
+
+                if (controllerLogin.isConferenceActive() == true)
                 {
-                    if(controllerLogin.getUserRole(user).Contains(chairRole.Title))
-                    {
-                        if (controllerLogin.isConferenceActive()==true)
-                        {
-                            //redirect user to phase1 page;
-                            this.Close();
-                        }
-                        else
-                        {
-                            //redirect chairs to prelimianry page
-                            this.Close();
-                        }
-                    }
-                    else                    
-                        if (controllerLogin.isConferenceActive() == false)                        
-                            MessageBox.Show("Restrict acces", "This conference is not active");                       
+                    //redirect user to phase active page;
+                    this.Close();
                 }
                 else
-                    MessageBox.Show("The data are not valid");                
+                {
+                    if (controllerLogin.getUserRole(user).Contains(chairRole.Title))
+                    {
+                        //redirect chairs to preliminary page
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Restrict aces for non chairs");
+                    }
+                }
             }
-            else
-                MessageBox.Show("The textboxes can not be empty");
+            catch
+            {
+                MessageBox.Show("The credentials are not valid");
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
