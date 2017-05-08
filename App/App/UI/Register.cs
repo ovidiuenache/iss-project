@@ -16,5 +16,10 @@ namespace App
         {
             InitializeComponent();
         }
+
+        private void buttonRegister_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
