@@ -125,3 +125,5 @@ G:\Facultate\Semestrul 4\Ingineria sistemelor soft\Project v2.0\iss-project\App\
 D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.csprojResolveAssemblyReference.cache
 D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.exe
 D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.pdb
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.MetaInformation.resources
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.UserAccount.resources

@@ -1,4 +1,5 @@
-﻿using App.Entity;
+﻿using App.Controller;
+using App.Entity;
 using System;
 using System.Windows.Forms;
 
@@ -17,7 +18,8 @@ namespace App
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            Login loginForm = new Login(conference, this);
+            LoginController loginController = new LoginController();
+            Login loginForm = new Login(conference, this, loginController);
             loginForm.Location = new System.Drawing.Point(Location.X, Location.Y);
             Hide();
             loginForm.Show();
