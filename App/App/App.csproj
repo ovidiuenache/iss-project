@@ -198,11 +198,23 @@
     <Compile Include="UI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\MetaInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MetaInformation.Designer.cs">
+      <DependentUpon>MetaInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Register.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UserAccount.Designer.cs">
+      <DependentUpon>UserAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\IValidator.cs" />
     <Compile Include="Utils\MailSender.cs" />
@@ -222,8 +234,14 @@
     <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\MetaInformation.resx">
+      <DependentUpon>MetaInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UserAccount.resx">
+      <DependentUpon>UserAccount.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
