@@ -19,14 +19,14 @@ namespace App
         {
             //Use this for dummy data
             UserContextSeed.Seed();
-            testRepoAdd();
+           // testRepoAdd();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ConferenceDetails());
         }
 
-        public static void testRepoAdd()
+       /* public static void testRepoAdd()
         {
             AppContext context = new AppContext();
             IUserRepository userRepo = new UserRepository(context);
@@ -45,6 +45,6 @@ namespace App
             IProposalRepository proposalRepo = new ProposalRepository(context);
             proposalRepo.add(new Proposal(new ProposalMetaInformation("title", userRepo.findAll(), 2000, "desc"),
                 "yes", "no"));
-        }
+        }*/
     }
 }

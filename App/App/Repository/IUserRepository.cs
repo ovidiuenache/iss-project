@@ -15,5 +15,12 @@ namespace App.Repository
     /// </summary>
     interface IUserRepository : IRepository<User>
     {
+        /// <summary>
+        /// Returns the user having the email equals with the one got as parameter 
+        /// Returns null if there is no user with that email
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        User findUserByEmail(string email);
     }
 }

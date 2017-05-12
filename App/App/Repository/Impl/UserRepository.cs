@@ -19,5 +19,10 @@ namespace App.Repository.Impl
         public UserRepository(AppContext context) : base(context)
         {
         }
+
+        public User findUserByEmail(string email)
+        {
+            return context.Users.SingleOrDefault(user => user.Email == email);
+        }
     }
 }
