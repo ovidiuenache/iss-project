@@ -187,6 +187,18 @@
     <Compile Include="Exception\InvalidEmailAddressException.cs" />
     <Compile Include="Exception\InvalidPasswordException.cs" />
     <Compile Include="Exception\InvalidQualifierException.cs" />
+    <Compile Include="Repository\IConferenceRepository.cs" />
+    <Compile Include="Repository\Impl\AbstractRepository.cs" />
+    <Compile Include="Repository\Impl\ConferenceRepository.cs" />
+    <Compile Include="Repository\Impl\PhaseRepository.cs" />
+    <Compile Include="Repository\Impl\ProposalRepository.cs" />
+    <Compile Include="Repository\Impl\ReviewRepository.cs" />
+    <Compile Include="Repository\Impl\UserRepository.cs" />
+    <Compile Include="Repository\IPhaseRepository.cs" />
+    <Compile Include="Repository\IProposalRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\IReviewRepository.cs" />
+    <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="UI\ConferenceDetails.cs">
       <SubType>Form</SubType>
     </Compile>
