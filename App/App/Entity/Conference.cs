@@ -18,6 +18,8 @@ namespace App.Entity
 
         public DateTime StartDate { get; set; }
 
+        public DateTime EndDate { get; set; }
+
         public Phase ActivePhase { get; set; }
 
         public IList<ConferenceUser> Users { get; set; }
@@ -31,6 +33,7 @@ namespace App.Entity
             ConferenceId = -1;
             Name = "";
             StartDate = new DateTime();
+            EndDate = new DateTime();
             ActivePhase = null;
             Users = new List<ConferenceUser>();
             Topics = new List<Topic>();
@@ -40,6 +43,7 @@ namespace App.Entity
         public Conference(
             string name,
             DateTime startDate,
+            DateTime endDate,
             Phase activePhase,
             IList<ConferenceUser> users,
             float conferenceFee
@@ -47,6 +51,7 @@ namespace App.Entity
         {
             this.Name = name;
             this.StartDate = startDate;
+            this.EndDate = endDate;
             this.ActivePhase = activePhase;
             this.Users = users;
             this.ConferenceFee = conferenceFee;
