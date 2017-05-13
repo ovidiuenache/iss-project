@@ -191,14 +191,22 @@
     <Compile Include="Repository\Impl\AbstractRepository.cs" />
     <Compile Include="Repository\Impl\ConferenceRepository.cs" />
     <Compile Include="Repository\Impl\PhaseRepository.cs" />
+    <Compile Include="Repository\Impl\ProposalMetaInformationRepository.cs" />
     <Compile Include="Repository\Impl\ProposalRepository.cs" />
     <Compile Include="Repository\Impl\ReviewRepository.cs" />
+    <Compile Include="Repository\Impl\RoleRepository.cs" />
+    <Compile Include="Repository\Impl\TopicRepository.cs" />
     <Compile Include="Repository\Impl\UserRepository.cs" />
+    <Compile Include="Repository\Impl\UserRoleRepository.cs" />
     <Compile Include="Repository\IPhaseRepository.cs" />
+    <Compile Include="Repository\IProposalMetaInformationRepository.cs" />
     <Compile Include="Repository\IProposalRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\IReviewRepository.cs" />
+    <Compile Include="Repository\IRoleRepository.cs" />
+    <Compile Include="Repository\ITopicRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
+    <Compile Include="Repository\IUserRoleRepository.cs" />
     <Compile Include="UI\ConferenceDetails.cs">
       <SubType>Form</SubType>
     </Compile>

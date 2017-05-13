@@ -28,6 +28,9 @@ namespace App.Repository.Impl
         public AbstractRepository(AppContext context)
         {
             this.context = context;
+
+            //Get the databaseSet for the entity of type T
+            //There has to be a mapping between the entity of type T and the databasse 
             this.databaseSet = context.Set<T>();
         }
 
