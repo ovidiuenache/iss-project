@@ -22,5 +22,12 @@ namespace App.Repository
         /// <param name="email"></param>
         /// <returns></returns>
         User FindUserByEmail(string email);
+
+        /// <summary>
+        /// Return the user's role
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        Role GetRole(User user);
     }
 }
