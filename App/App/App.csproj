@@ -163,6 +163,7 @@
     <Compile Include="Entity\ProposalMetaInformation.cs" />
     <Compile Include="Entity\Review.cs" />
     <Compile Include="Entity\Role.cs" />
+    <Compile Include="Entity\Test.cs" />
     <Compile Include="Entity\Topic.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Entity\UserRole.cs" />
@@ -186,6 +187,9 @@
     <Compile Include="Exception\InvalidEmailAddressException.cs" />
     <Compile Include="Exception\InvalidPasswordException.cs" />
     <Compile Include="Exception\InvalidQualifierException.cs" />
+    <Compile Include="UI\ComboBoxCheckedList.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\ConferenceDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +207,12 @@
     </Compile>
     <Compile Include="UI\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TestDropdown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\TestDropdown.Designer.cs">
+      <DependentUpon>TestDropdown.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\IValidator.cs" />
     <Compile Include="Utils\MailSender.cs" />
@@ -224,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TestDropdown.resx">
+      <DependentUpon>TestDropdown.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
