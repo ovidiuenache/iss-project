@@ -21,6 +21,6 @@ namespace App.Repository
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        User findUserByEmail(string email);
+        User FindUserByEmail(string email);
     }
 }

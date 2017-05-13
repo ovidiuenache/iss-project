@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace App.Repository
 {
@@ -10,6 +6,7 @@ namespace App.Repository
     /// 
     /// Generic CRUD Repository interface
     /// Author : Catalin Radoiu
+    /// Author : Claudiu Nicola
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
@@ -19,31 +16,32 @@ namespace App.Repository
         /// Adds the entity
         /// </summary>
         /// <param name="entity"></param>
-        void add(T entity);
+        void Add(T entity);
 
         /// <summary>
         /// Deletes the entity
         /// </summary>
         /// <param name="entity"></param>
-        void delete(T entity);
+        void Delete(T entity);
 
         /// <summary>
         /// Updates the entity 
         /// </summary>
         /// <param name="newEntity"></param>
-        void update(T newEntity);
+        void Update(T newEntity);
 
         /// <summary>
         /// Returns the entity with the id got as parameter
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        T findOne(int id);
+        T Find(int id);
+
 
         /// <summary>
         /// Returns a list with containing all the entities
         /// </summary>
         /// <returns></returns>
-        List<T> findAll();
+        List<T> All();
     }
 }

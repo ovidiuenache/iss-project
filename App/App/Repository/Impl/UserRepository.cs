@@ -1,10 +1,7 @@
 ﻿using App.Context;
 using App.Entity;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace App.Repository.Impl
 {
@@ -20,9 +17,9 @@ namespace App.Repository.Impl
         {
         }
 
-        public User findUserByEmail(string email)
+        public User FindUserByEmail(string email)
         {
-            return context.Users.SingleOrDefault(user => user.Email == email);
+            return Context.Users.SingleOrDefault(user => user.Email == email);
         }
     }
 }
