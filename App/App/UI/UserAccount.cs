@@ -11,6 +11,10 @@ using System.Windows.Forms;
 
 namespace App.UI
 {
+    /// <summary>
+    /// Authors: Alexandru Popa, Vancea Vlad
+    /// The class who manage the phase 1 about proposals
+    /// </summary>
     public partial class UserAccount : Form
     {
         private ProposalController controller;
@@ -85,5 +89,42 @@ namespace App.UI
                 textBoxFull.Text = openFileDialogFull.FileName;
             }
         }
+        /// <summary>
+        /// get the proposals who have fullpaper and if the user do not have fullpapers the func will 
+        /// return null. Author: Vlad
+        /// </summary>
+        /// <returns></returns>
+        private IList<Proposal> getProposalsWithFullPaper()
+        {
+            var proposals = this.dataGridViewProposals.DataSource as List<Proposal>;
+            IList<Proposal> result = new List<Proposal>();
+
+            foreach(Proposal proposal in proposals)
+            {
+                if(proposal.FullPaper.Equals(""))
+                {
+                    result.Add(proposal);
+                }                
+            }
+            if (proposals.Count != 0)
+                return result;
+            else
+                return null;
+        }
+
+        private IList<Proposal> getProposalsToTheNextPhase(Phase phase)
+        {
+            if(DateTime.Now > phase.Deadline)
+            {
+                //the next phase will have the proposals finals
+                return getProposalsWithFullPaper();
+            }
+            else
+            {
+                MessageBox.Show("Users can upload proposals");
+            }
+            return null;
+        }
+
     }
 }
