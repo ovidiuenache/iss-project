@@ -1,5 +1,6 @@
 ﻿using App.Controller;
 using App.Entity;
+using App.UI;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -21,65 +22,42 @@ namespace App
             this.loginController = loginController;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string username = this.UserNameTextBox.Text;
-            string password = this.PasswordTextBox.Text;
-
-            User user = loginController.findByUsername(username);
-            Role chairRole = new Role("Chair", "chair");
+            string username = UserNameTextBox.Text;
+            string password = PasswordTextBox.Text;
 
             try
             {
-                loginController.areCredentialsValid(username, password);
+                //TO DO
+                //MODIFY THIS WITH GetUser(username, password) from login controller when is ready
+                User user = new User("dummy", "dummy", "dummy", "dummy", "dummy");
 
                 if (loginController.isConferenceActive() == true)
                 {
+                    //TO DO
                     //redirect user to phase active page;
-                    this.Close();
+                    Application.Exit();
                 }
                 else
                 {
-                    if (loginController.getUserRole(user).Contains(chairRole.Title))
+                    if (loginController.getUserRole(user).Contains("Chair"))
                     {
-                        //redirect chairs to preliminary page
-                        this.Close();
+                        PreliminaryPhase preliminaryPhase = new PreliminaryPhase(user);
+                        preliminaryPhase.Location = new System.Drawing.Point(Location.X, Location.Y);
+                        preliminaryPhase.Show();
+                        Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Restrict aces for non chairs");
+                        MessageBox.Show("There is no active conference for the moment!");
                     }
                 }
             }
             catch
             {
-                MessageBox.Show("The credentials are not valid");
+                MessageBox.Show("Invalid credentials!");
             }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UserNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PasswordTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
@@ -91,7 +69,6 @@ namespace App
 
         private void Login_Load(object sender, EventArgs e)
         {
-
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)

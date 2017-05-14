@@ -27,10 +27,15 @@ namespace App
 
         private void btn_Register_Click(object sender, EventArgs e)
         {
-            Register registerForm = new Register(conference, this);
+            Register registerForm = new Register(this);
             registerForm.Location = new System.Drawing.Point(Location.X, Location.Y);
             Hide();
             registerForm.Show();
+        }
+
+        private void ConferenceDetails_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

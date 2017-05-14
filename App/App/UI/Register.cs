@@ -7,13 +7,11 @@ namespace App
     public partial class Register : Form
     {
         Form parentForm;
-        Conference activeConference;
 
-        public Register(Conference activeConference, Form parentForm)
+        public Register(Form parentForm)
         {
             InitializeComponent();
-
-            this.activeConference = activeConference;
+            
             this.parentForm = parentForm;
         }
 
@@ -30,8 +28,8 @@ namespace App
         private void buttonBack_Click(object sender, EventArgs e)
         {
             parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
-            Hide();
             parentForm.Show();
+            Hide();
         }
 
         private void Register_FormClosing(object sender, FormClosingEventArgs e)
