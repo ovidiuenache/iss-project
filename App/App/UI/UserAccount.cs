@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,26 @@ namespace App.UI
     {
         private ProposalController controller;
         private User user;
-        public UserAccount()
+        public UserAccount(ProposalController ctrl, User user)
         {
-            controller = new ProposalController();
+            this.controller = ctrl;
+            this.user = user;
+            SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-MIOBI9T\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
+            BindingSource bs = new BindingSource();
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataSet ds = new DataSet();
+            dataGridViewProposals = new DataGridView();
+
+            connection.Open();
+            da.SelectCommand = new SqlCommand("select * from Proposals", connection);
+            //da.SelectCommand.Parameters.Add("@idUser", user.UserId);
+            da.Fill(ds, "Proposals");
+            bs.DataSource = ds;
+            bs.DataMember = "Proposals";
+            
+            dataGridViewProposals.DataSource = bs;
+            connection.Close();
+
             InitializeComponent();
         }
 
@@ -47,7 +65,7 @@ namespace App.UI
                 }
                 else
                 {
-                    MetaInformation mt= new MetaInformation(null, controller, false, textBoxAbstract.Text);
+                    MetaInformation mt= new MetaInformation(new Proposal(new ProposalMetaInformation(),"",""), controller, false, textBoxAbstract.Text);
                     mt.Show();
 
                 }

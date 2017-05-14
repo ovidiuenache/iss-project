@@ -29,7 +29,7 @@ namespace App.Entity
             Country = country;
         }
 
-        protected User()
+        public User()
         {
             
         }

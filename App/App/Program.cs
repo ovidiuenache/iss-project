@@ -18,7 +18,7 @@ namespace App
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UserAccount());
+            Application.Run(new UserAccount(new ProposalController(),new Entity.User()));
         }
     }
 }
