@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace App.UI
 {
+    /// <summary>
+    /// Author: Alexandru Popa 
+    /// </summary>
     public partial class MetaInformation : Form
     {
 
@@ -18,6 +21,7 @@ namespace App.UI
         private ProposalController controller;
         private bool fullPaper;
         private string paperLink;
+        
         public MetaInformation(Proposal proposal, ProposalController controller, bool fullPaper, string paperLink)
         {
             InitializeComponent();
@@ -76,6 +80,9 @@ namespace App.UI
             }
             controller.updateProposal(proposal);
         }
+
+
+
     }
 
     internal class UserController
@@ -99,5 +106,7 @@ namespace App.UI
             MessageBox.Show("Proposal found");
             return null;
         }
+
+
     }
 }
