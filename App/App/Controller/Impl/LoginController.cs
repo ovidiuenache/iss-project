@@ -8,25 +8,25 @@ namespace App.Controller
     /// <summary>
     /// 
     /// Class LoginController
-    /// 
     /// Author: Vancea Vlad
     /// Author : Catalin Radoiu
-    /// </summary>
     /// 
+    /// </summary>
     public class LoginController : ILoginController
     {
         private IUserRepository UserRepository;
         private IConferenceRepository ConferenceRepository;
 
+        //Temporary constructor 
         public LoginController()
         {
             
         }
 
-        public LoginController(IUserRepository UserRepository, IConferenceRepository ConferenceRepository)
+        public LoginController(IUserRepository userRepository, IConferenceRepository conferenceRepository)
         {
-            this.UserRepository = UserRepository;
-            this.ConferenceRepository = ConferenceRepository;
+            this.UserRepository = userRepository;
+            this.ConferenceRepository = conferenceRepository;
         }
 
         public User GetUser(string email, string password)
@@ -48,11 +48,6 @@ namespace App.Controller
         }
 
         public string GetUserRole(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Phase CurrentPhase()
         {
             throw new NotImplementedException();
         }

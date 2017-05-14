@@ -20,6 +20,11 @@ namespace App.Entity
         public List<UserRole> UserRoles { get; set; }
         public List<ConferenceUser> ConferenceUsers { get; set; }
 
+        public User()
+        {
+
+        }
+
         public User(string firstName, string lastName, string email, string password, string country)
         {
             FirstName = firstName;
@@ -27,11 +32,6 @@ namespace App.Entity
             Email = email;
             Password = password;
             Country = country;
-        }
-
-        protected User()
-        {
-            
         }
 
         /// <inheritdoc />

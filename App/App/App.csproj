@@ -156,9 +156,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\AppContext.cs" />
-    <Compile Include="Controller\IController.cs" />
     <Compile Include="Controller\ILoginController.cs" />
     <Compile Include="Controller\Impl\LoginController.cs" />
+    <Compile Include="Controller\Impl\PreliminaryPhaseController.cs" />
+    <Compile Include="Controller\IPreliminaryPhaseController.cs" />
     <Compile Include="Entity\Conference.cs" />
     <Compile Include="Entity\ConferenceUser.cs" />
     <Compile Include="Entity\Phase.cs" />
@@ -178,6 +179,10 @@
     <Compile Include="Migrations\20170507120105_FirstMigration.cs" />
     <Compile Include="Migrations\20170507120105_FirstMigration.designer.cs">
       <DependentUpon>20170507120105_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170514194859_SecondMigration.cs" />
+    <Compile Include="Migrations\20170514194859_SecondMigration.designer.cs">
+      <DependentUpon>20170514194859_SecondMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AppContextModelSnapshot.cs" />
     <Compile Include="Migrations\Seed\UserContextSeed.cs" />
@@ -215,6 +220,12 @@
     <Compile Include="UI\ConferenceDetails.Designer.cs">
       <DependentUpon>ConferenceDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\CreateConference.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CreateConference.Designer.cs">
+      <DependentUpon>CreateConference.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,11 +238,23 @@
     <Compile Include="UI\MetaInformation.Designer.cs">
       <DependentUpon>MetaInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PreliminaryPhase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PreliminaryPhase.Designer.cs">
+      <DependentUpon>PreliminaryPhase.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Register.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UpdateConference.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UpdateConference.Designer.cs">
+      <DependentUpon>UpdateConference.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UserAccount.cs">
       <SubType>Form</SubType>
@@ -254,14 +277,23 @@
     <EmbeddedResource Include="UI\ConferenceDetails.resx">
       <DependentUpon>ConferenceDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\CreateConference.resx">
+      <DependentUpon>CreateConference.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MetaInformation.resx">
       <DependentUpon>MetaInformation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\PreliminaryPhase.resx">
+      <DependentUpon>PreliminaryPhase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UpdateConference.resx">
+      <DependentUpon>UpdateConference.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UserAccount.resx">
       <DependentUpon>UserAccount.cs</DependentUpon>

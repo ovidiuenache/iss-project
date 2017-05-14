@@ -2,6 +2,12 @@
 
 namespace App.Controller
 {
+    /// <summary>
+    /// 
+    /// Login Controller interface
+    /// Author : Catalin Radoiu 
+    /// 
+    /// </summary>
     public interface ILoginController
     {
         /// <summary>
