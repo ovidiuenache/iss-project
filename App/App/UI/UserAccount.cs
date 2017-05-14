@@ -14,7 +14,7 @@ namespace App.UI
 {
     /// <summary>
     /// Authors: Alexandru Popa, Vancea Vlad
-    /// The class who manage the phase 1 about proposals
+    /// The class that manages the phase 1 about proposals
     /// </summary>
     public partial class UserAccount : Form
     {
@@ -24,6 +24,13 @@ namespace App.UI
         {
             this.controller = ctrl;
             this.user = user;
+            refreshProposals();
+
+            InitializeComponent();
+        }
+
+        private void refreshProposals()
+        {
             SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-MIOBI9T\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
             BindingSource bs = new BindingSource();
             SqlDataAdapter da = new SqlDataAdapter();
@@ -36,11 +43,9 @@ namespace App.UI
             da.Fill(ds, "Proposals");
             bs.DataSource = ds;
             bs.DataMember = "Proposals";
-            
+
             dataGridViewProposals.DataSource = bs;
             connection.Close();
-
-            InitializeComponent();
         }
 
         private void buttonBrowseAbstract_Click(object sender, EventArgs e)
@@ -75,6 +80,8 @@ namespace App.UI
                 }
 
             }
+
+            refreshProposals();
         }
 
         private void buttonUploadFull_Click(object sender, EventArgs e)
@@ -95,6 +102,8 @@ namespace App.UI
 
                 }
             }
+
+            refreshProposals();
         }
 
         private void buttonBrowseFull_Click(object sender, EventArgs e)
