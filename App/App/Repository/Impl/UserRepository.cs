@@ -10,6 +10,7 @@ namespace App.Repository.Impl
     /// 
     /// User Repository
     /// Author : Catalin Radoiu
+    /// Author : Claudiu Nicola
     /// 
     /// </summary>
     class UserRepository : AbstractRepository<User>, IUserRepository

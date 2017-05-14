@@ -5,7 +5,7 @@ namespace App.Repository
     /// <summary>
     /// 
     /// UserRole Repository interface
-    /// Author : Catalin Radoiu 
+    /// Author : Catalin Radoiu
     /// 
     /// </summary>
     interface IUserRoleRepository : IRepository<UserRole>

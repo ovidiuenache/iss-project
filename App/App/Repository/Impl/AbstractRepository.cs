@@ -20,7 +20,6 @@ namespace App.Repository.Impl
 
         /// <summary>
         /// Constructor used to set the AppContext field and the DbSet
-        /// Only called in the repositories that inherit the abstract repository
         /// </summary>
         /// <param name="context"></param>
         protected AbstractRepository(AppContext context)

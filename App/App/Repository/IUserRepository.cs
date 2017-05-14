@@ -11,6 +11,7 @@ namespace App.Repository
     /// 
     /// User Repository interface
     /// Author : Catalin Radoiu
+    /// Author : Claudiu Nicola
     /// 
     /// </summary>
     interface IUserRepository : IRepository<User>
