@@ -177,6 +177,10 @@
     <Compile Include="Migrations\20170507120105_FirstMigration.designer.cs">
       <DependentUpon>20170507120105_FirstMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20170514194859_SecondMigration.cs" />
+    <Compile Include="Migrations\20170514194859_SecondMigration.designer.cs">
+      <DependentUpon>20170514194859_SecondMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AppContextModelSnapshot.cs" />
     <Compile Include="Migrations\Seed\UserContextSeed.cs" />
     <Compile Include="Program.cs" />
