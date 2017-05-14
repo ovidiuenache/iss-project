@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewProposals = new System.Windows.Forms.DataGridView();
             this.buttonBrowseAbstract = new System.Windows.Forms.Button();
             this.textBoxAbstract = new System.Windows.Forms.TextBox();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.textBoxFull = new System.Windows.Forms.TextBox();
             this.buttonBrowseFull = new System.Windows.Forms.Button();
             this.buttonUploadFull = new System.Windows.Forms.Button();
-            this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.openFileDialogAbstract = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialogFull = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProposals)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewProposals
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(189, 252);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewProposals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProposals.Location = new System.Drawing.Point(24, 31);
+            this.dataGridViewProposals.Name = "dataGridViewProposals";
+            this.dataGridViewProposals.Size = new System.Drawing.Size(189, 252);
+            this.dataGridViewProposals.TabIndex = 0;
             // 
             // buttonBrowseAbstract
             // 
@@ -56,6 +56,7 @@
             this.buttonBrowseAbstract.TabIndex = 1;
             this.buttonBrowseAbstract.Text = "Browse...";
             this.buttonBrowseAbstract.UseVisualStyleBackColor = true;
+            this.buttonBrowseAbstract.Click += new System.EventHandler(this.buttonBrowseAbstract_Click);
             // 
             // textBoxAbstract
             // 
@@ -72,6 +73,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Upload Abstract";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBoxFull
             // 
@@ -88,6 +90,7 @@
             this.buttonBrowseFull.TabIndex = 5;
             this.buttonBrowseFull.Text = "Browse...";
             this.buttonBrowseFull.UseVisualStyleBackColor = true;
+            this.buttonBrowseFull.Click += new System.EventHandler(this.buttonBrowseFull_Click);
             // 
             // buttonUploadFull
             // 
@@ -97,6 +100,15 @@
             this.buttonUploadFull.TabIndex = 6;
             this.buttonUploadFull.Text = "Upload Full";
             this.buttonUploadFull.UseVisualStyleBackColor = true;
+            this.buttonUploadFull.Click += new System.EventHandler(this.buttonUploadFull_Click);
+            // 
+            // openFileDialogAbstract
+            // 
+            this.openFileDialogAbstract.FileName = "openFileDialogAbstract";
+            // 
+            // openFileDialogFull
+            // 
+            this.openFileDialogFull.FileName = "openFileDialogFull";
             // 
             // UserAccount
             // 
@@ -109,10 +121,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxAbstract);
             this.Controls.Add(this.buttonBrowseAbstract);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewProposals);
             this.Name = "UserAccount";
             this.Text = "UserAccount";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProposals)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,14 +132,14 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewProposals;
         private System.Windows.Forms.Button buttonBrowseAbstract;
         private System.Windows.Forms.TextBox textBoxAbstract;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBoxFull;
         private System.Windows.Forms.Button buttonBrowseFull;
         private System.Windows.Forms.Button buttonUploadFull;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
+        private System.Windows.Forms.OpenFileDialog openFileDialogAbstract;
+        private System.Windows.Forms.OpenFileDialog openFileDialogFull;
     }
 }

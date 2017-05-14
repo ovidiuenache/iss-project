@@ -111,6 +111,7 @@
             this.buttonSubmit.TabIndex = 8;
             this.buttonSubmit.Text = "Submit";
             this.buttonSubmit.UseVisualStyleBackColor = true;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
             // MetaInformation
             // 
@@ -126,6 +127,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(285, 254);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(285, 254);
             this.Name = "MetaInformation";
             this.Text = "MetaInformation";
             this.ResumeLayout(false);
