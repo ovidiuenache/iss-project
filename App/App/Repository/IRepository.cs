@@ -10,7 +10,7 @@ namespace App.Repository
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    interface IRepository<T>
+    public interface IRepository<T>
     {
         /// <summary>
         /// Adds the entity

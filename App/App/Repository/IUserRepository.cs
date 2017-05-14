@@ -14,7 +14,7 @@ namespace App.Repository
     /// Author : Claudiu Nicola
     /// 
     /// </summary>
-    interface IUserRepository : IRepository<User>
+    public interface IUserRepository : IRepository<User>
     {
         /// <summary>
         /// Returns the user having the email equals with the one got as parameter 

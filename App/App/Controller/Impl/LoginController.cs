@@ -1,6 +1,7 @@
 ﻿using App.Entity;
 using System;
 using System.Collections.Generic;
+using App.Repository;
 
 namespace App.Controller
 {
@@ -9,39 +10,51 @@ namespace App.Controller
     /// Class LoginController
     /// 
     /// Author: Vancea Vlad
+    /// Author : Catalin Radoiu
     /// </summary>
     /// 
-    public class LoginController
+    public class LoginController : ILoginController
     {
-        public LoginController() { }
+        private IUserRepository UserRepository;
+        private IConferenceRepository ConferenceRepository;
 
-        public bool areCredentialsValid(string username, string password)
+        public LoginController()
         {
-
-            throw new NotImplementedException();
-
+            
         }
 
-        public bool isConferenceActive()
+        public LoginController(IUserRepository UserRepository, IConferenceRepository ConferenceRepository)
+        {
+            this.UserRepository = UserRepository;
+            this.ConferenceRepository = ConferenceRepository;
+        }
+
+        public User GetUser(string email, string password)
+        {
+            User user = UserRepository.FindUserByEmail(email);
+            if (user.Password == password)
+            {
+                return user;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public bool IsConferenceActive()
+        {
+            return (ConferenceRepository.GetActiveConference() != null);
+        }
+
+        public string GetUserRole(User user)
         {
             throw new NotImplementedException();
         }
 
-
-        public IEnumerable<string> getUserRole(User user)
+        public Phase CurrentPhase()
         {
             throw new NotImplementedException();
         }
-
-        public User findByUsername(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Phase currentPhase()
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

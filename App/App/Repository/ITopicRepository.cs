@@ -8,7 +8,7 @@ namespace App.Repository
     /// Author : Catalin Radoiu
     /// 
     /// </summary>
-    interface ITopicRepository : IRepository<Topic>
+    public interface ITopicRepository : IRepository<Topic>
     {
     }
 }

@@ -156,7 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\AppContext.cs" />
-    <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\IController.cs" />
+    <Compile Include="Controller\ILoginController.cs" />
+    <Compile Include="Controller\Impl\LoginController.cs" />
     <Compile Include="Entity\Conference.cs" />
     <Compile Include="Entity\ConferenceUser.cs" />
     <Compile Include="Entity\Phase.cs" />

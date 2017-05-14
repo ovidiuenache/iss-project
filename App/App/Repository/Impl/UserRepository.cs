@@ -13,7 +13,7 @@ namespace App.Repository.Impl
     /// Author : Claudiu Nicola
     /// 
     /// </summary>
-    class UserRepository : AbstractRepository<User>, IUserRepository
+    public class UserRepository : AbstractRepository<User>, IUserRepository
     {
         public UserRepository(AppContext context) : base(context)
         {

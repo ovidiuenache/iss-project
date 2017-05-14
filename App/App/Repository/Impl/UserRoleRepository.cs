@@ -9,7 +9,7 @@ namespace App.Repository.Impl
     /// Author : Catalin Radoiu 
     /// 
     /// </summary>
-    class UserRoleRepository : AbstractRepository<UserRole>, IUserRoleRepository
+    public class UserRoleRepository : AbstractRepository<UserRole>, IUserRoleRepository
     {
         public UserRoleRepository(AppContext context) : base(context)
         {

@@ -11,7 +11,7 @@ namespace App
         Form parentForm;
         Conference activeConference;
         LoginController loginController;
-
+        
         public Login(Conference activeConference, Form parentForm, LoginController loginController)
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace App
             this.parentForm = parentForm;
             this.loginController = loginController;
         }
-
+        
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -35,7 +35,7 @@ namespace App
         {
             string username = this.UserNameTextBox.Text;
             string password = this.PasswordTextBox.Text;
-
+            /*
             User user = loginController.findByUsername(username);
             Role chairRole = new Role("Chair", "chair");
 
@@ -64,7 +64,7 @@ namespace App
             catch
             {
                 MessageBox.Show("The credentials are not valid");
-            }
+            }*/
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
