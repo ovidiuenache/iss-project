@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using App.Migrations.Seed;
-using App.Context;
-using App.Repository.Impl;
-using App.Entity;
-using System.Collections.Generic;
-using App.Repository;
 
 namespace App
 {
