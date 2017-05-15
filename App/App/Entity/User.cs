@@ -34,7 +34,6 @@ namespace App.Entity
             Country = country;
         }
 
-        /// <inheritdoc />
         public override bool Equals(object obj)
         {
             var item = obj as User;
