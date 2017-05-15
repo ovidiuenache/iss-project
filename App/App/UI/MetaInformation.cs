@@ -67,16 +67,24 @@ namespace App.UI
                 }
                 proposal.MetaInformation.Authors = authors;
                 if (!fullPaper)
+                {
                     proposal.AbstractPaper = paperLink;
+                }
                 else
+                {
                     proposal.FullPaper = paperLink;
+                }
             }
             else
             {
                 if (!fullPaper)
+                {
                     proposal.AbstractPaper = paperLink;
+                }
                 else
+                {
                     proposal.FullPaper = paperLink;
+                }
             }
             controller.updateProposal(proposal);
         }

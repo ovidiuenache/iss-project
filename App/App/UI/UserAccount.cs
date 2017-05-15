@@ -60,7 +60,7 @@ namespace App.UI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonUploadAbstract_Click(object sender, EventArgs e)
         {
             if(textBoxAbstract.Text == "")
                 MessageBox.Show("Please select a file to upload");
