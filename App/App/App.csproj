@@ -157,6 +157,7 @@
   <ItemGroup>
     <Compile Include="Context\AppContext.cs" />
     <Compile Include="Controller\ConferenceController.cs" />
+    <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Entity\Conference.cs" />
     <Compile Include="Entity\ConferenceUser.cs" />
     <Compile Include="Entity\Phase.cs" />
@@ -177,6 +178,10 @@
     <Compile Include="Migrations\20170507120105_FirstMigration.designer.cs">
       <DependentUpon>20170507120105_FirstMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20170514194859_SecondMigration.cs" />
+    <Compile Include="Migrations\20170514194859_SecondMigration.designer.cs">
+      <DependentUpon>20170514194859_SecondMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AppContextModelSnapshot.cs" />
     <Compile Include="Migrations\Seed\UserContextSeed.cs" />
     <Compile Include="Program.cs" />
@@ -187,11 +192,37 @@
     <Compile Include="Exception\InvalidEmailAddressException.cs" />
     <Compile Include="Exception\InvalidPasswordException.cs" />
     <Compile Include="Exception\InvalidQualifierException.cs" />
+    <Compile Include="Repository\IConferenceRepository.cs" />
+    <Compile Include="Repository\Impl\AbstractRepository.cs" />
+    <Compile Include="Repository\Impl\ConferenceRepository.cs" />
+    <Compile Include="Repository\Impl\PhaseRepository.cs" />
+    <Compile Include="Repository\Impl\ProposalMetaInformationRepository.cs" />
+    <Compile Include="Repository\Impl\ProposalRepository.cs" />
+    <Compile Include="Repository\Impl\ReviewRepository.cs" />
+    <Compile Include="Repository\Impl\RoleRepository.cs" />
+    <Compile Include="Repository\Impl\TopicRepository.cs" />
+    <Compile Include="Repository\Impl\UserRepository.cs" />
+    <Compile Include="Repository\Impl\UserRoleRepository.cs" />
+    <Compile Include="Repository\IPhaseRepository.cs" />
+    <Compile Include="Repository\IProposalMetaInformationRepository.cs" />
+    <Compile Include="Repository\IProposalRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\IReviewRepository.cs" />
+    <Compile Include="Repository\IRoleRepository.cs" />
+    <Compile Include="Repository\ITopicRepository.cs" />
+    <Compile Include="Repository\IUserRepository.cs" />
+    <Compile Include="Repository\IUserRoleRepository.cs" />
     <Compile Include="UI\ConferenceDetails.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\ConferenceDetails.Designer.cs">
       <DependentUpon>ConferenceDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CreateConference.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CreateConference.Designer.cs">
+      <DependentUpon>CreateConference.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Login.cs">
       <SubType>Form</SubType>
@@ -205,11 +236,23 @@
     <Compile Include="UI\MetaInformation.Designer.cs">
       <DependentUpon>MetaInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PreliminaryPhase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PreliminaryPhase.Designer.cs">
+      <DependentUpon>PreliminaryPhase.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Register.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UpdateConference.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UpdateConference.Designer.cs">
+      <DependentUpon>UpdateConference.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UserAccount.cs">
       <SubType>Form</SubType>
@@ -232,14 +275,23 @@
     <EmbeddedResource Include="UI\ConferenceDetails.resx">
       <DependentUpon>ConferenceDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\CreateConference.resx">
+      <DependentUpon>CreateConference.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MetaInformation.resx">
       <DependentUpon>MetaInformation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\PreliminaryPhase.resx">
+      <DependentUpon>PreliminaryPhase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UpdateConference.resx">
+      <DependentUpon>UpdateConference.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UserAccount.resx">
       <DependentUpon>UserAccount.cs</DependentUpon>

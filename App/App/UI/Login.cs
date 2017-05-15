@@ -1,5 +1,8 @@
-﻿using App.Entity;
+﻿using App.Controller;
+using App.Entity;
+using App.UI;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace App
@@ -8,43 +11,53 @@ namespace App
     {
         Form parentForm;
         Conference activeConference;
+        LoginController loginController;
 
-        public Login(Conference activeConference, Form parentForm)
+        public Login(Conference activeConference, Form parentForm, LoginController loginController)
         {
             InitializeComponent();
 
             this.activeConference = activeConference;
             this.parentForm = parentForm;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            this.loginController = loginController;
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            string username = UserNameTextBox.Text;
+            string password = PasswordTextBox.Text;
 
-        }
+            try
+            {
+                //TO DO
+                //MODIFY THIS WITH GetUser(username, password) from login controller when is ready
+                User user = new User("dummy", "dummy", "dummy", "dummy", "dummy");
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UserNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PasswordTextBox_TextChanged(object sender, EventArgs e)
-        {
-
+                if (loginController.isConferenceActive() == true)
+                {
+                    //TO DO
+                    //redirect user to phase active page;
+                    Application.Exit();
+                }
+                else
+                {
+                    if (loginController.getUserRole(user).Contains("Chair"))
+                    {
+                        PreliminaryPhase preliminaryPhase = new PreliminaryPhase(user);
+                        preliminaryPhase.Location = new System.Drawing.Point(Location.X, Location.Y);
+                        preliminaryPhase.Show();
+                        Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("There is no active conference for the moment!");
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Invalid credentials!");
+            }
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
@@ -56,7 +69,6 @@ namespace App
 
         private void Login_Load(object sender, EventArgs e)
         {
-
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)

@@ -87,6 +87,7 @@
             this.Name = "ConferenceDetails";
             this.ShowIcon = false;
             this.Text = "ConferenceDetails";
+            this.Load += new System.EventHandler(this.ConferenceDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
