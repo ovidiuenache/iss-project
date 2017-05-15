@@ -118,30 +118,35 @@ namespace App.UI
         }
         /// <summary>
         /// get the proposals who have fullpaper and if the user do not have fullpapers the func will 
-        /// return null. Author: Vlad
+        /// return null
         /// </summary>
         /// <returns></returns>
         private IList<Proposal> getProposalsWithFullPaper()
         {
             var proposals = this.dataGridViewProposals.DataSource as List<Proposal>;
             IList<Proposal> result = new List<Proposal>();
+            var emptyArray = new Proposal[0]; 
 
-            foreach(Proposal proposal in proposals)
-            {
-                if(proposal.FullPaper.Equals(""))
-                {
-                    result.Add(proposal);
-                }                
-            }
             if (proposals.Count != 0)
+            {
+                
+                foreach (Proposal proposal in proposals)
+                {
+                    if(!proposal.FullPaper.Equals(""))
+                    {
+                        result.Add(proposal);
+                    }                
+                }
                 return result;
+            }
             else
-                return null;
+                return emptyArray;       
         }
 
         private IList<Proposal> getProposalsToTheNextPhase(Phase phase)
         {
-            if(DateTime.Now > phase.Deadline)
+            var emptyArray = new Proposal[0];
+            if (DateTime.Now > phase.Deadline)
             {
                 //the next phase will have the proposals finals
                 return getProposalsWithFullPaper();
@@ -150,7 +155,7 @@ namespace App.UI
             {
                 MessageBox.Show("Users can upload proposals");
             }
-            return null;
+            return emptyArray;
         }
 
     }
