@@ -40,6 +40,7 @@ namespace App.UI
                     authorsNames += us.FirstName + " " + us.LastName;
                 }
                 textBoxAuthors.Text = authorsNames;
+                dateTimePickerAnPublicare.Value = DateTime.Parse(proposal.MetaInformation.Year.ToString("yyyyMMdd"));
             }
             else
             {
@@ -47,6 +48,7 @@ namespace App.UI
                 textBoxKeywords.Text = "";
                 textBoxTopics.Text = "";
                 textBoxAuthors.Text = "";
+                dateTimePickerAnPublicare.Value = DateTime.Now;
             }
 
         }
@@ -57,13 +59,13 @@ namespace App.UI
             {
                 proposal.MetaInformation = new ProposalMetaInformation();
                 proposal.MetaInformation.Title = textBoxName.Text;
-                proposal.MetaInformation.Year = DateTime.Now.Year;
+                proposal.MetaInformation.Year = int.Parse(dateTimePickerAnPublicare.Value.ToString("yyyyMMdd"));
                 proposal.MetaInformation.Description = textBoxKeywords.Text;
                 List<User> authors = new List<User>();
                 string[] authorsNames = textBoxAuthors.Text.Split(',');
                 for(int i=0; i<authorsNames.Length;i++)
                 {
-                    authors.Add(UserController.getUserByName(authorsNames[i])); //vom avea un getUserByName/getUserByName static dupa un nume complet(firstName + lastName)
+                    authors.Add(UserController.getUserByName(authorsNames[i])); //vom avea un getUserByName/getUserByName static (subliniez STATICA!!) dupa un nume complet(firstName + lastName)
                 }
                 proposal.MetaInformation.Authors = authors;
                 if (!fullPaper)
@@ -93,28 +95,5 @@ namespace App.UI
 
     }
 
-    internal class UserController
-    {
-        internal static User getUserByName(string v)
-        {
-            MessageBox.Show("User found");
-            return null;
-        }
-    }
-
-    public class ProposalController
-    {
-        public void updateProposal(Proposal proposal)
-        {
-            MessageBox.Show("Update made");
-        }
-
-        public Proposal getProposal(int v)
-        {
-            MessageBox.Show("Proposal found");
-            return null;
-        }
-
-
-    }
+    
 }
