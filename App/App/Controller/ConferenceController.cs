@@ -20,7 +20,8 @@ namespace App.Controller
         public IList<ConferenceUser> getListenersForConference(Conference conference)
         {
             var listeners = new List<ConferenceUser>();
-            foreach(ConferenceUser user in conference.Users)
+            var emptyArray = new ConferenceUser[0];
+            foreach (ConferenceUser user in conference.Users)
             {
                 if(user.User.UserRoles.Equals("Listener"))
                 {
@@ -31,12 +32,13 @@ namespace App.Controller
             {
                 return listeners;
             }
-            return listeners;
+            return emptyArray;
         }
 
         public IList<ConferenceUser> getAuthorsForConference(Conference conference)
         {
             var authors = new List<ConferenceUser>();
+            var emptyArray = new ConferenceUser[0];
             foreach (ConferenceUser user in conference.Users)
             {
                 if (user.User.UserRoles.Equals("Authors"))
@@ -48,7 +50,7 @@ namespace App.Controller
             {
                 return authors;
             }
-            return authors;
+            return emptyArray;
         }
     }
 }

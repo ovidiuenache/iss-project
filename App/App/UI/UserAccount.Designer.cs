@@ -31,7 +31,7 @@
             this.dataGridViewProposals = new System.Windows.Forms.DataGridView();
             this.buttonBrowseAbstract = new System.Windows.Forms.Button();
             this.textBoxAbstract = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonUploadAbstract = new System.Windows.Forms.Button();
             this.textBoxFull = new System.Windows.Forms.TextBox();
             this.buttonBrowseFull = new System.Windows.Forms.Button();
             this.buttonUploadFull = new System.Windows.Forms.Button();
@@ -65,15 +65,15 @@
             this.textBoxAbstract.Size = new System.Drawing.Size(206, 20);
             this.textBoxAbstract.TabIndex = 2;
             // 
-            // button1
+            // buttonUploadAbstract
             // 
-            this.button1.Location = new System.Drawing.Point(354, 93);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Upload Abstract";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonUploadAbstract.Location = new System.Drawing.Point(354, 93);
+            this.buttonUploadAbstract.Name = "buttonUploadAbstract";
+            this.buttonUploadAbstract.Size = new System.Drawing.Size(177, 23);
+            this.buttonUploadAbstract.TabIndex = 3;
+            this.buttonUploadAbstract.Text = "Upload Abstract";
+            this.buttonUploadAbstract.UseVisualStyleBackColor = true;
+            this.buttonUploadAbstract.Click += new System.EventHandler(this.buttonUploadAbstract_Click);
             // 
             // textBoxFull
             // 
@@ -118,7 +118,7 @@
             this.Controls.Add(this.buttonUploadFull);
             this.Controls.Add(this.buttonBrowseFull);
             this.Controls.Add(this.textBoxFull);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonUploadAbstract);
             this.Controls.Add(this.textBoxAbstract);
             this.Controls.Add(this.buttonBrowseAbstract);
             this.Controls.Add(this.dataGridViewProposals);
@@ -135,7 +135,7 @@
         private System.Windows.Forms.DataGridView dataGridViewProposals;
         private System.Windows.Forms.Button buttonBrowseAbstract;
         private System.Windows.Forms.TextBox textBoxAbstract;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonUploadAbstract;
         private System.Windows.Forms.TextBox textBoxFull;
         private System.Windows.Forms.Button buttonBrowseFull;
         private System.Windows.Forms.Button buttonUploadFull;

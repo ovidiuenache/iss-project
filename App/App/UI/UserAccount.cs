@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,16 +14,38 @@ namespace App.UI
 {
     /// <summary>
     /// Authors: Alexandru Popa, Vancea Vlad
-    /// The class who manage the phase 1 about proposals
+    /// The class that manages the phase 1 about proposals
     /// </summary>
     public partial class UserAccount : Form
     {
         private ProposalController controller;
         private User user;
-        public UserAccount()
+        public UserAccount(ProposalController ctrl, User user)
         {
-            controller = new ProposalController();
+            this.controller = ctrl;
+            this.user = user;
+            refreshProposals();
+
             InitializeComponent();
+        }
+
+        private void refreshProposals()
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-MIOBI9T\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
+            BindingSource bs = new BindingSource();
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataSet ds = new DataSet();
+            dataGridViewProposals = new DataGridView();
+
+            connection.Open();
+            da.SelectCommand = new SqlCommand("select * from Proposals", connection);
+            //da.SelectCommand.Parameters.Add("@idUser", user.UserId);
+            da.Fill(ds, "Proposals");
+            bs.DataSource = ds;
+            bs.DataMember = "Proposals";
+
+            dataGridViewProposals.DataSource = bs;
+            connection.Close();
         }
 
         private void buttonBrowseAbstract_Click(object sender, EventArgs e)
@@ -37,7 +60,7 @@ namespace App.UI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonUploadAbstract_Click(object sender, EventArgs e)
         {
             if(textBoxAbstract.Text == "")
                 MessageBox.Show("Please select a file to upload");
@@ -51,12 +74,14 @@ namespace App.UI
                 }
                 else
                 {
-                    MetaInformation mt= new MetaInformation(null, controller, false, textBoxAbstract.Text);
+                    MetaInformation mt= new MetaInformation(new Proposal(new ProposalMetaInformation(),"",""), controller, false, textBoxAbstract.Text);
                     mt.Show();
 
                 }
 
             }
+
+            refreshProposals();
         }
 
         private void buttonUploadFull_Click(object sender, EventArgs e)
@@ -77,6 +102,8 @@ namespace App.UI
 
                 }
             }
+
+            refreshProposals();
         }
 
         private void buttonBrowseFull_Click(object sender, EventArgs e)
@@ -98,6 +125,7 @@ namespace App.UI
         {
             var proposals = this.dataGridViewProposals.DataSource as List<Proposal>;
             IList<Proposal> result = new List<Proposal>();
+            var emptyArray = new Proposal[0]; 
 
             if (proposals.Count != 0)
             {
@@ -112,12 +140,13 @@ namespace App.UI
                 return result;
             }
             else
-                return null;       
+                return emptyArray;       
         }
 
         private IList<Proposal> getProposalsToTheNextPhase(Phase phase)
         {
-            if(DateTime.Now > phase.Deadline)
+            var emptyArray = new Proposal[0];
+            if (DateTime.Now > phase.Deadline)
             {
                 //the next phase will have the proposals finals
                 return getProposalsWithFullPaper();
@@ -126,7 +155,7 @@ namespace App.UI
             {
                 MessageBox.Show("Users can upload proposals");
             }
-            return null;
+            return emptyArray;
         }
 
     }

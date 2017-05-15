@@ -17,7 +17,7 @@
         public Proposal()
         {
             ProposalId = -1;
-            MetaInformation = null;
+            MetaInformation = new ProposalMetaInformation();
             FullPaper = "";
             AbstractPaper = "";
         }
