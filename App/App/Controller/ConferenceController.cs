@@ -1,22 +1,14 @@
 ﻿using App.Entity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace App.Controller
 {
-
     /// <summary>
     /// Author: Vancea Vlad
     /// The controller who manage the details about a conference
     /// </summary>
     class ConferenceController
     {
-
-
-
         public IList<ConferenceUser> getListenersForConference(Conference conference)
         {
             var listeners = new List<ConferenceUser>();
