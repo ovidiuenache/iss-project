@@ -24,12 +24,13 @@ namespace App.Repository.Impl
             return Context.Users.SingleOrDefault(user => user.Email == email);
         }
 
-        public Role GetRole(User user)
+        public List<Role> GetRoles(User user)
         {
             var queryRole = from item in Context.Roles
                             where item.UserRoles.Any(x => x.UserId == user.UserId)
                             select item;
-            return queryRole.FirstOrDefault();
+            return queryRole.ToList();
+
         }
     }
 }

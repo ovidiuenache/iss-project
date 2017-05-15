@@ -51,7 +51,7 @@ namespace App
                 }
                 else
                 {
-                    if (loginController.GetUserRole(user).Contains("Chair"))
+                 /*   if (loginController.GetUserRoles(user).Contains("Chair"))
                     {
                         PreliminaryPhase preliminaryPhase = new PreliminaryPhase(user);
                         preliminaryPhase.Location = new System.Drawing.Point(Location.X, Location.Y);
@@ -61,7 +61,7 @@ namespace App
                     else
                     {
                         MessageBox.Show("There is no active conference for the moment!");
-                    }
+                    }*/
                 }
             }
             catch

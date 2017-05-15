@@ -25,10 +25,11 @@ namespace App.Repository
         User FindUserByEmail(string email);
 
         /// <summary>
-        /// Return the user's role
+        /// Returns a list with user's roles
+        /// If the user has no roles the list will be empty
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        Role GetRole(User user);
+        List<Role> GetRoles(User user);
     }
 }

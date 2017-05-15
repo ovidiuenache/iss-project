@@ -14,20 +14,20 @@ namespace App.Controller
     /// </summary>
     public class PreliminaryPhaseController : IPreliminaryPhaseController
     {
-        private IValidator<User> UserValidator;
+
         private IUserRepository UserRepository;
+        private IConferenceRepository ConferenceRepository;
         private MailSender MailSender;
 
-        public PreliminaryPhaseController(IUserRepository UserRepository, IValidator<User> UserValidator)
+        public PreliminaryPhaseController(IUserRepository userRepository, IConferenceRepository conferenceRepository)
         {
-            this.UserRepository = UserRepository;
-            this.UserValidator = UserValidator;
+            this.UserRepository = userRepository;
+            this.ConferenceRepository = conferenceRepository;
             MailSender = new MailSender();
         }
 
         public void Register(User user)
         {
-            UserValidator.validate(user);
             if (UserRepository.FindUserByEmail(user.Email) != null)
             {
                 throw new InvalidEmailAddressException("Email adress is allready in use! Please introduce another " +
@@ -36,14 +36,27 @@ namespace App.Controller
             else
             {
                 UserRepository.Add(user);
-                MailAddress Sender = new MailAddress("iss.cmsmailer@gmail.com");
-                MailAddress Receiver = new MailAddress(user.Email);
-                string MailBody = "Thank you for your registration. Your account " +
+                MailAddress sender = new MailAddress("iss.cmsmailer@gmail.com");
+                MailAddress receiver = new MailAddress(user.Email);
+                string mailBody = "Thank you for your registration. Your account " +
                                   "has been created succesfully.\nYour credentials are : \n" +
                                   "Username : " + user.Email + 
                                   "\nPassword : " + user.Password;
-                string MailSubject = "Registration complete";
-                MailSender.sendMail(Sender, Receiver, MailBody, MailSubject);
+                string mailSubject = "Registration complete";
+                MailSender.sendMail(sender, receiver, mailBody, mailSubject);
+            }
+        }
+
+        public void CreateConference(Conference conference)
+        {
+            if (ConferenceRepository.GetActiveConference() == null)
+            {
+                ConferenceRepository.Add(conference);
+            }
+            else
+            {
+                throw new ConferenceInProgressException("Could not create conference. There is allready " +
+                                                        "a conference in progress.");
             }
         }
     }

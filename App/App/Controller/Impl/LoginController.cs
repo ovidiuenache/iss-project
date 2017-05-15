@@ -7,7 +7,7 @@ namespace App.Controller
 {
     /// <summary>
     /// 
-    /// Class LoginController
+    /// LoginController implementation
     /// Author: Vancea Vlad
     /// Author : Catalin Radoiu
     /// 
@@ -47,9 +47,9 @@ namespace App.Controller
             return (ConferenceRepository.GetActiveConference() != null);
         }
 
-        public string GetUserRole(User user)
+        public List<Role> GetUserRoles(User user)
         {
-            throw new NotImplementedException();
+            return UserRepository.GetRoles(user);
         }
     }
 }

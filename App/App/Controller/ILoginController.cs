@@ -1,4 +1,5 @@
-﻿using App.Entity;
+﻿using System.Collections.Generic;
+using App.Entity;
 
 namespace App.Controller
 {
@@ -25,10 +26,11 @@ namespace App.Controller
         bool IsConferenceActive();
 
         /// <summary>
-        /// Returns a string with the user's role
+        /// Returns a a list with the user's roles
+        /// If the user has no roles the list will be empty
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        string GetUserRole(User user);
+        List<Role> GetUserRoles(User user);
     }
 }

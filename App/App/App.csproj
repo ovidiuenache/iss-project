@@ -158,7 +158,13 @@
     <Compile Include="Context\AppContext.cs" />
     <Compile Include="Controller\ILoginController.cs" />
     <Compile Include="Controller\Impl\LoginController.cs" />
+    <Compile Include="Controller\Impl\PhaseOneController.cs" />
+    <Compile Include="Controller\Impl\PhaseThreeController.cs" />
+    <Compile Include="Controller\Impl\PhaseTwoController.cs" />
     <Compile Include="Controller\Impl\PreliminaryPhaseController.cs" />
+    <Compile Include="Controller\IPhaseOneController.cs" />
+    <Compile Include="Controller\IPhaseThreeController.cs" />
+    <Compile Include="Controller\IPhaseTwoController.cs" />
     <Compile Include="Controller\IPreliminaryPhaseController.cs" />
     <Compile Include="Entity\Conference.cs" />
     <Compile Include="Entity\ConferenceUser.cs" />
@@ -170,6 +176,7 @@
     <Compile Include="Entity\Topic.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Entity\UserRole.cs" />
+    <Compile Include="Exception\ConferenceInProgressException.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
