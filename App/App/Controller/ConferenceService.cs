@@ -10,45 +10,45 @@ namespace App.Controller
 
     /// <summary>
     /// Author: Vancea Vlad
-    /// The service who manage the details about a conference
+    /// The controller who manage the details about a conference
     /// </summary>
-    class ConferenceService
+    class ConferenceController
     {
 
 
 
         public IList<ConferenceUser> getListenersForConference(Conference conference)
         {
-            var result = new List<ConferenceUser>();
+            var listeners = new List<ConferenceUser>();
             foreach(ConferenceUser user in conference.Users)
             {
                 if(user.User.UserRoles.Equals("Listener"))
                 {
-                    result.Add(user);
+                    listeners.Add(user);
                 }
             }
-            if (result != null)
+            if (listeners.Count!=0)
             {
-                return result;
+                return listeners;
             }
-            return null;
+            return listeners;
         }
 
         public IList<ConferenceUser> getAuthorsForConference(Conference conference)
         {
-            var result = new List<ConferenceUser>();
+            var authors = new List<ConferenceUser>();
             foreach (ConferenceUser user in conference.Users)
             {
                 if (user.User.UserRoles.Equals("Authors"))
                 {
-                    result.Add(user);
+                    authors.Add(user);
                 }
             }
-            if (result != null)
+            if (authors.Count != 0)
             {
-                return result;
+                return authors;
             }
-            return null;
+            return authors;
         }
     }
 }

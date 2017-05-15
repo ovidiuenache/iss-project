@@ -91,7 +91,7 @@ namespace App.UI
         }
         /// <summary>
         /// get the proposals who have fullpaper and if the user do not have fullpapers the func will 
-        /// return null. Author: Vlad
+        /// return null
         /// </summary>
         /// <returns></returns>
         private IList<Proposal> getProposalsWithFullPaper()
@@ -99,17 +99,20 @@ namespace App.UI
             var proposals = this.dataGridViewProposals.DataSource as List<Proposal>;
             IList<Proposal> result = new List<Proposal>();
 
-            foreach(Proposal proposal in proposals)
-            {
-                if(proposal.FullPaper.Equals(""))
-                {
-                    result.Add(proposal);
-                }                
-            }
             if (proposals.Count != 0)
+            {
+                
+                foreach (Proposal proposal in proposals)
+                {
+                    if(!proposal.FullPaper.Equals(""))
+                    {
+                        result.Add(proposal);
+                    }                
+                }
                 return result;
+            }
             else
-                return null;
+                return null;       
         }
 
         private IList<Proposal> getProposalsToTheNextPhase(Phase phase)
