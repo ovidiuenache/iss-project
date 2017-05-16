@@ -2,7 +2,6 @@
 using App.Entity;
 using App.UI;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace App
@@ -26,23 +25,25 @@ namespace App
         {
             string username = UserNameTextBox.Text;
             string password = PasswordTextBox.Text;
-
-            try
+            
+            User user = loginController.GetUser(username, password);
+            if (user == null)
             {
-                //TO DO
-                //MODIFY THIS WITH GetUser(username, password) from login controller when is ready
-                User user = new User("dummy", "dummy", "dummy", "dummy", "dummy");
-
+                MessageBox.Show("The credentials are not valid");
+            }
+            else
+            {
                 if (loginController.IsConferenceActive() == true)
                 {
                     //TO DO
-                    //redirect user to phase active page;
+                    //redirect user to active phase page;
                     Application.Exit();
                 }
                 else
                 {
-                 /*   if (loginController.GetUserRoles(user).Contains("Chair"))
+                    if (loginController.GetUserRoles(user).Contains(new Role("Chair", "chair")))
                     {
+                        //User is a chair and is shown the preliminary phase
                         PreliminaryPhase preliminaryPhase = new PreliminaryPhase(user);
                         preliminaryPhase.Location = new System.Drawing.Point(Location.X, Location.Y);
                         preliminaryPhase.Show();
@@ -50,13 +51,10 @@ namespace App
                     }
                     else
                     {
+                        //User is a non-chair member and is restricted to access the website
                         MessageBox.Show("There is no active conference for the moment!");
-                    }*/
+                    }
                 }
-            }
-            catch
-            {
-                MessageBox.Show("The credentials are not valid");
             }
         }
 

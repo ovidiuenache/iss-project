@@ -8,17 +8,19 @@ namespace App
     public partial class ConferenceDetails : Form
     {
         Conference conference;
+        LoginController loginController;
+        PreliminaryPhaseController preliminaryController;
 
-        public ConferenceDetails()
+        public ConferenceDetails(LoginController loginController, PreliminaryPhaseController preliminaryController)
         {
             InitializeComponent();
 
-            //conference = cevaController.getActiveConference();
+            this.loginController = loginController;
+            this.preliminaryController = preliminaryController;
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            LoginController loginController = new LoginController();
             Login loginForm = new Login(conference, this, loginController);
             loginForm.Location = new System.Drawing.Point(Location.X, Location.Y);
             Hide();
@@ -27,7 +29,7 @@ namespace App
 
         private void btn_Register_Click(object sender, EventArgs e)
         {
-            Register registerForm = new Register(this);
+            Register registerForm = new Register(this, preliminaryController);
             registerForm.Location = new System.Drawing.Point(Location.X, Location.Y);
             Hide();
             registerForm.Show();

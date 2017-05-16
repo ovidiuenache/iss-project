@@ -17,12 +17,6 @@ namespace App.Controller
         private IUserRepository UserRepository;
         private IConferenceRepository ConferenceRepository;
 
-        //Temporary constructor 
-        public LoginController()
-        {
-            
-        }
-
         public LoginController(IUserRepository userRepository, IConferenceRepository conferenceRepository)
         {
             this.UserRepository = userRepository;
