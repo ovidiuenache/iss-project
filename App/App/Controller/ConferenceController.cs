@@ -7,7 +7,7 @@ namespace App.Controller
     /// Author: Vancea Vlad
     /// The controller who manage the details about a conference
     /// </summary>
-    class ConferenceController
+    public class ConferenceController
     {
         public IList<ConferenceUser> getListenersForConference(Conference conference)
         {
