@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using App.Migrations.Seed;
+using App.UI;
 
 namespace App
 {
