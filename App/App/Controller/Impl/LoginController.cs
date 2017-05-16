@@ -32,13 +32,17 @@ namespace App.Controller
         public User GetUser(string email, string password)
         {
             User user = UserRepository.FindUserByEmail(email);
-            if (user.Password == password)
+            if (user == null)
             {
-                return user;
+                return null;
+            } 
+            else if (user.Password != password)
+            {
+                return null;
             }
             else
             {
-                return null;
+                return user;
             }
         }
 
