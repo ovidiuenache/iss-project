@@ -1,12 +1,7 @@
-﻿using App.Entity;
+﻿using App.Controller;
+using App.Entity;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App.UI
@@ -16,13 +11,12 @@ namespace App.UI
     /// </summary>
     public partial class MetaInformation : Form
     {
-
         private Proposal proposal;
-        private ProposalController controller;
+        private PhaseOneController controller;
         private bool fullPaper;
         private string paperLink;
         
-        public MetaInformation(Proposal proposal, ProposalController controller, bool fullPaper, string paperLink)
+        public MetaInformation(Proposal proposal, PhaseOneController controller, bool fullPaper, string paperLink)
         {
             InitializeComponent();
             this.proposal = proposal;
@@ -65,7 +59,7 @@ namespace App.UI
                 string[] authorsNames = textBoxAuthors.Text.Split(',');
                 for(int i=0; i<authorsNames.Length;i++)
                 {
-                    authors.Add(UserController.getUserByName(authorsNames[i])); //vom avea un getUserByName/getUserByName static (subliniez STATICA!!) dupa un nume complet(firstName + lastName)
+                    authors.Add(controller.getUserByName(authorsNames[i]));
                 }
                 proposal.MetaInformation.Authors = authors;
                 if (!fullPaper)
