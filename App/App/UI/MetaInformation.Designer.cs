@@ -37,6 +37,8 @@
             this.textBoxTopics = new System.Windows.Forms.TextBox();
             this.textBoxAuthors = new System.Windows.Forms.TextBox();
             this.buttonSubmit = new System.Windows.Forms.Button();
+            this.labelData = new System.Windows.Forms.Label();
+            this.dateTimePickerAnPublicare = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -77,46 +79,65 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(70, 24);
+            this.textBoxName.Location = new System.Drawing.Point(94, 24);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(175, 20);
+            this.textBoxName.Size = new System.Drawing.Size(183, 20);
             this.textBoxName.TabIndex = 4;
             // 
             // textBoxKeywords
             // 
-            this.textBoxKeywords.Location = new System.Drawing.Point(70, 62);
+            this.textBoxKeywords.Location = new System.Drawing.Point(94, 62);
             this.textBoxKeywords.Name = "textBoxKeywords";
-            this.textBoxKeywords.Size = new System.Drawing.Size(175, 20);
+            this.textBoxKeywords.Size = new System.Drawing.Size(183, 20);
             this.textBoxKeywords.TabIndex = 5;
             // 
             // textBoxTopics
             // 
-            this.textBoxTopics.Location = new System.Drawing.Point(70, 100);
+            this.textBoxTopics.Location = new System.Drawing.Point(94, 100);
             this.textBoxTopics.Name = "textBoxTopics";
-            this.textBoxTopics.Size = new System.Drawing.Size(175, 20);
+            this.textBoxTopics.Size = new System.Drawing.Size(183, 20);
             this.textBoxTopics.TabIndex = 6;
             // 
             // textBoxAuthors
             // 
-            this.textBoxAuthors.Location = new System.Drawing.Point(70, 136);
+            this.textBoxAuthors.Location = new System.Drawing.Point(94, 136);
             this.textBoxAuthors.Name = "textBoxAuthors";
-            this.textBoxAuthors.Size = new System.Drawing.Size(175, 20);
+            this.textBoxAuthors.Size = new System.Drawing.Size(183, 20);
             this.textBoxAuthors.TabIndex = 7;
             // 
             // buttonSubmit
             // 
-            this.buttonSubmit.Location = new System.Drawing.Point(96, 180);
+            this.buttonSubmit.Location = new System.Drawing.Point(94, 212);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(75, 23);
             this.buttonSubmit.TabIndex = 8;
             this.buttonSubmit.Text = "Submit";
             this.buttonSubmit.UseVisualStyleBackColor = true;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
+            // 
+            // labelData
+            // 
+            this.labelData.AutoSize = true;
+            this.labelData.Location = new System.Drawing.Point(12, 174);
+            this.labelData.Name = "labelData";
+            this.labelData.Size = new System.Drawing.Size(79, 13);
+            this.labelData.TabIndex = 9;
+            this.labelData.Text = "Data publicare:";
+            // 
+            // dateTimePickerAnPublicare
+            // 
+            this.dateTimePickerAnPublicare.Location = new System.Drawing.Point(94, 168);
+            this.dateTimePickerAnPublicare.Name = "dateTimePickerAnPublicare";
+            this.dateTimePickerAnPublicare.Size = new System.Drawing.Size(183, 20);
+            this.dateTimePickerAnPublicare.TabIndex = 10;
             // 
             // MetaInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 215);
+            this.ClientSize = new System.Drawing.Size(323, 268);
+            this.Controls.Add(this.dateTimePickerAnPublicare);
+            this.Controls.Add(this.labelData);
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.textBoxAuthors);
             this.Controls.Add(this.textBoxTopics);
@@ -126,6 +147,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(339, 307);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(339, 307);
             this.Name = "MetaInformation";
             this.Text = "MetaInformation";
             this.ResumeLayout(false);
@@ -144,5 +169,7 @@
         private System.Windows.Forms.TextBox textBoxTopics;
         private System.Windows.Forms.TextBox textBoxAuthors;
         private System.Windows.Forms.Button buttonSubmit;
+        private System.Windows.Forms.Label labelData;
+        private System.Windows.Forms.DateTimePicker dateTimePickerAnPublicare;
     }
 }

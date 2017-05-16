@@ -1,4 +1,5 @@
-﻿using App.Context;
+﻿using System.Linq;
+using App.Context;
 using App.Entity;
 
 namespace App.Repository.Impl
@@ -14,6 +15,11 @@ namespace App.Repository.Impl
         public ConferenceRepository(AppContext context) : base(context)
         {
 
+        }
+
+        public Conference GetActiveConference()
+        {
+            return Context.Conferences.SingleOrDefault(conference => conference.ActivePhase != null);
         }
     } 
 }

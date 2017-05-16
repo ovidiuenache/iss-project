@@ -13,8 +13,13 @@ namespace App.Utils
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    interface IValidator<T>
+    public interface IValidator<T>
     {
+        /// <summary>
+        /// Checks if the entity got as parameter has all the fields valid 
+        /// Throws ValdationException if one of the fields is not valid 
+        /// </summary>
+        /// <param name="entity"></param>
         void validate(T entity);
     }
 }

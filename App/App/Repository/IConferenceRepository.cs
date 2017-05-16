@@ -8,7 +8,13 @@ namespace App.Repository
     /// Author : Catalin Radoiu 
     /// 
     /// </summary>
-    interface IConferenceRepository : IRepository<Conference>
+    public interface IConferenceRepository : IRepository<Conference>
     {
+        /// <summary>
+        /// Returns the current conference if there is an active conference
+        /// Returns null if there is no active conference 
+        /// </summary>
+        /// <returns></returns>
+        Conference GetActiveConference();
     }
 }

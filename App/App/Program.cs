@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using App.Migrations.Seed;
+using App.UI;
 
 namespace App
 {
@@ -14,7 +15,7 @@ namespace App
         {
             //Use this for dummy data
             UserContextSeed.Seed();
-          
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ConferenceDetails());
