@@ -222,6 +222,9 @@
     <Compile Include="Repository\ITopicRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Repository\IUserRoleRepository.cs" />
+    <Compile Include="UI\ComboBoxCheckedList.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\ConferenceDetails.cs">
       <SubType>Form</SubType>
     </Compile>
