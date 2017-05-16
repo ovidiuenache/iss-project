@@ -27,16 +27,17 @@ namespace App.Utils
         /// <param name="receiver"></param>
         /// <param name="mailBody"></param>
         /// <param name="mailSubject"></param>
-        public void sendMail(MailAddress sender, MailAddress receiver, string mailBody, string mailSubject)
+        public void sendMail( MailAddress receiver, string mailBody, string mailSubject)
         {
             MailMessage mail = new MailMessage();
             SmtpClient client = new SmtpClient();
 
-            mail.From = sender;
+            mail.From = new MailAddress("iss.cmsmailer@gmail.com");
             mail.To.Add(receiver);
             mail.Subject = mailSubject;
             mail.Body = mailBody;
 
+            client.UseDefaultCredentials = true;
             client.Host = "smtp.gmail.com";
             client.Port = 587;
             client.Credentials = new System.Net.NetworkCredential("iss.cmsmailer@gmail.com", "issteam0");
