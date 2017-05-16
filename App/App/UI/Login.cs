@@ -33,7 +33,7 @@ namespace App
                 //MODIFY THIS WITH GetUser(username, password) from login controller when is ready
                 User user = new User("dummy", "dummy", "dummy", "dummy", "dummy");
 
-                if (loginController.isConferenceActive() == true)
+                if (loginController.IsConferenceActive() == true)
                 {
                     //TO DO
                     //redirect user to phase active page;
@@ -41,7 +41,7 @@ namespace App
                 }
                 else
                 {
-                    if (loginController.getUserRole(user).Contains("Chair"))
+                 /*   if (loginController.GetUserRoles(user).Contains("Chair"))
                     {
                         PreliminaryPhase preliminaryPhase = new PreliminaryPhase(user);
                         preliminaryPhase.Location = new System.Drawing.Point(Location.X, Location.Y);
@@ -51,12 +51,12 @@ namespace App
                     else
                     {
                         MessageBox.Show("There is no active conference for the moment!");
-                    }
+                    }*/
                 }
             }
             catch
             {
-                MessageBox.Show("Invalid credentials!");
+                MessageBox.Show("The credentials are not valid");
             }
         }
 

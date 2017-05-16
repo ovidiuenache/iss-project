@@ -15,7 +15,7 @@ namespace App
         {
             //Use this for dummy data
             UserContextSeed.Seed();
-          
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ConferenceDetails());

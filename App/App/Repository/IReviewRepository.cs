@@ -9,7 +9,7 @@ namespace App.Repository
     /// Author : Catalin Radoiu
     /// 
     /// </summary>
-    interface IReviewRepository : IRepository<Review>
+    public interface IReviewRepository : IRepository<Review>
     {
     }
 }

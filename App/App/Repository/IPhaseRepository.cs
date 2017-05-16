@@ -8,7 +8,7 @@ namespace App.Repository
     /// Author : Catalin Radoiu
     /// 
     /// </summary>
-    interface IPhaseRepository : IRepository<Phase>
+    public interface IPhaseRepository : IRepository<Phase>
     {
     }
 }

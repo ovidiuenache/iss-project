@@ -8,7 +8,7 @@ namespace App.Repository
     /// Author : Catalin Radoiu 
     /// 
     /// </summary>
-    interface IProposalMetaInformationRepository : IRepository<ProposalMetaInformation>
+    public interface IProposalMetaInformationRepository : IRepository<ProposalMetaInformation>
     {
     }
 }

@@ -13,7 +13,7 @@ namespace App.Repository
     /// Author : Catalin Radoiu
     /// 
     /// </summary>
-    interface IRoleRepository : IRepository<Role>
+    public interface IRoleRepository : IRepository<Role>
     {
     }
 }
