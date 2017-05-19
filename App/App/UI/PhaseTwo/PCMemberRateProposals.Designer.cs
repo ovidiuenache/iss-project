@@ -34,7 +34,7 @@
             this.acceptRadioButton = new System.Windows.Forms.RadioButton();
             this.weakAcceptRadioButton = new System.Windows.Forms.RadioButton();
             this.borderlineRadioButton = new System.Windows.Forms.RadioButton();
-            this.weakRejectradioButton = new System.Windows.Forms.RadioButton();
+            this.weakRejectRadioButton = new System.Windows.Forms.RadioButton();
             this.rejectRadioButton = new System.Windows.Forms.RadioButton();
             this.strongRejectRadioButton = new System.Windows.Forms.RadioButton();
             this.submitButton = new System.Windows.Forms.Button();
@@ -45,9 +45,12 @@
             // 
             this.proposalsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.proposalsDataGridView.Location = new System.Drawing.Point(13, 13);
+            this.proposalsDataGridView.MultiSelect = false;
             this.proposalsDataGridView.Name = "proposalsDataGridView";
+            this.proposalsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.proposalsDataGridView.Size = new System.Drawing.Size(219, 490);
             this.proposalsDataGridView.TabIndex = 0;
+            this.proposalsDataGridView.SelectionChanged += new System.EventHandler(this.proposalsDataGridView_SelectionChanged);
             // 
             // commentsRichTextBox
             // 
@@ -101,16 +104,16 @@
             this.borderlineRadioButton.Text = "Borderline paper";
             this.borderlineRadioButton.UseVisualStyleBackColor = true;
             // 
-            // weakRejectradioButton
+            // weakRejectRadioButton
             // 
-            this.weakRejectradioButton.AutoSize = true;
-            this.weakRejectradioButton.Location = new System.Drawing.Point(249, 356);
-            this.weakRejectradioButton.Name = "weakRejectradioButton";
-            this.weakRejectradioButton.Size = new System.Drawing.Size(83, 17);
-            this.weakRejectradioButton.TabIndex = 6;
-            this.weakRejectradioButton.TabStop = true;
-            this.weakRejectradioButton.Text = "Weak reject";
-            this.weakRejectradioButton.UseVisualStyleBackColor = true;
+            this.weakRejectRadioButton.AutoSize = true;
+            this.weakRejectRadioButton.Location = new System.Drawing.Point(249, 356);
+            this.weakRejectRadioButton.Name = "weakRejectRadioButton";
+            this.weakRejectRadioButton.Size = new System.Drawing.Size(83, 17);
+            this.weakRejectRadioButton.TabIndex = 6;
+            this.weakRejectRadioButton.TabStop = true;
+            this.weakRejectRadioButton.Text = "Weak reject";
+            this.weakRejectRadioButton.UseVisualStyleBackColor = true;
             // 
             // rejectRadioButton
             // 
@@ -143,6 +146,7 @@
             this.submitButton.TabIndex = 9;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = false;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // PCMemberRateProposals
             // 
@@ -152,7 +156,7 @@
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.strongRejectRadioButton);
             this.Controls.Add(this.rejectRadioButton);
-            this.Controls.Add(this.weakRejectradioButton);
+            this.Controls.Add(this.weakRejectRadioButton);
             this.Controls.Add(this.borderlineRadioButton);
             this.Controls.Add(this.weakAcceptRadioButton);
             this.Controls.Add(this.acceptRadioButton);
@@ -175,7 +179,7 @@
         private System.Windows.Forms.RadioButton acceptRadioButton;
         private System.Windows.Forms.RadioButton weakAcceptRadioButton;
         private System.Windows.Forms.RadioButton borderlineRadioButton;
-        private System.Windows.Forms.RadioButton weakRejectradioButton;
+        private System.Windows.Forms.RadioButton weakRejectRadioButton;
         private System.Windows.Forms.RadioButton rejectRadioButton;
         private System.Windows.Forms.RadioButton strongRejectRadioButton;
         private System.Windows.Forms.Button submitButton;

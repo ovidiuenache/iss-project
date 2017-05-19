@@ -32,6 +32,7 @@
             this.ratingsGridView = new System.Windows.Forms.DataGridView();
             this.bidButton = new System.Windows.Forms.Button();
             this.rateButton = new System.Windows.Forms.Button();
+            this.buttonRefreshReviews = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.proposalListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ratingsGridView)).BeginInit();
             this.SuspendLayout();
@@ -73,12 +74,26 @@
             this.rateButton.TabIndex = 3;
             this.rateButton.Text = "RATE";
             this.rateButton.UseVisualStyleBackColor = false;
+            this.rateButton.Click += new System.EventHandler(this.rateButton_Click);
+            // 
+            // buttonRefreshReviews
+            // 
+            this.buttonRefreshReviews.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.buttonRefreshReviews.Font = new System.Drawing.Font("Segoe MDL2 Assets", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRefreshReviews.Location = new System.Drawing.Point(233, 277);
+            this.buttonRefreshReviews.Name = "buttonRefreshReviews";
+            this.buttonRefreshReviews.Size = new System.Drawing.Size(94, 49);
+            this.buttonRefreshReviews.TabIndex = 4;
+            this.buttonRefreshReviews.Text = "REFRESH";
+            this.buttonRefreshReviews.UseVisualStyleBackColor = false;
+            this.buttonRefreshReviews.Click += new System.EventHandler(this.buttonRefreshReviews_Click);
             // 
             // PCMemberMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(552, 502);
+            this.Controls.Add(this.buttonRefreshReviews);
             this.Controls.Add(this.rateButton);
             this.Controls.Add(this.bidButton);
             this.Controls.Add(this.ratingsGridView);
@@ -97,5 +112,6 @@
         private System.Windows.Forms.DataGridView ratingsGridView;
         private System.Windows.Forms.Button bidButton;
         private System.Windows.Forms.Button rateButton;
+        private System.Windows.Forms.Button buttonRefreshReviews;
     }
 }
