@@ -15,13 +15,11 @@ namespace App.UI.PhaseTwo
     {
 
         private User reviewer;
-        private ReviewController reviewController;
-        private ProposalController proposalController;
+        private PhaseTwoController phaseTwoController;
 
-        public PCMemberMain(ReviewController reviewController, ProposalController proposalController, User reviewer)
+        public PCMemberMain(PhaseTwoController phaseTwoController, User reviewer)
         {
-            this.reviewController = reviewController;
-            this.proposalController = proposalController;
+            this.phaseTwoController = phaseTwoController;
             this.reviewer = reviewer;
             InitializeComponent();
         }
@@ -33,7 +31,7 @@ namespace App.UI.PhaseTwo
         /// <param name="e"></param>
         private void rateButton_Click(object sender, EventArgs e)
         {
-            PCMemberRateProposals rateView = new PCMemberRateProposals(proposalController.findByIdUser(reviewer.UserId), reviewer);
+            PCMemberRateProposals rateView = new PCMemberRateProposals(phaseTwoController.findProposalByIdUser(reviewer.UserId), reviewer);
             rateView.Show();
         }
         /// <summary>
@@ -43,7 +41,7 @@ namespace App.UI.PhaseTwo
         /// <param name="e"></param>
         private void buttonRefreshReviews_Click(object sender, EventArgs e)
         {
-            if(reviewController.findByIdUser(reviewer.UserId).Count > 0)
+            if(phaseTwoController.findReviewByIdUser(reviewer.UserId).Count > 0)
             {
                 initRatingsGridView();
             }
@@ -53,7 +51,7 @@ namespace App.UI.PhaseTwo
         /// </summary>
         private void initRatingsGridView()
         {
-            BindingList<Review> bindingList = new BindingList<Review>(reviewController.findByIdUser(reviewer.UserId));
+            BindingList<Review> bindingList = new BindingList<Review>(phaseTwoController.findReviewByIdUser(reviewer.UserId));
             BindingSource source = new BindingSource(bindingList, null);
             ratingsGridView.DataSource = source;
         }

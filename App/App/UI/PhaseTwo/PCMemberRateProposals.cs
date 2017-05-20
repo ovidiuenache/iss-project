@@ -16,12 +16,13 @@ namespace App.UI.PhaseTwo
 
         private List<Proposal> proposals;
         private User reviewer;
-        private ReviewController reviewController;
+        private PhaseTwoController phaseTwoController;
 
-        public PCMemberRateProposals(List<Proposal> proposals, User reviewer)
+        public PCMemberRateProposals(List<Proposal> proposals, User reviewer, PhaseTwoController phaseTwoController)
         {
             this.proposals = proposals;
             this.reviewer = reviewer;
+            this.phaseTwoController = phaseTwoController;
             initProposalsDataGridView();
             InitializeComponent();
         }
@@ -32,18 +33,19 @@ namespace App.UI.PhaseTwo
             BindingSource source = new BindingSource(bindingList, null);
             proposalsDataGridView.DataSource = source;
         }
-
+        
         private void submitButton_Click(object sender, EventArgs e)
         {
             RadioButton checkedReviewButton = this.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            Review review = new Review(checkedReviewButton.Text, commentsRichTextBox.Text, this.reviewer, DateTime.Now);
-            reviewController.Add(review);
+            Proposal prop = phaseTwoController.findProposalById(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
+            Review review = new Review(checkedReviewButton.Text, commentsRichTextBox.Text, this.reviewer, prop, DateTime.Now);
+            phaseTwoController.AddReview(review);
         }
 
 
         private void proposalsDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if(reviewController.findByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()),reviewer.UserId))
+            if(phaseTwoController.findReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()),reviewer.UserId))
             {
                 submitButton.Enabled = false;
             }
