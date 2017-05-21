@@ -1,4 +1,5 @@
-﻿using App.Entity;
+﻿using App.Controller;
+using App.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,11 @@ namespace App.UI.PhaseTwo
             BindingSource source = new BindingSource(bindingList, null);
             proposalsDataGridView.DataSource = source;
         }
-
+        /// <summary>
+        /// Author: Vancea Vladut
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void submitButton_Click(object sender, EventArgs e)
         {
             RadioButton checkedReviewButton = this.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
@@ -39,7 +44,10 @@ namespace App.UI.PhaseTwo
 
             if (checkedReviewButton.Text.Equals("I want") || checkedReviewButton.Text.Equals("I can"))
             {
-                Review review = new Review(checkedReviewButton.Text, "", this.reviewer, prop, DateTime.Now);
+                //Real author: Andu Popa...
+                Review review = phaseTwoController.findReviewByIdProposal(prop.ProposalId);
+                review.Reviewer = reviewer;
+                phaseTwoController.updateReview(review);
             }
             else
             {

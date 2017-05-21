@@ -51,7 +51,7 @@ namespace App.UI.PhaseTwo
         /// </summary>
         private void initRatingsGridView()
         {
-            BindingList<Review> bindingList = new BindingList<Review>(phaseTwoController.findReviewByIdUser(reviewer.UserId));
+            BindingList<Review> bindingList = new BindingList<Review>(phaseTwoController.findReviewByIdReviewer(reviewer.UserId));
             BindingSource source = new BindingSource(bindingList, null);
             ratingsGridView.DataSource = source;
         }

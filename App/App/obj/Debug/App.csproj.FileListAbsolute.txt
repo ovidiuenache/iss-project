@@ -265,3 +265,4 @@ G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug
 G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.UI.PreliminaryPhase.resources
 G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.UI.UpdateConference.resources
 D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\bin\Debug\App.exe.config
+C:\Users\Andu\Desktop\iss-project\App\App\bin\Debug\App.exe.config

@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace App.UI.PhaseTwo
 {
+    /// <summary>
+    /// Author: Andu Popa
+    /// </summary>
     public partial class PCMemberRateProposals : Form
     {
 
