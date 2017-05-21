@@ -43,16 +43,17 @@
             this.proposalsDataGridView.Name = "proposalsDataGridView";
             this.proposalsDataGridView.Size = new System.Drawing.Size(227, 483);
             this.proposalsDataGridView.TabIndex = 0;
+            this.proposalsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.proposalsDataGridView_CellContentClick);
             // 
             // radioButtonDa
             // 
             this.radioButtonDa.AutoSize = true;
             this.radioButtonDa.Location = new System.Drawing.Point(272, 43);
             this.radioButtonDa.Name = "radioButtonDa";
-            this.radioButtonDa.Size = new System.Drawing.Size(39, 17);
+            this.radioButtonDa.Size = new System.Drawing.Size(54, 17);
             this.radioButtonDa.TabIndex = 1;
             this.radioButtonDa.TabStop = true;
-            this.radioButtonDa.Text = "Da";
+            this.radioButtonDa.Text = "I want";
             this.radioButtonDa.UseVisualStyleBackColor = true;
             // 
             // radioButtonPot
@@ -60,10 +61,10 @@
             this.radioButtonPot.AutoSize = true;
             this.radioButtonPot.Location = new System.Drawing.Point(272, 82);
             this.radioButtonPot.Name = "radioButtonPot";
-            this.radioButtonPot.Size = new System.Drawing.Size(41, 17);
+            this.radioButtonPot.Size = new System.Drawing.Size(49, 17);
             this.radioButtonPot.TabIndex = 2;
             this.radioButtonPot.TabStop = true;
-            this.radioButtonPot.Text = "Pot";
+            this.radioButtonPot.Text = "I can";
             this.radioButtonPot.UseVisualStyleBackColor = true;
             // 
             // radioButtonNuVreau
@@ -71,10 +72,10 @@
             this.radioButtonNuVreau.AutoSize = true;
             this.radioButtonNuVreau.Location = new System.Drawing.Point(272, 120);
             this.radioButtonNuVreau.Name = "radioButtonNuVreau";
-            this.radioButtonNuVreau.Size = new System.Drawing.Size(69, 17);
+            this.radioButtonNuVreau.Size = new System.Drawing.Size(80, 17);
             this.radioButtonNuVreau.TabIndex = 3;
             this.radioButtonNuVreau.TabStop = true;
-            this.radioButtonNuVreau.Text = "Nu vreau";
+            this.radioButtonNuVreau.Text = "I don\'t want";
             this.radioButtonNuVreau.UseVisualStyleBackColor = true;
             // 
             // submitButton
@@ -86,6 +87,7 @@
             this.submitButton.TabIndex = 4;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = false;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // PCMemberBidProposals
             // 
