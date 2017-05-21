@@ -15,7 +15,7 @@ namespace App.Utils
     /// Author : Catalin Radoiu 
     /// 
     /// </summary>
-    class UserValidator : IValidator<User>
+    public class UserValidator : IValidator<User>
     {
         /// <summary>
         /// This method checks if all the fields of a user are valid
@@ -35,7 +35,7 @@ namespace App.Utils
             }
             if (!validateEmail(entity.Email))
             {
-                errors += "YSou have introduced an invalid email !\n";
+                errors += "You have introduced an invalid email !\n";
             }
             if (!validatePassword(entity.Password))
             {

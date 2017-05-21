@@ -14,7 +14,7 @@ namespace App.Utils
     /// Author : Catalin Radoiu
     /// 
     /// </summary>
-    class MailSender
+    public class MailSender
     {
 
         /// <summary>

@@ -8,7 +8,7 @@ namespace App.Repository
     /// Author : Catalin Radoiu
     /// 
     /// </summary>
-    interface IUserRoleRepository : IRepository<UserRole>
+    public interface IUserRoleRepository : IRepository<UserRole>
     {
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using App.Migrations.Seed;
-using App.UI;
+using App.Repository.Impl;
+using App.Context;
+using App.Controller;
 
 namespace App
 {
@@ -15,10 +17,16 @@ namespace App
         {
             //Use this for dummy data
             UserContextSeed.Seed();
-          
+
+            AppContext context = new AppContext();
+            UserRepository userRepository = new UserRepository(context);
+            ConferenceRepository conferenceRepository = new ConferenceRepository(context);
+            LoginController loginController = new LoginController(userRepository, conferenceRepository);
+            PreliminaryPhaseController preliminaryController = new PreliminaryPhaseController(userRepository, conferenceRepository);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ConferenceDetails());
+            Application.Run(new ConferenceDetails(loginController, preliminaryController));
         }
     }
 }

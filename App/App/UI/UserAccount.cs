@@ -1,4 +1,5 @@
-﻿using App.Entity;
+﻿using App.Controller;
+using App.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,9 +19,9 @@ namespace App.UI
     /// </summary>
     public partial class UserAccount : Form
     {
-        private ProposalController controller;
+        private PhaseOneController controller;
         private User user;
-        public UserAccount(ProposalController ctrl, User user)
+        public UserAccount(PhaseOneController ctrl, User user)
         {
             this.controller = ctrl;
             this.user = user;

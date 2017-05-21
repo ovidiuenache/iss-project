@@ -14,7 +14,7 @@ namespace App.Repository
     /// Author : Claudiu Nicola
     /// 
     /// </summary>
-    interface IUserRepository : IRepository<User>
+    public interface IUserRepository : IRepository<User>
     {
         /// <summary>
         /// Returns the user having the email equals with the one got as parameter 
@@ -25,10 +25,11 @@ namespace App.Repository
         User FindUserByEmail(string email);
 
         /// <summary>
-        /// Return the user's role
+        /// Returns a list with user's roles
+        /// If the user has no roles the list will be empty
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        Role GetRole(User user);
+        List<Role> GetRoles(User user);
     }
 }
