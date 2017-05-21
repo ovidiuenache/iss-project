@@ -17,7 +17,7 @@ namespace App.UI.PhaseTwo
         private User reviewer;
         private PhaseTwoController phaseTwoController;
 
-        public PCMemberBidProposals()
+        public PCMemberBidProposals(PhaseTwoController phaseTwoController, List<Proposal> proposals, User reviewer)
         {
             this.proposals = proposals;
             this.reviewer = reviewer;

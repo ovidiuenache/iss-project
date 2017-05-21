@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +14,13 @@ namespace App.UI.PhaseTwo
     public partial class AuthorMain : Form
     {
         private ProposalController controller;
+        private Proposal proposal;
         private User user;
-        public AuthorMain()
+        public AuthorMain(ProposalController controller, Proposal proposal, User author)
         {
+            this.controller = controller;
+            this.proposal = proposal;
+            this.user = author;
             InitializeComponent();
         }
 
@@ -29,7 +34,7 @@ namespace App.UI.PhaseTwo
             {  
                 
                 
-                MetaInformation mt = new MetaInformation(null, controller, true, textBox1.Text);
+                MetaInformation mt = new MetaInformation(proposal, controller, true, textBox1.Text);
                 mt.Show();
 
                 
