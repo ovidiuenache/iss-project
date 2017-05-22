@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.resetPassword = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -50,7 +50,8 @@
             this.PasswordTextBox.Location = new System.Drawing.Point(38, 81);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(208, 20);
-            this.PasswordTextBox.TabIndex = 5;
+            this.PasswordTextBox.TabIndex = 1;
+            this.PasswordTextBox.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -75,7 +76,7 @@
             this.LoginButton.Location = new System.Drawing.Point(38, 122);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(208, 38);
-            this.LoginButton.TabIndex = 4;
+            this.LoginButton.TabIndex = 3;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
@@ -89,21 +90,22 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Trouble logging in?";
             // 
-            // button1
+            // resetPassword
             // 
-            this.button1.Location = new System.Drawing.Point(143, 188);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Reset Password";
-            this.button1.UseVisualStyleBackColor = true;
+            this.resetPassword.Location = new System.Drawing.Point(143, 188);
+            this.resetPassword.Name = "resetPassword";
+            this.resetPassword.Size = new System.Drawing.Size(103, 23);
+            this.resetPassword.TabIndex = 5;
+            this.resetPassword.Text = "Reset Password";
+            this.resetPassword.UseVisualStyleBackColor = true;
+            this.resetPassword.Click += new System.EventHandler(this.resetPassword_Click);
             // 
             // buttonBack
             // 
             this.buttonBack.Location = new System.Drawing.Point(38, 188);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(103, 23);
-            this.buttonBack.TabIndex = 8;
+            this.buttonBack.TabIndex = 4;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
@@ -115,7 +117,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(266, 245);
             this.Controls.Add(this.buttonBack);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.resetPassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.label2);
@@ -145,7 +147,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button resetPassword;
         private System.Windows.Forms.Button buttonBack;
     }
 }

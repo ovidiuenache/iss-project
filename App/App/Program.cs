@@ -4,6 +4,7 @@ using App.Migrations.Seed;
 using App.Repository.Impl;
 using App.Context;
 using App.Controller;
+using App.UI;
 
 namespace App
 {
@@ -27,6 +28,7 @@ namespace App
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ConferenceDetails(loginController, preliminaryController));
+           
         }
     }
 }

@@ -12,6 +12,7 @@ namespace App.Utils
     /// 
     /// Mail sendig class
     /// Author : Catalin Radoiu
+    /// Author: Dezsi Razvan
     /// 
     /// </summary>
     public class MailSender
@@ -27,12 +28,12 @@ namespace App.Utils
         /// <param name="receiver"></param>
         /// <param name="mailBody"></param>
         /// <param name="mailSubject"></param>
-        public void sendMail(MailAddress sender, MailAddress receiver, string mailBody, string mailSubject)
+        public void sendMail(MailAddress receiver, string mailBody, string mailSubject)
         {
             MailMessage mail = new MailMessage();
             SmtpClient client = new SmtpClient();
-
-            mail.From = sender;
+            MailAddress senderMail = new MailAddress("iss.cmsmailer@gmail.com");
+            mail.From = senderMail;
             mail.To.Add(receiver);
             mail.Subject = mailSubject;
             mail.Body = mailBody;
