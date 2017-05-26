@@ -14,7 +14,6 @@ namespace App.Repository.Impl
     {
         public ProposalMetaInformationRepository(AppContext context) : base(context)
         {
-
         }
     }
 }
