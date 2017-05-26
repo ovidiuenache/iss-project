@@ -12,9 +12,8 @@ namespace App.Repository.Impl
     /// </summary>
     public class ConferenceRepository : AbstractRepository<Conference>, IConferenceRepository
     {
-        public ConferenceRepository(AppContext context) : base(context)
+        public ConferenceRepository(AppContext context): base(context)
         {
-
         }
 
         public Conference GetActiveConference()

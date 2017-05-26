@@ -14,7 +14,7 @@ namespace App.UI
     /// </summary>
     public partial class CreateConference : Form
     {
-        Form parent;
+        private Form parent;
 
         public CreateConference(Form parent, int positionX, int positionY)
         {

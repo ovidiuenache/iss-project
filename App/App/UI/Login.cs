@@ -3,22 +3,22 @@ using App.Entity;
 using App.UI;
 using System;
 using System.Windows.Forms;
+using System.Linq;
+using App.Factory;
 
 namespace App
 {
     public partial class Login : Form
     {
-        Form parentForm;
-        Conference activeConference;
-        LoginController loginController;
+        private LoginController loginController;
+        private Form parentForm;
 
-        public Login(Conference activeConference, Form parentForm, LoginController loginController)
+        public Login(Form parentForm)
         {
             InitializeComponent();
 
-            this.activeConference = activeConference;
             this.parentForm = parentForm;
-            this.loginController = loginController;
+            loginController = ApplicationFactory.getLoginController();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace App
                 }
                 else
                 {
-                    if (loginController.GetUserRoles(user).Contains(new Role("Chair", "chair")))
+                    if (loginController.GetUserRoles(user).Select(role => role.Slug).ToArray().Contains("chair"))
                     {
                         //User is a chair and is shown the preliminary phase
                         PreliminaryPhase preliminaryPhase = new PreliminaryPhase(user);
@@ -61,8 +61,8 @@ namespace App
         private void buttonBack_Click(object sender, EventArgs e)
         {
             parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
-            Hide();
             parentForm.Show();
+            Hide();
         }
 
         private void Login_Load(object sender, EventArgs e)

@@ -1,5 +1,5 @@
 ﻿using App.Controller;
-using App.Entity;
+using App.Factory;
 using System;
 using System.Windows.Forms;
 
@@ -7,15 +7,15 @@ namespace App
 {
     public partial class Register : Form
     {
-        Form parentForm;
-        PreliminaryPhaseController preliminaryController;
+        private PreliminaryPhaseController preliminaryController;
+        private Form parentForm;
 
-        public Register(Form parentForm, PreliminaryPhaseController preliminaryController)
+        public Register(Form parentForm)
         {
             InitializeComponent();
-            
+
             this.parentForm = parentForm;
-            this.preliminaryController = preliminaryController;
+            preliminaryController = ApplicationFactory.getPreliminaryPhaseController();
         }
 
         private void buttonRegister_Click(object sender, EventArgs e)

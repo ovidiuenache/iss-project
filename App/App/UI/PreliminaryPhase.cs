@@ -1,4 +1,6 @@
-﻿using App.Entity;
+﻿using App.Controller;
+using App.Entity;
+using App.Factory;
 using System;
 using System.Windows.Forms;
 
@@ -12,14 +14,16 @@ namespace App.UI
     /// </summary>
     public partial class PreliminaryPhase : Form
     {
-        CreateConference createConferenceUI;
-        UpdateConference updateConferenceUI;
-        User loggedUser;
+        private CreateConference createConferenceUI;
+        private UpdateConference updateConferenceUI;
+        private PreliminaryPhaseController preliminaryController;
+        private User loggedUser;
 
         public PreliminaryPhase(User loggedUser)
         {
             InitializeComponent();
             this.loggedUser = loggedUser;
+            preliminaryController = ApplicationFactory.getPreliminaryPhaseController();
 
             //TO DO!!!
             //GET HERE THE ACTIVE CONFERENCE

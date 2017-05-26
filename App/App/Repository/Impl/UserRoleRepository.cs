@@ -13,7 +13,6 @@ namespace App.Repository.Impl
     {
         public UserRoleRepository(AppContext context) : base(context)
         {
-
         }
     }
 }
