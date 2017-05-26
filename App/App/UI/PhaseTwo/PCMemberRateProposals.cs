@@ -41,8 +41,11 @@ namespace App.UI.PhaseTwo
         {
             RadioButton checkedReviewButton = this.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
             Proposal prop = phaseTwoController.findProposalById(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
-            Review review = new Review(checkedReviewButton.Text, commentsRichTextBox.Text, this.reviewer, prop, DateTime.Now);
-            phaseTwoController.AddReview(review);
+            Review review = phaseTwoController.findReviewByIdProposalIdReviewer(prop.ProposalId,this.reviewer.UserId);
+            review.Qualifier = checkedReviewButton.Text;
+            review.Comment = commentsRichTextBox.Text;
+            review.DateCreated = DateTime.Now;
+            phaseTwoController.updateReview(review);
         }
 
 

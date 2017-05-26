@@ -45,13 +45,12 @@ namespace App.UI.PhaseTwo
             if (checkedReviewButton.Text.Equals("I want") || checkedReviewButton.Text.Equals("I can"))
             {
                 //Real author: Andu Popa...
-                Review review = phaseTwoController.findReviewByIdProposal(prop.ProposalId);
-                review.Reviewer = reviewer;
-                phaseTwoController.updateReview(review);
+                Review review = new Review("", "", reviewer, prop, new DateTime(2000,01,01));
+                phaseTwoController.addReview(review);
             }
             else
             {
-                phaseTwoController.deleteProposalFromDB(prop);
+                //phaseTwoController.deleteProposalFromDB(prop);
             }
 
 
