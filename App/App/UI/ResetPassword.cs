@@ -22,12 +22,12 @@ namespace App.UI
   /// </summary>
     public partial class ResetPassword : Form
     {
-        LoginController loginController;
-        Form loginForm;
+        private LoginController loginController;
+        private Form parentForm;
         public ResetPassword(Form loginForm, LoginController loginController)
         {
             InitializeComponent();
-            this.loginForm = loginForm;
+            this.parentForm = loginForm;
             this.loginController = loginController;
         }
         private void emailTextBox_Click(object sender, EventArgs e)
@@ -46,21 +46,19 @@ namespace App.UI
         private void resetPass_Click(object sender, EventArgs e)
         {
             MailSender mailSender = new MailSender();
-
-            String finalString = RandomString(8);
+            RandomString randomString = new RandomString();
+            String finalString = randomString.GetString(8);
             String messageToSent = "Your new password is: " + finalString;
             AppContext appContext = new AppContext();
            
-          
-         
-            if (emailTextBox.Text != "" && loginController.GetUserByEmail(emailTextBox.Text)!=null)
+            if (loginController.GetUserByEmail(emailTextBox.Text)!=null)
             {
                 try
                 {
                     MailAddress receiverMail = new MailAddress(emailTextBox.Text);
                     loginController.ChangePassword(emailTextBox.Text, finalString);
                     mailSender.sendMail(receiverMail, messageToSent, "Conference Login Password");
-                    MessageBox.Show("We've sent a new password to these email addresses.");
+                    MessageBox.Show("We've sent a new password to this email address.");
                 }
                 catch (FormatException exception)
                 {
@@ -72,20 +70,11 @@ namespace App.UI
         }
 
 
-        public string RandomString(int length)
-        {
-            Random random = new Random();
-
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            return new string(Enumerable.Repeat(chars, length)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
-
         private void backToLogin_Click(object sender, EventArgs e)
         {
-            loginForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
             Hide();
-            loginForm.Show();
+            parentForm.Show();
         }
     }
 }

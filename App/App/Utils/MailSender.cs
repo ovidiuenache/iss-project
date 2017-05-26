@@ -30,6 +30,7 @@ namespace App.Utils
         /// <param name="mailSubject"></param>
         public void sendMail(MailAddress receiver, string mailBody, string mailSubject)
         {
+           
             MailMessage mail = new MailMessage();
             SmtpClient client = new SmtpClient();
             MailAddress senderMail = new MailAddress("iss.cmsmailer@gmail.com");
@@ -40,7 +41,7 @@ namespace App.Utils
 
             client.Host = "smtp.gmail.com";
             client.Port = 587;
-            client.Credentials = new System.Net.NetworkCredential("iss.cmsmailer@gmail.com", "issteam0");
+            client.Credentials = new System.Net.NetworkCredential("iss.cmsmailer@gmail.com", "copilenunemergemailerul");
             client.EnableSsl = true;
 
             client.Send(mail);
