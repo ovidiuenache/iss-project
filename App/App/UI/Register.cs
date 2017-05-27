@@ -18,6 +18,7 @@ namespace App
             preliminaryController = ApplicationFactory.getPreliminaryPhaseController();
         }
 
+
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
@@ -25,7 +26,7 @@ namespace App
 
         private void Register_Load(object sender, EventArgs e)
         {
-
+            AcceptButton = buttonRegister;
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
