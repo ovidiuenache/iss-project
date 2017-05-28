@@ -6,20 +6,23 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
-/// <summary>
-/// Author : Vancea Vladut
-/// </summary>
+
 
 namespace App.UI.PhaseTwo
 {
+    /// <summary>
+    /// Author : Vancea Vladut, Andu Popa
+    /// </summary>
     public partial class PCMemberBidProposals : Form
     {
+        private PCMemberMain parent;
         private List<Proposal> proposals;
         private User reviewer;
         private PhaseTwoController phaseTwoController;
 
-        public PCMemberBidProposals(PhaseTwoController phaseTwoController, User reviewer)
+        public PCMemberBidProposals(PCMemberMain parent, PhaseTwoController phaseTwoController, User reviewer)
         {
+            this.parent = parent;
             this.proposals = phaseTwoController.getProposals();
             this.reviewer = reviewer;
             this.phaseTwoController = phaseTwoController;
@@ -32,11 +35,7 @@ namespace App.UI.PhaseTwo
             BindingSource source = new BindingSource(bindingList, null);
             proposalsDataGridView.DataSource = source;
         }
-        /// <summary>
-        /// Author: Vancea Vladut
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void submitButton_Click(object sender, EventArgs e)
         {
             RadioButton checkedReviewButton = this.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
@@ -44,25 +43,11 @@ namespace App.UI.PhaseTwo
 
             if (checkedReviewButton.Text.Equals("I want") || checkedReviewButton.Text.Equals("I can"))
             {
-                //Real author: Andu Popa...
                 Review review = new Review("", "", reviewer, prop, new DateTime(2000,01,01));
                 phaseTwoController.addReview(review);
             }
-            else
-            {
-                //phaseTwoController.deleteProposalFromDB(prop);
-            }
-
-
-            
-
         }
 
-        private void proposalsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //do nothing
-
-        }
         private void proposalsDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (phaseTwoController.findReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()), reviewer.UserId))
@@ -71,5 +56,11 @@ namespace App.UI.PhaseTwo
             }
         }
 
+        private void PCMemberBidProposals_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            parent.SetDesktopLocation(this.Location.X, this.Location.Y);
+            parent.Show();
+        }
     }
 }

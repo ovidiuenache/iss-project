@@ -51,6 +51,7 @@
             this.Controls.Add(this.sendEmailsButton);
             this.Name = "ChairToAcceptedAuthors";
             this.Text = "ChairToAcceptedAuthors";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChairToAcceptedAuthors_FormClosing);
             this.ResumeLayout(false);
 
         }

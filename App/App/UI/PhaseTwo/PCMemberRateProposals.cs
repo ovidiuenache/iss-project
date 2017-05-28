@@ -20,9 +20,11 @@ namespace App.UI.PhaseTwo
         private List<Proposal> proposals;
         private User reviewer;
         private PhaseTwoController phaseTwoController;
+        private PCMemberMain parent;
 
-        public PCMemberRateProposals(List<Proposal> proposals, User reviewer, PhaseTwoController phaseTwoController)
+        public PCMemberRateProposals(PCMemberMain parent, List<Proposal> proposals, User reviewer, PhaseTwoController phaseTwoController)
         {
+            this.parent = parent;
             this.proposals = proposals;
             this.reviewer = reviewer;
             this.phaseTwoController = phaseTwoController;
@@ -55,6 +57,13 @@ namespace App.UI.PhaseTwo
             {
                 submitButton.Enabled = false;
             }
+        }
+
+        private void PCMemberRateProposals_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            parent.SetDesktopLocation(this.Location.X, this.Location.Y);
+            parent.Show();
         }
     }
 }

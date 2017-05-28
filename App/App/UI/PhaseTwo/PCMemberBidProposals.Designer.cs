@@ -43,7 +43,6 @@
             this.proposalsDataGridView.Name = "proposalsDataGridView";
             this.proposalsDataGridView.Size = new System.Drawing.Size(227, 483);
             this.proposalsDataGridView.TabIndex = 0;
-            this.proposalsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.proposalsDataGridView_CellContentClick);
             // 
             // radioButtonDa
             // 
@@ -101,6 +100,7 @@
             this.Controls.Add(this.proposalsDataGridView);
             this.Name = "PCMemberBidProposals";
             this.Text = "PCMemberBidProposals";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PCMemberBidProposals_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

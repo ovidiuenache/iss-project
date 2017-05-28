@@ -31,23 +31,16 @@ namespace App.UI.PhaseTwo
             if (this.textBox1.Text == "")
                 MessageBox.Show("Please select a file to upload");
             else
-            {  
-                
-                
+            {   
                 MetaInformation mt = new MetaInformation(proposal, controller, true, textBox1.Text);
                 mt.Show();
-
-                
             }
-
-            //refreshProposals();
         }
 
         private void buttonBrowseFull_Click(object sender, EventArgs e)
         {
             this.openFileDialogBrowse.Title = "Upload full paper";
             openFileDialogBrowse.Filter = "PDF files (*.pdf)|*.pdf|Microsoft Word Files (*.docx)|*.docx";
-
             if (openFileDialogBrowse.ShowDialog() == DialogResult.OK)
             {
                 this.textBox1.Text = openFileDialogBrowse.FileName;

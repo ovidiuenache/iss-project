@@ -1,16 +1,12 @@
 ﻿using App.Controller;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App.UI.PhaseTwo
 {
+    /// <summary>
+    /// Author: Andu Popa
+    /// </summary>
     public partial class ChairMain : Form
     {
         private PhaseTwoController phaseTwoController;
@@ -22,13 +18,17 @@ namespace App.UI.PhaseTwo
 
         private void sendEmailsButton_Click(object sender, EventArgs e)
         {
-            ChairToAcceptedAuthors sendMailView = new ChairToAcceptedAuthors(phaseTwoController, phaseTwoController.getMailSender);
+            ChairToAcceptedAuthors sendMailView = new ChairToAcceptedAuthors(this,phaseTwoController, phaseTwoController.getMailSender);
+            this.Hide();
+            sendMailView.SetDesktopLocation(this.Location.X, this.Location.Y);
             sendMailView.Show();
         }
 
         private void assignButton_Click(object sender, EventArgs e)
         {
-            ChairAssignementToReviewer assignmentView = new ChairAssignementToReviewer(phaseTwoController);
+            ChairAssignementToReviewer assignmentView = new ChairAssignementToReviewer(this,phaseTwoController);
+            this.Hide();
+            assignmentView.SetDesktopLocation(this.Location.X, this.Location.Y);
             assignmentView.Show();
         }
     }

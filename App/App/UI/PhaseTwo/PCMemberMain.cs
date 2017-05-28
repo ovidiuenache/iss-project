@@ -1,4 +1,5 @@
-﻿using App.Entity;
+﻿using App.Controller;
+using App.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,9 @@ using System.Windows.Forms;
 
 namespace App.UI.PhaseTwo
 {
+    /// <summary>
+    /// Author: Andu Popa
+    /// </summary>
     public partial class PCMemberMain : Form
     {
 
@@ -24,21 +28,14 @@ namespace App.UI.PhaseTwo
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Author: Andu Popa
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void rateButton_Click(object sender, EventArgs e)
         {
-            PCMemberRateProposals rateView = new PCMemberRateProposals(phaseTwoController.findProposalByIdUser(reviewer.UserId), reviewer);
+            PCMemberRateProposals rateView = new PCMemberRateProposals(this,phaseTwoController.findProposalByIdUser(reviewer.UserId), reviewer);
+            this.Hide();
+            rateView.SetDesktopLocation(this.Location.X,this.Location.Y);
             rateView.Show();
         }
-        /// <summary>
-        /// Author: Andu Popa
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void buttonRefreshReviews_Click(object sender, EventArgs e)
         {
             if(phaseTwoController.findReviewByIdUser(reviewer.UserId).Count > 0)
@@ -46,9 +43,7 @@ namespace App.UI.PhaseTwo
                 initRatingsGridView();
             }
         }
-        /// <summary>
-        /// Author: Andu Popa
-        /// </summary>
+
         private void initRatingsGridView()
         {
             BindingList<Review> bindingList = new BindingList<Review>(phaseTwoController.findReviewByIdReviewer(reviewer.UserId));
@@ -58,7 +53,9 @@ namespace App.UI.PhaseTwo
 
         private void bidButton_Click(object sender, EventArgs e)
         {
-            PCMemberBidProposals bidView = new PCMemberBidProposals(phaseTwoController, reviewer);
+            PCMemberBidProposals bidView = new PCMemberBidProposals(this,phaseTwoController, reviewer);
+            this.Hide();
+            bidView.SetDesktopLocation(this.Location.X,this.Location.Y);
             bidView.Show();
         }
     }

@@ -72,6 +72,7 @@
             this.Controls.Add(this.proposalsDataGridView);
             this.Name = "ChairAssignementToReviewer";
             this.Text = "ChairAssignementToReviewer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChairAssignementToReviewer_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reviewersDataGridView)).EndInit();
             this.ResumeLayout(false);

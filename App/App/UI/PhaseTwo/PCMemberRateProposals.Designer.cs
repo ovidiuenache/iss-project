@@ -165,6 +165,7 @@
             this.Controls.Add(this.proposalsDataGridView);
             this.Name = "PCMemberRateProposals";
             this.Text = "PCMemberRateProposals";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PCMemberRateProposals_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

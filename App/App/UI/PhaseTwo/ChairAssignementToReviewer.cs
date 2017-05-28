@@ -13,8 +13,10 @@ namespace App.UI.PhaseTwo
     public partial class ChairAssignementToReviewer : Form
     {
         private PhaseTwoController phaseTwoController;
-        public ChairAssignementToReviewer(PhaseTwoController phaseTwoController)
+        private ChairMain parent;
+        public ChairAssignementToReviewer(ChairMain parent,PhaseTwoController phaseTwoController)
         {
+            this.parent = parent;
             this.phaseTwoController = phaseTwoController;
             InitializeComponent();
         }
@@ -34,9 +36,15 @@ namespace App.UI.PhaseTwo
                 if(!reviewers.Contains(rev.Reviewer))
                 {
                     phaseTwoController.removeReview(rev.ReviewId);
-                    continue;
                 }
             }
+        }
+
+        private void ChairAssignementToReviewer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            parent.SetDesktopLocation(this.Location.X,this.Location.Y);
+            parent.Show();
         }
     }
 }

@@ -6,18 +6,19 @@ using System.Collections.Generic;
 using System.Net.Mail;
 using System.Windows.Forms;
 
-/// <summary>
-/// Author : Diana Gociu
-/// </summary>
-
 namespace App.UI.PhaseTwo
 {
+    /// <summary>
+    /// Author : Diana Gociu
+    /// </summary>
     public partial class ChairToAcceptedAuthors : Form
     {
+        private ChairMain parent;
         private PhaseTwoController phaseTwoController;
         private MailSender mailSender;
-        public ChairToAcceptedAuthors(PhaseTwoController phaseTwoController,MailSender mailSender)
+        public ChairToAcceptedAuthors(ChairMain parent, PhaseTwoController phaseTwoController,MailSender mailSender)
         {
+            this.parent = parent;
             this.phaseTwoController = phaseTwoController;
             this.mailSender = new MailSender();
             InitializeComponent();
@@ -54,6 +55,13 @@ namespace App.UI.PhaseTwo
                     mailSender.sendMail(senderM, receiver, mailBody, mailSubject);
                 }
             }
+        }
+
+        private void ChairToAcceptedAuthors_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            parent.SetDesktopLocation(this.Location.X, this.Location.Y);
+            parent.Show();
         }
     }
 }
