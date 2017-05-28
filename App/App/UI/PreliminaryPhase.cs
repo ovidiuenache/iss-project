@@ -22,6 +22,7 @@ namespace App.UI
         public PreliminaryPhase(User loggedUser)
         {
             InitializeComponent();
+
             this.loggedUser = loggedUser;
             preliminaryController = ApplicationFactory.getPreliminaryPhaseController();
 
