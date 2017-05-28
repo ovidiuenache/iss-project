@@ -3,12 +3,12 @@ using App.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+/// <summary>
+/// Author : Vancea Vladut
+/// </summary>
 
 namespace App.UI.PhaseTwo
 {
@@ -18,9 +18,9 @@ namespace App.UI.PhaseTwo
         private User reviewer;
         private PhaseTwoController phaseTwoController;
 
-        public PCMemberBidProposals(PhaseTwoController phaseTwoController, List<Proposal> proposals, User reviewer)
+        public PCMemberBidProposals(PhaseTwoController phaseTwoController, User reviewer)
         {
-            this.proposals = proposals;
+            this.proposals = phaseTwoController.getProposals();
             this.reviewer = reviewer;
             this.phaseTwoController = phaseTwoController;
             initProposalsDataGridView();

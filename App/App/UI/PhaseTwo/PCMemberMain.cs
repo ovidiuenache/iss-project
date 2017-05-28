@@ -55,5 +55,11 @@ namespace App.UI.PhaseTwo
             BindingSource source = new BindingSource(bindingList, null);
             ratingsGridView.DataSource = source;
         }
+
+        private void bidButton_Click(object sender, EventArgs e)
+        {
+            PCMemberBidProposals bidView = new PCMemberBidProposals(phaseTwoController, reviewer);
+            bidView.Show();
+        }
     }
 }

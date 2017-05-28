@@ -41,6 +41,7 @@
             this.assignButton.TabIndex = 0;
             this.assignButton.Text = "ASSIGN";
             this.assignButton.UseVisualStyleBackColor = false;
+            this.assignButton.Click += new System.EventHandler(this.assignButton_Click);
             // 
             // sendEmailsButton
             // 

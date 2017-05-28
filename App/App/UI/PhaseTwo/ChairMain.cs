@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,23 @@ namespace App.UI.PhaseTwo
 {
     public partial class ChairMain : Form
     {
-        public ChairMain()
+        private PhaseTwoController phaseTwoController;
+        public ChairMain(PhaseTwoController phaseTwoController)
         {
+            this.phaseTwoController = phaseTwoController;
             InitializeComponent();
         }
 
         private void sendEmailsButton_Click(object sender, EventArgs e)
         {
+            ChairToAcceptedAuthors sendMailView = new ChairToAcceptedAuthors(phaseTwoController, phaseTwoController.getMailSender);
+            sendMailView.Show();
+        }
 
+        private void assignButton_Click(object sender, EventArgs e)
+        {
+            ChairAssignementToReviewer assignmentView = new ChairAssignementToReviewer(phaseTwoController);
+            assignmentView.Show();
         }
     }
 }

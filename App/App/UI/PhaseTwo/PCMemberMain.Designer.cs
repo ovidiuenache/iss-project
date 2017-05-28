@@ -63,6 +63,7 @@
             this.bidButton.TabIndex = 2;
             this.bidButton.Text = "BID";
             this.bidButton.UseVisualStyleBackColor = false;
+            this.bidButton.Click += new System.EventHandler(this.bidButton_Click);
             // 
             // rateButton
             // 
