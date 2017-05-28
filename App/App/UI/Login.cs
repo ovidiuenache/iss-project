@@ -21,6 +21,7 @@ namespace App
             loginController = ApplicationFactory.getLoginController();
         }
 
+
         private void LoginButton_Click(object sender, EventArgs e)
         {
             string username = UserNameTextBox.Text;
@@ -67,6 +68,7 @@ namespace App
 
         private void Login_Load(object sender, EventArgs e)
         {
+            AcceptButton = LoginButton;
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
