@@ -266,3 +266,20 @@ G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug
 G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.UI.UpdateConference.resources
 D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\bin\Debug\App.exe.config
 C:\Users\Andu\Desktop\iss-project\App\App\bin\Debug\App.exe.config
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.Properties.Resources.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.ConferenceDetails.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.CreateConference.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.Login.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.MetaInformation.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.PreliminaryPhase.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.Register.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.UpdateConference.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.UserAccount.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.AuthorMain.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ChairAssignementToReviewer.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ChairMain.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ChairToAcceptedAuthors.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.PCMemberBidProposals.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.PCMemberMain.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.PCMemberRateProposals.resources
+D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.csproj.GenerateResource.Cache

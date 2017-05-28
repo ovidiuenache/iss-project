@@ -16,5 +16,10 @@ namespace App.UI.PhaseTwo
         {
             InitializeComponent();
         }
+
+        private void sendEmailsButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

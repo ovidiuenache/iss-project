@@ -41,6 +41,7 @@
             this.sendEmailsButton.TabIndex = 0;
             this.sendEmailsButton.Text = "Send emails";
             this.sendEmailsButton.UseVisualStyleBackColor = false;
+            this.sendEmailsButton.Click += new System.EventHandler(this.sendEmailsButton_Click);
             // 
             // ChairToAcceptedAuthors
             // 
