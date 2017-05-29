@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace App.Utils
 {
-    public class RandomString
+    public class PasswordGenerator
     {
         public string GetString(int length)
         {

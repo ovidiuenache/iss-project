@@ -46,7 +46,7 @@ namespace App.UI
         private void resetPass_Click(object sender, EventArgs e)
         {
             MailSender mailSender = new MailSender();
-            RandomString randomString = new RandomString();
+            PasswordGenerator randomString = new PasswordGenerator();
             String finalString = randomString.GetString(8);
             String messageToSent = "Your new password is: " + finalString;
             AppContext appContext = new AppContext();

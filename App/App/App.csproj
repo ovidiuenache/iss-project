@@ -282,7 +282,7 @@
     <Compile Include="Utils\ConferenceValidator.cs" />
     <Compile Include="Utils\IValidator.cs" />
     <Compile Include="Utils\MailSender.cs" />
-    <Compile Include="Utils\RandomString.cs" />
+    <Compile Include="Utils\PasswordGenerator.cs" />
     <Compile Include="Utils\UserValidator.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
