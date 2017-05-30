@@ -13,7 +13,6 @@ namespace App.Repository.Impl
     {
         public ReviewRepository(AppContext context) : base(context)
         {
-
         }
     }
 }

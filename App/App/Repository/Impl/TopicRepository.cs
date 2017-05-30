@@ -13,7 +13,6 @@ namespace App.Repository.Impl
     {
         public TopicRepository(AppContext context) : base(context)
         {
-
         }
     }
 }
