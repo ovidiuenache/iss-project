@@ -30,7 +30,7 @@ namespace App.UI.PhaseTwo
 
         private void rateButton_Click(object sender, EventArgs e)
         {
-            PCMemberRateProposals rateView = new PCMemberRateProposals(this,phaseTwoController.findProposalByIdUser(reviewer.UserId), reviewer);
+            PCMemberRateProposals rateView = new PCMemberRateProposals(this,phaseTwoController.getReviewsByIdReviewer(reviewer.UserId), reviewer, phaseTwoController);
             this.Hide();
             rateView.SetDesktopLocation(this.Location.X,this.Location.Y);
             rateView.Show();
@@ -38,7 +38,7 @@ namespace App.UI.PhaseTwo
 
         private void buttonRefreshReviews_Click(object sender, EventArgs e)
         {
-            if(phaseTwoController.findReviewByIdUser(reviewer.UserId).Count > 0)
+            if(phaseTwoController.getReviewsByIdReviewer(reviewer.UserId).Count > 0)
             {
                 initRatingsGridView();
             }
@@ -46,7 +46,7 @@ namespace App.UI.PhaseTwo
 
         private void initRatingsGridView()
         {
-            BindingList<Review> bindingList = new BindingList<Review>(phaseTwoController.findReviewByIdReviewer(reviewer.UserId));
+            BindingList<Review> bindingList = new BindingList<Review>(phaseTwoController.getReviewsByIdReviewer(reviewer.UserId));
             BindingSource source = new BindingSource(bindingList, null);
             ratingsGridView.DataSource = source;
         }

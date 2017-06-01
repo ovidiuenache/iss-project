@@ -18,7 +18,7 @@ namespace App.UI.PhaseTwo
 
         private void sendEmailsButton_Click(object sender, EventArgs e)
         {
-            ChairToAcceptedAuthors sendMailView = new ChairToAcceptedAuthors(this,phaseTwoController, phaseTwoController.getMailSender);
+            ChairToAcceptedAuthors sendMailView = new ChairToAcceptedAuthors(this,phaseTwoController, new Utils.MailSender());
             this.Hide();
             sendMailView.SetDesktopLocation(this.Location.X, this.Location.Y);
             sendMailView.Show();

@@ -1,4 +1,5 @@
-﻿using App.Entity;
+﻿using App.Controller;
+using App.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,15 +18,15 @@ namespace App.UI.PhaseTwo
     public partial class PCMemberRateProposals : Form
     {
 
-        private List<Proposal> proposals;
+        private List<Review> reviews;
         private User reviewer;
         private PhaseTwoController phaseTwoController;
         private PCMemberMain parent;
 
-        public PCMemberRateProposals(PCMemberMain parent, List<Proposal> proposals, User reviewer, PhaseTwoController phaseTwoController)
+        public PCMemberRateProposals(PCMemberMain parent, List<Review> reviews, User reviewer, PhaseTwoController phaseTwoController)
         {
             this.parent = parent;
-            this.proposals = proposals;
+            this.reviews = reviews;
             this.reviewer = reviewer;
             this.phaseTwoController = phaseTwoController;
             initProposalsDataGridView();
@@ -34,7 +35,7 @@ namespace App.UI.PhaseTwo
 
         private void initProposalsDataGridView()
         {
-            BindingList<Proposal> bindingList = new BindingList<Proposal>(proposals);
+            BindingList<Review> bindingList = new BindingList<Review>(reviews);
             BindingSource source = new BindingSource(bindingList, null);
             proposalsDataGridView.DataSource = source;
         }
@@ -42,8 +43,7 @@ namespace App.UI.PhaseTwo
         private void submitButton_Click(object sender, EventArgs e)
         {
             RadioButton checkedReviewButton = this.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            Proposal prop = phaseTwoController.findProposalById(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
-            Review review = phaseTwoController.findReviewByIdProposalIdReviewer(prop.ProposalId,this.reviewer.UserId);
+            Review review = phaseTwoController.getReview(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
             review.Qualifier = checkedReviewButton.Text;
             review.Comment = commentsRichTextBox.Text;
             review.DateCreated = DateTime.Now;
@@ -53,7 +53,7 @@ namespace App.UI.PhaseTwo
 
         private void proposalsDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if(phaseTwoController.findReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()),reviewer.UserId))
+            if(phaseTwoController.getReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()),this.reviewer.UserId)!=null)
             {
                 submitButton.Enabled = false;
             }
