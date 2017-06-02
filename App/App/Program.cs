@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using App.Entity;
 using App.Migrations.Seed;
 using App.UI.PhaseThree;
 
@@ -19,7 +20,7 @@ namespace App
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ListenerMain());
+            Application.Run(new ListenerMain(new User()));
         }
     }
 }

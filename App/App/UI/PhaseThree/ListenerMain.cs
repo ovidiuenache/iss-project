@@ -16,38 +16,39 @@ namespace App.UI.PhaseThree
     public partial class ListenerMain : Form
     {
         private PhaseThreeController PhaseThreeController;
+        private User LoggedUser;
 
-        public ListenerMain()
+        public ListenerMain(User loggedUser)
         {
             InitializeComponent();
             PhaseThreeController = ApplicationFactory.GetPhaseThreeController();
-
+            LoggedUser = loggedUser;
         }
 
         private void ListenerMain_Load(object sender, EventArgs e)
         {
-            LoadTopics();
+            LoadSections();
         }
 
-        private void LoadTopics()
+        private void LoadSections()
         {
-            List<Topic> topics = PhaseThreeController.FindAllTopics();
+            List<Section> topics = PhaseThreeController.FindAllTopics();
 
-            foreach (Topic topic in topics)
+            foreach (Section section in topics)
             {
-                listBoxTopics.Items.Add(topic.Name);
+                listBoxTopics.Items.Add(section.Name);
             }
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            List<Topic> selectedTopics = new List<Topic>();
+            List<Section> selectedSections = new List<Section>();
             foreach (int i in listBoxTopics.SelectedIndices)
             {
-                string topicName = listBoxTopics.Items[i].ToString();
-                selectedTopics.Add(PhaseThreeController.FindTopicByName(topicName));
+                string sectionName = listBoxTopics.Items[i].ToString();
+                selectedSections.Add(PhaseThreeController.FindSectionByName(sectionName));
             }
-            //PhaseThreeController.AddTopicsToListner();
+            PhaseThreeController.AddListenerToSections(selectedSections, LoggedUser);
         }
     }
 }

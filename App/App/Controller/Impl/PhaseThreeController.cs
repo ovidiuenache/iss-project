@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using App.Entity;
 using App.Repository;
+using App.Repository.Impl;
 
 namespace App.Controller
 {
@@ -10,27 +11,46 @@ namespace App.Controller
     /// Author : Catalin Radoiu 
     /// Author : Claudiu Nicola
     /// </summary>
-    public class PhaseThreeController
+    public class PhaseThreeController : IPhaseThreeController
     {
-        private ITopicRepository TopicRepository;
+        private ISectionRepository SectionRepository;
 
-        public PhaseThreeController(ITopicRepository topicRepository)
+        public PhaseThreeController(ISectionRepository sectionRepository)
         {
-            TopicRepository = topicRepository;
+            SectionRepository = sectionRepository;
         }
 
         /// <summary>
         /// Get a list with all topics.
         /// </summary>
         /// <returns></returns>
-        public List<Topic> FindAllTopics()
+        public List<Section> FindAllTopics()
         {
-            return TopicRepository.All();
+            return SectionRepository.All();
         }
 
-        public Topic FindTopicByName(string topicName)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sectionName"></param>
+        /// <returns></returns>
+        public Section FindSectionByName(string sectionName)
         {
-            return TopicRepository.FindTopicByName(topicName);
+            return SectionRepository.FindSectionByName(sectionName);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sections"></param>
+        /// <param name="loggedUser"></param>
+        public void AddListenerToSections(List<Section> sections, User loggedUser)
+        {
+            foreach (var section in sections)
+            {
+                section.Listeners.Add(loggedUser);
+                SectionRepository.Update(section);
+            }
         }
     }
 }

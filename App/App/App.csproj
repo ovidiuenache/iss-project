@@ -162,11 +162,13 @@
     <Compile Include="Controller\Impl\PhaseThreeController.cs" />
     <Compile Include="Controller\Impl\PhaseTwoController.cs" />
     <Compile Include="Controller\Impl\PreliminaryPhaseController.cs" />
+    <Compile Include="Repository\Impl\SectionRepository.cs" />
     <Compile Include="Controller\IPhaseOneController.cs" />
     <Compile Include="Controller\IPhaseThreeController.cs" />
     <Compile Include="Controller\IPhaseTwoController.cs" />
     <Compile Include="Controller\IPreliminaryPhaseController.cs" />
     <Compile Include="Controller\ConferenceController.cs" />
+    <Compile Include="Repository\ISectionRepository.cs" />
     <Compile Include="Entity\Conference.cs" />
     <Compile Include="Entity\ConferenceUser.cs" />
     <Compile Include="Entity\Phase.cs" />
