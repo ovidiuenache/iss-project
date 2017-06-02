@@ -1,4 +1,5 @@
-﻿using App.Entity;
+﻿using App.Controller;
+using App.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,10 @@ namespace App.UI.PhaseTwo
 {
     public partial class AuthorMain : Form
     {
-        private ProposalController controller;
+        private PhaseOneController controller;
         private Proposal proposal;
         private User user;
-        public AuthorMain(ProposalController controller, Proposal proposal, User author)
+        public AuthorMain(PhaseOneController controller, Proposal proposal, User author)
         {
             this.controller = controller;
             this.proposal = proposal;

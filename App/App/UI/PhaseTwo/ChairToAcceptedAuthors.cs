@@ -32,7 +32,7 @@ namespace App.UI.PhaseTwo
             List<User> authors = new List<User>();
             
 
-            proposals = phaseTwoController.getAllProposals();
+            proposals = phaseTwoController.getProposals();
             foreach(Proposal proposal in proposals)
             {
                 String result = "";

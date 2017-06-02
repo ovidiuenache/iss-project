@@ -39,7 +39,7 @@ namespace App.UI.PhaseTwo
         private void submitButton_Click(object sender, EventArgs e)
         {
             RadioButton checkedReviewButton = this.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            Proposal prop = phaseTwoController.findProposalById(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
+            Proposal prop = phaseTwoController.getProposal(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
 
             if (checkedReviewButton.Text.Equals("I want") || checkedReviewButton.Text.Equals("I can"))
             {
@@ -50,7 +50,7 @@ namespace App.UI.PhaseTwo
 
         private void proposalsDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if (phaseTwoController.findReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()), reviewer.UserId))
+            if (phaseTwoController.getReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()), reviewer.UserId) != null)
             {
                 submitButton.Enabled = false;
             }

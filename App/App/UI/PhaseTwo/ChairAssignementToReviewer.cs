@@ -28,7 +28,7 @@ namespace App.UI.PhaseTwo
             reviews = phaseTwoController.getReviewsByProposalId(Int32.Parse(proposalsDataGridView.CurrentRow.Cells[0].ToString()));
             foreach (DataGridViewRow row in reviewersDataGridView.SelectedRows)
             {
-                User reviewer = phaseTwoController.getReviewerById(Int32.Parse(row.Cells[0].ToString()));
+                User reviewer = phaseTwoController.getReviewer(Int32.Parse(row.Cells[0].ToString()));
                 reviewers.Add(reviewer);
             }
             foreach(Review rev in reviews)
