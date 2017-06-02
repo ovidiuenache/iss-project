@@ -43,6 +43,10 @@ namespace App.Context
                 .HasOne(x => x.MetaInformation)
                 .WithOne(x => x.Proposal)
                 .HasForeignKey<ProposalMetaInformation>(x => x.ProposalForeignKey);
+
+            modelBuilder.Entity<Topic>()
+                .HasIndex(t => t.Name)
+                .IsUnique();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
