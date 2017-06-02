@@ -52,7 +52,7 @@ namespace App.UI.PhaseTwo
                     MailAddress receiver = new MailAddress(author.Email);
                     string mailBody = "Thank you for your application. \n Here are your results: \n" + result;                    
                     string mailSubject = "Proposal Review";
-                    mailSender.sendMail(senderM, receiver, mailBody, mailSubject);
+                    mailSender.sendMail(receiver, mailBody, mailSubject);
                 }
             }
         }

@@ -48,12 +48,16 @@ namespace App.Context
                 .HasOne(x => x.MetaInformation)
                 .WithOne(x => x.Proposal)
                 .HasForeignKey<ProposalMetaInformation>(x => x.ProposalForeignKey);
+
+            modelBuilder.Entity<Topic>()
+                .HasIndex(t => t.Name)
+                .IsUnique();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Data Source=DESKTOP-C6EA23V\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
+                @"Data Source=DESKTOP-MB4097H\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
         }
     }
 }
