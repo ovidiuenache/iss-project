@@ -60,7 +60,9 @@ namespace App.UI
                     mailSender.sendMail(receiverMail, messageToSent, "Conference Login Password");
                     MessageBox.Show("We've sent a new password to this email address.");
                 }
+                #pragma warning disable CS0168 // Variable is declared but never used
                 catch (FormatException exception)
+                #pragma warning restore CS0168 // Variable is declared but never used
                 {
                     MessageBox.Show("The email adress is invalid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

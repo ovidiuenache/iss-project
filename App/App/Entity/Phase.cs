@@ -39,5 +39,10 @@ namespace App.Entity
 
             return PhaseId == item?.PhaseId;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

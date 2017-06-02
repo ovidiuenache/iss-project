@@ -50,7 +50,8 @@ namespace App.Factory
                 getUserRepository(),
                 getConferenceRepository(),
                 getTopicRepository(),
-                getPhaseRepository()
+                getPhaseRepository(),
+                getConferenceUserRepository()
             );
         }
 
@@ -64,7 +65,7 @@ namespace App.Factory
             return new PhaseOneController();
         }
 
-        public static ConferenceUserRepository GetConferenceUserRepository()
+        public static ConferenceUserRepository getConferenceUserRepository()
         {
             return new ConferenceUserRepository(getAppContext());
         }

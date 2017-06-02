@@ -31,5 +31,10 @@
 
             return TopicId == item?.TopicId;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

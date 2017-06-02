@@ -42,5 +42,10 @@ namespace App.Entity
 
             return ReviewId == item?.ReviewId;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

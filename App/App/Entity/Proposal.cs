@@ -34,5 +34,10 @@
 
             return ProposalId == item?.ProposalId;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

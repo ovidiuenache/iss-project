@@ -80,7 +80,9 @@ namespace App.Validators
                 System.Net.Mail.MailAddress addr = new System.Net.Mail.MailAddress(email);
                 return addr.Address == email;
             }
+            #pragma warning disable CS0168 // Variable is declared but never used
             catch (FormatException exception)
+            #pragma warning restore CS0168 // Variable is declared but never used
             {
                 return false;
             }
