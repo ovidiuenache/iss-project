@@ -44,10 +44,9 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(32, 527);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBack.Location = new System.Drawing.Point(24, 428);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(115, 53);
+            this.buttonBack.Size = new System.Drawing.Size(86, 43);
             this.buttonBack.TabIndex = 0;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -55,10 +54,9 @@
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(200, 527);
-            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonUpdate.Location = new System.Drawing.Point(150, 428);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(271, 53);
+            this.buttonUpdate.Size = new System.Drawing.Size(203, 43);
             this.buttonUpdate.TabIndex = 22;
             this.buttonUpdate.Text = "Update Conference";
             this.buttonUpdate.UseVisualStyleBackColor = true;
@@ -67,98 +65,80 @@
             // listBoxTopics
             // 
             this.listBoxTopics.FormattingEnabled = true;
-            this.listBoxTopics.ItemHeight = 16;
-            this.listBoxTopics.Items.AddRange(new object[] {
-            "Politics",
-            "Environment",
-            "Cars",
-            "IT",
-            "Technology",
-            "Gaming",
-            "Family"});
-            this.listBoxTopics.Location = new System.Drawing.Point(200, 183);
-            this.listBoxTopics.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxTopics.Location = new System.Drawing.Point(150, 149);
             this.listBoxTopics.Name = "listBoxTopics";
             this.listBoxTopics.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBoxTopics.Size = new System.Drawing.Size(269, 260);
+            this.listBoxTopics.Size = new System.Drawing.Size(203, 212);
             this.listBoxTopics.TabIndex = 31;
             // 
             // dateTimePicker
             // 
             this.dateTimePicker.CustomFormat = "dd-MM-yyyy";
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker.Location = new System.Drawing.Point(200, 55);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker.Location = new System.Drawing.Point(150, 45);
             this.dateTimePicker.MaxDate = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker.MinDate = new System.DateTime(2017, 5, 5, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(269, 22);
+            this.dateTimePicker.Size = new System.Drawing.Size(203, 20);
             this.dateTimePicker.TabIndex = 30;
             this.dateTimePicker.Value = new System.DateTime(2017, 5, 5, 18, 45, 22, 0);
             // 
             // textBoxFee
             // 
-            this.textBoxFee.Location = new System.Drawing.Point(200, 470);
-            this.textBoxFee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxFee.Location = new System.Drawing.Point(150, 382);
             this.textBoxFee.Name = "textBoxFee";
-            this.textBoxFee.Size = new System.Drawing.Size(269, 22);
+            this.textBoxFee.Size = new System.Drawing.Size(203, 20);
             this.textBoxFee.TabIndex = 29;
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(200, 17);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxName.Location = new System.Drawing.Point(150, 14);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(269, 22);
+            this.textBoxName.Size = new System.Drawing.Size(203, 20);
             this.textBoxName.TabIndex = 28;
             // 
             // labelFee
             // 
             this.labelFee.AutoSize = true;
-            this.labelFee.Location = new System.Drawing.Point(28, 474);
-            this.labelFee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelFee.Location = new System.Drawing.Point(21, 385);
             this.labelFee.Name = "labelFee";
-            this.labelFee.Size = new System.Drawing.Size(117, 17);
+            this.labelFee.Size = new System.Drawing.Size(89, 13);
             this.labelFee.TabIndex = 27;
             this.labelFee.Text = "Conference Fee: ";
             // 
             // labelTopics
             // 
             this.labelTopics.AutoSize = true;
-            this.labelTopics.Location = new System.Drawing.Point(28, 183);
-            this.labelTopics.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTopics.Location = new System.Drawing.Point(21, 149);
             this.labelTopics.Name = "labelTopics";
-            this.labelTopics.Size = new System.Drawing.Size(58, 17);
+            this.labelTopics.Size = new System.Drawing.Size(45, 13);
             this.labelTopics.TabIndex = 26;
             this.labelTopics.Text = "Topics: ";
             // 
             // labelCommitee
             // 
             this.labelCommitee.AutoSize = true;
-            this.labelCommitee.Location = new System.Drawing.Point(28, 118);
-            this.labelCommitee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCommitee.Location = new System.Drawing.Point(21, 96);
             this.labelCommitee.Name = "labelCommitee";
-            this.labelCommitee.Size = new System.Drawing.Size(140, 17);
+            this.labelCommitee.Size = new System.Drawing.Size(105, 13);
             this.labelCommitee.TabIndex = 25;
             this.labelCommitee.Text = "Commitee Members: ";
             // 
             // labelEndDate
             // 
             this.labelEndDate.AutoSize = true;
-            this.labelEndDate.Location = new System.Drawing.Point(28, 64);
-            this.labelEndDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEndDate.Location = new System.Drawing.Point(21, 52);
             this.labelEndDate.Name = "labelEndDate";
-            this.labelEndDate.Size = new System.Drawing.Size(75, 17);
+            this.labelEndDate.Size = new System.Drawing.Size(58, 13);
             this.labelEndDate.TabIndex = 24;
             this.labelEndDate.Text = "End Date: ";
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(28, 21);
-            this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelName.Location = new System.Drawing.Point(21, 17);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(53, 17);
+            this.labelName.Size = new System.Drawing.Size(41, 13);
             this.labelName.TabIndex = 23;
             this.labelName.Text = "Name: ";
             // 
@@ -169,17 +149,18 @@
             this.comboBoxCheckedListUpdate.DropDownHeight = 1;
             this.comboBoxCheckedListUpdate.FormattingEnabled = true;
             this.comboBoxCheckedListUpdate.IntegralHeight = false;
-            this.comboBoxCheckedListUpdate.Location = new System.Drawing.Point(200, 115);
+            this.comboBoxCheckedListUpdate.Location = new System.Drawing.Point(150, 93);
+            this.comboBoxCheckedListUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCheckedListUpdate.Name = "comboBoxCheckedListUpdate";
-            this.comboBoxCheckedListUpdate.Size = new System.Drawing.Size(269, 23);
+            this.comboBoxCheckedListUpdate.Size = new System.Drawing.Size(203, 21);
             this.comboBoxCheckedListUpdate.TabIndex = 33;
             this.comboBoxCheckedListUpdate.ValueSeparator = ", ";
             // 
             // UpdateConference
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 592);
+            this.ClientSize = new System.Drawing.Size(377, 488);
             this.Controls.Add(this.comboBoxCheckedListUpdate);
             this.Controls.Add(this.listBoxTopics);
             this.Controls.Add(this.dateTimePicker);
@@ -192,11 +173,10 @@
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonBack);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(519, 639);
+            this.MaximumSize = new System.Drawing.Size(393, 527);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(519, 639);
+            this.MinimumSize = new System.Drawing.Size(393, 527);
             this.Name = "UpdateConference";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

@@ -46,7 +46,7 @@
             // 
             // resetPass
             // 
-            this.resetPass.Location = new System.Drawing.Point(138, 100);
+            this.resetPass.Location = new System.Drawing.Point(138, 113);
             this.resetPass.Name = "resetPass";
             this.resetPass.Size = new System.Drawing.Size(107, 38);
             this.resetPass.TabIndex = 0;
@@ -64,7 +64,7 @@
             // 
             // backToLogin
             // 
-            this.backToLogin.Location = new System.Drawing.Point(35, 100);
+            this.backToLogin.Location = new System.Drawing.Point(35, 113);
             this.backToLogin.Name = "backToLogin";
             this.backToLogin.Size = new System.Drawing.Size(87, 38);
             this.backToLogin.TabIndex = 3;
@@ -82,8 +82,15 @@
             this.Controls.Add(this.resetPass);
             this.Controls.Add(this.emailTextBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(283, 213);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(283, 213);
             this.Name = "ResetPassword";
+            this.ShowIcon = false;
             this.Text = "ResetPassword";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ResetPassword_FormClosing);
+            this.Load += new System.EventHandler(this.ResetPassword_Load);
             this.Click += new System.EventHandler(this.autoCompleteText);
             this.ResumeLayout(false);
             this.PerformLayout();
