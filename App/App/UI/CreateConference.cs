@@ -60,13 +60,13 @@ namespace App.UI
             List<Topic> selectedTopics = new List<Topic>();
             foreach (int i in listBoxTopics.SelectedIndices)
             {
-                string topicName = listBoxTopics.Items[listBoxTopics.SelectedIndex].ToString();
+                string topicName = listBoxTopics.Items[i].ToString();
                 selectedTopics.Add(preliminaryController.FindTopicByName(topicName));
             }
             string fee = textBoxFee.Text;
 
-            try
-            {
+            //try
+            //{
                 Conference conference = new Conference();
                 conference.Name = conferenceName;
                 conference.EndDate = endDate;
@@ -82,13 +82,13 @@ namespace App.UI
                 conference.StartDate = DateTime.Now;
                 conference.ActivePhase = preliminaryPhase;
 
-                preliminaryController.CreateConference(conference);
+                preliminaryController.CreateConference(conference, commiteeMembers);
                 MessageBox.Show("Conference has been successfully created!\nYou can update it in the \"Update Conference\" section!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //}
+           // catch (System.Exception ex)
+           // {
+           //     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+          //  }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

@@ -1,5 +1,6 @@
 ﻿using App.Context;
 using App.Controller;
+using App.Entity;
 using App.Repository.Impl;
 
 namespace App.Factory
@@ -61,6 +62,11 @@ namespace App.Factory
         public static PhaseOneController getPhaseOneController()
         {
             return new PhaseOneController();
+        }
+
+        public static ConferenceUserRepository GetConferenceUserRepository()
+        {
+            return new ConferenceUserRepository(getAppContext());
         }
     }
 }

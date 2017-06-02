@@ -4,6 +4,7 @@ using App.Repository;
 using App.Utils;
 using System.Collections.Generic;
 using System.Net.Mail;
+using App.Factory;
 
 namespace App.Controller
 {
@@ -20,14 +21,22 @@ namespace App.Controller
         private IConferenceRepository ConferenceRepository;
         private ITopicRepository TopicRepository;
         private IPhaseRepository PhaseRepository;
+        private IConferenceUserRepository ConferenceUserRepository;
         private MailSender MailSender;
 
-        public PreliminaryPhaseController(IUserRepository userRepository, IConferenceRepository conferenceRepository, ITopicRepository topicRepository, IPhaseRepository phaseRepository)
+        public PreliminaryPhaseController(
+            IUserRepository userRepository, 
+            IConferenceRepository conferenceRepository, 
+            ITopicRepository topicRepository, 
+            IPhaseRepository phaseRepository,
+            IConferenceUserRepository conferenceUserRepository
+        )
         {
             UserRepository = userRepository;
             ConferenceRepository = conferenceRepository;
             TopicRepository = topicRepository;
             PhaseRepository = phaseRepository;
+            ConferenceUserRepository = conferenceUserRepository;
             MailSender = new MailSender();
         }
 
@@ -45,18 +54,25 @@ namespace App.Controller
                 MailAddress receiver = new MailAddress(user.Email);
                 string mailBody = "Thank you for your registration. Your account " +
                                   "has been created succesfully.\nYour credentials are : \n" +
-                                  "Username : " + user.Email + 
+                                  "Username : " + user.Email +
                                   "\nPassword : " + user.Password;
                 string mailSubject = "Registration complete";
                 MailSender.sendMail(receiver, mailBody, mailSubject);
             }
         }
 
-        public void CreateConference(Conference conference)
+        public void CreateConference(Conference conference, List<User> comiteeMembers)
         {
             if (ConferenceRepository.GetActiveConference() == null)
             {
-                ConferenceRepository.Add(conference);
+                var conferenceUsers = new ConferenceUser();
+                foreach (var member in comiteeMembers)
+                {
+                    conferenceUsers = new ConferenceUser();
+                    conferenceUsers.User = member;
+                    conferenceUsers.Conference = conference;
+                    ConferenceUserRepository.Add(conferenceUsers);
+                }
             }
             else
             {

@@ -22,7 +22,6 @@ namespace App.Entity
 
         public ProposalMetaInformation()
         {
-            ProposalMetaInformationId = -1;
             Title = "";
             Authors = new List<User>();
             Year = -1;

@@ -205,8 +205,10 @@
     <Compile Include="Exception\InvalidPasswordException.cs" />
     <Compile Include="Exception\InvalidQualifierException.cs" />
     <Compile Include="Repository\IConferenceRepository.cs" />
+    <Compile Include="Repository\IConferenceUserRepository.cs" />
     <Compile Include="Repository\Impl\AbstractRepository.cs" />
     <Compile Include="Repository\Impl\ConferenceRepository.cs" />
+    <Compile Include="Repository\Impl\ConferenceUserRepository.cs" />
     <Compile Include="Repository\Impl\PhaseRepository.cs" />
     <Compile Include="Repository\Impl\ProposalMetaInformationRepository.cs" />
     <Compile Include="Repository\Impl\ProposalRepository.cs" />

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace App.Entity
 {
@@ -16,6 +18,8 @@ namespace App.Entity
         public string Name { get; set; }
 
         public DateTime Deadline { get; set; }
+
+        public IList<Conference> Conferences { get; set; }
 
         public Phase()
         {
