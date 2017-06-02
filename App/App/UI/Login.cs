@@ -66,8 +66,6 @@ namespace App
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
-            parentForm.Show();
             Close();
         }
 
@@ -78,7 +76,8 @@ namespace App
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Show();
         }
 
         private void resetPassword_Click(object sender, EventArgs e)

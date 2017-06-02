@@ -18,11 +18,7 @@ namespace App
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            ConferenceDetails main = new ConferenceDetails();
-            main.Show();
-
-            Application.Run();
+            Application.Run(new ConferenceDetails());
         }
     }
 }

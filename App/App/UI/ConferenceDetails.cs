@@ -71,7 +71,7 @@ namespace App
 
             loginChild.Location = new System.Drawing.Point(Location.X, Location.Y);
             loginChild.Show();
-            Close();
+            Hide();
         }
 
         private void btn_Register_Click(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace App
 
             registerChild.Location = new System.Drawing.Point(Location.X, Location.Y);
             registerChild.Show();
-            Close();
+            Hide();
         }
 
         private void ConferenceDetails_Load(object sender, EventArgs e)
