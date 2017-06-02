@@ -178,6 +178,7 @@
     <Compile Include="Entity\User.cs" />
     <Compile Include="Entity\UserRole.cs" />
     <Compile Include="Exception\ConferenceInProgressException.cs" />
+    <Compile Include="Factory\ApplicationFactory.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +281,48 @@
       <DependentUpon>UserAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\ConferenceValidator.cs" />
+	<Compile Include="UI\PhaseTwo\AuthorMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhaseTwo\AuthorMain.Designer.cs">
+      <DependentUpon>AuthorMain.cs</DependentUpon>
+    </Compile>
+	<Compile Include="UI\PhaseTwo\ChairAssignementToReviewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhaseTwo\ChairAssignementToReviewer.Designer.cs">
+      <DependentUpon>ChairAssignementToReviewer.cs</DependentUpon>
+    </Compile>
+	<Compile Include="UI\PhaseTwo\ChairMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhaseTwo\ChairMain.Designer.cs">
+      <DependentUpon>ChairMain.cs</DependentUpon>
+    </Compile>
+	<Compile Include="UI\PhaseTwo\ChairToAcceptedAuthors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhaseTwo\ChairToAcceptedAuthors.Designer.cs">
+      <DependentUpon>ChairToAcceptedAuthors.cs</DependentUpon>
+    </Compile>
+	<Compile Include="UI\PhaseTwo\PCMemberBidProposals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhaseTwo\PCMemberBidProposals.Designer.cs">
+      <DependentUpon>PCMemberBidProposals.cs</DependentUpon>
+    </Compile>	
+	<Compile Include="UI\PhaseTwo\PCMemberMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhaseTwo\PCMemberMain.Designer.cs">
+      <DependentUpon>PCMemberMain.cs</DependentUpon>
+    </Compile>	
+	<Compile Include="UI\PhaseTwo\PCMemberRateProposals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhaseTwo\PCMemberRateProposals.Designer.cs">
+      <DependentUpon>PCMemberRateProposals.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\IValidator.cs" />
     <Compile Include="Utils\MailSender.cs" />
     <Compile Include="Utils\PasswordGenerator.cs" />
@@ -319,6 +362,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UserAccount.resx">
       <DependentUpon>UserAccount.cs</DependentUpon>
+    </EmbeddedResource>	
+	<EmbeddedResource Include="UI\PhaseTwo\AuthorMain.resx">
+      <DependentUpon>AuthorMain.cs</DependentUpon>
+    </EmbeddedResource>	
+	<EmbeddedResource Include="UI\PhaseTwo\ChairAssignementToReviewer.resx">
+      <DependentUpon>ChairAssignementToReviewer.cs</DependentUpon>
+    </EmbeddedResource>	
+	<EmbeddedResource Include="UI\PhaseTwo\ChairMain.resx">
+      <DependentUpon>ChairMain.cs</DependentUpon>
+    </EmbeddedResource>	
+	<EmbeddedResource Include="UI\PhaseTwo\ChairToAcceptedAuthors.resx">
+      <DependentUpon>ChairToAcceptedAuthors.cs</DependentUpon>
+    </EmbeddedResource>	
+	<EmbeddedResource Include="UI\PhaseTwo\PCMemberBidProposals.resx">
+      <DependentUpon>PCMemberBidProposals.cs</DependentUpon>
+    </EmbeddedResource>	
+	<EmbeddedResource Include="UI\PhaseTwo\PCMemberMain.resx">
+      <DependentUpon>PCMemberMain.cs</DependentUpon>
+    </EmbeddedResource>	
+	<EmbeddedResource Include="UI\PhaseTwo\PCMemberRateProposals.resx">
+      <DependentUpon>PCMemberRateProposals.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

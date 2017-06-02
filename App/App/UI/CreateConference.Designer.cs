@@ -44,12 +44,11 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(32, 528);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonBack.MaximumSize = new System.Drawing.Size(115, 53);
-            this.buttonBack.MinimumSize = new System.Drawing.Size(115, 53);
+            this.buttonBack.Location = new System.Drawing.Point(24, 394);
+            this.buttonBack.MaximumSize = new System.Drawing.Size(86, 43);
+            this.buttonBack.MinimumSize = new System.Drawing.Size(86, 43);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(115, 53);
+            this.buttonBack.Size = new System.Drawing.Size(86, 43);
             this.buttonBack.TabIndex = 0;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -58,49 +57,44 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(28, 22);
-            this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelName.Location = new System.Drawing.Point(21, 18);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(53, 17);
+            this.labelName.Size = new System.Drawing.Size(41, 13);
             this.labelName.TabIndex = 1;
             this.labelName.Text = "Name: ";
             // 
             // labelEndDate
             // 
             this.labelEndDate.AutoSize = true;
-            this.labelEndDate.Location = new System.Drawing.Point(28, 65);
-            this.labelEndDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEndDate.Location = new System.Drawing.Point(21, 53);
             this.labelEndDate.Name = "labelEndDate";
-            this.labelEndDate.Size = new System.Drawing.Size(75, 17);
+            this.labelEndDate.Size = new System.Drawing.Size(58, 13);
             this.labelEndDate.TabIndex = 2;
             this.labelEndDate.Text = "End Date: ";
             // 
             // labelCommitee
             // 
             this.labelCommitee.AutoSize = true;
-            this.labelCommitee.Location = new System.Drawing.Point(28, 119);
-            this.labelCommitee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCommitee.Location = new System.Drawing.Point(21, 84);
             this.labelCommitee.Name = "labelCommitee";
-            this.labelCommitee.Size = new System.Drawing.Size(140, 17);
+            this.labelCommitee.Size = new System.Drawing.Size(105, 13);
             this.labelCommitee.TabIndex = 3;
             this.labelCommitee.Text = "Commitee Members: ";
             // 
             // labelTopics
             // 
             this.labelTopics.AutoSize = true;
-            this.labelTopics.Location = new System.Drawing.Point(28, 185);
-            this.labelTopics.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTopics.Location = new System.Drawing.Point(21, 117);
             this.labelTopics.Name = "labelTopics";
-            this.labelTopics.Size = new System.Drawing.Size(58, 17);
+            this.labelTopics.Size = new System.Drawing.Size(45, 13);
             this.labelTopics.TabIndex = 4;
             this.labelTopics.Text = "Topics: ";
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(200, 528);
-            this.buttonCreate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCreate.Location = new System.Drawing.Point(150, 394);
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(271, 53);
+            this.buttonCreate.Size = new System.Drawing.Size(203, 43);
             this.buttonCreate.TabIndex = 5;
             this.buttonCreate.Text = "Create Conference";
             this.buttonCreate.UseVisualStyleBackColor = true;
@@ -109,46 +103,41 @@
             // labelFee
             // 
             this.labelFee.AutoSize = true;
-            this.labelFee.Location = new System.Drawing.Point(28, 475);
-            this.labelFee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelFee.Location = new System.Drawing.Point(21, 353);
             this.labelFee.Name = "labelFee";
-            this.labelFee.Size = new System.Drawing.Size(117, 17);
+            this.labelFee.Size = new System.Drawing.Size(89, 13);
             this.labelFee.TabIndex = 6;
             this.labelFee.Text = "Conference Fee: ";
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(200, 18);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxName.Location = new System.Drawing.Point(150, 15);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(269, 22);
+            this.textBoxName.Size = new System.Drawing.Size(203, 20);
             this.textBoxName.TabIndex = 7;
             // 
             // textBoxFee
             // 
-            this.textBoxFee.Location = new System.Drawing.Point(200, 471);
-            this.textBoxFee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxFee.Location = new System.Drawing.Point(150, 350);
             this.textBoxFee.Name = "textBoxFee";
-            this.textBoxFee.Size = new System.Drawing.Size(269, 22);
+            this.textBoxFee.Size = new System.Drawing.Size(203, 20);
             this.textBoxFee.TabIndex = 11;
             // 
             // dateTimePicker
             // 
             this.dateTimePicker.CustomFormat = "dd-MM-yyyy";
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker.Location = new System.Drawing.Point(200, 57);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker.Location = new System.Drawing.Point(150, 46);
             this.dateTimePicker.MaxDate = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker.MinDate = new System.DateTime(2017, 5, 5, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(269, 22);
+            this.dateTimePicker.Size = new System.Drawing.Size(203, 20);
             this.dateTimePicker.TabIndex = 12;
             this.dateTimePicker.Value = new System.DateTime(2017, 5, 5, 18, 45, 22, 0);
             // 
             // listBoxTopics
             // 
             this.listBoxTopics.FormattingEnabled = true;
-            this.listBoxTopics.ItemHeight = 16;
             this.listBoxTopics.Items.AddRange(new object[] {
             "Politics",
             "Environment",
@@ -157,11 +146,10 @@
             "Technology",
             "Gaming",
             "Family"});
-            this.listBoxTopics.Location = new System.Drawing.Point(200, 185);
-            this.listBoxTopics.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxTopics.Location = new System.Drawing.Point(150, 117);
             this.listBoxTopics.Name = "listBoxTopics";
             this.listBoxTopics.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBoxTopics.Size = new System.Drawing.Size(269, 260);
+            this.listBoxTopics.Size = new System.Drawing.Size(203, 212);
             this.listBoxTopics.TabIndex = 13;
             // 
             // comboBoxCheckedListCreate
@@ -171,17 +159,18 @@
             this.comboBoxCheckedListCreate.DropDownHeight = 1;
             this.comboBoxCheckedListCreate.FormattingEnabled = true;
             this.comboBoxCheckedListCreate.IntegralHeight = false;
-            this.comboBoxCheckedListCreate.Location = new System.Drawing.Point(200, 116);
+            this.comboBoxCheckedListCreate.Location = new System.Drawing.Point(150, 81);
+            this.comboBoxCheckedListCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxCheckedListCreate.Name = "comboBoxCheckedListCreate";
-            this.comboBoxCheckedListCreate.Size = new System.Drawing.Size(269, 23);
+            this.comboBoxCheckedListCreate.Size = new System.Drawing.Size(203, 21);
             this.comboBoxCheckedListCreate.TabIndex = 15;
             this.comboBoxCheckedListCreate.ValueSeparator = ", ";
             // 
             // CreateConference
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 593);
+            this.ClientSize = new System.Drawing.Size(371, 449);
             this.Controls.Add(this.comboBoxCheckedListCreate);
             this.Controls.Add(this.listBoxTopics);
             this.Controls.Add(this.dateTimePicker);
@@ -194,11 +183,10 @@
             this.Controls.Add(this.labelEndDate);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.buttonBack);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(511, 640);
+            this.MaximumSize = new System.Drawing.Size(387, 488);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(511, 640);
+            this.MinimumSize = new System.Drawing.Size(387, 488);
             this.Name = "CreateConference";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

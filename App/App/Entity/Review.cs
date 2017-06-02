@@ -16,6 +16,8 @@ namespace App.Entity
         public User Reviewer { get; set; }
         public DateTime DateCreated { get; set; }
 
+        public Proposal Proposal { get; set; }
+
         public Review()
         {
             ReviewId = -1;
@@ -25,11 +27,12 @@ namespace App.Entity
             DateCreated = new DateTime();
         }
 
-        public Review(string qualifier, string comment, User reviewer, DateTime dateCreated)
+        public Review(string qualifier, string comment, User reviewer, Proposal proposal, DateTime dateCreated)
         {
             this.Qualifier = qualifier;
             this.Comment = comment;
             this.Reviewer = reviewer;
+            this.Proposal = proposal;
             this.DateCreated = dateCreated;
         }
         

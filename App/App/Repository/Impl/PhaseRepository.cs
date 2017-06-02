@@ -13,7 +13,6 @@ namespace App.Repository.Impl
     {
         public PhaseRepository(AppContext context) : base(context)
         {
-
         }
     }
 }

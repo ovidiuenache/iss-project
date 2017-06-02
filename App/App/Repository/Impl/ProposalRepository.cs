@@ -14,7 +14,6 @@ namespace App.Repository.Impl
     {
         public ProposalRepository(AppContext context) : base(context)
         {
-
         }
     }
 }
