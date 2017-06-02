@@ -33,7 +33,7 @@ namespace App
         {
             parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
             parentForm.Show();
-            Hide();
+            Close();
         }
 
         private void Register_FormClosing(object sender, FormClosingEventArgs e)

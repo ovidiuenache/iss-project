@@ -356,3 +356,11 @@ C:\Users\Andu\Desktop\iss-project\App\App\bin\Debug\System.Runtime.CompilerServi
 C:\Users\Andu\Desktop\iss-project\App\App\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\Andu\Desktop\iss-project\App\App\obj\Debug\App.exe
 C:\Users\Andu\Desktop\iss-project\App\App\obj\Debug\App.pdb
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.ResetPassword.resources
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.AuthorMain.resources
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ChairAssignementToReviewer.resources
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ChairMain.resources
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ChairToAcceptedAuthors.resources
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.PCMemberBidProposals.resources
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.PCMemberMain.resources
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.PCMemberRateProposals.resources

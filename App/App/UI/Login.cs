@@ -22,11 +22,10 @@ namespace App
         public Login(Form parentForm)
         {
             InitializeComponent();
-
-            this.parentForm = parentForm;
+           
             loginController = ApplicationFactory.getLoginController();
+            this.parentForm = parentForm;
         }
-
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
@@ -69,7 +68,7 @@ namespace App
         {
             parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
             parentForm.Show();
-            Hide();
+            Close();
         }
 
         private void Login_Load(object sender, EventArgs e)
