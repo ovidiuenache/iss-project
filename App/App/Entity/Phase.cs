@@ -19,17 +19,15 @@ namespace App.Entity
 
         public Phase()
         {
-            PhaseId = -1;
             Name = "";
             Deadline = new DateTime();
         }
 
         public Phase(string name, DateTime deadline)
         {
-            this.Name = name;
-            this.Deadline = deadline;
+            Name = name;
+            Deadline = deadline;
         }
-
 
         public override bool Equals(object obj)
         {

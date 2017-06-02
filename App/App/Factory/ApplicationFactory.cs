@@ -28,14 +28,29 @@ namespace App.Factory
             return new UserRepository(getAppContext());
         }
 
+        public static TopicRepository getTopicRepository()
+        {
+            return new TopicRepository(getAppContext());
+        }
+
         public static ConferenceRepository getConferenceRepository()
         {
             return new ConferenceRepository(getAppContext());
         }
 
+        public static PhaseRepository getPhaseRepository()
+        {
+            return new PhaseRepository(getAppContext());
+        }
+
         public static PreliminaryPhaseController getPreliminaryPhaseController()
         {
-            return new PreliminaryPhaseController(getUserRepository(), getConferenceRepository());
+            return new PreliminaryPhaseController(
+                getUserRepository(),
+                getConferenceRepository(),
+                getTopicRepository(),
+                getPhaseRepository()
+            );
         }
 
         public static LoginController getLoginController()
