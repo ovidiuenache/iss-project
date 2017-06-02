@@ -1,5 +1,6 @@
 ﻿using System;
 using App.Entity;
+using App.Repository;
 
 namespace App.Controller
 {
@@ -11,19 +12,28 @@ namespace App.Controller
     /// </summary>
     public class PhaseOneController
     {
+        private IProposalRepository proposalRepository;
+        private IUserRepository userRepository;
+
+        public PhaseOneController(IProposalRepository proposalRepository, IUserRepository userRepository)
+        {
+            this.proposalRepository = proposalRepository;
+            this.userRepository = userRepository;
+        }
+
         public void updateProposal(Proposal proposal)
         {
-            throw new NotImplementedException();
+            proposalRepository.Update(proposal);
         }
 
-        public User getUserByName(string v)
+        public User getUserByEmail(string email)
         {
-            throw new NotImplementedException();
+            return userRepository.FindUserByEmail(email);
         }
 
-        public Proposal getProposal(int v)
+        public Proposal getProposal(int id)
         {
-            throw new NotImplementedException();
+            return proposalRepository.Find(id);
         }
     }
 }
