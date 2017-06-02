@@ -14,6 +14,7 @@ namespace App
         {
             //Use this for dummy data
             UserContextSeed.Seed();
+            TopicSeed.Seed();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

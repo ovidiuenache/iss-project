@@ -194,6 +194,7 @@
       <DependentUpon>20170514194859_SecondMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AppContextModelSnapshot.cs" />
+    <Compile Include="Migrations\Seed\TopicSeed.cs" />
     <Compile Include="Migrations\Seed\UserContextSeed.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
