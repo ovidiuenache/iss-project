@@ -13,6 +13,7 @@ namespace App.Entity
     {
         public int SectionId { get; set; }
         public string Name { get; set; }
+        public User SectionLeader { get; set; }
         public IList<Topic> Topics { get; set; }
         public IList<User> Listeners { get; set; }
     }

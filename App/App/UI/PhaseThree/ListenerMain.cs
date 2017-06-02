@@ -32,7 +32,7 @@ namespace App.UI.PhaseThree
 
         private void LoadSections()
         {
-            List<Section> topics = PhaseThreeController.FindAllTopics();
+            List<Section> topics = PhaseThreeController.FindAllSections();
 
             foreach (Section section in topics)
             {

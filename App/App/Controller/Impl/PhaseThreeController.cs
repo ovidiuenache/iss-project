@@ -24,7 +24,7 @@ namespace App.Controller
         /// Get a list with all topics.
         /// </summary>
         /// <returns></returns>
-        public List<Section> FindAllTopics()
+        public List<Section> FindAllSections()
         {
             return SectionRepository.All();
         }

@@ -15,7 +15,7 @@ namespace App.Controller
         /// 
         /// </summary>
         /// <returns></returns>
-        List<Section> FindAllTopics();
+        List<Section> FindAllSections();
 
         /// <summary>
         /// 

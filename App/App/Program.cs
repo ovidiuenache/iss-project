@@ -20,7 +20,7 @@ namespace App
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ListenerMain(new User()));
+            Application.Run(new ProgramComitee());
         }
     }
 }
