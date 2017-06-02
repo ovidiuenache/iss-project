@@ -14,7 +14,7 @@ namespace App.Repository.Impl
     /// Author : Claudiu Nicola
     /// 
     /// </summary>
-    public class ConferenceUserRepository : AbstractRepository<ConferenceUser>
+    public class ConferenceUserRepository : AbstractRepository<ConferenceUser>, IConferenceUserRepository
     {
         public ConferenceUserRepository(AppContext context) : base(context)
         {

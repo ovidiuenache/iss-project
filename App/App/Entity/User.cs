@@ -40,5 +40,10 @@ namespace App.Entity
 
             return UserId == item?.UserId;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

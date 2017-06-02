@@ -42,5 +42,10 @@ namespace App.Entity
 
             return ProposalMetaInformationId == item?.ProposalMetaInformationId;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

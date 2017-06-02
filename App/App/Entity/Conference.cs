@@ -62,5 +62,10 @@ namespace App.Entity
 
             return ConferenceId == item?.ConferenceId;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
