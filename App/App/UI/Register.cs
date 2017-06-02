@@ -29,7 +29,7 @@ namespace App
             {
                 if (textPassword.Text != textConfirmPassword.Text)
                 {
-                    throw new ValidationException("Password do not match!");
+                    throw new ValidationException("Passwords do not match!");
                 }
 
                 User newUser = new User();
@@ -42,14 +42,16 @@ namespace App
                 userValidator.validate(newUser);
 
                 preliminaryController.Register(newUser);
+
+                MessageBox.Show("You have successfully created your account!\nYou can now log in into your account!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException ex)
             {
-                MessageBox.Show(ex.getMessage(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (InvalidEmailAddressException ex)
             {
-                MessageBox.Show(ex.getMessage(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -81,7 +81,7 @@ namespace App.Validators
                 return addr.Address == email;
             }
             #pragma warning disable CS0168 // Variable is declared but never used
-            catch (FormatException exception)
+            catch (System.Exception exception)
             #pragma warning restore CS0168 // Variable is declared but never used
             {
                 return false;

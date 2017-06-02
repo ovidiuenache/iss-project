@@ -153,6 +153,7 @@
             this.textPassword.Location = new System.Drawing.Point(150, 140);
             this.textPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textPassword.Name = "textPassword";
+            this.textPassword.PasswordChar = '*';
             this.textPassword.Size = new System.Drawing.Size(112, 20);
             this.textPassword.TabIndex = 5;
             // 
@@ -162,6 +163,7 @@
             this.textConfirmPassword.Location = new System.Drawing.Point(150, 173);
             this.textConfirmPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textConfirmPassword.Name = "textConfirmPassword";
+            this.textConfirmPassword.PasswordChar = '*';
             this.textConfirmPassword.Size = new System.Drawing.Size(112, 20);
             this.textConfirmPassword.TabIndex = 6;
             // 
