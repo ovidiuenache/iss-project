@@ -15,7 +15,6 @@
 
         public Topic()
         {
-            TopicId = -1;
             Name = "";
             Description = "";
         }

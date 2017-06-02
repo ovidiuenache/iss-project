@@ -20,7 +20,6 @@ namespace App.Entity
 
         public Review()
         {
-            ReviewId = -1;
             Qualifier = "";
             Comment = "";
             Reviewer = null;

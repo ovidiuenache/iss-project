@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using App.Context;
 using App.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Repository.Impl
 {
@@ -12,13 +13,17 @@ namespace App.Repository.Impl
     /// </summary>
     public class ConferenceRepository : AbstractRepository<Conference>, IConferenceRepository
     {
-        public ConferenceRepository(AppContext context): base(context)
+        public ConferenceRepository(AppContext context) : base(context)
         {
         }
 
         public Conference GetActiveConference()
         {
-            return Context.Conferences.SingleOrDefault(conference => conference.ActivePhase != null);
+            return Context.Conferences
+                .Include(p => p.ActivePhase)
+                .Include(u => u.Users)
+                .Include(t => t.Topics)
+                .SingleOrDefault(conference => conference.ActivePhase != null); ;
         }
-    } 
+    }
 }

@@ -30,7 +30,6 @@ namespace App.Entity
 
         public Conference()
         {
-            ConferenceId = -1;
             Name = "";
             StartDate = new DateTime();
             EndDate = new DateTime();

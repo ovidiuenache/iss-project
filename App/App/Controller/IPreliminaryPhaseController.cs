@@ -1,4 +1,5 @@
-﻿using App.Entity;
+﻿using System.Collections.Generic;
+using App.Entity;
 
 namespace App.Controller
 {
@@ -23,6 +24,7 @@ namespace App.Controller
         /// Throws ConfrenceInProgressException if a conference allready exists
         /// </summary>
         /// <param name="conference"></param>
-        void CreateConference(Conference conference);
+        /// <param name="comiteeMembers"></param>
+        void CreateConference(Conference conference, List<User> comiteeMembers);
     }
 }

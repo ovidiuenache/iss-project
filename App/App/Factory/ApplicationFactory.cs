@@ -1,5 +1,6 @@
 ﻿using App.Context;
 using App.Controller;
+using App.Entity;
 using App.Repository.Impl;
 
 namespace App.Factory
@@ -28,14 +29,29 @@ namespace App.Factory
             return new UserRepository(getAppContext());
         }
 
+        public static TopicRepository getTopicRepository()
+        {
+            return new TopicRepository(getAppContext());
+        }
+
         public static ConferenceRepository getConferenceRepository()
         {
             return new ConferenceRepository(getAppContext());
         }
 
+        public static PhaseRepository getPhaseRepository()
+        {
+            return new PhaseRepository(getAppContext());
+        }
+
         public static PreliminaryPhaseController getPreliminaryPhaseController()
         {
-            return new PreliminaryPhaseController(getUserRepository(), getConferenceRepository());
+            return new PreliminaryPhaseController(
+                getUserRepository(),
+                getConferenceRepository(),
+                getTopicRepository(),
+                getPhaseRepository()
+            );
         }
 
         public static LoginController getLoginController()
@@ -46,6 +62,11 @@ namespace App.Factory
         public static PhaseOneController getPhaseOneController()
         {
             return new PhaseOneController();
+        }
+
+        public static ConferenceUserRepository GetConferenceUserRepository()
+        {
+            return new ConferenceUserRepository(getAppContext());
         }
     }
 }
