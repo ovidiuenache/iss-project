@@ -65,6 +65,12 @@ namespace App.Factory
             return new PhaseOneController();
         }
 
+        public static PhaseThreeController GetPhaseThreeController()
+        {
+            return new PhaseThreeController(
+                getTopicRepository());
+        }
+
         public static ConferenceUserRepository getConferenceUserRepository()
         {
             return new ConferenceUserRepository(getAppContext());

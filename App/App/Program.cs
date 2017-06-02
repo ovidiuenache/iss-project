@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using App.Migrations.Seed;
+using App.UI.PhaseThree;
 
 namespace App
 {
@@ -18,7 +19,7 @@ namespace App
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ConferenceDetails());
+            Application.Run(new ListenerMain());
         }
     }
 }

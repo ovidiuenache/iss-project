@@ -15,6 +15,8 @@ namespace App.Context
         public DbSet<Phase> Phases { get; set; }
         public DbSet<Topic> Topics { get; set; }
 
+        public DbSet<Section> Sections { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserRole>()
@@ -47,12 +49,16 @@ namespace App.Context
             modelBuilder.Entity<Topic>()
                 .HasIndex(t => t.Name)
                 .IsUnique();
+
+            modelBuilder.Entity<Section>()
+                .HasIndex(s => s.Name)
+                .IsUnique();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Data Source=JOHNNY;Initial Catalog=iss;Integrated Security=True");
+                @"Data Source=DESKTOP-MB4097H\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
         }
     }
 }

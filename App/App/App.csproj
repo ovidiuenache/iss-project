@@ -174,6 +174,7 @@
     <Compile Include="Entity\ProposalMetaInformation.cs" />
     <Compile Include="Entity\Review.cs" />
     <Compile Include="Entity\Role.cs" />
+    <Compile Include="Entity\Section.cs" />
     <Compile Include="Entity\Topic.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Entity\UserRole.cs" />
@@ -196,6 +197,10 @@
     <Compile Include="Migrations\20170602140154_UpdateTopicEntity.cs" />
     <Compile Include="Migrations\20170602140154_UpdateTopicEntity.designer.cs">
       <DependentUpon>20170602140154_UpdateTopicEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170602182215_AddedSectionEntity.cs" />
+    <Compile Include="Migrations\20170602182215_AddedSectionEntity.designer.cs">
+      <DependentUpon>20170602182215_AddedSectionEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AppContextModelSnapshot.cs" />
     <Compile Include="Migrations\Seed\TopicSeed.cs" />
@@ -256,6 +261,12 @@
     </Compile>
     <Compile Include="UI\MetaInformation.Designer.cs">
       <DependentUpon>MetaInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PhaseThree\ListenerMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhaseThree\ListenerMain.Designer.cs">
+      <DependentUpon>ListenerMain.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\PreliminaryPhase.cs">
       <SubType>Form</SubType>
@@ -354,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MetaInformation.resx">
       <DependentUpon>MetaInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhaseThree\ListenerMain.resx">
+      <DependentUpon>ListenerMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PreliminaryPhase.resx">
       <DependentUpon>PreliminaryPhase.cs</DependentUpon>
