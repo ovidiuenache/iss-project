@@ -53,7 +53,7 @@ namespace App.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Data Source=Ramona;Initial Catalog=iss;Integrated Security=True");
+                @"Data Source=DESKTOP-C6EA23V\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
         }
     }
 }

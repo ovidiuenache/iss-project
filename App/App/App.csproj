@@ -262,6 +262,12 @@
     <Compile Include="UI\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ResetPassword.Designer.cs">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\UpdateConference.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +280,7 @@
     <Compile Include="UI\UserAccount.Designer.cs">
       <DependentUpon>UserAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\ConferenceValidator.cs" />
 	<Compile Include="UI\PhaseTwo\AuthorMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,6 +325,7 @@
     </Compile>
     <Compile Include="Utils\IValidator.cs" />
     <Compile Include="Utils\MailSender.cs" />
+    <Compile Include="Utils\PasswordGenerator.cs" />
     <Compile Include="Utils\UserValidator.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -345,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ResetPassword.resx">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UpdateConference.resx">
       <DependentUpon>UpdateConference.cs</DependentUpon>

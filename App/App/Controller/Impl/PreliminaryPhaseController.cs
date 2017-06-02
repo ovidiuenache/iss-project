@@ -43,7 +43,7 @@ namespace App.Controller
                                   "Username : " + user.Email + 
                                   "\nPassword : " + user.Password;
                 string mailSubject = "Registration complete";
-                MailSender.sendMail(sender, receiver, mailBody, mailSubject);
+                MailSender.sendMail(receiver, mailBody, mailSubject);
             }
         }
 

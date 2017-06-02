@@ -8,6 +8,12 @@ using App.Factory;
 
 namespace App
 {
+    /// <summary>
+    /// 
+    /// Login Form
+    /// Author: Dezsi Razvan
+    /// 
+    /// </summary>
     public partial class Login : Form
     {
         private LoginController loginController;
@@ -74,6 +80,14 @@ namespace App
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void resetPassword_Click(object sender, EventArgs e)
+        {
+            ResetPassword resetPasswordForm = new ResetPassword(this,loginController);
+            resetPasswordForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            Hide();
+            resetPasswordForm.Show();
         }
     }
 }

@@ -10,6 +10,8 @@ namespace App.Controller
     /// LoginController implementation
     /// Author: Vancea Vlad
     /// Author : Catalin Radoiu
+    /// Author : Dezsi Razvan
+    /// 
     /// 
     /// </summary>
     public class LoginController : ILoginController
@@ -48,6 +50,14 @@ namespace App.Controller
         public List<Role> GetUserRoles(User user)
         {
             return UserRepository.GetRoles(user);
+        }
+        public User GetUserByEmail(String email)
+        {
+            return UserRepository.FindUserByEmail(email);
+        }
+        public void ChangePassword(string email,string password)
+        {
+            UserRepository.ChangePassword(email, password);
         }
     }
 }
