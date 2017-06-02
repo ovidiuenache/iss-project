@@ -34,8 +34,6 @@ namespace App.UI
 
         private void UpdateConferenceUI_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
-
             loadUsers();
             loadTopics();
 
@@ -58,7 +56,7 @@ namespace App.UI
             {
                 for (int i = 0; i < listBoxTopics.Items.Count; i++)
                 {
-                    if (topic.Name == ((Topic)listBoxTopics.Items[i]).Name)
+                    if (topic.Name == listBoxTopics.Items[i].ToString())
                     {
                         listBoxTopics.SetSelected(i, true);
                     }
@@ -68,15 +66,11 @@ namespace App.UI
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            parent.Location = this.Location;
-            Hide();
-            parent.Show();
+            Close();
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            string conferenceName = textBoxName.Text;
-            DateTime endDate = dateTimePicker.Value;
             List<User> commiteeMembers = new List<User>();
             for (int i = 0; i < comboBoxCheckedListUpdate.Items.Count; i++)
             {
@@ -89,21 +83,20 @@ namespace App.UI
             List<Topic> selectedTopics = new List<Topic>();
             foreach (int i in listBoxTopics.SelectedIndices)
             {
-                string topicName = listBoxTopics.Items[listBoxTopics.SelectedIndex].ToString();
+                string topicName = listBoxTopics.Items[i].ToString();
                 selectedTopics.Add(preliminaryController.FindTopicByName(topicName));
             }
-            string fee = textBoxFee.Text;
 
             try
             {
-                activeConference.Name = conferenceName;
-                activeConference.EndDate = endDate;
+                activeConference.Name = textBoxName.Text;
+                activeConference.EndDate = dateTimePicker.Value;
                 activeConference.Topics = selectedTopics;
-                activeConference.ConferenceFee = float.Parse(fee);
+                activeConference.ConferenceFee = float.Parse(textBoxFee.Text);
                 validator.validate(activeConference);
 
                 preliminaryController.UpdateConference(activeConference);
-                MessageBox.Show("Conference has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Conference has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (System.Exception ex)
             {
@@ -113,7 +106,8 @@ namespace App.UI
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            Application.Exit();
+            parent.Location = new Point(Location.X, Location.Y);
+            parent.Show();
         }
 
         private void loadUsers()

@@ -36,7 +36,7 @@ namespace App
                     richTextBox1.Text += user.LastName + " " + user.FirstName + "\n";
                 }
 
-                richTextBox1.Text += "Conference topics:\n";
+                richTextBox1.Text += "\n\nConference topics:\n";
 
                 foreach (Topic topic in activeConference.Topics)
                 {
@@ -46,7 +46,7 @@ namespace App
                 switch (activeConference.ActivePhase.Name)
                 {
                     case "PRELIMINARY":
-                        richTextBox1.Text += "Conference is currently in PRELIMINARY phase!";
+                        richTextBox1.Text += "\nConference is currently in PRELIMINARY phase!";
                         richTextBox1.Text += "Deadline for this phase: " + activeConference.ActivePhase.Deadline.ToString() + "\n";
                         break;
                     case "PHASEONE":

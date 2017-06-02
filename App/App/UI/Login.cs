@@ -32,8 +32,8 @@ namespace App
             string username = UserNameTextBox.Text;
             string password = PasswordTextBox.Text;
             
-            User user = loginController.GetUser(username, password);
-            if (user == null)
+            User loggedUser = loginController.GetUser(username, password);
+            if (loggedUser == null)
             {
                 MessageBox.Show("The credentials are not valid");
             }
@@ -41,16 +41,36 @@ namespace App
             {
                 if (loginController.IsConferenceActive() == true)
                 {
-                    //TO DO
-                    //redirect user to active phase page;
-                    Application.Exit();
+                    string activePhaseName = loginController.ActiveConference().ActivePhase.Name;
+                    Form toBeShown;
+                    switch (activePhaseName)
+                    {
+                        case "PRELIMINARY":
+                            toBeShown = new PreliminaryPhase(this, loggedUser);
+                            toBeShown.Location = new System.Drawing.Point(Location.X, Location.Y);
+                            toBeShown.Show();
+                            Hide();
+                            break;
+                        case "PHASEONE":
+                            MessageBox.Show("Phase One Main Form");
+                            //toBeShown = new PhaseOneMainForm();
+                            break;
+                        case "PHASETWO":
+                            MessageBox.Show("Phase Two Main Form");
+                            //toBeShown = new PhaseTwoMainForm();
+                            break;
+                        case "PHASETHREE":
+                            MessageBox.Show("Phase THree Main Form");
+                            //toBeShown = new PhaseThreeMainForm();
+                            break;
+                    }
                 }
                 else
                 {
-                    if (loginController.GetUserRoles(user).Select(role => role.Slug).ToArray().Contains("chair"))
+                    if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).ToArray().Contains("chair"))
                     {
                         //User is a chair and is shown the preliminary phase
-                        PreliminaryPhase preliminaryPhase = new PreliminaryPhase(user);
+                        PreliminaryPhase preliminaryPhase = new PreliminaryPhase(this, loggedUser);
                         preliminaryPhase.Location = new System.Drawing.Point(Location.X, Location.Y);
                         preliminaryPhase.Show();
                         Hide();
@@ -80,9 +100,9 @@ namespace App
             parentForm.Show();
         }
 
-        private void resetPassword_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            ResetPassword resetPasswordForm = new ResetPassword(this,loginController);
+            ResetPassword resetPasswordForm = new ResetPassword(this, loginController);
             resetPasswordForm.Location = new System.Drawing.Point(Location.X, Location.Y);
             Hide();
             resetPasswordForm.Show();
