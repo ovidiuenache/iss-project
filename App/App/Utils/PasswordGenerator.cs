@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace App.Utils
 {
+    /// <summary>
+    /// Author : Razvan Dezsi
+    /// </summary>
     public class PasswordGenerator
     {
         public string GetString(int length)
