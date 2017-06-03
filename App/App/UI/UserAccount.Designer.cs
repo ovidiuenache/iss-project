@@ -152,6 +152,7 @@
             this.Name = "UserAccount";
             this.ShowIcon = false;
             this.Text = "Phase One";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserAccount_FormClosing);
             this.Load += new System.EventHandler(this.UserAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProposals)).EndInit();
             this.ResumeLayout(false);

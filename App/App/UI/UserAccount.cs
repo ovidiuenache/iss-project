@@ -157,5 +157,11 @@ namespace App.UI
             parentForm.Show();
             Close();
         }
+
+        private void UserAccount_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Show();
+        }
     }
 }
