@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace App.Entity
 {
@@ -18,6 +19,7 @@ namespace App.Entity
         public int Year { get; set; }
         public string FullPaper { get; set; }
         public string AbstractPaper { get; set; }
+        public DateTime StartTime { get; set; }
 
         public Proposal()
         {

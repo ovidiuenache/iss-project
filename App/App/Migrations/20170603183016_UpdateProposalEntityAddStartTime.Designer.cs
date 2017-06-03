@@ -8,9 +8,10 @@ using App.Context;
 namespace App.Migrations
 {
     [DbContext(typeof(AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [Migration("20170603183016_UpdateProposalEntityAddStartTime")]
+    partial class UpdateProposalEntityAddStartTime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -78,7 +79,7 @@ namespace App.Migrations
 
                     b.Property<int?>("SectionId");
 
-                    b.Property<DateTime>("StartTime");
+                    b.Property<DateTime>("StarTime");
 
                     b.Property<string>("Title");
 

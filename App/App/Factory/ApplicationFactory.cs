@@ -76,7 +76,9 @@ namespace App.Factory
             return new PhaseThreeController(
                 GetSectionRepository(),
                 getUserRepository(),
-                getProposalRepository());
+                getProposalRepository(), 
+                getConferenceRepository()
+            );
         }
 
         public static SectionRepository GetSectionRepository()

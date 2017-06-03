@@ -48,7 +48,6 @@
             this.listBoxProposals.ItemHeight = 16;
             this.listBoxProposals.Location = new System.Drawing.Point(140, 48);
             this.listBoxProposals.Name = "listBoxProposals";
-            this.listBoxProposals.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBoxProposals.Size = new System.Drawing.Size(270, 212);
             this.listBoxProposals.TabIndex = 1;
             // 

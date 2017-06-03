@@ -73,7 +73,19 @@ namespace App.Controller
         /// 
         /// </summary>
         /// <param name="section"></param>
-        /// <param name="proposals"></param>
-        void AddProposalsToSection(Section section, List<Proposal> proposals);
+        /// <param name="proposal"></param>
+        void AddProposalToSection(Section section, Proposal proposal);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        Conference GetActiveConference();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="proposal"></param>
+        void UpdateProposal(Proposal proposal);
     }
 }

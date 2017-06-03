@@ -19,6 +19,8 @@ namespace App
             TopicSeed.Seed();
             ProposalSeed.Seed();
             SectionSeed.Seed();
+            PhaseSeed.Seed();
+            ConferenceSeed.Seed();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

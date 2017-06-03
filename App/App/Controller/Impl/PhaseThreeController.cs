@@ -17,16 +17,19 @@ namespace App.Controller
         private ISectionRepository SectionRepository;
         private IUserRepository UserRepository;
         private IProposalRepository ProposalRepository;
+        private IConferenceRepository ConferenceRepository;
 
         public PhaseThreeController(
             ISectionRepository sectionRepository,
             IUserRepository userRepository,
-            IProposalRepository proposalRepository
+            IProposalRepository proposalRepository,
+            IConferenceRepository conferenceRepository
         )
         {
             SectionRepository = sectionRepository;
             UserRepository = userRepository;
             ProposalRepository = proposalRepository;
+            ConferenceRepository = conferenceRepository;
         }
 
         /// <summary>
@@ -131,10 +134,20 @@ namespace App.Controller
         /// 
         /// </summary>
         /// <param name="section"></param>
-        /// <param name="proposals"></param>
-        public void AddProposalsToSection(Section section, List<Proposal> proposals)
+        /// <param name="proposal"></param>
+        public void AddProposalToSection(Section section, Proposal proposal)
         {
-            SectionRepository.AddProposalsToSection(section, proposals);
+            SectionRepository.AddProposalToSection(section, proposal);
+        }
+
+        public Conference GetActiveConference()
+        {
+            return ConferenceRepository.GetActiveConference();
+        }
+
+        public void UpdateProposal(Proposal proposal)
+        {
+            ProposalRepository.Update(proposal);
         }
     }
 }

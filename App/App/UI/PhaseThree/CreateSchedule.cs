@@ -60,22 +60,23 @@ namespace App.UI.PhaseThree
         private void btnAddToSection_Click(object sender, EventArgs e)
         {
             Section section = (Section)comboBoxSections.SelectedItem;
-            List<Proposal> proposals = new List<Proposal>();
-            foreach (int i in listBoxProposals.SelectedIndices)
-            {
-                string proposalName = listBoxProposals.Items[i].ToString();
-                proposals.Add(PhaseThreeController.FindProposalByName(proposalName));
-            }
+            Proposal proposal = PhaseThreeController.FindProposalByName(listBoxProposals.SelectedItem.ToString());
             try
             {
-                PhaseThreeController.AddProposalsToSection(section, proposals);
+                PhaseThreeController.AddProposalToSection(section, proposal);
                 LoadProposals();
-                MessageBox.Show("Proposals has been successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                PopupAddStartTime(proposal);
             }
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void PopupAddStartTime(Proposal proposal)
+        {
+            Form addStartTimeForm = new AddStartTime(proposal);
+            addStartTimeForm.Show();
         }
     }
 }

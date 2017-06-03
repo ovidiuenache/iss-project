@@ -66,13 +66,10 @@ namespace App.Controller.Impl
         /// 
         /// </summary>
         /// <param name="section"></param>
-        /// <param name="proposals"></param>
-        public void AddProposalsToSection(Section section, List<Proposal> proposals)
+        /// <param name="proposal"></param>
+        public void AddProposalToSection(Section section, Proposal proposal)
         {
-            foreach (var proposal in proposals)
-            {
-                section.Proposals.Add(proposal);
-            }
+            section.Proposals.Add(proposal);
             Context.Sections.Update(section);
         }
     }

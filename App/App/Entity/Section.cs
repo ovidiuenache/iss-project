@@ -20,7 +20,6 @@ namespace App.Entity
         public IList<User> Authors { get; set; }
         public IList<Proposal> Proposals { get; set; }
         public string Room { get; set; }
-        public Dictionary<String, Proposal> Schedule;
 
         public Section()
         {
@@ -30,7 +29,6 @@ namespace App.Entity
             Listeners = new List<User>();
             Authors = new List<User>();
             Room = "";
-            Schedule = new Dictionary<string, Proposal>();
         }
 
         public Section(
@@ -39,8 +37,7 @@ namespace App.Entity
             IList<Topic> topics,
             IList<User> listeners,
             IList<User> authors,
-            string room,
-            Dictionary<string, Proposal> schedule
+            string room
         )
         {
             Name = name;
@@ -49,7 +46,6 @@ namespace App.Entity
             Listeners = listeners;
             Authors = authors;
             Room = room;
-            Schedule = schedule;
         }
 
         public override string ToString()

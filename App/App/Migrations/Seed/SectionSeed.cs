@@ -39,7 +39,7 @@ namespace App.Migrations.Seed
                     authors.Add(db.Users.Find(2));
                     authors.Add(db.Users.Find(3));
                     db.Sections.Add(
-                        new Section("Web", sectionLeader, topics, listeners, authors, "Aula", new Dictionary<string, Proposal>())
+                        new Section("Web", sectionLeader, topics, listeners, authors, "Aula")
                     );
 
                     sectionLeader = db.Users.Find(5);
@@ -50,7 +50,7 @@ namespace App.Migrations.Seed
                     authors = new List<User>();
                     authors.Add(db.Users.Find(4));
                     db.Sections.Add(
-                        new Section("Desktop", sectionLeader, topics, listeners, authors, "Mare", new Dictionary<string, Proposal>())
+                        new Section("Desktop", sectionLeader, topics, listeners, authors, "Mare")
                     );
 
                     db.SaveChanges();
