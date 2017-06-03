@@ -30,26 +30,19 @@ namespace App.Migrations.Seed
                 if (!db.Proposals.Any())
                 {
                     List<User> authors = new List<User>();
-                    ProposalMetaInformation proposalMetaInfo = new ProposalMetaInformation();
 
                     authors.Add(db.Users.Find(1));
                     authors.Add(db.Users.Find(2));
-                    proposalMetaInfo = new ProposalMetaInformation("Kickstart PHP", authors, 2017, "bla-bla");
-
-                    db.Proposals.Add(new Proposal(proposalMetaInfo, "abstract1", "full1"));
+                    db.Proposals.Add(new Proposal("Kickstart PHP", authors, 2017, "bla-bla", "abstract1", "full1"));
 
                     authors = new List<User>();
                     authors.Add(db.Users.Find(3));
-                    proposalMetaInfo = new ProposalMetaInformation("New approach of C#", authors, 2017, "lba-lba");
-
-                    db.Proposals.Add(new Proposal(proposalMetaInfo, "abstract2", "full2"));
+                    db.Proposals.Add(new Proposal("New approach of C#", authors, 2017, "lba-lba", "abstract2", "full2"));
 
                     authors = new List<User>();
                     authors.Add(db.Users.Find(4));
                     authors.Add(db.Users.Find(5));
-                    proposalMetaInfo = new ProposalMetaInformation("JS for all", authors, 2017, "alb-alb");
-
-                    db.Proposals.Add(new Proposal(proposalMetaInfo, "abstract3", "full23"));
+                    db.Proposals.Add(new Proposal("JS for all", authors, 2017, "alb-alb", "abstract3", "full23"));
 
                     db.SaveChanges();
                 }

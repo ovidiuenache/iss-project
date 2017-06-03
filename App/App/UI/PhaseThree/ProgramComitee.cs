@@ -78,5 +78,10 @@ namespace App.UI.PhaseThree
         {
             btnSectionLeader.Enabled = true;
         }
+
+        private void ProgramComitee_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

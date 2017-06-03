@@ -14,5 +14,7 @@ namespace App.Repository
         List<Proposal> getProposalsBindingSource();
 
         void saveChanges();
+
+        Proposal FindProposalByName(string name);
     }
 }

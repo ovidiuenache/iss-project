@@ -29,5 +29,18 @@ namespace App.Controller
         /// <param name="section"></param>
         /// <returns></returns>
         List<User> FindAllAuthors(Section section);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        List<Proposal> FindAllProposalsExistingInSections();
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="section"></param>
+        /// <param name="proposals"></param>
+        void AddProposalsToSection(Section section, List<Proposal> proposals);
     }
 }

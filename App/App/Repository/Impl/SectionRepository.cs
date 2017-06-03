@@ -42,9 +42,38 @@ namespace App.Controller.Impl
             //@todo: ceva fute risca rau de tot nu pot aduce autorii de pe sectiune
             //
             //var p = Context.Sections.Include(s => s.Authors).ToList();
-            var author = Context.Users.Find(1);
-            var petru = Context.Proposals.Include(p => p.MetaInformation.Authors).Where(p=>p.MetaInformation.Authors.Any(a=>a.UserId==author.UserId)).ToList();
             return Context.Users.ToList();
+        }
+
+        public List<Proposal> FindAllProposalsExistingInSections()
+        {
+            List<Section> sections = Context.Sections
+                .Include(p => p.Proposals)
+                .ToList();
+            List<Proposal> proposals = new List<Proposal>();
+
+            foreach (var section in sections)
+            {
+                foreach (var proposal in section.Proposals)
+                {
+                    proposals.Add(proposal);
+                }
+            }
+            return proposals;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="section"></param>
+        /// <param name="proposals"></param>
+        public void AddProposalsToSection(Section section, List<Proposal> proposals)
+        {
+            foreach (var proposal in proposals)
+            {
+                section.Proposals.Add(proposal);
+            }
+            Context.Sections.Update(section);
         }
     }
 }

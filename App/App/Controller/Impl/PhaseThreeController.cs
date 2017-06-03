@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using App.Entity;
 using App.Repository;
 using App.Repository.Impl;
@@ -15,17 +16,17 @@ namespace App.Controller
     {
         private ISectionRepository SectionRepository;
         private IUserRepository UserRepository;
-        private IProposalMetaInformationRepository ProposalMetaInformationRepository;
+        private IProposalRepository ProposalRepository;
 
         public PhaseThreeController(
             ISectionRepository sectionRepository,
             IUserRepository userRepository,
-            IProposalMetaInformationRepository proposalMetaInformationRepository
+            IProposalRepository proposalRepository
         )
         {
             SectionRepository = sectionRepository;
             UserRepository = userRepository;
-            ProposalMetaInformationRepository = proposalMetaInformationRepository;
+            ProposalRepository = proposalRepository;
         }
 
         /// <summary>
@@ -87,17 +88,53 @@ namespace App.Controller
         /// </summary>
         /// <param name="section"></param>
         /// <returns></returns>
-        public List<ProposalMetaInformation> FindAllProposalsBySection(Section section)
+        public List<Proposal> FindAllProposalsBySection(Section section)
         {
-            List<ProposalMetaInformation> proposalMetaInformations = new List<ProposalMetaInformation>();
-            var authors = SectionRepository.FindAllAuthors(section);
-            var p = ProposalMetaInformationRepository.All();
-            foreach (var author in authors)
-            {
-              
-            }
+            List<Proposal> proposals = new List<Proposal>();
+            
+            return proposals;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public List<Proposal> FindAllProposalsWithoutSection()
+        {
+            var allProposals = ProposalRepository.All();
+            var proposalsExistingInSections = SectionRepository.FindAllProposalsExistingInSections();
 
-            return proposalMetaInformations;
+            List<Proposal> proposals = allProposals.Except(proposalsExistingInSections).ToList();
+            
+            return proposals;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public List<Proposal> FindAllProposals()
+        {
+            return ProposalRepository.All();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="proposalName"></param>
+        /// <returns></returns>
+        public Proposal FindProposalByName(string proposalName)
+        {
+            return ProposalRepository.FindProposalByName(proposalName);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="section"></param>
+        /// <param name="proposals"></param>
+        public void AddProposalsToSection(Section section, List<Proposal> proposals)
+        {
+            SectionRepository.AddProposalsToSection(section, proposals);
         }
     }
 }

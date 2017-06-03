@@ -21,6 +21,7 @@ namespace App.UI.PhaseThree
             InitializeComponent();
             PhaseThreeController = ApplicationFactory.GetPhaseThreeController();
             LoadSections();
+            btnAddToSection.Enabled = false;
         }
 
         private void LoadSections()
@@ -46,12 +47,34 @@ namespace App.UI.PhaseThree
         {
             listBoxProposals.Items.Clear();
             Section section = (Section)comboBoxSections.SelectedItem;
-            List<ProposalMetaInformation> proposalMetaInformations =
-                PhaseThreeController.FindAllProposalsBySection(section);
+            List<Proposal> proposals =
+                PhaseThreeController.FindAllProposalsWithoutSection();
 
-            foreach (var proposal in proposalMetaInformations)
+            foreach (var proposal in proposals)
             {
                 listBoxProposals.Items.Add(proposal.Title);
+            }
+            btnAddToSection.Enabled = true;
+        }
+
+        private void btnAddToSection_Click(object sender, EventArgs e)
+        {
+            Section section = (Section)comboBoxSections.SelectedItem;
+            List<Proposal> proposals = new List<Proposal>();
+            foreach (int i in listBoxProposals.SelectedIndices)
+            {
+                string proposalName = listBoxProposals.Items[i].ToString();
+                proposals.Add(PhaseThreeController.FindProposalByName(proposalName));
+            }
+            try
+            {
+                PhaseThreeController.AddProposalsToSection(section, proposals);
+                LoadProposals();
+                MessageBox.Show("Proposals has been successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

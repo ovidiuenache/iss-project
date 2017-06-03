@@ -18,6 +18,7 @@ namespace App
             UserContextSeed.Seed();
             TopicSeed.Seed();
             ProposalSeed.Seed();
+            SectionSeed.Seed();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

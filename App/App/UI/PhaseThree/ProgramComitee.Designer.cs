@@ -93,6 +93,7 @@
             this.Controls.Add(this.btnSectionLeader);
             this.Name = "ProgramComitee";
             this.Text = "ProgramComitee";
+            this.Load += new System.EventHandler(this.ProgramComitee_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

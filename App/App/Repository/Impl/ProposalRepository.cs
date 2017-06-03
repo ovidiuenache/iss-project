@@ -2,6 +2,7 @@
 using App.Entity;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Repository.Impl
 {
@@ -26,6 +27,11 @@ namespace App.Repository.Impl
         public void saveChanges()
         {
             Context.SaveChanges();
+        }
+
+        public Proposal FindProposalByName(string name)
+        {
+            return Context.Proposals.SingleOrDefault(p => p.Title == name);
         }
     }
 }

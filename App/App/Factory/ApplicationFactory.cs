@@ -76,7 +76,7 @@ namespace App.Factory
             return new PhaseThreeController(
                 GetSectionRepository(),
                 getUserRepository(),
-                GetProposalMetaInformationRepository());
+                getProposalRepository());
         }
 
         public static SectionRepository GetSectionRepository()
@@ -89,9 +89,5 @@ namespace App.Factory
             return new ConferenceUserRepository(getAppContext());
         }
 
-        public static ProposalMetaInformationRepository GetProposalMetaInformationRepository()
-        {
-            return new ProposalMetaInformationRepository(getAppContext());
-        }
     }
 }

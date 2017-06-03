@@ -178,7 +178,12 @@
     <Compile Include="Migrations\20170603065933_UpdateSectionEntityAddAuthors.designer.cs">
       <DependentUpon>20170603065933_UpdateSectionEntityAddAuthors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20170603163939_UpdateSectionEntityAddProposalsList.cs" />
+    <Compile Include="Migrations\20170603163939_UpdateSectionEntityAddProposalsList.designer.cs">
+      <DependentUpon>20170603163939_UpdateSectionEntityAddProposalsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Seed\ProposalSeed.cs" />
+    <Compile Include="Migrations\Seed\SectionSeed.cs" />
     <Compile Include="Repository\Impl\SectionRepository.cs" />
     <Compile Include="Controller\IPhaseOneController.cs" />
     <Compile Include="Controller\IPhaseThreeController.cs" />
@@ -219,6 +224,7 @@
     <Compile Include="Migrations\20170602182215_AddedSectionEntity.cs" />
     <Compile Include="Migrations\20170602182215_AddedSectionEntity.designer.cs">
       <DependentUpon>20170602182215_AddedSectionEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\20170603095246_RemoveProposalMetaInformationEntity.cs" />
     <Compile Include="Migrations\20170603095246_RemoveProposalMetaInformationEntity.designer.cs">
       <DependentUpon>20170603095246_RemoveProposalMetaInformationEntity.cs</DependentUpon>

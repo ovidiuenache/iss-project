@@ -48,6 +48,32 @@ namespace App.Controller
         /// </summary>
         /// <param name="section"></param>
         /// <returns></returns>
-        List<ProposalMetaInformation> FindAllProposalsBySection(Section section);
+        List<Proposal> FindAllProposalsBySection(Section section);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        List<Proposal> FindAllProposals();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        List<Proposal> FindAllProposalsWithoutSection();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="proposalName"></param>
+        /// <returns></returns>
+        Proposal FindProposalByName(string proposalName);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="section"></param>
+        /// <param name="proposals"></param>
+        void AddProposalsToSection(Section section, List<Proposal> proposals);
     }
 }
