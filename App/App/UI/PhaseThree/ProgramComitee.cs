@@ -41,9 +41,16 @@ namespace App.UI.PhaseThree
 
         private void btnSectionLeader_Click(object sender, EventArgs e)
         {
-            //@todo: Get the comitee member from combox box 
-            // and save it to the section->see Section entity(SectionLeader property)
-            PhaseThreeController.AddSectionLeader((User)comboBoxComiteeMembers.SelectedItem);
+            try
+            {
+                //@todo: save the leader of section(set section id from user repo)
+                PhaseThreeController.AddSectionLeader((User)comboBoxComiteeMembers.SelectedItem);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void comboBoxSections_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,11 +60,12 @@ namespace App.UI.PhaseThree
 
         private void LoadComiteeMembers()
         {
+            comboBoxComiteeMembers.Items.Clear();
             //@todo: FindAllComiteeMember must return a list with 
             // all users that have the following roles: chair or reviewer
 
-            List<User> comiteeMembers = PhaseThreeController.FindAllComiteeMember();
-           
+            List<User> comiteeMembers = PhaseThreeController.FindAllComiteeMemberWithoutSection();
+
             foreach (var member in comiteeMembers)
             {
                 comboBoxComiteeMembers.Items.Add(member);

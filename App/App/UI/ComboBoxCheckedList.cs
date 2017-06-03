@@ -125,7 +125,8 @@ namespace App.UI
                     {
                         return (oldStrValue.CompareTo(newStrValue) != 0);
                     }
-                    else {
+                    else
+                    {
                         return (oldStrValue.Length != newStrValue.Length);
                     }
                 }
@@ -225,7 +226,8 @@ namespace App.UI
                     ccbParent.Text = GetCheckedItemsStringValue();
 
                 }
-                else {
+                else
+                {
                     // Caller cancelled selection - need to restore the checked items to their original state.
                     for (int i = 0; i < cclb.Items.Count; i++)
                     {
@@ -269,7 +271,8 @@ namespace App.UI
                     CloseDropdown(ce.AssignValues);
 
                 }
-                else {
+                else
+                {
                     // If not custom event arguments passed, means that this method was called from the
                     // framework. We assume that the checked values should be registered regardless.
                     CloseDropdown(true);
@@ -441,7 +444,8 @@ namespace App.UI
             {
                 throw new ArgumentOutOfRangeException("index", "value out of range");
             }
-            else {
+            else
+            {
                 return dropdown.List.GetItemChecked(index);
             }
         }
@@ -452,7 +456,8 @@ namespace App.UI
             {
                 throw new ArgumentOutOfRangeException("index", "value out of range");
             }
-            else {
+            else
+            {
                 dropdown.List.SetItemChecked(index, isChecked);
                 // Need to update the Text.
                 this.Text = dropdown.GetCheckedItemsStringValue();
@@ -465,7 +470,8 @@ namespace App.UI
             {
                 throw new ArgumentOutOfRangeException("index", "value out of range");
             }
-            else {
+            else
+            {
                 return dropdown.List.GetItemCheckState(index);
             }
         }
@@ -476,7 +482,8 @@ namespace App.UI
             {
                 throw new ArgumentOutOfRangeException("index", "value out of range");
             }
-            else {
+            else
+            {
                 dropdown.List.SetItemCheckState(index, state);
                 // Need to update the Text.
                 this.Text = dropdown.GetCheckedItemsStringValue();
@@ -486,4 +493,3 @@ namespace App.UI
     } // end public class CheckedComboBox
 
 }
-

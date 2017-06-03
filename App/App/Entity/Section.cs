@@ -16,5 +16,11 @@ namespace App.Entity
         public User SectionLeader { get; set; }
         public IList<Topic> Topics { get; set; }
         public IList<User> Listeners { get; set; }
+        public string Room { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

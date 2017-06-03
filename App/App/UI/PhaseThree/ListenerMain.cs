@@ -42,13 +42,20 @@ namespace App.UI.PhaseThree
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            List<Section> selectedSections = new List<Section>();
-            foreach (int i in listBoxTopics.SelectedIndices)
+            try
             {
-                string sectionName = listBoxTopics.Items[i].ToString();
-                selectedSections.Add(PhaseThreeController.FindSectionByName(sectionName));
+                List<Section> selectedSections = new List<Section>();
+                foreach (int i in listBoxTopics.SelectedIndices)
+                {
+                    string sectionName = listBoxTopics.Items[i].ToString();
+                    selectedSections.Add(PhaseThreeController.FindSectionByName(sectionName));
+                }
+                PhaseThreeController.AddListenerToSections(selectedSections, LoggedUser);
             }
-            PhaseThreeController.AddListenerToSections(selectedSections, LoggedUser);
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

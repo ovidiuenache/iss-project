@@ -56,7 +56,7 @@ namespace App.UI
                     commiteeMembers.Add((User)comboBoxCheckedListCreate.Items[i]);
                 }
             }
-       
+
             List<Topic> selectedTopics = new List<Topic>();
             foreach (int i in listBoxTopics.SelectedIndices)
             {

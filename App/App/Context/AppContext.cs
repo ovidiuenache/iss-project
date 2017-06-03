@@ -53,6 +53,10 @@ namespace App.Context
             modelBuilder.Entity<Section>()
                 .HasIndex(s => s.Name)
                 .IsUnique();
+
+            modelBuilder.Entity<Section>()
+                .HasIndex(s => s.Room)
+                .IsUnique();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -14,10 +14,15 @@ namespace App.Controller
     public class PhaseThreeController : IPhaseThreeController
     {
         private ISectionRepository SectionRepository;
+        private IUserRepository UserRepository;
 
-        public PhaseThreeController(ISectionRepository sectionRepository)
+        public PhaseThreeController(
+            ISectionRepository sectionRepository,
+            IUserRepository userRepository
+        )
         {
             SectionRepository = sectionRepository;
+            UserRepository = userRepository;
         }
 
         /// <summary>
@@ -51,6 +56,27 @@ namespace App.Controller
                 section.Listeners.Add(loggedUser);
                 SectionRepository.Update(section);
             }
+        }
+
+        /// <summary>
+        /// Add the leader of section.
+        /// </summary>
+        /// <param name="sectionLeader"></param>
+        public void AddSectionLeader(User sectionLeader)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// All users that have the following roles: chair or reviewer.
+        /// and don't have already set sectionId
+        /// </summary>
+        /// <returns></returns>
+        public List<User> FindAllComiteeMemberWithoutSection()
+        {
+            //temp 
+            return UserRepository.All();
+            //throw new System.NotImplementedException();
         }
     }
 }
