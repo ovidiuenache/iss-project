@@ -38,6 +38,7 @@
             this.rejectRadioButton = new System.Windows.Forms.RadioButton();
             this.strongRejectRadioButton = new System.Windows.Forms.RadioButton();
             this.submitButton = new System.Windows.Forms.Button();
+            this.buttonBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             // 
             this.commentsRichTextBox.Location = new System.Drawing.Point(249, 13);
             this.commentsRichTextBox.Name = "commentsRichTextBox";
-            this.commentsRichTextBox.Size = new System.Drawing.Size(187, 229);
+            this.commentsRichTextBox.Size = new System.Drawing.Size(207, 229);
             this.commentsRichTextBox.TabIndex = 1;
             this.commentsRichTextBox.Text = "Comments";
             // 
@@ -139,8 +140,8 @@
             // 
             // submitButton
             // 
-            this.submitButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.submitButton.Location = new System.Drawing.Point(249, 445);
+            this.submitButton.BackColor = System.Drawing.SystemColors.Control;
+            this.submitButton.Location = new System.Drawing.Point(249, 451);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(95, 37);
             this.submitButton.TabIndex = 9;
@@ -148,11 +149,22 @@
             this.submitButton.UseVisualStyleBackColor = false;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
+            // buttonBack
+            // 
+            this.buttonBack.Location = new System.Drawing.Point(361, 451);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(95, 37);
+            this.buttonBack.TabIndex = 10;
+            this.buttonBack.Text = "Back";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
             // PCMemberRateProposals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 515);
+            this.ClientSize = new System.Drawing.Size(468, 515);
+            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.strongRejectRadioButton);
             this.Controls.Add(this.rejectRadioButton);
@@ -163,9 +175,16 @@
             this.Controls.Add(this.strongAccceptButton);
             this.Controls.Add(this.commentsRichTextBox);
             this.Controls.Add(this.proposalsDataGridView);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(484, 554);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(484, 554);
             this.Name = "PCMemberRateProposals";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "PCMemberRateProposals";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PCMemberRateProposals_FormClosing);
+            this.Load += new System.EventHandler(this.PCMemberRateProposals_Load);
             ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -184,5 +203,6 @@
         private System.Windows.Forms.RadioButton rejectRadioButton;
         private System.Windows.Forms.RadioButton strongRejectRadioButton;
         private System.Windows.Forms.Button submitButton;
+        private System.Windows.Forms.Button buttonBack;
     }
 }

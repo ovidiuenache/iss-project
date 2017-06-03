@@ -1,5 +1,6 @@
 ﻿using App.Controller;
 using App.Entity;
+using App.Factory;
 using System;
 using System.Windows.Forms;
 
@@ -9,12 +10,21 @@ namespace App.UI.PhaseTwo
     {
         private PhaseOneController controller;
         private Proposal proposal;
-        private User user;
-        public AuthorMain(PhaseOneController controller, Proposal proposal, User author)
+        private User loggedUser;
+        private Form parentForm;
+
+        public AuthorMain(Form parentForm, User loggedUser)
         {
-            this.controller = controller;
-            this.proposal = proposal;
-            this.user = author;
+            this.controller = ApplicationFactory.getPhaseOneController();
+
+            //TO DO
+            //LOAD THIS PROPOSAL SOMEHOW FROM THE DATABASE
+            proposal = null;
+
+
+            this.loggedUser = loggedUser;
+            this.parentForm = parentForm;
+
             InitializeComponent();
         }
 
@@ -39,6 +49,22 @@ namespace App.UI.PhaseTwo
             {
                 this.textBox1.Text = openFileDialogBrowse.FileName;
             }
+        }
+
+        private void AuthorMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Show();
+            Close();
+        }
+
+        private void AuthorMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
         }
     }
 }

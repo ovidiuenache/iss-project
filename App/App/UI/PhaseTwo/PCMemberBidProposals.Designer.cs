@@ -33,6 +33,7 @@
             this.radioButtonPot = new System.Windows.Forms.RadioButton();
             this.radioButtonNuVreau = new System.Windows.Forms.RadioButton();
             this.submitButton = new System.Windows.Forms.Button();
+            this.buttonBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             // 
             // submitButton
             // 
-            this.submitButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.submitButton.BackColor = System.Drawing.SystemColors.Control;
             this.submitButton.Location = new System.Drawing.Point(272, 168);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(99, 37);
@@ -88,19 +89,37 @@
             this.submitButton.UseVisualStyleBackColor = false;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
+            // buttonBack
+            // 
+            this.buttonBack.Location = new System.Drawing.Point(272, 211);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(99, 37);
+            this.buttonBack.TabIndex = 5;
+            this.buttonBack.Text = "Back";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
             // PCMemberBidProposals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 508);
+            this.ClientSize = new System.Drawing.Size(388, 508);
+            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.radioButtonNuVreau);
             this.Controls.Add(this.radioButtonPot);
             this.Controls.Add(this.radioButtonDa);
             this.Controls.Add(this.proposalsDataGridView);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(404, 547);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(404, 547);
             this.Name = "PCMemberBidProposals";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "PCMemberBidProposals";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PCMemberBidProposals_FormClosing);
+            this.Load += new System.EventHandler(this.PCMemberBidProposals_Load);
             ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -114,5 +133,6 @@
         private System.Windows.Forms.RadioButton radioButtonPot;
         private System.Windows.Forms.RadioButton radioButtonNuVreau;
         private System.Windows.Forms.Button submitButton;
+        private System.Windows.Forms.Button buttonBack;
     }
 }
