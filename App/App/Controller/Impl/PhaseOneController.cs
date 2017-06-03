@@ -14,10 +14,17 @@ namespace App.Controller
     public class PhaseOneController
     {
         private ProposalRepository proposalRepository;
+        private UserRepository userRepository;
 
-        public PhaseOneController(ProposalRepository proposalRepository)
+        public PhaseOneController(ProposalRepository proposalRepository, UserRepository userRepository)
         {
             this.proposalRepository = proposalRepository;
+            this.userRepository = userRepository;
+        }
+
+        public void addProposal(Proposal proposal)
+        {
+            proposalRepository.Add(proposal);
         }
 
         public void updateProposal(Proposal proposal)
@@ -38,6 +45,11 @@ namespace App.Controller
         public void saveChanges()
         {
             proposalRepository.saveChanges();
+        }
+
+        public List<User> getAllUsers()
+        {
+            return userRepository.All();
         }
     }
 }

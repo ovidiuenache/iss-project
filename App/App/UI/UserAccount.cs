@@ -72,7 +72,7 @@ namespace App.UI
             {
                 if(dataGridViewProposals.Rows.Count != 0)
                 {
-                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.SelectedRows[0].Cells[0].Value.ToString())), true, textBoxFull.Text);
+                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.Rows[0].Cells[0].Value.ToString())), true, textBoxFull.Text);
                     mt.Show();
                 }
                 else
@@ -162,6 +162,11 @@ namespace App.UI
         {
             parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
             parentForm.Show();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
         }
     }
 }

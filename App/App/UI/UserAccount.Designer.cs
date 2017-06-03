@@ -39,6 +39,7 @@
             this.dataGridViewProposals = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProposals)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,11 +133,22 @@
             this.buttonLogout.UseVisualStyleBackColor = true;
             this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Location = new System.Drawing.Point(64, 418);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(321, 35);
+            this.buttonRefresh.TabIndex = 9;
+            this.buttonRefresh.Text = "Refresh Proposals";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
             // UserAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 465);
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonUploadFull);
@@ -172,5 +184,6 @@
         private System.Windows.Forms.DataGridView dataGridViewProposals;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonLogout;
+        private System.Windows.Forms.Button buttonRefresh;
     }
 }
