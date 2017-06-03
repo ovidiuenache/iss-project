@@ -8,9 +8,10 @@ using App.Context;
 namespace App.Migrations
 {
     [DbContext(typeof(AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [Migration("20170602140154_UpdateTopicEntity")]
+    partial class UpdateTopicEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -72,17 +73,32 @@ namespace App.Migrations
 
                     b.Property<string>("AbstractPaper");
 
+                    b.Property<string>("FullPaper");
+
+                    b.HasKey("ProposalId");
+
+                    b.ToTable("Proposals");
+                });
+
+            modelBuilder.Entity("App.Entity.ProposalMetaInformation", b =>
+                {
+                    b.Property<int>("ProposalMetaInformationId")
+                        .ValueGeneratedOnAdd();
+
                     b.Property<string>("Description");
 
-                    b.Property<string>("FullPaper");
+                    b.Property<int>("ProposalForeignKey");
 
                     b.Property<string>("Title");
 
                     b.Property<int>("Year");
 
-                    b.HasKey("ProposalId");
+                    b.HasKey("ProposalMetaInformationId");
 
-                    b.ToTable("Proposals");
+                    b.HasIndex("ProposalForeignKey")
+                        .IsUnique();
+
+                    b.ToTable("ProposalMetaInformations");
                 });
 
             modelBuilder.Entity("App.Entity.Role", b =>
@@ -135,11 +151,11 @@ namespace App.Migrations
 
                     b.Property<string>("Password");
 
-                    b.Property<int?>("ProposalId");
+                    b.Property<int?>("ProposalMetaInformationId");
 
                     b.HasKey("UserId");
 
-                    b.HasIndex("ProposalId");
+                    b.HasIndex("ProposalMetaInformationId");
 
                     b.ToTable("Users");
                 });
@@ -160,7 +176,7 @@ namespace App.Migrations
             modelBuilder.Entity("App.Entity.Conference", b =>
                 {
                     b.HasOne("App.Entity.Phase", "ActivePhase")
-                        .WithMany("Conferences")
+                        .WithMany()
                         .HasForeignKey("ActivePhasePhaseId");
                 });
 
@@ -177,6 +193,14 @@ namespace App.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("App.Entity.ProposalMetaInformation", b =>
+                {
+                    b.HasOne("App.Entity.Proposal", "Proposal")
+                        .WithOne("MetaInformation")
+                        .HasForeignKey("App.Entity.ProposalMetaInformation", "ProposalForeignKey")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("App.Entity.Topic", b =>
                 {
                     b.HasOne("App.Entity.Conference")
@@ -186,9 +210,9 @@ namespace App.Migrations
 
             modelBuilder.Entity("App.Entity.User", b =>
                 {
-                    b.HasOne("App.Entity.Proposal")
+                    b.HasOne("App.Entity.ProposalMetaInformation")
                         .WithMany("Authors")
-                        .HasForeignKey("ProposalId");
+                        .HasForeignKey("ProposalMetaInformationId");
                 });
 
             modelBuilder.Entity("App.Entity.UserRole", b =>

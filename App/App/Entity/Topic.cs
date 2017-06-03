@@ -15,7 +15,6 @@
 
         public Topic()
         {
-            TopicId = -1;
             Name = "";
             Description = "";
         }
@@ -31,6 +30,11 @@
             var item = obj as Topic;
 
             return TopicId == item?.TopicId;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace App.Entity
 {
@@ -17,25 +19,30 @@ namespace App.Entity
 
         public DateTime Deadline { get; set; }
 
+        public IList<Conference> Conferences { get; set; }
+
         public Phase()
         {
-            PhaseId = -1;
             Name = "";
             Deadline = new DateTime();
         }
 
         public Phase(string name, DateTime deadline)
         {
-            this.Name = name;
-            this.Deadline = deadline;
+            Name = name;
+            Deadline = deadline;
         }
-
 
         public override bool Equals(object obj)
         {
             var item = obj as Phase;
 
             return PhaseId == item?.PhaseId;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

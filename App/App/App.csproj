@@ -171,7 +171,6 @@
     <Compile Include="Entity\ConferenceUser.cs" />
     <Compile Include="Entity\Phase.cs" />
     <Compile Include="Entity\Proposal.cs" />
-    <Compile Include="Entity\ProposalMetaInformation.cs" />
     <Compile Include="Entity\Review.cs" />
     <Compile Include="Entity\Role.cs" />
     <Compile Include="Entity\Topic.cs" />
@@ -193,7 +192,16 @@
     <Compile Include="Migrations\20170514194859_SecondMigration.designer.cs">
       <DependentUpon>20170514194859_SecondMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20170602140154_UpdateTopicEntity.cs" />
+    <Compile Include="Migrations\20170602140154_UpdateTopicEntity.designer.cs">
+      <DependentUpon>20170602140154_UpdateTopicEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170603095246_RemoveProposalMetaInformationEntity.cs" />
+    <Compile Include="Migrations\20170603095246_RemoveProposalMetaInformationEntity.designer.cs">
+      <DependentUpon>20170603095246_RemoveProposalMetaInformationEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AppContextModelSnapshot.cs" />
+    <Compile Include="Migrations\Seed\TopicSeed.cs" />
     <Compile Include="Migrations\Seed\UserContextSeed.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -204,10 +212,11 @@
     <Compile Include="Exception\InvalidPasswordException.cs" />
     <Compile Include="Exception\InvalidQualifierException.cs" />
     <Compile Include="Repository\IConferenceRepository.cs" />
+    <Compile Include="Repository\IConferenceUserRepository.cs" />
     <Compile Include="Repository\Impl\AbstractRepository.cs" />
     <Compile Include="Repository\Impl\ConferenceRepository.cs" />
+    <Compile Include="Repository\Impl\ConferenceUserRepository.cs" />
     <Compile Include="Repository\Impl\PhaseRepository.cs" />
-    <Compile Include="Repository\Impl\ProposalMetaInformationRepository.cs" />
     <Compile Include="Repository\Impl\ProposalRepository.cs" />
     <Compile Include="Repository\Impl\ReviewRepository.cs" />
     <Compile Include="Repository\Impl\RoleRepository.cs" />
@@ -215,7 +224,6 @@
     <Compile Include="Repository\Impl\UserRepository.cs" />
     <Compile Include="Repository\Impl\UserRoleRepository.cs" />
     <Compile Include="Repository\IPhaseRepository.cs" />
-    <Compile Include="Repository\IProposalMetaInformationRepository.cs" />
     <Compile Include="Repository\IProposalRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\IReviewRepository.cs" />
@@ -280,53 +288,53 @@
     <Compile Include="UI\UserAccount.Designer.cs">
       <DependentUpon>UserAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\ConferenceValidator.cs" />
-	<Compile Include="UI\PhaseTwo\AuthorMain.cs">
+    <Compile Include="Validators\ConferenceValidator.cs" />
+    <Compile Include="UI\PhaseTwo\AuthorMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\PhaseTwo\AuthorMain.Designer.cs">
       <DependentUpon>AuthorMain.cs</DependentUpon>
     </Compile>
-	<Compile Include="UI\PhaseTwo\ChairAssignementToReviewer.cs">
+    <Compile Include="UI\PhaseTwo\ChairAssignementToReviewer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\PhaseTwo\ChairAssignementToReviewer.Designer.cs">
       <DependentUpon>ChairAssignementToReviewer.cs</DependentUpon>
     </Compile>
-	<Compile Include="UI\PhaseTwo\ChairMain.cs">
+    <Compile Include="UI\PhaseTwo\ChairMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\PhaseTwo\ChairMain.Designer.cs">
       <DependentUpon>ChairMain.cs</DependentUpon>
     </Compile>
-	<Compile Include="UI\PhaseTwo\ChairToAcceptedAuthors.cs">
+    <Compile Include="UI\PhaseTwo\ChairToAcceptedAuthors.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\PhaseTwo\ChairToAcceptedAuthors.Designer.cs">
       <DependentUpon>ChairToAcceptedAuthors.cs</DependentUpon>
     </Compile>
-	<Compile Include="UI\PhaseTwo\PCMemberBidProposals.cs">
+    <Compile Include="UI\PhaseTwo\PCMemberBidProposals.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\PhaseTwo\PCMemberBidProposals.Designer.cs">
       <DependentUpon>PCMemberBidProposals.cs</DependentUpon>
-    </Compile>	
-	<Compile Include="UI\PhaseTwo\PCMemberMain.cs">
+    </Compile>
+    <Compile Include="UI\PhaseTwo\PCMemberMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\PhaseTwo\PCMemberMain.Designer.cs">
       <DependentUpon>PCMemberMain.cs</DependentUpon>
-    </Compile>	
-	<Compile Include="UI\PhaseTwo\PCMemberRateProposals.cs">
+    </Compile>
+    <Compile Include="UI\PhaseTwo\PCMemberRateProposals.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\PhaseTwo\PCMemberRateProposals.Designer.cs">
       <DependentUpon>PCMemberRateProposals.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\IValidator.cs" />
+    <Compile Include="Validators\IValidator.cs" />
     <Compile Include="Utils\MailSender.cs" />
     <Compile Include="Utils\PasswordGenerator.cs" />
-    <Compile Include="Utils\UserValidator.cs" />
+    <Compile Include="Validators\UserValidator.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -362,26 +370,26 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UserAccount.resx">
       <DependentUpon>UserAccount.cs</DependentUpon>
-    </EmbeddedResource>	
-	<EmbeddedResource Include="UI\PhaseTwo\AuthorMain.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhaseTwo\AuthorMain.resx">
       <DependentUpon>AuthorMain.cs</DependentUpon>
-    </EmbeddedResource>	
-	<EmbeddedResource Include="UI\PhaseTwo\ChairAssignementToReviewer.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhaseTwo\ChairAssignementToReviewer.resx">
       <DependentUpon>ChairAssignementToReviewer.cs</DependentUpon>
-    </EmbeddedResource>	
-	<EmbeddedResource Include="UI\PhaseTwo\ChairMain.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhaseTwo\ChairMain.resx">
       <DependentUpon>ChairMain.cs</DependentUpon>
-    </EmbeddedResource>	
-	<EmbeddedResource Include="UI\PhaseTwo\ChairToAcceptedAuthors.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhaseTwo\ChairToAcceptedAuthors.resx">
       <DependentUpon>ChairToAcceptedAuthors.cs</DependentUpon>
-    </EmbeddedResource>	
-	<EmbeddedResource Include="UI\PhaseTwo\PCMemberBidProposals.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhaseTwo\PCMemberBidProposals.resx">
       <DependentUpon>PCMemberBidProposals.cs</DependentUpon>
-    </EmbeddedResource>	
-	<EmbeddedResource Include="UI\PhaseTwo\PCMemberMain.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhaseTwo\PCMemberMain.resx">
       <DependentUpon>PCMemberMain.cs</DependentUpon>
-    </EmbeddedResource>	
-	<EmbeddedResource Include="UI\PhaseTwo\PCMemberRateProposals.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhaseTwo\PCMemberRateProposals.resx">
       <DependentUpon>PCMemberRateProposals.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

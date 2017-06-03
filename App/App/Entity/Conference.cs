@@ -30,7 +30,6 @@ namespace App.Entity
 
         public Conference()
         {
-            ConferenceId = -1;
             Name = "";
             StartDate = new DateTime();
             EndDate = new DateTime();
@@ -62,6 +61,11 @@ namespace App.Entity
             var item = obj as Conference;
 
             return ConferenceId == item?.ConferenceId;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

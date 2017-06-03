@@ -35,5 +35,10 @@ namespace App.Entity
 
             return RoleId == item?.RoleId;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

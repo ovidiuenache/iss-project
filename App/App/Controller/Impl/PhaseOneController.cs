@@ -1,6 +1,8 @@
 ﻿using System;
 using App.Entity;
 using App.Repository;
+using App.Repository.Impl;
+using System.Collections.Generic;
 
 namespace App.Controller
 {
@@ -8,10 +10,12 @@ namespace App.Controller
     /// 
     /// Phase one controller implementation 
     /// Author : Catalin Radoiu 
+    /// Author : Ioan Ovidiu Enache
     /// 
     /// </summary>
     public class PhaseOneController
     {
+
         private IProposalRepository proposalRepository;
         private IUserRepository userRepository;
 
@@ -30,10 +34,20 @@ namespace App.Controller
         {
             return userRepository.FindUserByEmail(email);
         }
-
+    
         public Proposal getProposal(int id)
         {
             return proposalRepository.Find(id);
+        }
+
+        public List<Proposal> getProposalsBindingSource()
+        {
+            return proposalRepository.getProposalsBindingSource();
+        }
+
+        public void saveChanges()
+        {
+            proposalRepository.saveChanges();
         }
     }
 }

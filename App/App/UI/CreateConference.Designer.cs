@@ -138,14 +138,6 @@
             // listBoxTopics
             // 
             this.listBoxTopics.FormattingEnabled = true;
-            this.listBoxTopics.Items.AddRange(new object[] {
-            "Politics",
-            "Environment",
-            "Cars",
-            "IT",
-            "Technology",
-            "Gaming",
-            "Family"});
             this.listBoxTopics.Location = new System.Drawing.Point(150, 117);
             this.listBoxTopics.Name = "listBoxTopics";
             this.listBoxTopics.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
@@ -160,7 +152,7 @@
             this.comboBoxCheckedListCreate.FormattingEnabled = true;
             this.comboBoxCheckedListCreate.IntegralHeight = false;
             this.comboBoxCheckedListCreate.Location = new System.Drawing.Point(150, 81);
-            this.comboBoxCheckedListCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxCheckedListCreate.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCheckedListCreate.Name = "comboBoxCheckedListCreate";
             this.comboBoxCheckedListCreate.Size = new System.Drawing.Size(203, 21);
             this.comboBoxCheckedListCreate.TabIndex = 15;

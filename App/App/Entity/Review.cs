@@ -20,7 +20,6 @@ namespace App.Entity
 
         public Review()
         {
-            ReviewId = -1;
             Qualifier = "";
             Comment = "";
             Reviewer = null;
@@ -42,6 +41,11 @@ namespace App.Entity
             var item = obj as Review;
 
             return ReviewId == item?.ReviewId;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using App.Entity;
+﻿using App.Entity;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.Context
@@ -14,7 +9,6 @@ namespace App.Context
         public DbSet<Role> Roles { get; set; }
 
         public DbSet<Proposal> Proposals { get; set; }
-        public DbSet<ProposalMetaInformation> ProposalMetaInformations { get; set; }
 
         public DbSet<Conference> Conferences { get; set; }
         public DbSet<Phase> Phases { get; set; }
@@ -44,16 +38,15 @@ namespace App.Context
                 .WithMany(x => x.ConferenceUsers)
                 .HasForeignKey(x => x.UserId);
 
-            modelBuilder.Entity<Proposal>()
-                .HasOne(x => x.MetaInformation)
-                .WithOne(x => x.Proposal)
-                .HasForeignKey<ProposalMetaInformation>(x => x.ProposalForeignKey);
+            modelBuilder.Entity<Topic>()
+                .HasIndex(t => t.Name)
+                .IsUnique();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Data Source=DESKTOP-C6EA23V\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
+                @"Data Source=DESKTOP-MB4097H\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
         }
     }
 }
