@@ -30,6 +30,7 @@
         {
             this.assignButton = new System.Windows.Forms.Button();
             this.sendEmailsButton = new System.Windows.Forms.Button();
+            this.buttonNextPhase = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // assignButton
@@ -54,15 +55,25 @@
             this.sendEmailsButton.UseVisualStyleBackColor = false;
             this.sendEmailsButton.Click += new System.EventHandler(this.sendEmailsButton_Click);
             // 
+            // buttonNextPhase
+            // 
+            this.buttonNextPhase.Location = new System.Drawing.Point(28, 155);
+            this.buttonNextPhase.Name = "buttonNextPhase";
+            this.buttonNextPhase.Size = new System.Drawing.Size(108, 49);
+            this.buttonNextPhase.TabIndex = 2;
+            this.buttonNextPhase.Text = "Next Phase";
+            this.buttonNextPhase.UseVisualStyleBackColor = true;
+            this.buttonNextPhase.Click += new System.EventHandler(this.buttonNextPhase_Click);
+            // 
             // ChairMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(165, 153);
+            this.ClientSize = new System.Drawing.Size(165, 216);
+            this.Controls.Add(this.buttonNextPhase);
             this.Controls.Add(this.sendEmailsButton);
             this.Controls.Add(this.assignButton);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(181, 192);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(181, 192);
             this.Name = "ChairMain";
@@ -77,5 +88,6 @@
 
         private System.Windows.Forms.Button assignButton;
         private System.Windows.Forms.Button sendEmailsButton;
+        private System.Windows.Forms.Button buttonNextPhase;
     }
 }

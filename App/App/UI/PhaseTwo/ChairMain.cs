@@ -45,5 +45,28 @@ namespace App.UI.PhaseTwo
         {
 
         }
+
+        private void buttonNextPhase_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to end this phase and start the next one?", "Start Next Phase", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Conference activeConference = phaseTwoController.ActiveConference();
+
+                Phase nextPhase = new Phase();
+                nextPhase.Deadline = activeConference.EndDate;
+                nextPhase.Name = "PHASETWO";
+
+                activeConference.ActivePhase = nextPhase;
+
+                phaseTwoController.UpdateConference(activeConference);
+
+                MessageBox.Show("Switch to the next phase has been done successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do nothing
+            }
+        }
     }
 }
