@@ -61,9 +61,14 @@ namespace App
                             {
                                 toBeShown = new PCMemberMain(this, loggedUser);
                             }
-                            else if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("author"))
+                            else if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("author")
+                                || loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("speaker"))
                             {
                                 toBeShown = new AuthorMain(this, loggedUser);
+                            }
+                            else if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("listner"))
+                            {
+                                toBeShown = new ListenerMain(this, loggedUser);
                             }
                             break;
                         case "PHASETHREE":
