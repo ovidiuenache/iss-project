@@ -25,7 +25,7 @@ namespace App.UI
 
             InitializeComponent();
 
-            dataGridViewProposals.DataSource = controller.getProposalsBindingSource();
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
         }
 
         private void buttonBrowseAbstract_Click(object sender, EventArgs e)
@@ -48,20 +48,20 @@ namespace App.UI
             {
                 if(dataGridViewProposals.Rows.Count != 0)
                 {
-                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.SelectedRows[0].Cells[0].Value.ToString())), controller, false, textBoxAbstract.Text);
+                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.SelectedRows[0].Cells[0].Value.ToString())), false, textBoxAbstract.Text);
                     mt.Show();
 
                 }
                 else
                 {
-                    MetaInformation mt= new MetaInformation(new Proposal("",new List<User>(),0,"", "",""), controller, false, textBoxAbstract.Text);
+                    MetaInformation mt= new MetaInformation(null, false, textBoxAbstract.Text);
                     mt.Show();
 
                 }
 
             }
 
-            dataGridViewProposals.DataSource = controller.getProposalsBindingSource();
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
         }
 
         private void buttonUploadFull_Click(object sender, EventArgs e)
@@ -72,18 +72,18 @@ namespace App.UI
             {
                 if(dataGridViewProposals.Rows.Count != 0)
                 {
-                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.SelectedRows[0].Cells[0].Value.ToString())), controller, true, textBoxFull.Text);
+                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.SelectedRows[0].Cells[0].Value.ToString())), true, textBoxFull.Text);
                     mt.Show();
                 }
                 else
                 {
-                    MetaInformation mt = new MetaInformation(null, controller, true, textBoxFull.Text);
+                    MetaInformation mt = new MetaInformation(null, true, textBoxFull.Text);
                     mt.Show();
 
                 }
             }
 
-            dataGridViewProposals.DataSource = controller.getProposalsBindingSource();
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
         }
 
         private void buttonBrowseFull_Click(object sender, EventArgs e)
@@ -149,6 +149,13 @@ namespace App.UI
             controller.saveChanges();
 
             MessageBox.Show("Database has been updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Show();
+            Close();
         }
     }
 }
