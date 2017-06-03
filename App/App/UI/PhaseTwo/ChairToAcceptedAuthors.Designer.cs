@@ -68,6 +68,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ChairToAcceptedAuthors";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChairToAcceptedAuthors_FormClosing);
+            this.Load += new System.EventHandler(this.ChairToAcceptedAuthors_Load);
             this.ResumeLayout(false);
 
         }

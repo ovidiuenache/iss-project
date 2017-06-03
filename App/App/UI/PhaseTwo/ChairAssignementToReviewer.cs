@@ -1,5 +1,6 @@
 ﻿using App.Controller;
 using App.Entity;
+using App.Factory;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -14,10 +15,12 @@ namespace App.UI.PhaseTwo
     {
         private PhaseTwoController phaseTwoController;
         private ChairMain parent;
-        public ChairAssignementToReviewer(ChairMain parent,PhaseTwoController phaseTwoController)
+
+        public ChairAssignementToReviewer(ChairMain parent)
         {
             this.parent = parent;
-            this.phaseTwoController = phaseTwoController;
+            phaseTwoController = ApplicationFactory.getPhaseTwoController();
+
             InitializeComponent();
         }
 
@@ -42,10 +45,14 @@ namespace App.UI.PhaseTwo
 
         private void ChairAssignementToReviewer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            buttonBack.PerformClick();
         }
 
         private void ChairAssignementToReviewer_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
         {
             parent.Location = new System.Drawing.Point(Location.X, Location.Y);
             parent.Show();

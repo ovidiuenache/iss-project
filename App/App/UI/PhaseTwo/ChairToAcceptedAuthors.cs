@@ -1,5 +1,6 @@
 ﻿using App.Controller;
 using App.Entity;
+using App.Factory;
 using App.Utils;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,12 @@ namespace App.UI.PhaseTwo
         private ChairMain parent;
         private PhaseTwoController phaseTwoController;
         private MailSender mailSender;
-        public ChairToAcceptedAuthors(ChairMain parent, PhaseTwoController phaseTwoController,MailSender mailSender)
+
+        public ChairToAcceptedAuthors(ChairMain parent)
         {
             this.parent = parent;
-            this.phaseTwoController = phaseTwoController;
-            this.mailSender = new MailSender();
+            phaseTwoController = ApplicationFactory.getPhaseTwoController();
+            mailSender = new MailSender();
             InitializeComponent();
         }
 
@@ -58,7 +60,6 @@ namespace App.UI.PhaseTwo
 
         private void ChairToAcceptedAuthors_FormClosing(object sender, FormClosingEventArgs e)
         {
-            buttonBack.PerformClick();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
@@ -66,6 +67,11 @@ namespace App.UI.PhaseTwo
             parent.Location = new System.Drawing.Point(Location.X, Location.Y);
             parent.Show();
             Close();
+        }
+
+        private void ChairToAcceptedAuthors_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

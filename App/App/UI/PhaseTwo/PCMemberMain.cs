@@ -76,7 +76,6 @@ namespace App.UI.PhaseTwo
 
         private void PCMemberMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            buttonLogout.PerformClick();
         }
     }
 }

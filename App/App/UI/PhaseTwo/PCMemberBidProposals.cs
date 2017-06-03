@@ -58,7 +58,6 @@ namespace App.UI.PhaseTwo
 
         private void PCMemberBidProposals_FormClosing(object sender, FormClosingEventArgs e)
         {
-            buttonBack.PerformClick();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
@@ -66,6 +65,11 @@ namespace App.UI.PhaseTwo
             parent.Location = new System.Drawing.Point(Location.X, Location.Y);
             parent.Show();
             Close();
+        }
+
+        private void PCMemberBidProposals_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

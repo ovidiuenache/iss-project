@@ -119,6 +119,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "PCMemberBidProposals";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PCMemberBidProposals_FormClosing);
+            this.Load += new System.EventHandler(this.PCMemberBidProposals_Load);
             ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

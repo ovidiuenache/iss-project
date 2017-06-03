@@ -27,18 +27,18 @@ namespace App.UI.PhaseTwo
 
         private void sendEmailsButton_Click(object sender, EventArgs e)
         {
-            ChairToAcceptedAuthors sendMailView = new ChairToAcceptedAuthors(this,phaseTwoController, new Utils.MailSender());
-            this.Hide();
-            sendMailView.SetDesktopLocation(this.Location.X, this.Location.Y);
+            ChairToAcceptedAuthors sendMailView = new ChairToAcceptedAuthors(this);
+            sendMailView.Location = new System.Drawing.Point(Location.X, Location.Y);
             sendMailView.Show();
+            Hide();
         }
 
         private void assignButton_Click(object sender, EventArgs e)
         {
-            ChairAssignementToReviewer assignmentView = new ChairAssignementToReviewer(this,phaseTwoController);
-            this.Hide();
-            assignmentView.SetDesktopLocation(this.Location.X, this.Location.Y);
+            ChairAssignementToReviewer assignmentView = new ChairAssignementToReviewer(this);
+            assignmentView.Location = new System.Drawing.Point(Location.X, Location.Y);
             assignmentView.Show();
+            Hide();
         }
 
         private void ChairMain_Load(object sender, EventArgs e)
@@ -78,7 +78,6 @@ namespace App.UI.PhaseTwo
 
         private void ChairMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            buttonLogout.PerformClick();
         }
     }
 }

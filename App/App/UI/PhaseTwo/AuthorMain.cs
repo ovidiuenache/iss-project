@@ -65,7 +65,6 @@ namespace App.UI.PhaseTwo
 
         private void AuthorMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            buttonLogout.PerformClick();
         }
     }
 }
