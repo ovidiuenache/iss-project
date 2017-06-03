@@ -88,6 +88,7 @@
             this.MinimumSize = new System.Drawing.Size(283, 213);
             this.Name = "ResetPassword";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ResetPassword";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ResetPassword_FormClosing);
             this.Load += new System.EventHandler(this.ResetPassword_Load);

@@ -47,19 +47,19 @@ namespace App
                 {
                     case "PRELIMINARY":
                         richTextBox1.Text += "\nConference is currently in PRELIMINARY phase!";
-                        richTextBox1.Text += "Deadline for this phase: " + activeConference.ActivePhase.Deadline.ToString() + "\n";
+                        richTextBox1.Text += "\nDeadline for this phase: " + activeConference.ActivePhase.Deadline.ToString() + "\n";
                         break;
                     case "PHASEONE":
-                        richTextBox1.Text += "Conference is currently in PRELIMINARY phase!";
-                        richTextBox1.Text += "Deadline for this phase: " + activeConference.ActivePhase.Deadline.ToString() + "\n";
+                        richTextBox1.Text += "\nConference is currently in PHASE ONE!";
+                        richTextBox1.Text += "\nDeadline for this phase: " + activeConference.ActivePhase.Deadline.ToString() + "\n";
                         break;
                     case "PHASETWO":
-                        richTextBox1.Text += "Conference is currently in PRELIMINARY phase!";
-                        richTextBox1.Text += "Deadline for this phase: " + activeConference.ActivePhase.Deadline.ToString() + "\n";
+                        richTextBox1.Text += "\nConference is currently in PHASE TWO!";
+                        richTextBox1.Text += "\nDeadline for this phase: " + activeConference.ActivePhase.Deadline.ToString() + "\n";
                         break;
                     case "PHASETHREE":
-                        richTextBox1.Text += "Conference is currently in PRELIMINARY phase!";
-                        richTextBox1.Text += "Deadline for this phase: " + activeConference.ActivePhase.Deadline.ToString() + "\n";
+                        richTextBox1.Text += "\nConference is currently in PHASE THREE!";
+                        richTextBox1.Text += "\nDeadline for this phase: " + activeConference.ActivePhase.Deadline.ToString() + "\n";
                         break;
                 }
             }
