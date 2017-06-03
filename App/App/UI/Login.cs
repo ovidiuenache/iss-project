@@ -53,15 +53,15 @@ namespace App
                             toBeShown = new UserAccount(this, loggedUser);
                             break;
                         case "PHASETWO":
-                            if (loggedUser.UserRoles.Select(role => role.Role.Slug).Contains("chair"))
+                            if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("chair"))
                             {
                                 toBeShown = new ChairMain(this, loggedUser);
                             }
-                            else if (loggedUser.UserRoles.Select(role => role.Role.Slug).Contains("reviewer"))
+                            else if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("reviewer"))
                             {
                                 toBeShown = new PCMemberMain(this, loggedUser);
                             }
-                            else if (loggedUser.UserRoles.Select(role => role.Role.Slug).Contains("author"))
+                            else if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("author"))
                             {
                                 toBeShown = new AuthorMain(this, loggedUser);
                             }
