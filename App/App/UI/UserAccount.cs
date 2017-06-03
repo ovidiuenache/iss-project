@@ -75,7 +75,7 @@ namespace App.UI
                 }
                 else
                 {
-                    MetaInformation mt= new MetaInformation(new Proposal(new ProposalMetaInformation(),"",""), controller, false, textBoxAbstract.Text);
+                    MetaInformation mt= new MetaInformation(new Proposal("",new List<User>(),0,"", "",""), controller, false, textBoxAbstract.Text);
                     mt.Show();
 
                 }
