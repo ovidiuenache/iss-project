@@ -1,6 +1,7 @@
 ﻿using App.Entity;
 using App.Repository.Impl;
 using System.Collections.Generic;
+using Moq;
 
 namespace App.Controller
 {
@@ -38,6 +39,15 @@ namespace App.Controller
         public void saveChanges()
         {
             proposalRepository.saveChanges();
+        }
+
+        
+        public List<User> getAllUsers()
+        {
+            var test = new List<User>();
+            test.Add(new User("t1", "t2", "t3", "t4", "t5"));
+          
+            return test;
         }
     }
 }
