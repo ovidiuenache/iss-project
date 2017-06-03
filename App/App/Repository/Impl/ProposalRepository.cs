@@ -9,6 +9,7 @@ namespace App.Repository.Impl
     /// 
     /// Proposal Repository
     /// Author : Catalin Radoiu
+    /// Author : Ioan Ovidiu Enache
     /// 
     /// </summary>
     public class ProposalRepository : AbstractRepository<Proposal>, IProposalRepository
