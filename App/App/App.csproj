@@ -266,6 +266,12 @@
     <Compile Include="UI\MetaInformation.Designer.cs">
       <DependentUpon>MetaInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PhaseTwo\ListenerMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhaseTwo\ListenerMain.Designer.cs">
+      <DependentUpon>ListenerMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\PreliminaryPhase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -363,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MetaInformation.resx">
       <DependentUpon>MetaInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhaseTwo\ListenerMain.resx">
+      <DependentUpon>ListenerMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PreliminaryPhase.resx">
       <DependentUpon>PreliminaryPhase.cs</DependentUpon>
