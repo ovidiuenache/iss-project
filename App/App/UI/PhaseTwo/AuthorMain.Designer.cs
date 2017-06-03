@@ -32,6 +32,7 @@
             this.browseButton = new System.Windows.Forms.Button();
             this.uploadButton = new System.Windows.Forms.Button();
             this.openFileDialogBrowse = new System.Windows.Forms.OpenFileDialog();
+            this.buttonLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -43,20 +44,20 @@
             // 
             // browseButton
             // 
-            this.browseButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.browseButton.Location = new System.Drawing.Point(291, 26);
+            this.browseButton.BackColor = System.Drawing.SystemColors.Control;
+            this.browseButton.Location = new System.Drawing.Point(291, 24);
             this.browseButton.Name = "browseButton";
-            this.browseButton.Size = new System.Drawing.Size(83, 44);
+            this.browseButton.Size = new System.Drawing.Size(83, 31);
             this.browseButton.TabIndex = 1;
             this.browseButton.Text = "BROWSE";
             this.browseButton.UseVisualStyleBackColor = false;
             // 
             // uploadButton
             // 
-            this.uploadButton.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.uploadButton.Location = new System.Drawing.Point(39, 101);
+            this.uploadButton.BackColor = System.Drawing.SystemColors.Control;
+            this.uploadButton.Location = new System.Drawing.Point(39, 75);
             this.uploadButton.Name = "uploadButton";
-            this.uploadButton.Size = new System.Drawing.Size(115, 55);
+            this.uploadButton.Size = new System.Drawing.Size(335, 55);
             this.uploadButton.TabIndex = 2;
             this.uploadButton.Text = "Upload information";
             this.uploadButton.UseVisualStyleBackColor = false;
@@ -65,16 +66,35 @@
             // 
             this.openFileDialogBrowse.FileName = "openFileDialog1";
             // 
+            // buttonLogout
+            // 
+            this.buttonLogout.Location = new System.Drawing.Point(39, 142);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(335, 55);
+            this.buttonLogout.TabIndex = 3;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            // 
             // AuthorMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 243);
+            this.ClientSize = new System.Drawing.Size(406, 209);
+            this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.uploadButton);
             this.Controls.Add(this.browseButton);
             this.Controls.Add(this.textBox1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(422, 248);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(422, 194);
             this.Name = "AuthorMain";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "AuthorMain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AuthorMain_FormClosing);
+            this.Load += new System.EventHandler(this.AuthorMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,5 +106,6 @@
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.Button uploadButton;
         private System.Windows.Forms.OpenFileDialog openFileDialogBrowse;
+        private System.Windows.Forms.Button buttonLogout;
     }
 }

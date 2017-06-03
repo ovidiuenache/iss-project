@@ -19,9 +19,9 @@ namespace App.Repository.Impl
         {
         }
 
-        public List<Proposal> getProposalsBindingSource()
+        public List<Proposal> ProposalsAuthoredByUser(int userId)
         {
-            return Context.Proposals.ToList();
+            return Context.Proposals.Where(proposal => proposal.Authors.Select(author => author.UserId).Contains(userId)).ToList();
         }
 
         public void saveChanges()

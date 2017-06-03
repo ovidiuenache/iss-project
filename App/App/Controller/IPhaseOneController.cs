@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using App.Entity;
+using System.Windows.Forms;
 
 namespace App.Controller
 {
@@ -11,7 +12,7 @@ namespace App.Controller
     /// </summary>
     public interface IPhaseOneController
     {
-        BindingSource getProposalsBindingSource();
+        BindingSource ProposalsAuthoredByUser(int userId);
 
         void saveChanges();
     }

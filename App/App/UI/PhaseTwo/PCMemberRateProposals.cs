@@ -61,9 +61,18 @@ namespace App.UI.PhaseTwo
 
         private void PCMemberRateProposals_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            parent.SetDesktopLocation(this.Location.X, this.Location.Y);
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            parent.Location = new Point(Location.X, Location.Y);
             parent.Show();
+            Close();
+        }
+
+        private void PCMemberRateProposals_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

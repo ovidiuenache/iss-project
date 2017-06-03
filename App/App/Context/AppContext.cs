@@ -8,6 +8,8 @@ namespace App.Context
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
 
+        public DbSet<Review> Reviews { get; set; }
+
         public DbSet<Proposal> Proposals { get; set; }
 
         public DbSet<Conference> Conferences { get; set; }
@@ -56,7 +58,7 @@ namespace App.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Data Source=DESKTOP-MB4097H\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
+                @"Data Source=JOHNNY;Initial Catalog=iss;Integrated Security=True");
         }
     }
 }

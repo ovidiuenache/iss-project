@@ -93,6 +93,7 @@ namespace App.UI
                 preliminaryController.UpdateConference(activeConference);
 
                 MessageBox.Show("Conference has successfully started!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
             else if (dialogResult == DialogResult.No)
             {
