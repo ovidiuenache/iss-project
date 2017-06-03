@@ -15,11 +15,13 @@ namespace App.Controller
     {
         private ProposalRepository proposalRepository;
         private UserRepository userRepository;
+        private ConferenceRepository conferenceRepository;
 
-        public PhaseOneController(ProposalRepository proposalRepository, UserRepository userRepository)
+        public PhaseOneController(ProposalRepository proposalRepository, UserRepository userRepository, ConferenceRepository conferenceRepository)
         {
             this.proposalRepository = proposalRepository;
             this.userRepository = userRepository;
+            this.conferenceRepository = conferenceRepository;
         }
 
         public void addProposal(Proposal proposal)
@@ -31,7 +33,22 @@ namespace App.Controller
         {
             proposalRepository.Update(proposal);
         }
-    
+
+        public Conference ActiveConference()
+        {
+            return conferenceRepository.GetActiveConference();
+        }
+
+        public void UpdateConference(Conference conference)
+        {
+            conferenceRepository.Update(conference);
+        }
+
+        public List<Role> GetUserRoles(User user)
+        {
+            return userRepository.GetRoles(user);
+        }
+
         public Proposal getProposal(int proposalId)
         {
             return proposalRepository.Find(proposalId);

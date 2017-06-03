@@ -52,10 +52,12 @@ namespace App.Controller
         {
             return UserRepository.GetRoles(user);
         }
+
         public User GetUserByEmail(String email)
         {
             return UserRepository.FindUserByEmail(email);
         }
+
         public void ChangePassword(string email,string password)
         {
             UserRepository.ChangePassword(email, password);
