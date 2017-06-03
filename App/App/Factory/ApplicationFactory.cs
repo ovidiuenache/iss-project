@@ -44,6 +44,11 @@ namespace App.Factory
             return new PhaseRepository(getAppContext());
         }
 
+        public static ProposalRepository getProposalRepository()
+        {
+            return new ProposalRepository(getAppContext());
+        }
+
         public static PreliminaryPhaseController getPreliminaryPhaseController()
         {
             return new PreliminaryPhaseController(
@@ -62,7 +67,7 @@ namespace App.Factory
 
         public static PhaseOneController getPhaseOneController()
         {
-            return new PhaseOneController();
+            return new PhaseOneController(getProposalRepository());
         }
 
         public static ConferenceUserRepository getConferenceUserRepository()

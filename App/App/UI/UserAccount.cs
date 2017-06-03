@@ -1,57 +1,36 @@
 ﻿using App.Controller;
 using App.Entity;
+using App.Factory;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App.UI
 {
     /// <summary>
-    /// Authors: Alexandru Popa, Vancea Vlad
+    /// Authors: Alexandru Popa, Vancea Vlad, Ioan Ovidiu Enache
     /// The class that manages the phase 1 about proposals
     /// </summary>
     public partial class UserAccount : Form
     {
         private PhaseOneController controller;
-        private User user;
-        public UserAccount(PhaseOneController ctrl, User user)
+        private User loggedUser;
+        private Form parentForm;
+
+        public UserAccount(Form parentForm, User loggedUser)
         {
-            this.controller = ctrl;
-            this.user = user;
-            refreshProposals();
+            controller = ApplicationFactory.getPhaseOneController();
+            this.loggedUser = loggedUser;
+            this.parentForm = parentForm;
 
             InitializeComponent();
-        }
 
-        private void refreshProposals()
-        {
-            SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-MIOBI9T\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
-            BindingSource bs = new BindingSource();
-            SqlDataAdapter da = new SqlDataAdapter();
-            DataSet ds = new DataSet();
-            dataGridViewProposals = new DataGridView();
-
-            connection.Open();
-            da.SelectCommand = new SqlCommand("select * from Proposals", connection);
-            //da.SelectCommand.Parameters.Add("@idUser", user.UserId);
-            da.Fill(ds, "Proposals");
-            bs.DataSource = ds;
-            bs.DataMember = "Proposals";
-
-            dataGridViewProposals.DataSource = bs;
-            connection.Close();
+            dataGridViewProposals.DataSource = controller.getProposalsBindingSource();
         }
 
         private void buttonBrowseAbstract_Click(object sender, EventArgs e)
         {
-            //openFileDialogAbstract = new OpenFileDialog();
+            openFileDialogAbstract = new OpenFileDialog();
             openFileDialogAbstract.Title = "Upload abstract";
             openFileDialogAbstract.Filter = "PDF files (*.pdf)|*.pdf|Microsoft Word Files (*.docx)|*.docx";
 
@@ -82,7 +61,7 @@ namespace App.UI
 
             }
 
-            refreshProposals();
+            dataGridViewProposals.DataSource = controller.getProposalsBindingSource();
         }
 
         private void buttonUploadFull_Click(object sender, EventArgs e)
@@ -104,7 +83,7 @@ namespace App.UI
                 }
             }
 
-            refreshProposals();
+            dataGridViewProposals.DataSource = controller.getProposalsBindingSource();
         }
 
         private void buttonBrowseFull_Click(object sender, EventArgs e)
@@ -118,7 +97,7 @@ namespace App.UI
             }
         }
         /// <summary>
-        /// get the proposals who have fullpaper and if the user do not have fullpapers the func will 
+        /// Get the proposals who have fullpaper and if the user do not have fullpapers the func will 
         /// return null
         /// </summary>
         /// <returns></returns>
@@ -159,5 +138,17 @@ namespace App.UI
             return emptyArray;
         }
 
+        private void UserAccount_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridViewProposals.EndEdit();
+            controller.saveChanges();
+
+            MessageBox.Show("Database has been updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using App.Context;
 using App.Entity;
-
+using System.Collections.Generic;
+using System.Linq;
 
 namespace App.Repository.Impl
 {
@@ -14,6 +15,16 @@ namespace App.Repository.Impl
     {
         public ProposalRepository(AppContext context) : base(context)
         {
+        }
+
+        public List<Proposal> getProposalsBindingSource()
+        {
+            return Context.Proposals.ToList();
+        }
+
+        public void saveChanges()
+        {
+            Context.SaveChanges();
         }
     }
 }

@@ -42,18 +42,14 @@ namespace App
                 if (loginController.IsConferenceActive() == true)
                 {
                     string activePhaseName = loginController.ActiveConference().ActivePhase.Name;
-                    Form toBeShown;
+                    Form toBeShown = null;
                     switch (activePhaseName)
                     {
                         case "PRELIMINARY":
                             toBeShown = new PreliminaryPhase(this, loggedUser);
-                            toBeShown.Location = new System.Drawing.Point(Location.X, Location.Y);
-                            toBeShown.Show();
-                            Hide();
                             break;
                         case "PHASEONE":
-                            MessageBox.Show("Phase One Main Form");
-                            //toBeShown = new PhaseOneMainForm();
+                            toBeShown = new UserAccount(this, loggedUser);
                             break;
                         case "PHASETWO":
                             MessageBox.Show("Phase Two Main Form");
@@ -64,6 +60,10 @@ namespace App
                             //toBeShown = new PhaseThreeMainForm();
                             break;
                     }
+
+                    toBeShown.Location = new System.Drawing.Point(Location.X, Location.Y);
+                    toBeShown.Show();
+                    Hide();
                 }
                 else
                 {
