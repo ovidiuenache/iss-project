@@ -376,3 +376,8 @@ D:\ISS\iss-project\App\App\bin\Debug\Castle.Core.dll
 D:\ISS\iss-project\App\App\bin\Debug\Moq.dll
 D:\ISS\iss-project\App\App\bin\Debug\Castle.Core.xml
 D:\ISS\iss-project\App\App\bin\Debug\Moq.xml
+C:\Users\John\Desktop\iss-project\App\App\bin\Debug\Castle.Core.dll
+C:\Users\John\Desktop\iss-project\App\App\bin\Debug\Moq.dll
+C:\Users\John\Desktop\iss-project\App\App\bin\Debug\Castle.Core.xml
+C:\Users\John\Desktop\iss-project\App\App\bin\Debug\Moq.xml
+C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ListenerMain.resources

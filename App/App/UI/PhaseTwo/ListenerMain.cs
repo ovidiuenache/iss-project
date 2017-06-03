@@ -19,6 +19,8 @@ namespace App.UI.PhaseTwo
             this.loggedUser = loggedUser;
 
             InitializeComponent();
+
+            label1.Text = "Hello " + loggedUser.LastName + " " + loggedUser.FirstName;
         }
 
         private void ListenerMain_Load(object sender, EventArgs e)
