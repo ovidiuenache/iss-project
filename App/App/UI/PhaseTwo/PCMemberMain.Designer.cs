@@ -119,6 +119,7 @@
             this.Name = "PCMemberMain";
             this.ShowIcon = false;
             this.Text = "PCMemberMain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PCMemberMain_FormClosing);
             this.Load += new System.EventHandler(this.PCMemberMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.proposalListGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ratingsGridView)).EndInit();

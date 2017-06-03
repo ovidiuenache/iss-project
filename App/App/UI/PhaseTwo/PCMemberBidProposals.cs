@@ -58,9 +58,7 @@ namespace App.UI.PhaseTwo
 
         private void PCMemberBidProposals_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            parent.SetDesktopLocation(this.Location.X, this.Location.Y);
-            parent.Show();
+            buttonBack.PerformClick();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)

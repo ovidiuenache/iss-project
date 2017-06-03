@@ -42,9 +42,7 @@ namespace App.UI.PhaseTwo
 
         private void ChairAssignementToReviewer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            parent.SetDesktopLocation(this.Location.X,this.Location.Y);
-            parent.Show();
+            buttonBack.PerformClick();
         }
 
         private void ChairAssignementToReviewer_Load(object sender, EventArgs e)

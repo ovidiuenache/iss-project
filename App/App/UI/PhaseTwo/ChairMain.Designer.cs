@@ -68,7 +68,7 @@
             // 
             // buttonLogout
             // 
-            this.buttonLogout.Location = new System.Drawing.Point(28, 220);
+            this.buttonLogout.Location = new System.Drawing.Point(28, 210);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(108, 49);
             this.buttonLogout.TabIndex = 3;
@@ -91,7 +91,9 @@
             this.MinimumSize = new System.Drawing.Size(181, 323);
             this.Name = "ChairMain";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ChairMain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChairMain_FormClosing);
             this.Load += new System.EventHandler(this.ChairMain_Load);
             this.ResumeLayout(false);
 

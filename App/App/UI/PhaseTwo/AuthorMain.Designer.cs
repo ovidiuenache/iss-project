@@ -93,6 +93,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "AuthorMain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AuthorMain_FormClosing);
             this.Load += new System.EventHandler(this.AuthorMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
