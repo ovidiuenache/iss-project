@@ -311,6 +311,12 @@
     <Compile Include="UI\PhaseThree\AddStartTime.Designer.cs">
       <DependentUpon>AddStartTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PhaseThree\ChooseRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhaseThree\ChooseRoom.Designer.cs">
+      <DependentUpon>ChooseRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\PhaseThree\CreateSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -435,6 +441,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PhaseThree\AddStartTime.resx">
       <DependentUpon>AddStartTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhaseThree\ChooseRoom.resx">
+      <DependentUpon>ChooseRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PhaseThree\CreateSchedule.resx">
       <DependentUpon>CreateSchedule.cs</DependentUpon>

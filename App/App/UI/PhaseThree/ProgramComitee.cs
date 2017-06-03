@@ -83,5 +83,12 @@ namespace App.UI.PhaseThree
         {
 
         }
+
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            Form createScheduleForm = new CreateSchedule(this);
+            createScheduleForm.Show();
+            Hide();
+        }
     }
 }

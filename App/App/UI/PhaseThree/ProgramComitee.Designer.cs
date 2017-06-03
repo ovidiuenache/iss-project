@@ -33,13 +33,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxComiteeMembers = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.submitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSectionLeader
             // 
-            this.btnSectionLeader.Location = new System.Drawing.Point(15, 130);
+            this.btnSectionLeader.Location = new System.Drawing.Point(15, 136);
             this.btnSectionLeader.Name = "btnSectionLeader";
-            this.btnSectionLeader.Size = new System.Drawing.Size(202, 52);
+            this.btnSectionLeader.Size = new System.Drawing.Size(202, 46);
             this.btnSectionLeader.TabIndex = 0;
             this.btnSectionLeader.Text = "Pick section leader";
             this.btnSectionLeader.UseVisualStyleBackColor = true;
@@ -81,11 +82,24 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Comitee Memebers";
             // 
+            // submitButton
+            // 
+            this.submitButton.BackColor = System.Drawing.SystemColors.Control;
+            this.submitButton.Location = new System.Drawing.Point(291, 136);
+            this.submitButton.Margin = new System.Windows.Forms.Padding(4);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(132, 46);
+            this.submitButton.TabIndex = 5;
+            this.submitButton.Text = "Submit";
+            this.submitButton.UseVisualStyleBackColor = false;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
+            // 
             // ProgramComitee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 226);
+            this.Controls.Add(this.submitButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxComiteeMembers);
             this.Controls.Add(this.label1);
@@ -106,5 +120,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxComiteeMembers;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button submitButton;
     }
 }

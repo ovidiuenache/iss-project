@@ -32,6 +32,7 @@
             this.listBoxProposals = new System.Windows.Forms.ListBox();
             this.btnAddToSection = new System.Windows.Forms.Button();
             this.btnChooseRoom = new System.Windows.Forms.Button();
+            this.buttonBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxSections
@@ -64,19 +65,31 @@
             // 
             // btnChooseRoom
             // 
-            this.btnChooseRoom.Location = new System.Drawing.Point(383, 319);
+            this.btnChooseRoom.Location = new System.Drawing.Point(345, 307);
             this.btnChooseRoom.Name = "btnChooseRoom";
-            this.btnChooseRoom.Size = new System.Drawing.Size(99, 36);
+            this.btnChooseRoom.Size = new System.Drawing.Size(137, 48);
             this.btnChooseRoom.TabIndex = 3;
-            this.btnChooseRoom.Text = "Done";
+            this.btnChooseRoom.Text = "Submit";
             this.btnChooseRoom.UseVisualStyleBackColor = true;
             this.btnChooseRoom.Click += new System.EventHandler(this.btnChooseRoom_Click);
+            // 
+            // buttonBack
+            // 
+            this.buttonBack.Location = new System.Drawing.Point(178, 307);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(137, 48);
+            this.buttonBack.TabIndex = 5;
+            this.buttonBack.Text = "Back";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // CreateSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(494, 367);
+            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.btnChooseRoom);
             this.Controls.Add(this.btnAddToSection);
             this.Controls.Add(this.listBoxProposals);
@@ -93,5 +106,6 @@
         private System.Windows.Forms.ListBox listBoxProposals;
         private System.Windows.Forms.Button btnAddToSection;
         private System.Windows.Forms.Button btnChooseRoom;
+        private System.Windows.Forms.Button buttonBack;
     }
 }

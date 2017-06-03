@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using App.Controller;
 using App.Entity;
@@ -16,12 +11,15 @@ namespace App.UI.PhaseThree
     public partial class CreateSchedule : Form
     {
         private IPhaseThreeController PhaseThreeController;
-        public CreateSchedule()
+        private Form ParentForm;
+
+        public CreateSchedule(Form parentForm)
         {
             InitializeComponent();
             PhaseThreeController = ApplicationFactory.GetPhaseThreeController();
             LoadSections();
             btnAddToSection.Enabled = false;
+            ParentForm = parentForm;
         }
 
         private void LoadSections()
@@ -80,9 +78,16 @@ namespace App.UI.PhaseThree
 
         private void btnChooseRoom_Click(object sender, EventArgs e)
         {
-            Form chooseRoomForm = new ChooseRoom();
+            Form chooseRoomForm = new ChooseRoom(this);
             chooseRoomForm.Show();
-            this.Hide();
+            Hide();
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            ParentForm.Location = new Point(Location.X, Location.Y);
+            ParentForm.Show();
+            Close();
         }
     }
 }

@@ -16,13 +16,15 @@ namespace App.UI.PhaseThree
     public partial class ChooseRoom : Form
     {
         private IPhaseThreeController PhaseThreeController;
+        private Form ParentForm;
 
-        public ChooseRoom()
+        public ChooseRoom(Form parentForm)
         {
             InitializeComponent();
             PhaseThreeController = ApplicationFactory.GetPhaseThreeController();
             LoadSections();
             btnAddRoomName.Enabled = false;
+            ParentForm = parentForm;
         }
 
         private void LoadSections()
@@ -51,6 +53,13 @@ namespace App.UI.PhaseThree
         private void textBoxRoomName_TextChanged(object sender, EventArgs e)
         {
             btnAddRoomName.Enabled = true;
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            ParentForm.Location = new Point(Location.X, Location.Y);
+            ParentForm.Show();
+            Close();
         }
     }
 }
