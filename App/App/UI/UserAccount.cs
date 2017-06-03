@@ -4,6 +4,7 @@ using App.Factory;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace App.UI
 {
@@ -26,6 +27,16 @@ namespace App.UI
             InitializeComponent();
 
             dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
+
+            buttonUpdate.Size = new System.Drawing.Size(710, 34);
+            buttonUpdate.Location = new System.Drawing.Point(36, 280);
+
+            if (controller.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("chair"))
+            {
+                buttonNextPhase.Visible = true;
+                buttonUpdate.Size = new System.Drawing.Size(321, 34);
+                buttonUpdate.Location = new System.Drawing.Point(36, 280);
+            }
         }
 
         private void buttonBrowseAbstract_Click(object sender, EventArgs e)
@@ -167,6 +178,30 @@ namespace App.UI
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
             dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
+        }
+
+        private void buttonNextPhase_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to start the next phase?", "Next Phase", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Conference activeConference = controller.ActiveConference();
+
+                Phase nextPhase = new Phase();
+                nextPhase.Deadline = activeConference.EndDate;
+                nextPhase.Name = "PHASETWO";
+
+                activeConference.ActivePhase = nextPhase;
+
+                controller.UpdateConference(activeConference);
+
+                MessageBox.Show("Next phase has successfully started!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            else
+            {
+                //do nothing
+            }
         }
     }
 }
