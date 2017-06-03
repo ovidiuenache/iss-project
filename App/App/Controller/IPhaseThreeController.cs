@@ -42,5 +42,12 @@ namespace App.Controller
         /// </summary>
         /// <returns></returns>
         List<User> FindAllComiteeMemberWithoutSection();
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="section"></param>
+        /// <returns></returns>
+        List<ProposalMetaInformation> FindAllProposalsBySection(Section section);
     }
 }

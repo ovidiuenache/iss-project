@@ -17,10 +17,11 @@ namespace App
             //Use this for dummy data
             UserContextSeed.Seed();
             TopicSeed.Seed();
+            ProposalSeed.Seed();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ProgramComitee());
+            Application.Run(new CreateSchedule());
         }
     }
 }

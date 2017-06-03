@@ -16,6 +16,18 @@ namespace App.Controller
     /// </summary>
     public interface ISectionRepository : IRepository<Section>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sectionName"></param>
+        /// <returns></returns>
         Section FindSectionByName(string sectionName);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="section"></param>
+        /// <returns></returns>
+        List<User> FindAllAuthors(Section section);
     }
 }

@@ -8,9 +8,10 @@ using App.Context;
 namespace App.Migrations
 {
     [DbContext(typeof(AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [Migration("20170603065013_UpdateSectionEntityAddScheduleDictionary")]
+    partial class UpdateSectionEntityAddScheduleDictionary
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -182,15 +183,11 @@ namespace App.Migrations
 
                     b.Property<int?>("SectionId");
 
-                    b.Property<int?>("SectionId1");
-
                     b.HasKey("UserId");
 
                     b.HasIndex("ProposalMetaInformationId");
 
                     b.HasIndex("SectionId");
-
-                    b.HasIndex("SectionId1");
 
                     b.ToTable("Users");
                 });
@@ -261,12 +258,8 @@ namespace App.Migrations
                         .HasForeignKey("ProposalMetaInformationId");
 
                     b.HasOne("App.Entity.Section")
-                        .WithMany("Authors")
-                        .HasForeignKey("SectionId");
-
-                    b.HasOne("App.Entity.Section")
                         .WithMany("Listeners")
-                        .HasForeignKey("SectionId1");
+                        .HasForeignKey("SectionId");
                 });
 
             modelBuilder.Entity("App.Entity.UserRole", b =>

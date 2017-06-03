@@ -170,6 +170,15 @@
     <Compile Include="Migrations\20170603063018_UpdateSectionEntityAddRoom.designer.cs">
       <DependentUpon>20170603063018_UpdateSectionEntityAddRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20170603065013_UpdateSectionEntityAddScheduleDictionary.cs" />
+    <Compile Include="Migrations\20170603065013_UpdateSectionEntityAddScheduleDictionary.designer.cs">
+      <DependentUpon>20170603065013_UpdateSectionEntityAddScheduleDictionary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170603065933_UpdateSectionEntityAddAuthors.cs" />
+    <Compile Include="Migrations\20170603065933_UpdateSectionEntityAddAuthors.designer.cs">
+      <DependentUpon>20170603065933_UpdateSectionEntityAddAuthors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Seed\ProposalSeed.cs" />
     <Compile Include="Repository\Impl\SectionRepository.cs" />
     <Compile Include="Controller\IPhaseOneController.cs" />
     <Compile Include="Controller\IPhaseThreeController.cs" />
@@ -271,6 +280,12 @@
     </Compile>
     <Compile Include="UI\MetaInformation.Designer.cs">
       <DependentUpon>MetaInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PhaseThree\CreateSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhaseThree\CreateSchedule.Designer.cs">
+      <DependentUpon>CreateSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\PhaseThree\ListenerMain.cs">
       <SubType>Form</SubType>
@@ -381,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MetaInformation.resx">
       <DependentUpon>MetaInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhaseThree\CreateSchedule.resx">
+      <DependentUpon>CreateSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PhaseThree\ListenerMain.resx">
       <DependentUpon>ListenerMain.cs</DependentUpon>

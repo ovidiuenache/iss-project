@@ -15,14 +15,17 @@ namespace App.Controller
     {
         private ISectionRepository SectionRepository;
         private IUserRepository UserRepository;
+        private IProposalMetaInformationRepository ProposalMetaInformationRepository;
 
         public PhaseThreeController(
             ISectionRepository sectionRepository,
-            IUserRepository userRepository
+            IUserRepository userRepository,
+            IProposalMetaInformationRepository proposalMetaInformationRepository
         )
         {
             SectionRepository = sectionRepository;
             UserRepository = userRepository;
+            ProposalMetaInformationRepository = proposalMetaInformationRepository;
         }
 
         /// <summary>
@@ -77,6 +80,24 @@ namespace App.Controller
             //temp 
             return UserRepository.All();
             //throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="section"></param>
+        /// <returns></returns>
+        public List<ProposalMetaInformation> FindAllProposalsBySection(Section section)
+        {
+            List<ProposalMetaInformation> proposalMetaInformations = new List<ProposalMetaInformation>();
+            var authors = SectionRepository.FindAllAuthors(section);
+            var p = ProposalMetaInformationRepository.All();
+            foreach (var author in authors)
+            {
+              
+            }
+
+            return proposalMetaInformations;
         }
     }
 }
