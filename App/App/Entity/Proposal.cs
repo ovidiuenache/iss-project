@@ -21,17 +21,22 @@ namespace App.Entity
 
         public Proposal()
         {
-            MetaInformation = new ProposalMetaInformation();
+            Title = "";
+            Authors = new List<User>();
+            Year = -1;
+            Description = "";
             FullPaper = "";
             AbstractPaper = "";
         }
 
-        public Proposal(string title,
-            IList<User> authors,
-            int year,
+        public Proposal(
+            string title, 
+            IList<User> authors, 
+            int year, 
             string description,
-            string fullPaper,
-            string abstractPaper)
+            string fullPaper, 
+            string abstractPaper
+        )
         {
             this.Title = title;
             this.Authors = authors;

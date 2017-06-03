@@ -35,7 +35,7 @@
             // 
             // btn_Login
             // 
-            this.btn_Login.Location = new System.Drawing.Point(28, 229);
+            this.btn_Login.Location = new System.Drawing.Point(21, 273);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(106, 43);
             this.btn_Login.TabIndex = 0;
@@ -45,7 +45,7 @@
             // 
             // btn_Register
             // 
-            this.btn_Register.Location = new System.Drawing.Point(140, 229);
+            this.btn_Register.Location = new System.Drawing.Point(166, 273);
             this.btn_Register.Name = "btn_Register";
             this.btn_Register.Size = new System.Drawing.Size(108, 43);
             this.btn_Register.TabIndex = 1;
@@ -55,9 +55,9 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(28, 12);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(220, 211);
+            this.richTextBox1.Size = new System.Drawing.Size(277, 251);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "Here will be added the datails about conference";
             // 
@@ -65,14 +65,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(281, 282);
+            this.ClientSize = new System.Drawing.Size(301, 328);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btn_Register);
             this.Controls.Add(this.btn_Login);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(297, 321);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(297, 321);
             this.Name = "ConferenceDetails";
             this.ShowIcon = false;
             this.Text = "ConferenceDetails";

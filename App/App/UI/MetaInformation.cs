@@ -25,16 +25,16 @@ namespace App.UI
             this.paperLink = paperLink;
             if (this.proposal != null)
             {
-                textBoxName.Text = proposal.MetaInformation.Title;
-                textBoxKeywords.Text = proposal.MetaInformation.Description;
-                textBoxTopics.Text = proposal.MetaInformation.Description;
+                textBoxName.Text = proposal.Title;
+                textBoxKeywords.Text = proposal.Description;
+                textBoxTopics.Text = proposal.Description;
                 string authorsNames = "";
-                foreach (User us in proposal.MetaInformation.Authors)
+                foreach (User us in proposal.Authors)
                 {
                     authorsNames += us.FirstName + " " + us.LastName;
                 }
                 textBoxAuthors.Text = authorsNames;
-                dateTimePickerAnPublicare.Value = DateTime.Parse(proposal.MetaInformation.Year.ToString("yyyyMMdd"));
+                dateTimePickerAnPublicare.Value = DateTime.Parse(proposal.Year.ToString("yyyyMMdd"));
             }
             else
             {
@@ -51,17 +51,17 @@ namespace App.UI
         {
             if(proposal == null)
             {
-                proposal.MetaInformation = new ProposalMetaInformation();
-                proposal.MetaInformation.Title = textBoxName.Text;
-                proposal.MetaInformation.Year = int.Parse(dateTimePickerAnPublicare.Value.ToString("yyyyMMdd"));
-                proposal.MetaInformation.Description = textBoxKeywords.Text;
+                proposal = new Proposal();
+                proposal.Title = textBoxName.Text;
+                proposal.Year = int.Parse(dateTimePickerAnPublicare.Value.ToString("yyyyMMdd"));
+                proposal.Description = textBoxKeywords.Text;
                 List<User> authors = new List<User>();
                 string[] authorsNames = textBoxAuthors.Text.Split(',');
                 for(int i=0; i<authorsNames.Length;i++)
                 {
                     authors.Add(controller.getUserByName(authorsNames[i]));
                 }
-                proposal.MetaInformation.Authors = authors;
+                proposal.Authors = authors;
                 if (!fullPaper)
                 {
                     proposal.AbstractPaper = paperLink;

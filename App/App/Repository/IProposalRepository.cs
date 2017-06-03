@@ -1,4 +1,5 @@
 ﻿using App.Entity;
+using System.Collections.Generic;
 
 namespace App.Repository
 {
@@ -10,5 +11,8 @@ namespace App.Repository
     /// </summary>
     public interface IProposalRepository : IRepository<Proposal>
     {
+        List<Proposal> getProposalsBindingSource();
+
+        void saveChanges();
     }
 }

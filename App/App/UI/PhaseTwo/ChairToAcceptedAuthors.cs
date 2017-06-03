@@ -28,7 +28,6 @@ namespace App.UI.PhaseTwo
         {
             List<Proposal> proposals;
             List<Review> reviews;
-            ProposalMetaInformation mIProposal;
             List<User> authors = new List<User>();
             
 
@@ -41,8 +40,8 @@ namespace App.UI.PhaseTwo
                 {
                     result += review.Qualifier + " " + review.Comment;
                 }
-                mIProposal = proposal.MetaInformation;
-                foreach(User author in mIProposal.Authors)
+                
+                foreach(User author in proposal.Authors)
                 {
                     authors.Add(author);
                 }

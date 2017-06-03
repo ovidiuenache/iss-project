@@ -190,7 +190,6 @@
     <Compile Include="Entity\ConferenceUser.cs" />
     <Compile Include="Entity\Phase.cs" />
     <Compile Include="Entity\Proposal.cs" />
-    <Compile Include="Entity\ProposalMetaInformation.cs" />
     <Compile Include="Entity\Review.cs" />
     <Compile Include="Entity\Role.cs" />
     <Compile Include="Entity\Section.cs" />
@@ -220,6 +219,9 @@
     <Compile Include="Migrations\20170602182215_AddedSectionEntity.cs" />
     <Compile Include="Migrations\20170602182215_AddedSectionEntity.designer.cs">
       <DependentUpon>20170602182215_AddedSectionEntity.cs</DependentUpon>
+    <Compile Include="Migrations\20170603095246_RemoveProposalMetaInformationEntity.cs" />
+    <Compile Include="Migrations\20170603095246_RemoveProposalMetaInformationEntity.designer.cs">
+      <DependentUpon>20170603095246_RemoveProposalMetaInformationEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AppContextModelSnapshot.cs" />
     <Compile Include="Migrations\Seed\TopicSeed.cs" />
@@ -238,7 +240,6 @@
     <Compile Include="Repository\Impl\ConferenceRepository.cs" />
     <Compile Include="Repository\Impl\ConferenceUserRepository.cs" />
     <Compile Include="Repository\Impl\PhaseRepository.cs" />
-    <Compile Include="Repository\Impl\ProposalMetaInformationRepository.cs" />
     <Compile Include="Repository\Impl\ProposalRepository.cs" />
     <Compile Include="Repository\Impl\ReviewRepository.cs" />
     <Compile Include="Repository\Impl\RoleRepository.cs" />
@@ -246,7 +247,6 @@
     <Compile Include="Repository\Impl\UserRepository.cs" />
     <Compile Include="Repository\Impl\UserRoleRepository.cs" />
     <Compile Include="Repository\IPhaseRepository.cs" />
-    <Compile Include="Repository\IProposalMetaInformationRepository.cs" />
     <Compile Include="Repository\IProposalRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\IReviewRepository.cs" />

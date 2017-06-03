@@ -8,9 +8,10 @@ using App.Context;
 namespace App.Migrations
 {
     [DbContext(typeof(AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [Migration("20170603095246_RemoveProposalMetaInformationEntity")]
+    partial class RemoveProposalMetaInformationEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -99,30 +100,6 @@ namespace App.Migrations
                     b.ToTable("Roles");
                 });
 
-            modelBuilder.Entity("App.Entity.Section", b =>
-                {
-                    b.Property<int>("SectionId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Room");
-
-                    b.Property<int?>("SectionLeaderUserId");
-
-                    b.HasKey("SectionId");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
-
-                    b.HasIndex("Room")
-                        .IsUnique();
-
-                    b.HasIndex("SectionLeaderUserId");
-
-                    b.ToTable("Sections");
-                });
-
             modelBuilder.Entity("App.Entity.Topic", b =>
                 {
                     b.Property<int>("TopicId")
@@ -134,16 +111,12 @@ namespace App.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int?>("SectionId");
-
                     b.HasKey("TopicId");
 
                     b.HasIndex("ConferenceId");
 
                     b.HasIndex("Name")
                         .IsUnique();
-
-                    b.HasIndex("SectionId");
 
                     b.ToTable("Topics");
                 });
@@ -165,17 +138,9 @@ namespace App.Migrations
 
                     b.Property<int?>("ProposalId");
 
-                    b.Property<int?>("SectionId");
-
-                    b.Property<int?>("SectionId1");
-
                     b.HasKey("UserId");
 
                     b.HasIndex("ProposalId");
-
-                    b.HasIndex("SectionId");
-
-                    b.HasIndex("SectionId1");
 
                     b.ToTable("Users");
                 });
@@ -213,34 +178,17 @@ namespace App.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("App.Entity.Section", b =>
-                {
-                    b.HasOne("App.Entity.User", "SectionLeader")
-                        .WithMany()
-                        .HasForeignKey("SectionLeaderUserId");
-                });
-
-				
             modelBuilder.Entity("App.Entity.Topic", b =>
                 {
                     b.HasOne("App.Entity.Conference")
                         .WithMany("Topics")
                         .HasForeignKey("ConferenceId");
-
-                    b.HasOne("App.Entity.Section")
-                        .WithMany("Topics")
-                        .HasForeignKey("SectionId");
                 });
 
             modelBuilder.Entity("App.Entity.User", b =>
                 {
-                    b.HasOne("App.Entity.Section")
+                    b.HasOne("App.Entity.Proposal")
                         .WithMany("Authors")
-                        .HasForeignKey("SectionId");
-
-                    b.HasOne("App.Entity.Section")
-                        .WithMany("Listeners")
-                        .HasForeignKey("SectionId1");
                         .HasForeignKey("ProposalId");
                 });
 

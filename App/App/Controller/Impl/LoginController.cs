@@ -11,6 +11,7 @@ namespace App.Controller
     /// Author: Vancea Vlad
     /// Author : Catalin Radoiu
     /// Author : Dezsi Razvan
+    /// Author : Ioan Ovidiu Enache
     /// 
     /// 
     /// </summary>
@@ -58,6 +59,11 @@ namespace App.Controller
         public void ChangePassword(string email,string password)
         {
             UserRepository.ChangePassword(email, password);
+        }
+
+        public Conference ActiveConference()
+        {
+            return ConferenceRepository.GetActiveConference();
         }
     }
 }

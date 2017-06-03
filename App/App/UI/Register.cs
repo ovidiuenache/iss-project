@@ -1,5 +1,8 @@
 ﻿using App.Controller;
+using App.Entity;
+using App.Exception;
 using App.Factory;
+using App.Validators;
 using System;
 using System.Windows.Forms;
 
@@ -8,6 +11,7 @@ namespace App
     public partial class Register : Form
     {
         private PreliminaryPhaseController preliminaryController;
+        private UserValidator userValidator;
         private Form parentForm;
 
         public Register(Form parentForm)
@@ -15,13 +19,40 @@ namespace App
             InitializeComponent();
 
             this.parentForm = parentForm;
+            userValidator = new UserValidator();
             preliminaryController = ApplicationFactory.getPreliminaryPhaseController();
         }
 
-
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (textPassword.Text != textConfirmPassword.Text)
+                {
+                    throw new ValidationException("Passwords do not match!");
+                }
+
+                User newUser = new User();
+                newUser.FirstName = textFirstName.Text;
+                newUser.LastName = textLastName.Text;
+                newUser.Country = textCountry.Text;
+                newUser.Email = textEmail.Text;
+                newUser.Password = textPassword.Text;
+
+                userValidator.validate(newUser);
+
+                preliminaryController.Register(newUser);
+
+                MessageBox.Show("You have successfully created your account!\nYou can now log in into your account!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (ValidationException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (InvalidEmailAddressException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Register_Load(object sender, EventArgs e)
@@ -31,14 +62,13 @@ namespace App
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
-            parentForm.Show();
-            Hide();
+            Close();
         }
 
         private void Register_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Show();
         }
     }
 }

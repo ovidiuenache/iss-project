@@ -17,11 +17,11 @@ namespace App.UI
     /// </summary>
     public partial class CreateConference : Form
     {
-        private Form parent;
+        private PreliminaryPhase parent;
         private PreliminaryPhaseController preliminaryController;
         private ConferenceValidator validator;
 
-        public CreateConference(Form parent, int positionX, int positionY)
+        public CreateConference(PreliminaryPhase parent, int positionX, int positionY)
         {
             InitializeComponent();
             Location = new Point(positionX, positionY);
@@ -39,9 +39,7 @@ namespace App.UI
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            parent.Location = Location;
-            Hide();
-            parent.Show();
+            Close();
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
@@ -93,7 +91,9 @@ namespace App.UI
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            Application.Exit();
+            parent.Location = new Point(Location.X, Location.Y);
+            parent.updateStatus();
+            parent.Show();
         }
 
         private void loadUsers()
