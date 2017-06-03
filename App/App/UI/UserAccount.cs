@@ -25,7 +25,7 @@ namespace App.UI
 
             InitializeComponent();
 
-            dataGridViewProposals.DataSource = controller.getProposalsBindingSource();
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
         }
 
         private void buttonBrowseAbstract_Click(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace App.UI
 
             }
 
-            dataGridViewProposals.DataSource = controller.getProposalsBindingSource();
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
         }
 
         private void buttonUploadFull_Click(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace App.UI
                 }
             }
 
-            dataGridViewProposals.DataSource = controller.getProposalsBindingSource();
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
         }
 
         private void buttonBrowseFull_Click(object sender, EventArgs e)

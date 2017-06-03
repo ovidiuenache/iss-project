@@ -36,9 +36,9 @@ namespace App.Controller
             throw new NotImplementedException();
         }
 
-        public List<Proposal> getProposalsBindingSource()
+        public List<Proposal> ProposalsAuthoredByUser(int userId)
         {
-            return proposalRepository.getProposalsBindingSource();
+            return proposalRepository.ProposalsAuthoredByUser(userId);
         }
 
         public void saveChanges()

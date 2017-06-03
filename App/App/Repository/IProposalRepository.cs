@@ -11,7 +11,7 @@ namespace App.Repository
     /// </summary>
     public interface IProposalRepository : IRepository<Proposal>
     {
-        List<Proposal> getProposalsBindingSource();
+        List<Proposal> ProposalsAuthoredByUser(int userId);
 
         void saveChanges();
     }

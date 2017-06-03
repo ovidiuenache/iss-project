@@ -43,7 +43,7 @@
             // 
             // buttonBrowseAbstract
             // 
-            this.buttonBrowseAbstract.Location = new System.Drawing.Point(224, 328);
+            this.buttonBrowseAbstract.Location = new System.Drawing.Point(276, 334);
             this.buttonBrowseAbstract.Name = "buttonBrowseAbstract";
             this.buttonBrowseAbstract.Size = new System.Drawing.Size(109, 23);
             this.buttonBrowseAbstract.TabIndex = 1;
@@ -53,16 +53,16 @@
             // 
             // textBoxAbstract
             // 
-            this.textBoxAbstract.Location = new System.Drawing.Point(12, 330);
+            this.textBoxAbstract.Location = new System.Drawing.Point(64, 336);
             this.textBoxAbstract.Name = "textBoxAbstract";
             this.textBoxAbstract.Size = new System.Drawing.Size(206, 20);
             this.textBoxAbstract.TabIndex = 2;
             // 
             // buttonUploadAbstract
             // 
-            this.buttonUploadAbstract.Location = new System.Drawing.Point(354, 328);
+            this.buttonUploadAbstract.Location = new System.Drawing.Point(450, 327);
             this.buttonUploadAbstract.Name = "buttonUploadAbstract";
-            this.buttonUploadAbstract.Size = new System.Drawing.Size(177, 23);
+            this.buttonUploadAbstract.Size = new System.Drawing.Size(257, 36);
             this.buttonUploadAbstract.TabIndex = 3;
             this.buttonUploadAbstract.Text = "Upload Abstract";
             this.buttonUploadAbstract.UseVisualStyleBackColor = true;
@@ -70,14 +70,14 @@
             // 
             // textBoxFull
             // 
-            this.textBoxFull.Location = new System.Drawing.Point(12, 372);
+            this.textBoxFull.Location = new System.Drawing.Point(64, 378);
             this.textBoxFull.Name = "textBoxFull";
             this.textBoxFull.Size = new System.Drawing.Size(206, 20);
             this.textBoxFull.TabIndex = 4;
             // 
             // buttonBrowseFull
             // 
-            this.buttonBrowseFull.Location = new System.Drawing.Point(224, 369);
+            this.buttonBrowseFull.Location = new System.Drawing.Point(276, 375);
             this.buttonBrowseFull.Name = "buttonBrowseFull";
             this.buttonBrowseFull.Size = new System.Drawing.Size(109, 23);
             this.buttonBrowseFull.TabIndex = 5;
@@ -87,9 +87,9 @@
             // 
             // buttonUploadFull
             // 
-            this.buttonUploadFull.Location = new System.Drawing.Point(354, 369);
+            this.buttonUploadFull.Location = new System.Drawing.Point(450, 372);
             this.buttonUploadFull.Name = "buttonUploadFull";
-            this.buttonUploadFull.Size = new System.Drawing.Size(177, 23);
+            this.buttonUploadFull.Size = new System.Drawing.Size(257, 35);
             this.buttonUploadFull.TabIndex = 6;
             this.buttonUploadFull.Text = "Upload Full";
             this.buttonUploadFull.UseVisualStyleBackColor = true;
@@ -108,14 +108,14 @@
             this.dataGridViewProposals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProposals.Location = new System.Drawing.Point(12, 27);
             this.dataGridViewProposals.Name = "dataGridViewProposals";
-            this.dataGridViewProposals.Size = new System.Drawing.Size(519, 237);
+            this.dataGridViewProposals.Size = new System.Drawing.Size(695, 237);
             this.dataGridViewProposals.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(12, 280);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(518, 34);
+            this.button1.Size = new System.Drawing.Size(695, 34);
             this.button1.TabIndex = 7;
             this.button1.Text = "Update database";
             this.button1.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 406);
+            this.ClientSize = new System.Drawing.Size(719, 419);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonUploadFull);
             this.Controls.Add(this.buttonBrowseFull);
@@ -135,7 +135,9 @@
             this.Controls.Add(this.buttonBrowseAbstract);
             this.Controls.Add(this.dataGridViewProposals);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(735, 458);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(735, 458);
             this.Name = "UserAccount";
             this.ShowIcon = false;
             this.Text = "Phase One";
