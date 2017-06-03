@@ -1,4 +1,6 @@
-﻿namespace App.Entity
+﻿using System.Collections.Generic;
+
+namespace App.Entity
 {
     /// <summary>
     /// 
@@ -10,20 +12,36 @@
     public class Proposal
     {
         public int ProposalId { get; set; }
-        public ProposalMetaInformation MetaInformation { get; set; }
         public string FullPaper { get; set; }
         public string AbstractPaper { get; set; }
+        public string Title { get; set; }
+        public IList<User> Authors { get; set; }
+        public int Year { get; set; }
+        public string Description { get; set; }
 
         public Proposal()
         {
-            MetaInformation = new ProposalMetaInformation();
+            Title = "";
+            Authors = new List<User>();
+            Year = -1;
+            Description = "";
             FullPaper = "";
             AbstractPaper = "";
         }
 
-        public Proposal(ProposalMetaInformation metaInformation, string fullPaper, string abstractPaper)
+        public Proposal(
+            string title, 
+            IList<User> authors, 
+            int year, 
+            string description,
+            string fullPaper, 
+            string abstractPaper
+        )
         {
-            this.MetaInformation = metaInformation;
+            this.Title = title;
+            this.Authors = authors;
+            this.Year = year;
+            this.Description = description;
             this.FullPaper = fullPaper;
             this.AbstractPaper = abstractPaper;
         }
