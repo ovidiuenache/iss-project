@@ -87,5 +87,11 @@ namespace App.Controller
         /// </summary>
         /// <param name="proposal"></param>
         void UpdateProposal(Proposal proposal);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="roomName"></param>
+        void AddSectionRoom(Section section, string roomName);
     }
 }

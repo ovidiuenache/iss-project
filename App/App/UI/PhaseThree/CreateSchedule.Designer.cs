@@ -31,6 +31,7 @@
             this.comboBoxSections = new System.Windows.Forms.ComboBox();
             this.listBoxProposals = new System.Windows.Forms.ListBox();
             this.btnAddToSection = new System.Windows.Forms.Button();
+            this.btnChooseRoom = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxSections
@@ -61,11 +62,22 @@
             this.btnAddToSection.UseVisualStyleBackColor = true;
             this.btnAddToSection.Click += new System.EventHandler(this.btnAddToSection_Click);
             // 
+            // btnChooseRoom
+            // 
+            this.btnChooseRoom.Location = new System.Drawing.Point(383, 319);
+            this.btnChooseRoom.Name = "btnChooseRoom";
+            this.btnChooseRoom.Size = new System.Drawing.Size(99, 36);
+            this.btnChooseRoom.TabIndex = 3;
+            this.btnChooseRoom.Text = "Done";
+            this.btnChooseRoom.UseVisualStyleBackColor = true;
+            this.btnChooseRoom.Click += new System.EventHandler(this.btnChooseRoom_Click);
+            // 
             // CreateSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(494, 367);
+            this.Controls.Add(this.btnChooseRoom);
             this.Controls.Add(this.btnAddToSection);
             this.Controls.Add(this.listBoxProposals);
             this.Controls.Add(this.comboBoxSections);
@@ -80,5 +92,6 @@
         private System.Windows.Forms.ComboBox comboBoxSections;
         private System.Windows.Forms.ListBox listBoxProposals;
         private System.Windows.Forms.Button btnAddToSection;
+        private System.Windows.Forms.Button btnChooseRoom;
     }
 }

@@ -46,7 +46,6 @@ namespace App.UI.PhaseThree
         private void LoadProposals()
         {
             listBoxProposals.Items.Clear();
-            Section section = (Section)comboBoxSections.SelectedItem;
             List<Proposal> proposals =
                 PhaseThreeController.FindAllProposalsWithoutSection();
 
@@ -77,6 +76,13 @@ namespace App.UI.PhaseThree
         {
             Form addStartTimeForm = new AddStartTime(proposal);
             addStartTimeForm.Show();
+        }
+
+        private void btnChooseRoom_Click(object sender, EventArgs e)
+        {
+            Form chooseRoomForm = new ChooseRoom();
+            chooseRoomForm.Show();
+            this.Hide();
         }
     }
 }

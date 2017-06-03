@@ -94,7 +94,7 @@ namespace App.Controller
         public List<Proposal> FindAllProposalsBySection(Section section)
         {
             List<Proposal> proposals = new List<Proposal>();
-            
+
             return proposals;
         }
         /// <summary>
@@ -107,7 +107,7 @@ namespace App.Controller
             var proposalsExistingInSections = SectionRepository.FindAllProposalsExistingInSections();
 
             List<Proposal> proposals = allProposals.Except(proposalsExistingInSections).ToList();
-            
+
             return proposals;
         }
 
@@ -140,14 +140,33 @@ namespace App.Controller
             SectionRepository.AddProposalToSection(section, proposal);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public Conference GetActiveConference()
         {
             return ConferenceRepository.GetActiveConference();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="proposal"></param>
         public void UpdateProposal(Proposal proposal)
         {
             ProposalRepository.Update(proposal);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="section"></param>
+        /// <param name="roomName"></param>
+        public void AddSectionRoom(Section section, string roomName)
+        {
+            section.Room = roomName;
+            SectionRepository.Update(section);
         }
     }
 }
