@@ -31,6 +31,7 @@
             this.assignButton = new System.Windows.Forms.Button();
             this.sendEmailsButton = new System.Windows.Forms.Button();
             this.buttonNextPhase = new System.Windows.Forms.Button();
+            this.buttonLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // assignButton
@@ -65,17 +66,29 @@
             this.buttonNextPhase.UseVisualStyleBackColor = true;
             this.buttonNextPhase.Click += new System.EventHandler(this.buttonNextPhase_Click);
             // 
+            // buttonLogout
+            // 
+            this.buttonLogout.Location = new System.Drawing.Point(28, 220);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(108, 49);
+            this.buttonLogout.TabIndex = 3;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            // 
             // ChairMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(165, 216);
+            this.ClientSize = new System.Drawing.Size(165, 284);
+            this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.buttonNextPhase);
             this.Controls.Add(this.sendEmailsButton);
             this.Controls.Add(this.assignButton);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(181, 323);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(181, 192);
+            this.MinimumSize = new System.Drawing.Size(181, 323);
             this.Name = "ChairMain";
             this.ShowIcon = false;
             this.Text = "ChairMain";
@@ -89,5 +102,6 @@
         private System.Windows.Forms.Button assignButton;
         private System.Windows.Forms.Button sendEmailsButton;
         private System.Windows.Forms.Button buttonNextPhase;
+        private System.Windows.Forms.Button buttonLogout;
     }
 }

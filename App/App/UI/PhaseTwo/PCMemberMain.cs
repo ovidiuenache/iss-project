@@ -66,5 +66,12 @@ namespace App.UI.PhaseTwo
         {
 
         }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            parentForm.Location = new Point(Location.X, Location.Y);
+            parentForm.Show();
+            Close();
+        }
     }
 }
