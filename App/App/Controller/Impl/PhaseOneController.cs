@@ -1,7 +1,6 @@
 ﻿using App.Entity;
 using App.Repository.Impl;
 using System.Collections.Generic;
-using Moq;
 
 namespace App.Controller
 {
@@ -15,10 +14,17 @@ namespace App.Controller
     public class PhaseOneController
     {
         private ProposalRepository proposalRepository;
+        private UserRepository userRepository;
 
-        public PhaseOneController(ProposalRepository proposalRepository)
+        public PhaseOneController(ProposalRepository proposalRepository, UserRepository userRepository)
         {
             this.proposalRepository = proposalRepository;
+            this.userRepository = userRepository;
+        }
+
+        public void addProposal(Proposal proposal)
+        {
+            proposalRepository.Add(proposal);
         }
 
         public void updateProposal(Proposal proposal)
@@ -41,13 +47,9 @@ namespace App.Controller
             proposalRepository.saveChanges();
         }
 
-        
         public List<User> getAllUsers()
         {
-            var test = new List<User>();
-            test.Add(new User("t1", "t2", "t3", "t4", "t5"));
-          
-            return test;
+            return userRepository.All();
         }
     }
 }

@@ -67,7 +67,7 @@ namespace App.Factory
 
         public static PhaseOneController getPhaseOneController()
         {
-            return new PhaseOneController(getProposalRepository());
+            return new PhaseOneController(getProposalRepository(), getUserRepository());
         }
 
         public static ConferenceUserRepository getConferenceUserRepository()
