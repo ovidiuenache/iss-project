@@ -161,6 +161,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\PhaseRepositoryTest.cs" />
+    <Compile Include="Utils\MailSenderTest.cs" />
     <Compile Include="Utils\PasswordGeneratorTest.cs" />
   </ItemGroup>
   <ItemGroup>
