@@ -56,7 +56,7 @@
             // bidButton
             // 
             this.bidButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.bidButton.Font = new System.Drawing.Font("Segoe MDL2 Assets", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bidButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bidButton.Location = new System.Drawing.Point(233, 89);
             this.bidButton.Name = "bidButton";
             this.bidButton.Size = new System.Drawing.Size(94, 51);
@@ -68,7 +68,7 @@
             // rateButton
             // 
             this.rateButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.rateButton.Font = new System.Drawing.Font("Segoe MDL2 Assets", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rateButton.Location = new System.Drawing.Point(233, 184);
             this.rateButton.Name = "rateButton";
             this.rateButton.Size = new System.Drawing.Size(94, 49);
@@ -80,7 +80,7 @@
             // buttonRefreshReviews
             // 
             this.buttonRefreshReviews.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.buttonRefreshReviews.Font = new System.Drawing.Font("Segoe MDL2 Assets", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRefreshReviews.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRefreshReviews.Location = new System.Drawing.Point(233, 277);
             this.buttonRefreshReviews.Name = "buttonRefreshReviews";
             this.buttonRefreshReviews.Size = new System.Drawing.Size(94, 49);
@@ -99,8 +99,14 @@
             this.Controls.Add(this.bidButton);
             this.Controls.Add(this.ratingsGridView);
             this.Controls.Add(this.proposalListGridView);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(568, 541);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(568, 541);
             this.Name = "PCMemberMain";
+            this.ShowIcon = false;
             this.Text = "PCMemberMain";
+            this.Load += new System.EventHandler(this.PCMemberMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.proposalListGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ratingsGridView)).EndInit();
             this.ResumeLayout(false);

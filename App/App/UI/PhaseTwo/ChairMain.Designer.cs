@@ -34,8 +34,8 @@
             // 
             // assignButton
             // 
-            this.assignButton.BackColor = System.Drawing.SystemColors.Highlight;
-            this.assignButton.Location = new System.Drawing.Point(83, 55);
+            this.assignButton.BackColor = System.Drawing.SystemColors.Control;
+            this.assignButton.Location = new System.Drawing.Point(28, 27);
             this.assignButton.Name = "assignButton";
             this.assignButton.Size = new System.Drawing.Size(108, 49);
             this.assignButton.TabIndex = 0;
@@ -45,8 +45,8 @@
             // 
             // sendEmailsButton
             // 
-            this.sendEmailsButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.sendEmailsButton.Location = new System.Drawing.Point(83, 147);
+            this.sendEmailsButton.BackColor = System.Drawing.SystemColors.Control;
+            this.sendEmailsButton.Location = new System.Drawing.Point(28, 82);
             this.sendEmailsButton.Name = "sendEmailsButton";
             this.sendEmailsButton.Size = new System.Drawing.Size(108, 49);
             this.sendEmailsButton.TabIndex = 1;
@@ -58,11 +58,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(165, 153);
             this.Controls.Add(this.sendEmailsButton);
             this.Controls.Add(this.assignButton);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(181, 192);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(181, 192);
             this.Name = "ChairMain";
+            this.ShowIcon = false;
             this.Text = "ChairMain";
+            this.Load += new System.EventHandler(this.ChairMain_Load);
             this.ResumeLayout(false);
 
         }

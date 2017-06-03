@@ -1,4 +1,6 @@
 ﻿using App.Controller;
+using App.Entity;
+using App.Factory;
 using System;
 using System.Windows.Forms;
 
@@ -6,13 +8,20 @@ namespace App.UI.PhaseTwo
 {
     /// <summary>
     /// Author: Andu Popa
+    /// Author: Ioan Ovidiu Enache
     /// </summary>
     public partial class ChairMain : Form
     {
         private PhaseTwoController phaseTwoController;
-        public ChairMain(PhaseTwoController phaseTwoController)
+        private Form parentForm;
+        private User loggedUser;
+
+        public ChairMain(Form parentForm, User loggedUser)
         {
-            this.phaseTwoController = phaseTwoController;
+            phaseTwoController = ApplicationFactory.getPhaseTwoController();
+            this.parentForm = parentForm;
+            this.loggedUser = loggedUser;
+
             InitializeComponent();
         }
 
@@ -30,6 +39,11 @@ namespace App.UI.PhaseTwo
             this.Hide();
             assignmentView.SetDesktopLocation(this.Location.X, this.Location.Y);
             assignmentView.Show();
+        }
+
+        private void ChairMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

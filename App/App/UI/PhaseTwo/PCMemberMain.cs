@@ -1,5 +1,6 @@
 ﻿using App.Controller;
 using App.Entity;
+using App.Factory;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,14 +18,16 @@ namespace App.UI.PhaseTwo
     /// </summary>
     public partial class PCMemberMain : Form
     {
-
         private User reviewer;
         private PhaseTwoController phaseTwoController;
+        private Form parentForm;
 
-        public PCMemberMain(PhaseTwoController phaseTwoController, User reviewer)
+        public PCMemberMain(Form parentForm, User reviewer)
         {
-            this.phaseTwoController = phaseTwoController;
+            phaseTwoController = ApplicationFactory.getPhaseTwoController();
             this.reviewer = reviewer;
+            this.parentForm = parentForm;
+
             InitializeComponent();
         }
 
@@ -57,6 +60,11 @@ namespace App.UI.PhaseTwo
             this.Hide();
             bidView.SetDesktopLocation(this.Location.X,this.Location.Y);
             bidView.Show();
+        }
+
+        private void PCMemberMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
