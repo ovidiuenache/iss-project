@@ -133,7 +133,7 @@
             this.MinimumSize = new System.Drawing.Size(330, 270);
             this.Name = "MetaInformation";
             this.ShowIcon = false;
-            this.Text = "MetaInformation";
+            this.Text = "Meta Information";
             this.ResumeLayout(false);
             this.PerformLayout();
 

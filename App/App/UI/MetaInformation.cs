@@ -1,5 +1,6 @@
 ﻿using App.Controller;
 using App.Entity;
+using App.Factory;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -16,31 +17,30 @@ namespace App.UI
         private bool fullPaper;
         private string paperLink;
         
-        public MetaInformation(Proposal proposal, PhaseOneController controller, bool fullPaper, string paperLink)
+        public MetaInformation(Proposal proposal, bool fullPaper, string paperLink)
         {
             InitializeComponent();
+
+            controller = ApplicationFactory.getPhaseOneController();
             this.proposal = proposal;
-            this.controller = controller;
             this.fullPaper = fullPaper;
             this.paperLink = paperLink;
             if (this.proposal != null)
             {
                 textBoxName.Text = proposal.Title;
                 textBoxKeywords.Text = proposal.Description;
-                textBoxTopics.Text = proposal.Description;
                 string authorsNames = "";
                 foreach (User us in proposal.Authors)
                 {
                     authorsNames += us.FirstName + " " + us.LastName;
                 }
                 textBoxAuthors.Text = authorsNames;
-                dateTimePickerAnPublicare.Value = DateTime.Parse(proposal.Year.ToString("yyyyMMdd"));
+                dateTimePickerAnPublicare.Value = new DateTime(proposal.Year);
             }
             else
             {
                 textBoxName.Text = "";
                 textBoxKeywords.Text = "";
-                textBoxTopics.Text = "";
                 textBoxAuthors.Text = "";
                 dateTimePickerAnPublicare.Value = DateTime.Now;
             }
@@ -55,13 +55,17 @@ namespace App.UI
                 proposal.Title = textBoxName.Text;
                 proposal.Year = int.Parse(dateTimePickerAnPublicare.Value.ToString("yyyyMMdd"));
                 proposal.Description = textBoxKeywords.Text;
+
+                //TO DO
+                //CHANGE THIS TO THE MULTIPLE SELECTION COMBOBOX
                 List<User> authors = new List<User>();
                 string[] authorsNames = textBoxAuthors.Text.Split(',');
                 for(int i=0; i<authorsNames.Length;i++)
                 {
-                    authors.Add(controller.getUserByName(authorsNames[i]));
+                    //authors.Add(controller.getUserByName(authorsNames[i]));
                 }
                 proposal.Authors = authors;
+
                 if (!fullPaper)
                 {
                     proposal.AbstractPaper = paperLink;

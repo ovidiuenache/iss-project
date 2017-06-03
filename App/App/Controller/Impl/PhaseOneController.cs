@@ -1,5 +1,4 @@
-﻿using System;
-using App.Entity;
+﻿using App.Entity;
 using App.Repository.Impl;
 using System.Collections.Generic;
 
@@ -23,17 +22,12 @@ namespace App.Controller
 
         public void updateProposal(Proposal proposal)
         {
-            throw new NotImplementedException();
-        }
-
-        public User getUserByName(string v)
-        {
-            throw new NotImplementedException();
+            proposalRepository.Update(proposal);
         }
     
-        public Proposal getProposal(int v)
+        public Proposal getProposal(int proposalId)
         {
-            throw new NotImplementedException();
+            return proposalRepository.Find(proposalId);
         }
 
         public List<Proposal> ProposalsAuthoredByUser(int userId)
