@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using App.Repository;
+using App.Utils;
 
 namespace App.Controller
 {
@@ -28,13 +29,15 @@ namespace App.Controller
 
         public User GetUser(string email, string password)
         {
+            var decrypt = new EncryptDecrypt();
             User user = UserRepository.FindUserByEmail(email);
             if (user == null)
             {
                 return null;
             } 
-            else if (user.Password != password)
+            else if (decrypt.decryptPassword(user.Password) != password)
             {
+                user.Password = password;
                 return null;
             }
             else

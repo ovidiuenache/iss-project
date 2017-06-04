@@ -18,18 +18,21 @@ namespace App.Controller
         private ReviewRepository reviewRepo;
         private ProposalRepository proposalRepo;
         private UserRepository userRepo;
+        private UserRoleRepository userRoleRepo;
 
         public PhaseTwoController(
             ReviewRepository reviewRepo,
             ProposalRepository proposalRepo,
             UserRepository userRepo,
-            ConferenceRepository conferenceRepository
+            ConferenceRepository conferenceRepository,
+            UserRoleRepository userRoleRepo
         )
         {
             this.reviewRepo = reviewRepo;
             this.proposalRepo = proposalRepo;
             this.userRepo = userRepo;
             this.conferenceRepository = conferenceRepository;
+            this.userRoleRepo = userRoleRepo;
         }
 
         /// <summary>
@@ -148,6 +151,11 @@ namespace App.Controller
         public void UpdateConference(Conference conference)
         {
             conferenceRepository.Update(conference);
+        }
+
+        public List<User> getReviewers()
+        {
+            return userRepo.All().Where(user => userRoleRepo.All().Where(role => role.RoleId == 5).ToList().First().UserId == user.UserId).ToList();
         }
     }
 }

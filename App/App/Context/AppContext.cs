@@ -7,14 +7,11 @@ namespace App.Context
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
-
-        public DbSet<Review> Reviews { get; set; }
-
         public DbSet<Proposal> Proposals { get; set; }
-
         public DbSet<Conference> Conferences { get; set; }
         public DbSet<Phase> Phases { get; set; }
         public DbSet<Topic> Topics { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
         public DbSet<Section> Sections { get; set; }
 

@@ -55,6 +55,11 @@ namespace App.Factory
             return new ReviewRepository(getAppContext());
         }
 
+        public static UserRoleRepository getUserRoleRepository()
+        {
+            return new UserRoleRepository(getAppContext());
+        }
+
         public static PreliminaryPhaseController getPreliminaryPhaseController()
         {
             return new PreliminaryPhaseController(
@@ -78,7 +83,7 @@ namespace App.Factory
 
         public static PhaseTwoController getPhaseTwoController()
         {
-            return new PhaseTwoController(getReviewRepository(), getProposalRepository(), getUserRepository(), getConferenceRepository());
+            return new PhaseTwoController(getReviewRepository(), getProposalRepository(), getUserRepository(), getConferenceRepository(),getUserRoleRepository());
         }
 
         public static PhaseThreeController GetPhaseThreeController()

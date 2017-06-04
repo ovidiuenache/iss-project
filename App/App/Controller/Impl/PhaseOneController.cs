@@ -1,6 +1,7 @@
 ﻿using App.Entity;
 using App.Repository.Impl;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace App.Controller
 {
@@ -9,6 +10,7 @@ namespace App.Controller
     /// Phase one controller implementation 
     /// Author : Catalin Radoiu 
     /// Author : Ioan Ovidiu Enache
+    /// Author : Alexandru Emil Popa
     /// 
     /// </summary>
     public class PhaseOneController
@@ -67,6 +69,11 @@ namespace App.Controller
         public List<User> getAllUsers()
         {
             return userRepository.All();
+        }
+
+        public Proposal getProposalByUser(int userId)
+        {
+            return proposalRepository.All().Where(proposal => proposal.Authors.Contains(userRepository.Find(userId))).ToList().FirstOrDefault();
         }
     }
 }
