@@ -1,5 +1,6 @@
 ﻿using App.Context;
 using App.Entity;
+using App.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -34,11 +35,12 @@ namespace App.Repository.Impl
         }
         public void ChangePassword(string email,string password)
         {
+            var encrypt = new EncryptDecrypt();
             if (email != null)
             {
                 User userImplicated = Context.Users.SingleOrDefault(user => user.Email == email);
                 if (userImplicated != null) {
-                    userImplicated.Password = password;
+                    userImplicated.Password = encrypt.encryptPassword(password);
                     Context.SaveChanges(); }
             }
         }

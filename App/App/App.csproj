@@ -306,6 +306,7 @@
     <Compile Include="UI\UserAccount.Designer.cs">
       <DependentUpon>UserAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\EncryptDecrypt.cs" />
     <Compile Include="Validators\ConferenceValidator.cs" />
     <Compile Include="UI\PhaseTwo\AuthorMain.cs">
       <SubType>Form</SubType>

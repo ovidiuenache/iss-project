@@ -49,13 +49,15 @@ namespace App.Controller
             }
             else
             {
+                var encrypt = new EncryptDecrypt();
+                user.Password = encrypt.encryptPassword(user.Password);
                 UserRepository.Add(user);
                 MailAddress sender = new MailAddress("iss.cmsmailer@gmail.com");
                 MailAddress receiver = new MailAddress(user.Email);
                 string mailBody = "Thank you for your registration. Your account " +
                                   "has been created succesfully.\nYour credentials are : \n" +
                                   "Username : " + user.Email +
-                                  "\nPassword : " + user.Password;
+                                  "\nPassword : " + encrypt.decryptPassword(user.Password);
                 string mailSubject = "Registration complete";
                 MailSender.sendMail(receiver, mailBody, mailSubject);
             }
