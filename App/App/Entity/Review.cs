@@ -7,6 +7,7 @@ namespace App.Entity
     /// Class Review
     /// Author: Ioan Ovidiu Enache
     /// Author: Claudiu Nicola
+    /// 
     /// </summary>
     public class Review
     {
