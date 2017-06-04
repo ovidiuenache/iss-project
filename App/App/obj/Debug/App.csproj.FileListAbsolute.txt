@@ -381,3 +381,16 @@ C:\Users\John\Desktop\iss-project\App\App\bin\Debug\Moq.dll
 C:\Users\John\Desktop\iss-project\App\App\bin\Debug\Castle.Core.xml
 C:\Users\John\Desktop\iss-project\App\App\bin\Debug\Moq.xml
 C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ListenerMain.resources
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\bin\Debug\Castle.Core.dll
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\bin\Debug\Moq.dll
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\bin\Debug\Castle.Core.xml
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\bin\Debug\Moq.xml
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ListenerMain.resources
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.UI.ResetPassword.resources
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.AuthorMain.resources
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ChairAssignementToReviewer.resources
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ChairMain.resources
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ChairToAcceptedAuthors.resources
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.PCMemberBidProposals.resources
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.PCMemberMain.resources
+G:\Facultate\Semestrul 4\Ingineria sistemelor soft\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.PCMemberRateProposals.resources
