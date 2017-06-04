@@ -381,4 +381,9 @@ C:\Users\John\Desktop\iss-project\App\App\bin\Debug\Moq.dll
 C:\Users\John\Desktop\iss-project\App\App\bin\Debug\Castle.Core.xml
 C:\Users\John\Desktop\iss-project\App\App\bin\Debug\Moq.xml
 C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ListenerMain.resources
-D:\ISS\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ListenerMain.resources
+C:\Users\Andu\Desktop\iss-project\App\App\bin\Debug\Castle.Core.dll
+C:\Users\Andu\Desktop\iss-project\App\App\bin\Debug\Moq.dll
+C:\Users\Andu\Desktop\iss-project\App\App\bin\Debug\Castle.Core.xml
+C:\Users\Andu\Desktop\iss-project\App\App\bin\Debug\Moq.xml
+C:\Users\Andu\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.ListenerMain.resources
+C:\Users\Andu\Desktop\iss-project\App\App\obj\Debug\App.UI.ResetPassword.resources

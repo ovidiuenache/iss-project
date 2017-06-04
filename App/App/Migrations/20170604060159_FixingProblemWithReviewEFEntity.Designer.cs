@@ -8,9 +8,10 @@ using App.Context;
 namespace App.Migrations
 {
     [DbContext(typeof(AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [Migration("20170604060159_FixingProblemWithReviewEFEntity")]
+    partial class FixingProblemWithReviewEFEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
