@@ -283,3 +283,6 @@ D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.P
 D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.PCMemberMain.resources
 D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.UI.PhaseTwo.PCMemberRateProposals.resources
 D:\Diana\Informatica\An 2 Semestrul 2\ISS\iss-project\App\App\obj\Debug\App.csproj.GenerateResource.Cache
+E:\FACULTATE\ProiectISS\iss-project\App\App\bin\Debug\App.exe.config
+E:\FACULTATE\ProiectISS\iss-project\App\App\obj\Debug\App.exe
+E:\FACULTATE\ProiectISS\iss-project\App\App\obj\Debug\App.pdb
