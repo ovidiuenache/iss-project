@@ -4,6 +4,7 @@ using App.Factory;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace App.UI
 {
@@ -25,7 +26,17 @@ namespace App.UI
 
             InitializeComponent();
 
-            dataGridViewProposals.DataSource = controller.getProposalsBindingSource();
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
+
+            buttonUpdate.Size = new System.Drawing.Size(710, 34);
+            buttonUpdate.Location = new System.Drawing.Point(36, 280);
+
+            if (controller.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("chair"))
+            {
+                buttonNextPhase.Visible = true;
+                buttonUpdate.Size = new System.Drawing.Size(321, 34);
+                buttonUpdate.Location = new System.Drawing.Point(36, 280);
+            }
         }
 
         private void buttonBrowseAbstract_Click(object sender, EventArgs e)
@@ -48,20 +59,20 @@ namespace App.UI
             {
                 if(dataGridViewProposals.Rows.Count != 0)
                 {
-                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.SelectedRows[0].Cells[0].Value.ToString())), controller, false, textBoxAbstract.Text);
+                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.SelectedRows[0].Cells[0].Value.ToString())), false, textBoxAbstract.Text);
                     mt.Show();
 
                 }
                 else
                 {
-                    MetaInformation mt= new MetaInformation(new Proposal("",new List<User>(),0,"", "",""), controller, false, textBoxAbstract.Text);
+                    MetaInformation mt= new MetaInformation(null, false, textBoxAbstract.Text);
                     mt.Show();
 
                 }
 
             }
 
-            dataGridViewProposals.DataSource = controller.getProposalsBindingSource();
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
         }
 
         private void buttonUploadFull_Click(object sender, EventArgs e)
@@ -72,18 +83,18 @@ namespace App.UI
             {
                 if(dataGridViewProposals.Rows.Count != 0)
                 {
-                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.SelectedRows[0].Cells[0].Value.ToString())), controller, true, textBoxFull.Text);
+                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.Rows[0].Cells[0].Value.ToString())), true, textBoxFull.Text);
                     mt.Show();
                 }
                 else
                 {
-                    MetaInformation mt = new MetaInformation(null, controller, true, textBoxFull.Text);
+                    MetaInformation mt = new MetaInformation(null, true, textBoxFull.Text);
                     mt.Show();
 
                 }
             }
 
-            dataGridViewProposals.DataSource = controller.getProposalsBindingSource();
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
         }
 
         private void buttonBrowseFull_Click(object sender, EventArgs e)
@@ -149,6 +160,48 @@ namespace App.UI
             controller.saveChanges();
 
             MessageBox.Show("Database has been updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Show();
+            Close();
+        }
+
+        private void UserAccount_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Show();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
+        }
+
+        private void buttonNextPhase_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to start the next phase?", "Next Phase", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Conference activeConference = controller.ActiveConference();
+
+                Phase nextPhase = new Phase();
+                nextPhase.Deadline = activeConference.EndDate;
+                nextPhase.Name = "PHASETWO";
+
+                activeConference.ActivePhase = nextPhase;
+
+                controller.UpdateConference(activeConference);
+
+                MessageBox.Show("Next phase has successfully started!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            else
+            {
+                //do nothing
+            }
         }
     }
 }

@@ -1,13 +1,7 @@
 ﻿using App.Controller;
 using App.Entity;
+using App.Factory;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App.UI.PhaseTwo
@@ -16,12 +10,21 @@ namespace App.UI.PhaseTwo
     {
         private PhaseOneController controller;
         private Proposal proposal;
-        private User user;
-        public AuthorMain(PhaseOneController controller, Proposal proposal, User author)
+        private User loggedUser;
+        private Form parentForm;
+
+        public AuthorMain(Form parentForm, User loggedUser)
         {
-            this.controller = controller;
-            this.proposal = proposal;
-            this.user = author;
+            this.controller = ApplicationFactory.getPhaseOneController();
+
+            //TO DO
+            //LOAD THIS PROPOSAL SOMEHOW FROM THE DATABASE
+            proposal = null;
+
+
+            this.loggedUser = loggedUser;
+            this.parentForm = parentForm;
+
             InitializeComponent();
         }
 
@@ -29,11 +32,11 @@ namespace App.UI.PhaseTwo
 
         private void buttonUploadFull_Click(object sender, EventArgs e)
         {
-            if (this.textBox1.Text == "")
+            if (textBox1.Text == "")
                 MessageBox.Show("Please select a file to upload");
             else
             {   
-                MetaInformation mt = new MetaInformation(proposal, controller, true, textBox1.Text);
+                MetaInformation mt = new MetaInformation(proposal, true, textBox1.Text);
                 mt.Show();
             }
         }
@@ -46,6 +49,22 @@ namespace App.UI.PhaseTwo
             {
                 this.textBox1.Text = openFileDialogBrowse.FileName;
             }
+        }
+
+        private void AuthorMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Show();
+            Close();
+        }
+
+        private void AuthorMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
         }
     }
 }

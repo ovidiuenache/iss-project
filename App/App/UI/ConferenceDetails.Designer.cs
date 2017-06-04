@@ -35,9 +35,9 @@
             // 
             // btn_Login
             // 
-            this.btn_Login.Location = new System.Drawing.Point(21, 273);
+            this.btn_Login.Location = new System.Drawing.Point(12, 273);
             this.btn_Login.Name = "btn_Login";
-            this.btn_Login.Size = new System.Drawing.Size(106, 43);
+            this.btn_Login.Size = new System.Drawing.Size(131, 43);
             this.btn_Login.TabIndex = 0;
             this.btn_Login.Text = "Login";
             this.btn_Login.UseVisualStyleBackColor = true;
@@ -45,9 +45,9 @@
             // 
             // btn_Register
             // 
-            this.btn_Register.Location = new System.Drawing.Point(166, 273);
+            this.btn_Register.Location = new System.Drawing.Point(159, 273);
             this.btn_Register.Name = "btn_Register";
-            this.btn_Register.Size = new System.Drawing.Size(108, 43);
+            this.btn_Register.Size = new System.Drawing.Size(130, 43);
             this.btn_Register.TabIndex = 1;
             this.btn_Register.Text = "Register";
             this.btn_Register.UseVisualStyleBackColor = true;

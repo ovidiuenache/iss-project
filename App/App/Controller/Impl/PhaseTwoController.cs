@@ -14,16 +14,22 @@ namespace App.Controller
     /// </summary>
     public class PhaseTwoController
     {
-
+        private ConferenceRepository conferenceRepository;
         private ReviewRepository reviewRepo;
         private ProposalRepository proposalRepo;
         private UserRepository userRepo;
 
-        public PhaseTwoController(ReviewRepository reviewRepo, ProposalRepository proposalRepo, UserRepository userRepo)
+        public PhaseTwoController(
+            ReviewRepository reviewRepo,
+            ProposalRepository proposalRepo,
+            UserRepository userRepo,
+            ConferenceRepository conferenceRepository
+        )
         {
             this.reviewRepo = reviewRepo;
             this.proposalRepo = proposalRepo;
             this.userRepo = userRepo;
+            this.conferenceRepository = conferenceRepository;
         }
 
         /// <summary>
@@ -134,5 +140,14 @@ namespace App.Controller
             reviewRepo.Update(review);
         }
 
+        public Conference ActiveConference()
+        {
+            return conferenceRepository.GetActiveConference();
+        }
+
+        public void UpdateConference(Conference conference)
+        {
+            conferenceRepository.Update(conference);
+        }
     }
 }

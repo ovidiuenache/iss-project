@@ -5,6 +5,7 @@ using System;
 using System.Windows.Forms;
 using System.Linq;
 using App.Factory;
+using App.UI.PhaseTwo;
 
 namespace App
 {
@@ -52,8 +53,23 @@ namespace App
                             toBeShown = new UserAccount(this, loggedUser);
                             break;
                         case "PHASETWO":
-                            MessageBox.Show("Phase Two Main Form");
-                            //toBeShown = new PhaseTwoMainForm();
+                            if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("chair"))
+                            {
+                                toBeShown = new ChairMain(this, loggedUser);
+                            }
+                            else if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("reviewer"))
+                            {
+                                toBeShown = new PCMemberMain(this, loggedUser);
+                            }
+                            else if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("author")
+                                || loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("speaker"))
+                            {
+                                toBeShown = new AuthorMain(this, loggedUser);
+                            }
+                            else if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("listner"))
+                            {
+                                toBeShown = new ListenerMain(this, loggedUser);
+                            }
                             break;
                         case "PHASETHREE":
                             MessageBox.Show("Phase THree Main Form");
