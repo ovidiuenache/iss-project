@@ -45,5 +45,10 @@ namespace App.Entity
         {
             return base.GetHashCode();
         }
+
+        public override string ToString()
+        {
+            return FirstName + " " + LastName;
+        }
     }
 }

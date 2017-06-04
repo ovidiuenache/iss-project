@@ -7,19 +7,16 @@ namespace App.Context
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
-
-        public DbSet<Review> Reviews { get; set; }
-
         public DbSet<Proposal> Proposals { get; set; }
-
         public DbSet<Conference> Conferences { get; set; }
         public DbSet<Phase> Phases { get; set; }
         public DbSet<Topic> Topics { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserRole>()
-                .HasKey(x => new {x.UserId, x.RoleId});
+                .HasKey(x => new { x.UserId, x.RoleId });
             modelBuilder.Entity<UserRole>()
                 .HasOne(x => x.User)
                 .WithMany(x => x.UserRoles)
@@ -30,7 +27,7 @@ namespace App.Context
                 .HasForeignKey(x => x.RoleId);
 
             modelBuilder.Entity<ConferenceUser>()
-                .HasKey(x => new {x.ConferenceId, x.UserId});
+                .HasKey(x => new { x.ConferenceId, x.UserId });
             modelBuilder.Entity<ConferenceUser>()
                 .HasOne(x => x.Conference)
                 .WithMany(x => x.Users)
@@ -48,7 +45,7 @@ namespace App.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Data Source=JOHNNY;Initial Catalog=iss;Integrated Security=True");
+                @"Data Source=DESKTOP-MIOBI9T\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
         }
     }
 }
