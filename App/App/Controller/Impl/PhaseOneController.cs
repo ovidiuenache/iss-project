@@ -1,6 +1,3 @@
-﻿using System;
-using App.Entity;
-using App.Repository;
 ﻿using App.Entity;
 using App.Repository.Impl;
 using System.Collections.Generic;
