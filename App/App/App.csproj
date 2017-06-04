@@ -257,10 +257,6 @@
     <Compile Include="Migrations\20170603095246_RemoveProposalMetaInformationEntity.designer.cs">
       <DependentUpon>20170603095246_RemoveProposalMetaInformationEntity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20170604060159_FixingProblemWithReviewEFEntity.cs" />
-    <Compile Include="Migrations\20170604060159_FixingProblemWithReviewEFEntity.designer.cs">
-      <DependentUpon>20170604060159_FixingProblemWithReviewEFEntity.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\AppContextModelSnapshot.cs" />
     <Compile Include="Migrations\Seed\TopicSeed.cs" />
     <Compile Include="Migrations\Seed\UserContextSeed.cs" />
