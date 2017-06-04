@@ -8,9 +8,10 @@ using App.Context;
 namespace App.Migrations
 {
     [DbContext(typeof(AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [Migration("20170603163939_UpdateSectionEntityAddProposalsList")]
+    partial class UpdateSectionEntityAddProposalsList
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -78,8 +79,6 @@ namespace App.Migrations
 
                     b.Property<int?>("SectionId");
 
-                    b.Property<DateTime>("StartTime");
-
                     b.Property<string>("Title");
 
                     b.Property<int>("Year");
@@ -89,30 +88,6 @@ namespace App.Migrations
                     b.HasIndex("SectionId");
 
                     b.ToTable("Proposals");
-                });
-
-            modelBuilder.Entity("App.Entity.Review", b =>
-                {
-                    b.Property<int>("ReviewId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Comment");
-
-                    b.Property<DateTime>("DateCreated");
-
-                    b.Property<int?>("ProposalId");
-
-                    b.Property<string>("Qualifier");
-
-                    b.Property<int?>("ReviewerUserId");
-
-                    b.HasKey("ReviewId");
-
-                    b.HasIndex("ProposalId");
-
-                    b.HasIndex("ReviewerUserId");
-
-                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("App.Entity.Role", b =>
@@ -197,11 +172,15 @@ namespace App.Migrations
 
                     b.Property<int?>("SectionId");
 
+                    b.Property<int?>("SectionId1");
+
                     b.HasKey("UserId");
 
                     b.HasIndex("ProposalId");
 
                     b.HasIndex("SectionId");
+
+                    b.HasIndex("SectionId1");
 
                     b.ToTable("Users");
                 });
@@ -217,19 +196,6 @@ namespace App.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("UserRole");
-                });
-
-            modelBuilder.Entity("App.Entity.UserSection", b =>
-                {
-                    b.Property<int>("UserId");
-
-                    b.Property<int>("SectionId");
-
-                    b.HasKey("UserId", "SectionId");
-
-                    b.HasIndex("SectionId");
-
-                    b.ToTable("UserSection");
                 });
 
             modelBuilder.Entity("App.Entity.Conference", b =>
@@ -251,22 +217,12 @@ namespace App.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
+
             modelBuilder.Entity("App.Entity.Proposal", b =>
                 {
                     b.HasOne("App.Entity.Section")
                         .WithMany("Proposals")
                         .HasForeignKey("SectionId");
-                });
-
-            modelBuilder.Entity("App.Entity.Review", b =>
-                {
-                    b.HasOne("App.Entity.Proposal", "Proposal")
-                        .WithMany()
-                        .HasForeignKey("ProposalId");
-
-                    b.HasOne("App.Entity.User", "Reviewer")
-                        .WithMany()
-                        .HasForeignKey("ReviewerUserId");
                 });
 
             modelBuilder.Entity("App.Entity.Section", b =>
@@ -275,7 +231,7 @@ namespace App.Migrations
                         .WithMany()
                         .HasForeignKey("SectionLeaderUserId");
                 });
-                
+
             modelBuilder.Entity("App.Entity.Topic", b =>
                 {
                     b.HasOne("App.Entity.Conference")
@@ -296,6 +252,10 @@ namespace App.Migrations
                     b.HasOne("App.Entity.Section")
                         .WithMany("Authors")
                         .HasForeignKey("SectionId");
+
+                    b.HasOne("App.Entity.Section")
+                        .WithMany("Listeners")
+                        .HasForeignKey("SectionId1");
                 });
 
             modelBuilder.Entity("App.Entity.UserRole", b =>
@@ -307,19 +267,6 @@ namespace App.Migrations
 
                     b.HasOne("App.Entity.User", "User")
                         .WithMany("UserRoles")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("App.Entity.UserSection", b =>
-                {
-                    b.HasOne("App.Entity.Section", "Section")
-                        .WithMany("UserSections")
-                        .HasForeignKey("SectionId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("App.Entity.User", "User")
-                        .WithMany("UserSections")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

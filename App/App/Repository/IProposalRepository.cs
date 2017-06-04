@@ -14,5 +14,7 @@ namespace App.Repository
         List<Proposal> ProposalsAuthoredByUser(int userId);
 
         void saveChanges();
+
+        Proposal FindProposalByName(string name);
     }
 }

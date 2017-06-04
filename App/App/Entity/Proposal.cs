@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace App.Entity
 {
@@ -12,12 +13,13 @@ namespace App.Entity
     public class Proposal
     {
         public int ProposalId { get; set; }
-        public string FullPaper { get; set; }
-        public string AbstractPaper { get; set; }
         public string Title { get; set; }
         public IList<User> Authors { get; set; }
-        public int Year { get; set; }
         public string Description { get; set; }
+        public int Year { get; set; }
+        public string FullPaper { get; set; }
+        public string AbstractPaper { get; set; }
+        public DateTime StartTime { get; set; }
 
         public Proposal()
         {

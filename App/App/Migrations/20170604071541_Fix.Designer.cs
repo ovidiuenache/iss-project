@@ -8,9 +8,10 @@ using App.Context;
 namespace App.Migrations
 {
     [DbContext(typeof(AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [Migration("20170604071541_Fix")]
+    partial class Fix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -251,6 +252,7 @@ namespace App.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
+
             modelBuilder.Entity("App.Entity.Proposal", b =>
                 {
                     b.HasOne("App.Entity.Section")
@@ -275,7 +277,7 @@ namespace App.Migrations
                         .WithMany()
                         .HasForeignKey("SectionLeaderUserId");
                 });
-                
+
             modelBuilder.Entity("App.Entity.Topic", b =>
                 {
                     b.HasOne("App.Entity.Conference")

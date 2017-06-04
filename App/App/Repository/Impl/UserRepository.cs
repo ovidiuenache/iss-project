@@ -3,6 +3,7 @@ using App.Entity;
 using App.Utils;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Repository.Impl
 {

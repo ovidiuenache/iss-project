@@ -13,6 +13,8 @@ namespace App.Context
         public DbSet<Topic> Topics { get; set; }
         public DbSet<Review> Reviews { get; set; }
 
+        public DbSet<Section> Sections { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserRole>()
@@ -25,6 +27,17 @@ namespace App.Context
                 .HasOne(x => x.Role)
                 .WithMany(x => x.UserRoles)
                 .HasForeignKey(x => x.RoleId);
+
+            modelBuilder.Entity<UserSection>()
+                .HasKey(x => new { x.UserId, x.SectionId });
+            modelBuilder.Entity<UserSection>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.UserSections)
+                .HasForeignKey(x => x.UserId);
+            modelBuilder.Entity<UserSection>()
+                .HasOne(x => x.Section)
+                .WithMany(x => x.UserSections)
+                .HasForeignKey(x => x.SectionId);
 
             modelBuilder.Entity<ConferenceUser>()
                 .HasKey(x => new { x.ConferenceId, x.UserId });
@@ -40,12 +53,20 @@ namespace App.Context
             modelBuilder.Entity<Topic>()
                 .HasIndex(t => t.Name)
                 .IsUnique();
+
+            modelBuilder.Entity<Section>()
+                .HasIndex(s => s.Name)
+                .IsUnique();
+
+            modelBuilder.Entity<Section>()
+                .HasIndex(s => s.Room)
+                .IsUnique();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Data Source=JOHNNY;Initial Catalog=iss;Integrated Security=True");
+                @"Data Source=DESKTOP-MB4097H\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using App.Context;
 using App.Controller;
-using App.Entity;
+using App.Controller.Impl;
 using App.Repository.Impl;
 
 namespace App.Factory
@@ -8,6 +8,7 @@ namespace App.Factory
     /// <summary>
     /// 
     /// Author: Ioan Ovidiu Enache
+    /// Author: Claudiu Nicola
     /// 
     /// </summary>
     public class ApplicationFactory
@@ -85,9 +86,31 @@ namespace App.Factory
             return new PhaseTwoController(getReviewRepository(), getProposalRepository(), getUserRepository(), getConferenceRepository(),getUserRoleRepository());
         }
 
+        public static PhaseThreeController GetPhaseThreeController()
+        {
+            return new PhaseThreeController(
+                GetSectionRepository(),
+                getUserRepository(),
+                getProposalRepository(), 
+                getConferenceRepository(),
+                GetUserSectionRepository()
+            );
+        }
+
+        public static SectionRepository GetSectionRepository()
+        {
+            return new SectionRepository(getAppContext());
+        }
+
         public static ConferenceUserRepository getConferenceUserRepository()
         {
             return new ConferenceUserRepository(getAppContext());
         }
+
+        public static UserSectionRepository GetUserSectionRepository()
+        {
+            return new UserSectionRepository(getAppContext());
+        }
+
     }
 }

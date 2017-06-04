@@ -1,18 +1,18 @@
-﻿namespace App.Entity
+﻿
+namespace App.Entity
 {
     /// <summary>
     /// 
-    /// Class UserRole
-    /// 
+    /// Class UserSection
     /// Author : Claudiu Nicola
     /// 
     /// </summary>
-    public class UserRole
+    public class UserSection
     {
         public int UserId { get; set; }
         public User User { get; set; }
 
-        public int RoleId { get; set; }
-        public Role Role { get; set; }
+        public int SectionId { get; set; }
+        public Section Section { get; set; }
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace App.Controller
+﻿using System.Collections.Generic;
+using App.Entity;
+
+namespace App.Controller
 {
     /// <summary>
     /// 
@@ -8,6 +11,108 @@
     /// </summary>
     public interface IPhaseThreeController
     {
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        List<Section> FindAllSections();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="loggedUser"></param>
+        /// <returns></returns>
+        List<Section> FindAllUnassignedSections(User loggedUser);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sectionName"></param>
+        /// <returns></returns>
+        Section FindSectionByName(string sectionName);
+
+        /// <summary>
+        /// Iterate all sections and add the user.
+        /// </summary>
+        /// <param name="sections"></param>
+        /// <param name="loggedUser"></param>
+        void AddListenerToSections(List<Section> sections, User loggedUser);
+
+        /// <summary>
+        /// Add the leader of section.
+        /// </summary>
+        /// <param name="scection"></param>
+        /// <param name="sectionLeader"></param>
+        void AddSectionLeader(Section scection, User sectionLeader);
+
+        /// <summary>
+        /// All users that have the following roles: chair or reviewer.
+        /// </summary>
+        /// <returns></returns>
+        List<User> FindAllComiteeMemberWithoutSection();
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="section"></param>
+        /// <returns></returns>
+        List<Proposal> FindAllProposalsBySection(Section section);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        List<Proposal> FindAllProposals();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        List<Proposal> FindAllProposalsWithoutSection();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="proposalName"></param>
+        /// <returns></returns>
+        Proposal FindProposalByName(string proposalName);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="section"></param>
+        /// <param name="proposal"></param>
+        void AddProposalToSection(Section section, Proposal proposal);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        Conference GetActiveConference();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="proposal"></param>
+        void UpdateProposal(Proposal proposal);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="section"></param>
+        /// <param name="roomName"></param>
+        void AddSectionRoom(Section section, string roomName);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        List<Section> FindAllSectionsWithoutLeader();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        List<Section> FindAllSectionsWithoutRoom();
     }
 }
