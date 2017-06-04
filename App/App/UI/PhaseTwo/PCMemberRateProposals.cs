@@ -29,14 +29,16 @@ namespace App.UI.PhaseTwo
             this.reviews = reviews;
             this.reviewer = reviewer;
             this.phaseTwoController = phaseTwoController;
-            initProposalsDataGridView();
             InitializeComponent();
+
+            proposalsDataGridView.DataSource = reviews;
         }
 
         private void initProposalsDataGridView()
         {
             BindingList<Review> bindingList = new BindingList<Review>(reviews);
             BindingSource source = new BindingSource(bindingList, null);
+            proposalsDataGridView = new DataGridView();
             proposalsDataGridView.DataSource = source;
         }
         
@@ -53,10 +55,10 @@ namespace App.UI.PhaseTwo
 
         private void proposalsDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if(phaseTwoController.getReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()),this.reviewer.UserId)!=null)
-            {
-                submitButton.Enabled = false;
-            }
+            //if(phaseTwoController.getReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()),this.reviewer.UserId)!=null)
+            //{
+                submitButton.Enabled = true;
+            //}
         }
 
         private void PCMemberRateProposals_FormClosing(object sender, FormClosingEventArgs e)

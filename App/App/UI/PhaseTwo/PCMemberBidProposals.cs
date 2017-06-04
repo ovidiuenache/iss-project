@@ -26,13 +26,16 @@ namespace App.UI.PhaseTwo
             this.proposals = phaseTwoController.getProposals();
             this.reviewer = reviewer;
             this.phaseTwoController = phaseTwoController;
-            initProposalsDataGridView();
+            
             InitializeComponent();
+
+            proposalsDataGridView.DataSource = proposals;
         }
         private void initProposalsDataGridView()
         {
             BindingList<Proposal> bindingList = new BindingList<Proposal>(proposals);
             BindingSource source = new BindingSource(bindingList, null);
+            proposalsDataGridView = new DataGridView();
             proposalsDataGridView.DataSource = source;
         }
 
