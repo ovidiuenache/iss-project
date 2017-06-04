@@ -41,8 +41,9 @@ namespace App.Controller
         /// <summary>
         /// Add the leader of section.
         /// </summary>
+        /// <param name="scection"></param>
         /// <param name="sectionLeader"></param>
-        void AddSectionLeader(User sectionLeader);
+        void AddSectionLeader(Section scection, User sectionLeader);
 
         /// <summary>
         /// All users that have the following roles: chair or reviewer.
@@ -98,7 +99,20 @@ namespace App.Controller
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="section"></param>
         /// <param name="roomName"></param>
         void AddSectionRoom(Section section, string roomName);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        List<Section> FindAllSectionsWithoutLeader();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        List<Section> FindAllSectionsWithoutRoom();
     }
 }

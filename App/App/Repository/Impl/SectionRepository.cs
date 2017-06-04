@@ -72,5 +72,27 @@ namespace App.Controller.Impl
             section.Proposals.Add(proposal);
             Context.Sections.Update(section);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public List<Section> FindAllSectionsWithoutLeader()
+        {
+            return Context.Sections
+                .Include(s => s.SectionLeader)
+                .ToList()
+                .Where(sectionLeader => sectionLeader.SectionLeader.UserId.Equals(0))
+                .ToList(); ;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public List<Section> FindAllSectionsWithoutRoom()
+        {
+            return Context.Sections.Where(s => s.Room.Equals(null)).ToList();
+        }
     }
 }

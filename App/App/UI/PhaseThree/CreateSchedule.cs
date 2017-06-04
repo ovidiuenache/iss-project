@@ -78,9 +78,9 @@ namespace App.UI.PhaseThree
 
         private void btnChooseRoom_Click(object sender, EventArgs e)
         {
-            Form chooseRoomForm = new ChooseRoom(this);
-            chooseRoomForm.Show();
-            Hide();
+            ParentForm.Location = new Point(Location.X, Location.Y);
+            ParentForm.Show();
+            Close();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)

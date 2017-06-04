@@ -170,6 +170,7 @@
     <Compile Include="Controller\Impl\PhaseThreeController.cs" />
     <Compile Include="Controller\Impl\PhaseTwoController.cs" />
     <Compile Include="Controller\Impl\PreliminaryPhaseController.cs" />
+    <Compile Include="Entity\UserSection.cs" />
     <Compile Include="Migrations\20170602194546_UpdateSectionEntity.cs" />
     <Compile Include="Migrations\20170602194546_UpdateSectionEntity.designer.cs">
       <DependentUpon>20170602194546_UpdateSectionEntity.cs</DependentUpon>
@@ -198,6 +199,14 @@
     <Compile Include="Migrations\20170603183119_UpdateProposalEntityFckTypo.designer.cs">
       <DependentUpon>20170603183119_UpdateProposalEntityFckTypo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20170604065643_UpdateUserEntity.cs" />
+    <Compile Include="Migrations\20170604065643_UpdateUserEntity.designer.cs">
+      <DependentUpon>20170604065643_UpdateUserEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170604071541_Fix.cs" />
+    <Compile Include="Migrations\20170604071541_Fix.designer.cs">
+      <DependentUpon>20170604071541_Fix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Seed\ConferenceSeed.cs" />
     <Compile Include="Migrations\Seed\PhaseSeed.cs" />
     <Compile Include="Migrations\Seed\ProposalSeed.cs" />
@@ -208,6 +217,7 @@
     <Compile Include="Controller\IPhaseTwoController.cs" />
     <Compile Include="Controller\IPreliminaryPhaseController.cs" />
     <Compile Include="Controller\ConferenceController.cs" />
+    <Compile Include="Repository\Impl\UserSectionRepository.cs" />
     <Compile Include="Repository\ISectionRepository.cs" />
     <Compile Include="Entity\Conference.cs" />
     <Compile Include="Entity\ConferenceUser.cs" />
@@ -278,6 +288,7 @@
     <Compile Include="Repository\ITopicRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Repository\IUserRoleRepository.cs" />
+    <Compile Include="Repository\IUserSectionRepository.cs" />
     <Compile Include="UI\ComboBoxCheckedList.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -334,6 +345,12 @@
     </Compile>
     <Compile Include="UI\PhaseThree\ProgramComitee.Designer.cs">
       <DependentUpon>ProgramComitee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PhaseThree\RoomsDistribution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PhaseThree\RoomsDistribution.Designer.cs">
+      <DependentUpon>RoomsDistribution.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\PhaseTwo\ListenerMain.cs">
       <SubType>Form</SubType>
@@ -453,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PhaseThree\ProgramComitee.resx">
       <DependentUpon>ProgramComitee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PhaseThree\RoomsDistribution.resx">
+      <DependentUpon>RoomsDistribution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PhaseTwo\ListenerMain.resx">
       <DependentUpon>ListenerMain.cs</DependentUpon>

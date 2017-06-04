@@ -69,5 +69,10 @@ namespace App.UI.PhaseThree
             ParentForm.Show();
             Close();
         }
+
+        private void btnChooseRoom_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using App.Context;
 using App.Controller;
 using App.Controller.Impl;
-using App.Entity;
 using App.Repository.Impl;
 
 namespace App.Factory
@@ -9,6 +8,7 @@ namespace App.Factory
     /// <summary>
     /// 
     /// Author: Ioan Ovidiu Enache
+    /// Author: Claudiu Nicola
     /// 
     /// </summary>
     public class ApplicationFactory
@@ -87,7 +87,8 @@ namespace App.Factory
                 GetSectionRepository(),
                 getUserRepository(),
                 getProposalRepository(), 
-                getConferenceRepository()
+                getConferenceRepository(),
+                GetUserSectionRepository()
             );
         }
 
@@ -99,6 +100,11 @@ namespace App.Factory
         public static ConferenceUserRepository getConferenceUserRepository()
         {
             return new ConferenceUserRepository(getAppContext());
+        }
+
+        public static UserSectionRepository GetUserSectionRepository()
+        {
+            return new UserSectionRepository(getAppContext());
         }
 
     }

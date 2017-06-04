@@ -26,21 +26,26 @@ namespace App.Controller
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="section"></param>
-        /// <returns></returns>
-        List<User> FindAllAuthors(Section section);
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <returns></returns>
         List<Proposal> FindAllProposalsExistingInSections();
-        
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="section"></param>
         /// <param name="proposal"></param>
         void AddProposalToSection(Section section, Proposal proposal);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        List<Section> FindAllSectionsWithoutLeader();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        List<Section> FindAllSectionsWithoutRoom();
     }
 }

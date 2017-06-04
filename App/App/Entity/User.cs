@@ -19,6 +19,7 @@ namespace App.Entity
         public string Country { get; set; }
         public List<UserRole> UserRoles { get; set; }
         public List<ConferenceUser> ConferenceUsers { get; set; }
+        public List<UserSection> UserSections { get; set; }
 
         public User()
         {

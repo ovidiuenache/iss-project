@@ -2,7 +2,7 @@
 using System.Linq;
 using App.Entity;
 using App.Repository;
-using App.Repository.Impl;
+using Castle.Core.Internal;
 
 namespace App.Controller
 {
@@ -18,18 +18,21 @@ namespace App.Controller
         private IUserRepository UserRepository;
         private IProposalRepository ProposalRepository;
         private IConferenceRepository ConferenceRepository;
+        private IUserSectionRepository UserSectionRepository;
 
         public PhaseThreeController(
             ISectionRepository sectionRepository,
             IUserRepository userRepository,
             IProposalRepository proposalRepository,
-            IConferenceRepository conferenceRepository
+            IConferenceRepository conferenceRepository,
+            IUserSectionRepository userSectionRepository
         )
         {
             SectionRepository = sectionRepository;
             UserRepository = userRepository;
             ProposalRepository = proposalRepository;
             ConferenceRepository = conferenceRepository;
+            UserSectionRepository = userSectionRepository;
         }
 
         /// <summary>
@@ -48,7 +51,13 @@ namespace App.Controller
         /// <returns></returns>
         public List<Section> FindAllUnassignedSections(User loggedUser)
         {
-            return SectionRepository.All().Where(s => !s.Authors.Contains(loggedUser)).ToList();
+            List<Section> assigned = UserSectionRepository.AllSectionsAssigned(loggedUser);
+            List<Section> all = SectionRepository.All();
+            if (!assigned.IsNullOrEmpty())
+            {
+                all = all.Except(assigned).ToList();
+            }
+            return all;
         }
 
         /// <summary>
@@ -68,20 +77,24 @@ namespace App.Controller
         /// <param name="loggedUser"></param>
         public void AddListenerToSections(List<Section> sections, User loggedUser)
         {
+            UserSection userSection = new UserSection();
+            userSection.User = loggedUser;
             foreach (var section in sections)
             {
-                section.Listeners.Add(loggedUser);
-                SectionRepository.Update(section);
+                userSection.Section = SectionRepository.FindSectionByName(section.Name);
+                UserSectionRepository.Add(userSection);
             }
         }
 
         /// <summary>
         /// Add the leader of section.
         /// </summary>
+        /// <param name="section"></param>
         /// <param name="sectionLeader"></param>
-        public void AddSectionLeader(User sectionLeader)
+        public void AddSectionLeader(Section section, User sectionLeader)
         {
-            throw new System.NotImplementedException();
+            section.SectionLeader = sectionLeader;
+            SectionRepository.Update(section);
         }
 
         /// <summary>
@@ -91,9 +104,26 @@ namespace App.Controller
         /// <returns></returns>
         public List<User> FindAllComiteeMemberWithoutSection()
         {
-            //temp 
-            return UserRepository.All();
-            //throw new System.NotImplementedException();
+            var users = UserRepository.All();
+            List<User> comiteeMembersWithoutSection = new List<User>();
+            foreach (var user in users)
+            {
+                if (IsComiteeMemberWithoutSection(user))
+                {
+                    comiteeMembersWithoutSection.Add(user);
+                }
+            }
+            return comiteeMembersWithoutSection;
+        }
+
+        private bool IsComiteeMemberWithoutSection(User user)
+        {
+            var a = UserRepository.GetRoles(user).Select(role => role.Slug).Contains("chair");
+            var b = UserRepository.GetRoles(user).Select(role => role.Slug).Contains("reviewer");
+            var c = !SectionRepository.All().Select(s => s.SectionLeader).Contains(user);
+            return (UserRepository.GetRoles(user).Select(role => role.Slug).Contains("chair")
+                   || UserRepository.GetRoles(user).Select(role => role.Slug).Contains("reviewer"))
+                   && !SectionRepository.All().Select(s => s.SectionLeader).Contains(user);
         }
 
         /// <summary>
@@ -177,6 +207,24 @@ namespace App.Controller
         {
             section.Room = roomName;
             SectionRepository.Update(section);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public List<Section> FindAllSectionsWithoutLeader()
+        {
+            return SectionRepository.FindAllSectionsWithoutLeader();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public List<Section> FindAllSectionsWithoutRoom()
+        {
+            return SectionRepository.FindAllSectionsWithoutRoom();
         }
     }
 }

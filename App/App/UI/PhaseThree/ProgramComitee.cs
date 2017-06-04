@@ -16,20 +16,23 @@ namespace App.UI.PhaseThree
     public partial class ProgramComitee : Form
     {
         private PhaseThreeController PhaseThreeController;
+        private Form ParentForm;
 
-        public ProgramComitee()
+        public ProgramComitee(Form parentForm)
         {
             InitializeComponent();
             PhaseThreeController = ApplicationFactory.GetPhaseThreeController();
             LoadSections();
             btnSectionLeader.Enabled = false;
+            ParentForm = parentForm;
         }
 
         private void LoadSections()
         {
+            comboBoxSections.Items.Clear();
             if (PhaseThreeController != null)
             {
-                List<Section> sections = PhaseThreeController.FindAllSections();
+                List<Section> sections = PhaseThreeController.FindAllSectionsWithoutLeader();
                 foreach (var section in sections)
                 {
                     comboBoxSections.Items.Add(section);
@@ -43,8 +46,13 @@ namespace App.UI.PhaseThree
         {
             try
             {
-                //@todo: save the leader of section(set section id from user repo)
-                PhaseThreeController.AddSectionLeader((User)comboBoxComiteeMembers.SelectedItem);
+                PhaseThreeController.AddSectionLeader(
+                    (Section)comboBoxSections.SelectedItem, 
+                    (User)comboBoxComiteeMembers.SelectedItem
+                    );
+                LoadSections();
+                LoadComiteeMembers();
+                MessageBox.Show("Section leader has been successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (System.Exception ex)
             {
@@ -61,8 +69,6 @@ namespace App.UI.PhaseThree
         private void LoadComiteeMembers()
         {
             comboBoxComiteeMembers.Items.Clear();
-            //@todo: FindAllComiteeMember must return a list with 
-            // all users that have the following roles: chair or reviewer
 
             List<User> comiteeMembers = PhaseThreeController.FindAllComiteeMemberWithoutSection();
 
@@ -86,9 +92,9 @@ namespace App.UI.PhaseThree
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            Form createScheduleForm = new CreateSchedule(this);
-            createScheduleForm.Show();
-            Hide();
+            ParentForm.Location = new Point(Location.X, Location.Y);
+            ParentForm.Show();
+            Close();
         }
     }
 }

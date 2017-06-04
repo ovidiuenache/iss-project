@@ -21,7 +21,7 @@ namespace App.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserRole>()
-                .HasKey(x => new {x.UserId, x.RoleId});
+                .HasKey(x => new { x.UserId, x.RoleId });
             modelBuilder.Entity<UserRole>()
                 .HasOne(x => x.User)
                 .WithMany(x => x.UserRoles)
@@ -31,8 +31,19 @@ namespace App.Context
                 .WithMany(x => x.UserRoles)
                 .HasForeignKey(x => x.RoleId);
 
+            modelBuilder.Entity<UserSection>()
+                .HasKey(x => new { x.UserId, x.SectionId });
+            modelBuilder.Entity<UserSection>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.UserSections)
+                .HasForeignKey(x => x.UserId);
+            modelBuilder.Entity<UserSection>()
+                .HasOne(x => x.Section)
+                .WithMany(x => x.UserSections)
+                .HasForeignKey(x => x.SectionId);
+
             modelBuilder.Entity<ConferenceUser>()
-                .HasKey(x => new {x.ConferenceId, x.UserId});
+                .HasKey(x => new { x.ConferenceId, x.UserId });
             modelBuilder.Entity<ConferenceUser>()
                 .HasOne(x => x.Conference)
                 .WithMany(x => x.Users)

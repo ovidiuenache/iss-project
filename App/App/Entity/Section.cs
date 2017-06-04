@@ -15,18 +15,17 @@ namespace App.Entity
         public int SectionId { get; set; }
         public string Name { get; set; }
         public User SectionLeader { get; set; }
-        public IList<Topic> Topics { get; set; }
-        public IList<User> Listeners { get; set; }
-        public IList<User> Authors { get; set; }
-        public IList<Proposal> Proposals { get; set; }
+        public List<Topic> Topics { get; set; }
+        public List<User> Authors { get; set; }
+        public List<Proposal> Proposals { get; set; }
         public string Room { get; set; }
+        public List<UserSection>  UserSections { get; set; }
 
         public Section()
         {
             Name = "";
             SectionLeader = new User();
             Topics = new List<Topic>();
-            Listeners = new List<User>();
             Authors = new List<User>();
             Room = "";
         }
@@ -34,16 +33,14 @@ namespace App.Entity
         public Section(
             string name,
             User sectionLeader,
-            IList<Topic> topics,
-            IList<User> listeners,
-            IList<User> authors,
+            List<Topic> topics,
+            List<User> authors,
             string room
         )
         {
             Name = name;
             SectionLeader = sectionLeader;
             Topics = topics;
-            Listeners = listeners;
             Authors = authors;
             Room = room;
         }

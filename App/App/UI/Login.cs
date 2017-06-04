@@ -5,7 +5,9 @@ using System;
 using System.Windows.Forms;
 using System.Linq;
 using App.Factory;
+using App.UI.PhaseThree;
 using App.UI.PhaseTwo;
+using ListenerMain = App.UI.PhaseTwo.ListenerMain;
 
 namespace App
 {
@@ -75,6 +77,10 @@ namespace App
                             if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("listner"))
                             {
                                 toBeShown = new UI.PhaseThree.ListenerMain(this, loggedUser);
+                            }
+                            else if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("chair"))
+                            {
+                                toBeShown = new RoomsDistribution(this);
                             }
                             break;
                     }

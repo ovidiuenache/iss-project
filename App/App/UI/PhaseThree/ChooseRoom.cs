@@ -29,9 +29,10 @@ namespace App.UI.PhaseThree
 
         private void LoadSections()
         {
+            comboBoxSections.Items.Clear();
             if (PhaseThreeController != null)
             {
-                List<Section> sections = PhaseThreeController.FindAllSections();
+                List<Section> sections = PhaseThreeController.FindAllSectionsWithoutRoom();
                 foreach (var section in sections)
                 {
                     comboBoxSections.Items.Add(section);
@@ -46,7 +47,19 @@ namespace App.UI.PhaseThree
             if (!string.IsNullOrEmpty(textBoxRoomName.Text))
             {
                 Section section = (Section)comboBoxSections.SelectedItem;
-                PhaseThreeController.AddSectionRoom(section, textBoxRoomName.Text.Trim());
+                try
+                {
+                    PhaseThreeController.AddSectionRoom(section, textBoxRoomName.Text.Trim());
+                    LoadSections();
+                    textBoxRoomName.Clear();
+                    btnAddRoomName.Enabled = false;
+                    MessageBox.Show("Room has been successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 
@@ -56,6 +69,13 @@ namespace App.UI.PhaseThree
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
+        {
+            ParentForm.Location = new Point(Location.X, Location.Y);
+            ParentForm.Show();
+            Close();
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
             ParentForm.Location = new Point(Location.X, Location.Y);
             ParentForm.Show();

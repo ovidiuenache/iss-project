@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxTopics
@@ -65,7 +66,7 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(329, 231);
+            this.buttonBack.Location = new System.Drawing.Point(329, 161);
             this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBack.MaximumSize = new System.Drawing.Size(115, 53);
             this.buttonBack.MinimumSize = new System.Drawing.Size(115, 53);
@@ -76,11 +77,22 @@
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(308, 233);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(137, 48);
+            this.btnSubmit.TabIndex = 4;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnChooseRoom_Click);
+            // 
             // ListenerMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 298);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.label1);
@@ -99,5 +111,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.Button btnSubmit;
     }
 }
