@@ -38,11 +38,12 @@ namespace App.UI.PhaseTwo
 
         private void buttonBrowseFull_Click(object sender, EventArgs e)
         {
-            this.openFileDialogBrowse.Title = "Upload full paper";
+            openFileDialogBrowse = new OpenFileDialog();
+            openFileDialogBrowse.Title = "Upload full paper";
             openFileDialogBrowse.Filter = "PDF files (*.pdf)|*.pdf|Microsoft Word Files (*.docx)|*.docx";
             if (openFileDialogBrowse.ShowDialog() == DialogResult.OK)
             {
-                this.textBox1.Text = openFileDialogBrowse.FileName;
+                textBox1.Text = openFileDialogBrowse.FileName;
             }
         }
 

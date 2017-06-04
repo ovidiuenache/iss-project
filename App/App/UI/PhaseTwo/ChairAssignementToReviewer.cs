@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 
 /// <summary>
-/// Author: Diana Gociu
+/// Author: Diana Gociu,Andu Popa
 /// </summary>
 namespace App.UI.PhaseTwo
 {
@@ -22,16 +22,18 @@ namespace App.UI.PhaseTwo
             phaseTwoController = ApplicationFactory.getPhaseTwoController();
 
             InitializeComponent();
+            proposalsDataGridView.DataSource = phaseTwoController.getProposals();
+            reviewersDataGridView.DataSource = phaseTwoController.getReviewers();
         }
 
         private void submitButton_Click(object sender, EventArgs e)
         {
             List<User> reviewers = new List<User>();
             List<Review> reviews;
-            reviews = phaseTwoController.getReviewsByProposalId(Int32.Parse(proposalsDataGridView.CurrentRow.Cells[0].ToString()));
+            reviews = phaseTwoController.getReviewsByProposalId(Int32.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
             foreach (DataGridViewRow row in reviewersDataGridView.SelectedRows)
             {
-                User reviewer = phaseTwoController.getReviewer(Int32.Parse(row.Cells[0].ToString()));
+                User reviewer = phaseTwoController.getReviewer(Int32.Parse(row.Cells[0].Value.ToString()));
                 reviewers.Add(reviewer);
             }
             foreach(Review rev in reviews)

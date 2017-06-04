@@ -73,7 +73,7 @@ namespace App.Controller
 
         public Proposal getProposalByUser(int userId)
         {
-            return proposalRepository.All().Where(proposal => proposal.Authors.Contains(userRepository.Find(userId))).ToList().First();
+            return proposalRepository.All().Where(proposal => proposal.Authors.Contains(userRepository.Find(userId))).ToList().FirstOrDefault();
         }
     }
 }
