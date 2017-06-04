@@ -16,13 +16,8 @@ namespace App.UI.PhaseTwo
         public AuthorMain(Form parentForm, User loggedUser)
         {
             this.controller = ApplicationFactory.getPhaseOneController();
-
-            //TO DO
-            //LOAD THIS PROPOSAL SOMEHOW FROM THE DATABASE
-            proposal = null;
-
-
             this.loggedUser = loggedUser;
+            this.proposal = controller.getProposalByUser(loggedUser.UserId);
             this.parentForm = parentForm;
 
             InitializeComponent();
