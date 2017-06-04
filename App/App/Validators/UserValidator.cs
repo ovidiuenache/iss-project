@@ -1,13 +1,9 @@
 ﻿using App.Entity;
 using App.Exception;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
-namespace App.Utils
+namespace App.Validators
 {
     /// <summary>
     /// 
@@ -81,10 +77,12 @@ namespace App.Utils
         {
             try
             {
-                var addr = new System.Net.Mail.MailAddress(email);
+                System.Net.Mail.MailAddress addr = new System.Net.Mail.MailAddress(email);
                 return addr.Address == email;
             }
-            catch (FormatException exception)
+            #pragma warning disable CS0168 // Variable is declared but never used
+            catch (System.Exception exception)
+            #pragma warning restore CS0168 // Variable is declared but never used
             {
                 return false;
             }

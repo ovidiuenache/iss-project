@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using App.Entity;
 using App.Migrations.Seed;
-using App.Repository.Impl;
-using App.Context;
-using App.Controller;
-using App.Factory;
+using App.UI.PhaseThree;
 
 namespace App
 {
@@ -18,6 +16,11 @@ namespace App
         {
             //Use this for dummy data
             UserContextSeed.Seed();
+            TopicSeed.Seed();
+            ProposalSeed.Seed();
+            SectionSeed.Seed();
+            PhaseSeed.Seed();
+            ConferenceSeed.Seed();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

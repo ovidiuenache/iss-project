@@ -1,5 +1,6 @@
 ﻿using App.Controller;
 using App.Entity;
+using App.Factory;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -16,32 +17,35 @@ namespace App.UI
         private bool fullPaper;
         private string paperLink;
         
-        public MetaInformation(Proposal proposal, PhaseOneController controller, bool fullPaper, string paperLink)
+        public MetaInformation(Proposal proposal, bool fullPaper, string paperLink)
         {
             InitializeComponent();
+
+            controller = ApplicationFactory.getPhaseOneController();
             this.proposal = proposal;
-            this.controller = controller;
             this.fullPaper = fullPaper;
             this.paperLink = paperLink;
+            loadAuthors();
             if (this.proposal != null)
             {
-                textBoxName.Text = proposal.MetaInformation.Title;
-                textBoxKeywords.Text = proposal.MetaInformation.Description;
-                textBoxTopics.Text = proposal.MetaInformation.Description;
-                string authorsNames = "";
-                foreach (User us in proposal.MetaInformation.Authors)
+                textBoxName.Text = proposal.Title;
+                textBoxKeywords.Text = proposal.Description;
+
+                foreach (User us in proposal.Authors)
                 {
-                    authorsNames += us.FirstName + " " + us.LastName;
+                    for (int i = 0; i < comboBoxAuthors.Items.Count; i++)
+                    {
+                        if (us.UserId == ((User)comboBoxAuthors.Items[i]).UserId)
+                        {
+                            comboBoxAuthors.SetItemChecked(i, true);
+                        }
+                    }
                 }
-                textBoxAuthors.Text = authorsNames;
-                dateTimePickerAnPublicare.Value = DateTime.Parse(proposal.MetaInformation.Year.ToString("yyyyMMdd"));
             }
             else
             {
                 textBoxName.Text = "";
                 textBoxKeywords.Text = "";
-                textBoxTopics.Text = "";
-                textBoxAuthors.Text = "";
                 dateTimePickerAnPublicare.Value = DateTime.Now;
             }
 
@@ -51,17 +55,21 @@ namespace App.UI
         {
             if(proposal == null)
             {
-                proposal.MetaInformation = new ProposalMetaInformation();
-                proposal.MetaInformation.Title = textBoxName.Text;
-                proposal.MetaInformation.Year = int.Parse(dateTimePickerAnPublicare.Value.ToString("yyyyMMdd"));
-                proposal.MetaInformation.Description = textBoxKeywords.Text;
+                proposal = new Proposal();
+                proposal.Title = textBoxName.Text;
+                proposal.Year = dateTimePickerAnPublicare.Value.Year;
+                proposal.Description = textBoxKeywords.Text;
+                
                 List<User> authors = new List<User>();
-                string[] authorsNames = textBoxAuthors.Text.Split(',');
-                for(int i=0; i<authorsNames.Length;i++)
+                for (int i = 0; i < comboBoxAuthors.Items.Count; i++)
                 {
-                    authors.Add(controller.getUserByName(authorsNames[i]));
+                    if (comboBoxAuthors.GetItemChecked(i))
+                    {
+                        authors.Add((User)comboBoxAuthors.Items[i]);
+                    }
                 }
-                proposal.MetaInformation.Authors = authors;
+                proposal.Authors = authors;
+
                 if (!fullPaper)
                 {
                     proposal.AbstractPaper = paperLink;
@@ -70,9 +78,28 @@ namespace App.UI
                 {
                     proposal.FullPaper = paperLink;
                 }
+
+                controller.addProposal(proposal);
+
+                MessageBox.Show("Proposal created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
             else
             {
+                proposal.Title = textBoxName.Text;
+                proposal.Year = dateTimePickerAnPublicare.Value.Year;
+                proposal.Description = textBoxKeywords.Text;
+
+                List<User> authors = new List<User>();
+                for (int i = 0; i < comboBoxAuthors.Items.Count; i++)
+                {
+                    if (comboBoxAuthors.GetItemChecked(i))
+                    {
+                        authors.Add((User)comboBoxAuthors.Items[i]);
+                    }
+                }
+                proposal.Authors = authors;
+
                 if (!fullPaper)
                 {
                     proposal.AbstractPaper = paperLink;
@@ -81,13 +108,27 @@ namespace App.UI
                 {
                     proposal.FullPaper = paperLink;
                 }
+
+                controller.updateProposal(proposal);
+
+                MessageBox.Show("Proposal updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
-            controller.updateProposal(proposal);
         }
 
+        private void loadAuthors()
+        {
+            List<User> users = controller.getAllUsers();
+            foreach (User user in users)
+            {
+                comboBoxAuthors.Items.Add(user);
+            }
 
-
+            // If more then 5 items, add a scroll bar to the dropdown.
+            comboBoxAuthors.MaxDropDownItems = 5;
+            // Make the "Name" property the one to display
+            comboBoxAuthors.DisplayMember = "LastName";
+            comboBoxAuthors.ValueSeparator = ", ";
+        }
     }
-
-    
 }

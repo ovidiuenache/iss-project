@@ -1,4 +1,5 @@
 ﻿using App.Entity;
+using System.Collections.Generic;
 
 namespace App.Repository
 {
@@ -10,5 +11,10 @@ namespace App.Repository
     /// </summary>
     public interface IProposalRepository : IRepository<Proposal>
     {
+        List<Proposal> ProposalsAuthoredByUser(int userId);
+
+        void saveChanges();
+
+        Proposal FindProposalByName(string name);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using App.Controller;
 using App.Entity;
+using App.Factory;
 using App.Utils;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,12 @@ namespace App.UI.PhaseTwo
         private ChairMain parent;
         private PhaseTwoController phaseTwoController;
         private MailSender mailSender;
-        public ChairToAcceptedAuthors(ChairMain parent, PhaseTwoController phaseTwoController,MailSender mailSender)
+
+        public ChairToAcceptedAuthors(ChairMain parent)
         {
             this.parent = parent;
-            this.phaseTwoController = phaseTwoController;
-            this.mailSender = new MailSender();
+            phaseTwoController = ApplicationFactory.getPhaseTwoController();
+            mailSender = new MailSender();
             InitializeComponent();
         }
 
@@ -28,11 +30,10 @@ namespace App.UI.PhaseTwo
         {
             List<Proposal> proposals;
             List<Review> reviews;
-            ProposalMetaInformation mIProposal;
             List<User> authors = new List<User>();
             
 
-            proposals = phaseTwoController.getAllProposals();
+            proposals = phaseTwoController.getProposals();
             foreach(Proposal proposal in proposals)
             {
                 String result = "";
@@ -41,8 +42,8 @@ namespace App.UI.PhaseTwo
                 {
                     result += review.Qualifier + " " + review.Comment;
                 }
-                mIProposal = proposal.MetaInformation;
-                foreach(User author in mIProposal.Authors)
+                
+                foreach(User author in proposal.Authors)
                 {
                     authors.Add(author);
                 }
@@ -52,16 +53,25 @@ namespace App.UI.PhaseTwo
                     MailAddress receiver = new MailAddress(author.Email);
                     string mailBody = "Thank you for your application. \n Here are your results: \n" + result;                    
                     string mailSubject = "Proposal Review";
-                    mailSender.sendMail(senderM, receiver, mailBody, mailSubject);
+                    mailSender.sendMail(receiver, mailBody, mailSubject);
                 }
             }
         }
 
         private void ChairToAcceptedAuthors_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            parent.SetDesktopLocation(this.Location.X, this.Location.Y);
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            parent.Location = new System.Drawing.Point(Location.X, Location.Y);
             parent.Show();
+            Close();
+        }
+
+        private void ChairToAcceptedAuthors_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

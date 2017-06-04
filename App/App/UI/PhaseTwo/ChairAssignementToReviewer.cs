@@ -1,12 +1,13 @@
 ﻿using App.Controller;
 using App.Entity;
+using App.Factory;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
 
 /// <summary>
-/// Author: Diana Gociu
+/// Author: Diana Gociu,Andu Popa
 /// </summary>
 namespace App.UI.PhaseTwo
 {
@@ -14,21 +15,25 @@ namespace App.UI.PhaseTwo
     {
         private PhaseTwoController phaseTwoController;
         private ChairMain parent;
-        public ChairAssignementToReviewer(ChairMain parent,PhaseTwoController phaseTwoController)
+
+        public ChairAssignementToReviewer(ChairMain parent)
         {
             this.parent = parent;
-            this.phaseTwoController = phaseTwoController;
+            phaseTwoController = ApplicationFactory.getPhaseTwoController();
+
             InitializeComponent();
+            proposalsDataGridView.DataSource = phaseTwoController.getProposals();
+            reviewersDataGridView.DataSource = phaseTwoController.getReviewers();
         }
 
         private void submitButton_Click(object sender, EventArgs e)
         {
             List<User> reviewers = new List<User>();
             List<Review> reviews;
-            reviews = phaseTwoController.getReviewsByProposalId(Int32.Parse(proposalsDataGridView.CurrentRow.Cells[0].ToString()));
+            reviews = phaseTwoController.getReviewsByProposalId(Int32.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
             foreach (DataGridViewRow row in reviewersDataGridView.SelectedRows)
             {
-                User reviewer = phaseTwoController.getReviewerById(Int32.Parse(row.Cells[0].ToString()));
+                User reviewer = phaseTwoController.getReviewer(Int32.Parse(row.Cells[0].Value.ToString()));
                 reviewers.Add(reviewer);
             }
             foreach(Review rev in reviews)
@@ -42,9 +47,18 @@ namespace App.UI.PhaseTwo
 
         private void ChairAssignementToReviewer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            parent.SetDesktopLocation(this.Location.X,this.Location.Y);
+        }
+
+        private void ChairAssignementToReviewer_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            parent.Location = new System.Drawing.Point(Location.X, Location.Y);
             parent.Show();
+            Close();
         }
     }
 }

@@ -7,6 +7,7 @@ namespace App.Controller
     /// 
     /// Login Controller interface
     /// Author : Catalin Radoiu 
+    /// Author: Dezsi Razvan
     /// 
     /// </summary>
     public interface ILoginController
@@ -32,5 +33,7 @@ namespace App.Controller
         /// <param name="user"></param>
         /// <returns></returns>
         List<Role> GetUserRoles(User user);
+        User GetUserByEmail(string email);
+        void ChangePassword(string email, string password);
     }
 }

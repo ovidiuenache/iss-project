@@ -1,57 +1,47 @@
 ﻿using App.Controller;
 using App.Entity;
+using App.Factory;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace App.UI
 {
     /// <summary>
-    /// Authors: Alexandru Popa, Vancea Vlad
+    /// Authors: Alexandru Popa, Vancea Vlad, Ioan Ovidiu Enache
     /// The class that manages the phase 1 about proposals
     /// </summary>
     public partial class UserAccount : Form
     {
         private PhaseOneController controller;
-        private User user;
-        public UserAccount(PhaseOneController ctrl, User user)
+        private User loggedUser;
+        private Form parentForm;
+
+        public UserAccount(Form parentForm, User loggedUser)
         {
-            this.controller = ctrl;
-            this.user = user;
-            refreshProposals();
+            controller = ApplicationFactory.getPhaseOneController();
+            this.loggedUser = loggedUser;
+            this.parentForm = parentForm;
 
             InitializeComponent();
-        }
 
-        private void refreshProposals()
-        {
-            SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-MIOBI9T\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
-            BindingSource bs = new BindingSource();
-            SqlDataAdapter da = new SqlDataAdapter();
-            DataSet ds = new DataSet();
-            dataGridViewProposals = new DataGridView();
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
 
-            connection.Open();
-            da.SelectCommand = new SqlCommand("select * from Proposals", connection);
-            //da.SelectCommand.Parameters.Add("@idUser", user.UserId);
-            da.Fill(ds, "Proposals");
-            bs.DataSource = ds;
-            bs.DataMember = "Proposals";
+            buttonUpdate.Size = new System.Drawing.Size(710, 34);
+            buttonUpdate.Location = new System.Drawing.Point(36, 280);
 
-            dataGridViewProposals.DataSource = bs;
-            connection.Close();
+            if (controller.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("chair"))
+            {
+                buttonNextPhase.Visible = true;
+                buttonUpdate.Size = new System.Drawing.Size(321, 34);
+                buttonUpdate.Location = new System.Drawing.Point(36, 280);
+            }
         }
 
         private void buttonBrowseAbstract_Click(object sender, EventArgs e)
         {
-            //openFileDialogAbstract = new OpenFileDialog();
+            openFileDialogAbstract = new OpenFileDialog();
             openFileDialogAbstract.Title = "Upload abstract";
             openFileDialogAbstract.Filter = "PDF files (*.pdf)|*.pdf|Microsoft Word Files (*.docx)|*.docx";
 
@@ -69,20 +59,20 @@ namespace App.UI
             {
                 if(dataGridViewProposals.Rows.Count != 0)
                 {
-                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.SelectedRows[0].Cells[0].Value.ToString())), controller, false, textBoxAbstract.Text);
+                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.SelectedRows[0].Cells[0].Value.ToString())), false, textBoxAbstract.Text);
                     mt.Show();
 
                 }
                 else
                 {
-                    MetaInformation mt= new MetaInformation(new Proposal(new ProposalMetaInformation(),"",""), controller, false, textBoxAbstract.Text);
+                    MetaInformation mt= new MetaInformation(null, false, textBoxAbstract.Text);
                     mt.Show();
 
                 }
 
             }
 
-            refreshProposals();
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
         }
 
         private void buttonUploadFull_Click(object sender, EventArgs e)
@@ -93,18 +83,18 @@ namespace App.UI
             {
                 if(dataGridViewProposals.Rows.Count != 0)
                 {
-                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.SelectedRows[0].Cells[0].Value.ToString())), controller, true, textBoxFull.Text);
+                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.Rows[0].Cells[0].Value.ToString())), true, textBoxFull.Text);
                     mt.Show();
                 }
                 else
                 {
-                    MetaInformation mt = new MetaInformation(null, controller, true, textBoxFull.Text);
+                    MetaInformation mt = new MetaInformation(null, true, textBoxFull.Text);
                     mt.Show();
 
                 }
             }
 
-            refreshProposals();
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
         }
 
         private void buttonBrowseFull_Click(object sender, EventArgs e)
@@ -118,7 +108,7 @@ namespace App.UI
             }
         }
         /// <summary>
-        /// get the proposals who have fullpaper and if the user do not have fullpapers the func will 
+        /// Get the proposals who have fullpaper and if the user do not have fullpapers the func will 
         /// return null
         /// </summary>
         /// <returns></returns>
@@ -159,5 +149,59 @@ namespace App.UI
             return emptyArray;
         }
 
+        private void UserAccount_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridViewProposals.EndEdit();
+            controller.saveChanges();
+
+            MessageBox.Show("Database has been updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Show();
+            Close();
+        }
+
+        private void UserAccount_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Show();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
+        }
+
+        private void buttonNextPhase_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to start the next phase?", "Next Phase", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Conference activeConference = controller.ActiveConference();
+
+                Phase nextPhase = new Phase();
+                nextPhase.Deadline = activeConference.EndDate;
+                nextPhase.Name = "PHASETWO";
+
+                activeConference.ActivePhase = nextPhase;
+
+                controller.UpdateConference(activeConference);
+
+                MessageBox.Show("Next phase has successfully started!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            else
+            {
+                //do nothing
+            }
+        }
     }
 }

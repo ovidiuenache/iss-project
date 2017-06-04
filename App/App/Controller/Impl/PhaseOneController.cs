@@ -1,5 +1,7 @@
-﻿using System;
-using App.Entity;
+﻿using App.Entity;
+using App.Repository.Impl;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace App.Controller
 {
@@ -7,23 +9,71 @@ namespace App.Controller
     /// 
     /// Phase one controller implementation 
     /// Author : Catalin Radoiu 
+    /// Author : Ioan Ovidiu Enache
+    /// Author : Alexandru Emil Popa
     /// 
     /// </summary>
     public class PhaseOneController
     {
+        private ProposalRepository proposalRepository;
+        private UserRepository userRepository;
+        private ConferenceRepository conferenceRepository;
+
+        public PhaseOneController(ProposalRepository proposalRepository, UserRepository userRepository, ConferenceRepository conferenceRepository)
+        {
+            this.proposalRepository = proposalRepository;
+            this.userRepository = userRepository;
+            this.conferenceRepository = conferenceRepository;
+        }
+
+        public void addProposal(Proposal proposal)
+        {
+            proposalRepository.Add(proposal);
+        }
+
         public void updateProposal(Proposal proposal)
         {
-            throw new NotImplementedException();
+            proposalRepository.Update(proposal);
         }
 
-        public User getUserByName(string v)
+        public Conference ActiveConference()
         {
-            throw new NotImplementedException();
+            return conferenceRepository.GetActiveConference();
         }
 
-        public Proposal getProposal(int v)
+        public void UpdateConference(Conference conference)
         {
-            throw new NotImplementedException();
+            conferenceRepository.Update(conference);
+        }
+
+        public List<Role> GetUserRoles(User user)
+        {
+            return userRepository.GetRoles(user);
+        }
+
+        public Proposal getProposal(int proposalId)
+        {
+            return proposalRepository.Find(proposalId);
+        }
+
+        public List<Proposal> ProposalsAuthoredByUser(int userId)
+        {
+            return proposalRepository.ProposalsAuthoredByUser(userId);
+        }
+
+        public void saveChanges()
+        {
+            proposalRepository.saveChanges();
+        }
+
+        public List<User> getAllUsers()
+        {
+            return userRepository.All();
+        }
+
+        public Proposal getProposalByUser(int userId)
+        {
+            return proposalRepository.All().Where(proposal => proposal.Authors.Contains(userRepository.Find(userId))).ToList().FirstOrDefault();
         }
     }
 }

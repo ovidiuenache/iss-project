@@ -26,20 +26,23 @@ namespace App.UI.PhaseTwo
             this.proposals = phaseTwoController.getProposals();
             this.reviewer = reviewer;
             this.phaseTwoController = phaseTwoController;
-            initProposalsDataGridView();
+            
             InitializeComponent();
+
+            proposalsDataGridView.DataSource = proposals;
         }
         private void initProposalsDataGridView()
         {
             BindingList<Proposal> bindingList = new BindingList<Proposal>(proposals);
             BindingSource source = new BindingSource(bindingList, null);
+            proposalsDataGridView = new DataGridView();
             proposalsDataGridView.DataSource = source;
         }
 
         private void submitButton_Click(object sender, EventArgs e)
         {
             RadioButton checkedReviewButton = this.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            Proposal prop = phaseTwoController.findProposalById(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
+            Proposal prop = phaseTwoController.getProposal(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
 
             if (checkedReviewButton.Text.Equals("I want") || checkedReviewButton.Text.Equals("I can"))
             {
@@ -50,7 +53,7 @@ namespace App.UI.PhaseTwo
 
         private void proposalsDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if (phaseTwoController.findReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()), reviewer.UserId))
+            if (phaseTwoController.getReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()), reviewer.UserId) != null)
             {
                 submitButton.Enabled = false;
             }
@@ -58,9 +61,18 @@ namespace App.UI.PhaseTwo
 
         private void PCMemberBidProposals_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            parent.SetDesktopLocation(this.Location.X, this.Location.Y);
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            parent.Location = new System.Drawing.Point(Location.X, Location.Y);
             parent.Show();
+            Close();
+        }
+
+        private void PCMemberBidProposals_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

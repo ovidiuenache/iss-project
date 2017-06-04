@@ -19,6 +19,7 @@ namespace App.Entity
         public string Country { get; set; }
         public List<UserRole> UserRoles { get; set; }
         public List<ConferenceUser> ConferenceUsers { get; set; }
+        public List<UserSection> UserSections { get; set; }
 
         public User()
         {
@@ -39,6 +40,16 @@ namespace App.Entity
             var item = obj as User;
 
             return UserId == item?.UserId;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return FirstName + " " + LastName;
         }
     }
 }

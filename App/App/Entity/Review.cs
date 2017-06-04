@@ -7,6 +7,7 @@ namespace App.Entity
     /// Class Review
     /// Author: Ioan Ovidiu Enache
     /// Author: Claudiu Nicola
+    /// 
     /// </summary>
     public class Review
     {
@@ -20,7 +21,6 @@ namespace App.Entity
 
         public Review()
         {
-            ReviewId = -1;
             Qualifier = "";
             Comment = "";
             Reviewer = null;
@@ -42,6 +42,11 @@ namespace App.Entity
             var item = obj as Review;
 
             return ReviewId == item?.ReviewId;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

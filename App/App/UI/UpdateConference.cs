@@ -1,4 +1,7 @@
-﻿using App.Entity;
+﻿using App.Controller;
+using App.Entity;
+using App.Factory;
+using App.Validators;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,76 +17,123 @@ namespace App.UI
     /// </summary>
     public partial class UpdateConference : Form
     {
-        Form parent;
+        private Form parent;
+        private Conference activeConference;
+        private PreliminaryPhaseController preliminaryController;
+        private ConferenceValidator validator;
 
         public UpdateConference(Form parent, int positionX, int positionY)
         {
             InitializeComponent();
             Location = new Point(positionX, positionY);
             this.parent = parent;
-        }
-
-        public UpdateConference()
-        {
-            InitializeComponent();
+            preliminaryController = ApplicationFactory.getPreliminaryPhaseController();
+            activeConference = preliminaryController.ActiveConference();
+            validator = new ConferenceValidator();
         }
 
         private void UpdateConferenceUI_Load(object sender, EventArgs e)
         {
-            var listTopic = populateList();
+            loadUsers();
+            loadTopics();
 
-            foreach (var topic in listTopic)
+            textBoxName.Text = activeConference.Name;
+            textBoxFee.Text = activeConference.ConferenceFee.ToString();
+            dateTimePicker.Value = activeConference.EndDate;
+
+            foreach (ConferenceUser conferenceUser in activeConference.Users)
             {
-                comboBoxCheckedListUpdate.Items.Add(topic);
+                for (int i = 0; i < comboBoxCheckedListUpdate.Items.Count; i++)
+                {
+                    if (conferenceUser.UserId == ((User)comboBoxCheckedListUpdate.Items[i]).UserId)
+                    {
+                        comboBoxCheckedListUpdate.SetItemChecked(i, true);
+                    }
+                }
             }
-            // If more then 5 items, add a scroll bar to the dropdown.
-            comboBoxCheckedListUpdate.MaxDropDownItems = 5;
-            // Make the "Name" property the one to display
-            comboBoxCheckedListUpdate.DisplayMember = "Name";
-            comboBoxCheckedListUpdate.ValueSeparator = ", ";
+
+            foreach (Topic topic in activeConference.Topics)
+            {
+                for (int i = 0; i < listBoxTopics.Items.Count; i++)
+                {
+                    if (topic.Name == listBoxTopics.Items[i].ToString())
+                    {
+                        listBoxTopics.SetSelected(i, true);
+                    }
+                }
+            }
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            parent.Location = this.Location;
-            Hide();
-            parent.Show();
+            Close();
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            List<User> commiteeMembers = new List<User>();
+            for (int i = 0; i < comboBoxCheckedListUpdate.Items.Count; i++)
+            {
+                if (comboBoxCheckedListUpdate.GetItemChecked(i))
+                {
+                    commiteeMembers.Add((User)comboBoxCheckedListUpdate.Items[i]);
+                }
+            }
 
-            string conferenceName = textBoxName.Text;
-            DateTime endDate = dateTimePicker.Value;
-            //List<IUser> commiteeMembers = ...
-            //List<String> topics = ...
-            string fee = textBoxFee.Text;
+            List<Topic> selectedTopics = new List<Topic>();
+            foreach (int i in listBoxTopics.SelectedIndices)
+            {
+                string topicName = listBoxTopics.Items[i].ToString();
+                selectedTopics.Add(preliminaryController.FindTopicByName(topicName));
+            }
 
-            //conference.setName(conferenceName);
-            //conference.setEndDate(endDate);
-            //conference.setCommiteeMembers();
-            //conference.setTopics()
-            //conference.setActivePhase();
+            try
+            {
+                activeConference.Name = textBoxName.Text;
+                activeConference.EndDate = dateTimePicker.Value;
+                activeConference.Topics = selectedTopics;
+                activeConference.ConferenceFee = float.Parse(textBoxFee.Text);
+                validator.validate(activeConference);
+
+                preliminaryController.UpdateConference(activeConference);
+                MessageBox.Show("Conference has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            Application.Exit();
+            parent.Location = new Point(Location.X, Location.Y);
+            parent.Show();
         }
 
-        private List<Topic> populateList()
+        private void loadUsers()
         {
-            var listTest = new List<Topic>();
-            listTest.Add(new Topic("name1", "desc1"));
-            listTest.Add(new Topic("name2", "desc2"));
-            listTest.Add(new Topic("name3", "desc3"));
-            listTest.Add(new Topic("name4", "desc4"));
-            listTest.Add(new Topic("name5", "desc5"));
-            listTest.Add(new Topic("name6", "desc6"));
-            listTest.Add(new Topic("name7", "desc7"));
+            List<User> users = preliminaryController.FindAllUsers();
 
-            return listTest;
+            foreach (User user in users)
+            {
+                comboBoxCheckedListUpdate.Items.Add(user);
+            }
+
+            // If more then 5 items, add a scroll bar to the dropdown.
+            comboBoxCheckedListUpdate.MaxDropDownItems = 5;
+            // Make the "Name" property the one to display
+            comboBoxCheckedListUpdate.DisplayMember = "LastName";
+            comboBoxCheckedListUpdate.ValueSeparator = ", ";
+        }
+
+        private void loadTopics()
+        {
+            List<Topic> topics = preliminaryController.FindAllTopics();
+
+            foreach (Topic topic in topics)
+            {
+                listBoxTopics.Items.Add(topic.Name);
+            }
         }
     }
 }

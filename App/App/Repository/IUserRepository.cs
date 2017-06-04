@@ -12,6 +12,7 @@ namespace App.Repository
     /// User Repository interface
     /// Author : Catalin Radoiu
     /// Author : Claudiu Nicola
+    /// Author: Dezsi Razvan
     /// 
     /// </summary>
     public interface IUserRepository : IRepository<User>
@@ -31,5 +32,6 @@ namespace App.Repository
         /// <param name="user"></param>
         /// <returns></returns>
         List<Role> GetRoles(User user);
+        void ChangePassword(string email, string password);
     }
 }

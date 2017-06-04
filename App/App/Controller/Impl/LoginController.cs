@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using App.Repository;
+using App.Utils;
 
 namespace App.Controller
 {
@@ -10,6 +11,9 @@ namespace App.Controller
     /// LoginController implementation
     /// Author: Vancea Vlad
     /// Author : Catalin Radoiu
+    /// Author : Dezsi Razvan
+    /// Author : Ioan Ovidiu Enache
+    /// 
     /// 
     /// </summary>
     public class LoginController : ILoginController
@@ -25,13 +29,15 @@ namespace App.Controller
 
         public User GetUser(string email, string password)
         {
+            var decrypt = new EncryptDecrypt();
             User user = UserRepository.FindUserByEmail(email);
             if (user == null)
             {
                 return null;
             } 
-            else if (user.Password != password)
+            else if (decrypt.decryptPassword(user.Password) != password)
             {
+                user.Password = password;
                 return null;
             }
             else
@@ -48,6 +54,21 @@ namespace App.Controller
         public List<Role> GetUserRoles(User user)
         {
             return UserRepository.GetRoles(user);
+        }
+
+        public User GetUserByEmail(String email)
+        {
+            return UserRepository.FindUserByEmail(email);
+        }
+
+        public void ChangePassword(string email,string password)
+        {
+            UserRepository.ChangePassword(email, password);
+        }
+
+        public Conference ActiveConference()
+        {
+            return ConferenceRepository.GetActiveConference();
         }
     }
 }

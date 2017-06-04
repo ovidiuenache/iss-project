@@ -1,5 +1,12 @@
 ﻿namespace App.Entity
 {
+    /// <summary>
+    /// 
+    /// Class UserRole
+    /// 
+    /// Author : Claudiu Nicola
+    /// 
+    /// </summary>
     public class UserRole
     {
         public int UserId { get; set; }

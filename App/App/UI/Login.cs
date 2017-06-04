@@ -5,9 +5,18 @@ using System;
 using System.Windows.Forms;
 using System.Linq;
 using App.Factory;
+using App.UI.PhaseThree;
+using App.UI.PhaseTwo;
+using ListenerMain = App.UI.PhaseTwo.ListenerMain;
 
 namespace App
 {
+    /// <summary>
+    /// 
+    /// Login Form
+    /// Author: Dezsi Razvan
+    /// 
+    /// </summary>
     public partial class Login : Form
     {
         private LoginController loginController;
@@ -17,18 +26,17 @@ namespace App
         {
             InitializeComponent();
 
-            this.parentForm = parentForm;
             loginController = ApplicationFactory.getLoginController();
+            this.parentForm = parentForm;
         }
-
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
             string username = UserNameTextBox.Text;
             string password = PasswordTextBox.Text;
-            
-            User user = loginController.GetUser(username, password);
-            if (user == null)
+
+            User loggedUser = loginController.GetUser(username, password);
+            if (loggedUser == null)
             {
                 MessageBox.Show("The credentials are not valid");
             }
@@ -36,16 +44,57 @@ namespace App
             {
                 if (loginController.IsConferenceActive() == true)
                 {
-                    //TO DO
-                    //redirect user to active phase page;
-                    Application.Exit();
+                    string activePhaseName = loginController.ActiveConference().ActivePhase.Name;
+                    Form toBeShown = null;
+                    switch (activePhaseName)
+                    {
+                        case "PRELIMINARY":
+                            toBeShown = new PreliminaryPhase(this, loggedUser);
+                            break;
+                        case "PHASEONE":
+                            toBeShown = new UserAccount(this, loggedUser);
+                            break;
+                        case "PHASETWO":
+                            if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("chair"))
+                            {
+                                toBeShown = new ChairMain(this, loggedUser);
+                            }
+                            else if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("reviewer"))
+                            {
+                                toBeShown = new PCMemberMain(this, loggedUser);
+                            }
+                            else if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("author")
+                                || loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("speaker"))
+                            {
+                                toBeShown = new AuthorMain(this, loggedUser);
+                            }
+                            else if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("listner"))
+                            {
+                                toBeShown = new ListenerMain(this, loggedUser);
+                            }
+                            break;
+                        case "PHASETHREE":
+                            if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("listner"))
+                            {
+                                toBeShown = new UI.PhaseThree.ListenerMain(this, loggedUser);
+                            }
+                            else if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("chair"))
+                            {
+                                toBeShown = new RoomsDistribution(this);
+                            }
+                            break;
+                    }
+
+                    toBeShown.Location = new System.Drawing.Point(Location.X, Location.Y);
+                    toBeShown.Show();
+                    Hide();
                 }
                 else
                 {
-                    if (loginController.GetUserRoles(user).Select(role => role.Slug).ToArray().Contains("chair"))
+                    if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).ToArray().Contains("chair"))
                     {
                         //User is a chair and is shown the preliminary phase
-                        PreliminaryPhase preliminaryPhase = new PreliminaryPhase(user);
+                        PreliminaryPhase preliminaryPhase = new PreliminaryPhase(this, loggedUser);
                         preliminaryPhase.Location = new System.Drawing.Point(Location.X, Location.Y);
                         preliminaryPhase.Show();
                         Hide();
@@ -61,9 +110,7 @@ namespace App
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
-            parentForm.Show();
-            Hide();
+            Close();
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -73,7 +120,16 @@ namespace App
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ResetPassword resetPasswordForm = new ResetPassword(this, loginController);
+            resetPasswordForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            Hide();
+            resetPasswordForm.Show();
         }
     }
 }
