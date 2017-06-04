@@ -17,11 +17,13 @@ namespace App.UI.PhaseThree
     {
         private PhaseThreeController PhaseThreeController;
         private User LoggedUser;
+        private Form ParentForm;
 
-        public ListenerMain(User loggedUser)
+        public ListenerMain(Form parentForm, User loggedUser)
         {
             InitializeComponent();
             PhaseThreeController = ApplicationFactory.GetPhaseThreeController();
+            ParentForm = parentForm;
             LoggedUser = loggedUser;
         }
 
@@ -32,7 +34,8 @@ namespace App.UI.PhaseThree
 
         private void LoadSections()
         {
-            List<Section> topics = PhaseThreeController.FindAllSections();
+            listBoxTopics.Items.Clear();
+            List<Section> topics = PhaseThreeController.FindAllUnassignedSections(LoggedUser);
 
             foreach (Section section in topics)
             {
@@ -51,11 +54,20 @@ namespace App.UI.PhaseThree
                     selectedSections.Add(PhaseThreeController.FindSectionByName(sectionName));
                 }
                 PhaseThreeController.AddListenerToSections(selectedSections, LoggedUser);
+                LoadSections();
+                MessageBox.Show("Section has been successfully added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            ParentForm.Location = new Point(Location.X, Location.Y);
+            ParentForm.Show();
+            Close();
         }
     }
 }

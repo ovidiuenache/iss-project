@@ -20,6 +20,13 @@ namespace App.Controller
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="loggedUser"></param>
+        /// <returns></returns>
+        List<Section> FindAllUnassignedSections(User loggedUser);
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="sectionName"></param>
         /// <returns></returns>
         Section FindSectionByName(string sectionName);

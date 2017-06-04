@@ -44,6 +44,16 @@ namespace App.Controller
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="loggedUser"></param>
+        /// <returns></returns>
+        public List<Section> FindAllUnassignedSections(User loggedUser)
+        {
+            return SectionRepository.All().Where(s => !s.Authors.Contains(loggedUser)).ToList();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="sectionName"></param>
         /// <returns></returns>
         public Section FindSectionByName(string sectionName)

@@ -23,7 +23,7 @@ namespace App
         public Login(Form parentForm)
         {
             InitializeComponent();
-           
+
             loginController = ApplicationFactory.getLoginController();
             this.parentForm = parentForm;
         }
@@ -32,7 +32,7 @@ namespace App
         {
             string username = UserNameTextBox.Text;
             string password = PasswordTextBox.Text;
-            
+
             User loggedUser = loginController.GetUser(username, password);
             if (loggedUser == null)
             {
@@ -72,8 +72,10 @@ namespace App
                             }
                             break;
                         case "PHASETHREE":
-                            MessageBox.Show("Phase THree Main Form");
-                            //toBeShown = new PhaseThreeMainForm();
+                            if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("listner"))
+                            {
+                                toBeShown = new UI.PhaseThree.ListenerMain(this, loggedUser);
+                            }
                             break;
                     }
 

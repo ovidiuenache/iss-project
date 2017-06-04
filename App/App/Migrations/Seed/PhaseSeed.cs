@@ -29,10 +29,10 @@ namespace App.Migrations.Seed
             {
                 if (!db.Phases.Any())
                 {
-                    db.Phases.Add(new Phase("Preliminary", new DateTime(2017, 6, 5)));
-                    db.Phases.Add(new Phase("Phase 1", new DateTime(2017, 6, 7)));
-                    db.Phases.Add(new Phase("Phase 2", new DateTime(2017, 6, 9)));
-                    db.Phases.Add(new Phase("Phase 3", new DateTime(2017, 6, 11)));
+                    db.Phases.Add(new Phase("PRELIMINARY", new DateTime(2017, 6, 5)));
+                    db.Phases.Add(new Phase("PHASEONE", new DateTime(2017, 6, 7)));
+                    db.Phases.Add(new Phase("PHASETWO", new DateTime(2017, 6, 9)));
+                    db.Phases.Add(new Phase("PHASETHREE", new DateTime(2017, 6, 11)));
 
                     db.SaveChanges();
                 }

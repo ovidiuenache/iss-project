@@ -31,6 +31,7 @@
             this.listBoxTopics = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
+            this.buttonBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxTopics
@@ -62,11 +63,25 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // buttonBack
+            // 
+            this.buttonBack.Location = new System.Drawing.Point(329, 231);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBack.MaximumSize = new System.Drawing.Size(115, 53);
+            this.buttonBack.MinimumSize = new System.Drawing.Size(115, 53);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(115, 53);
+            this.buttonBack.TabIndex = 3;
+            this.buttonBack.Text = "Back";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
             // ListenerMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 298);
+            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBoxTopics);
@@ -83,5 +98,6 @@
         private System.Windows.Forms.ListBox listBoxTopics;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button buttonBack;
     }
 }
