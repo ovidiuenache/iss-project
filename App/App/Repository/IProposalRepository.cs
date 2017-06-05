@@ -16,5 +16,7 @@ namespace App.Repository
         void saveChanges();
 
         Proposal FindProposalByName(string name);
+
+        List<Proposal> getProposalsWithoutFull();
     }
 }

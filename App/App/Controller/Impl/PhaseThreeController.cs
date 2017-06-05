@@ -125,7 +125,7 @@ namespace App.Controller
             return comiteeMembersWithoutSection;
         }
 
-        private bool IsComiteeMemberWithoutSection(User user)
+        public bool IsComiteeMemberWithoutSection(User user)
         {
             var a = UserRepository.GetRoles(user).Select(role => role.Slug).Contains("chair");
             var b = UserRepository.GetRoles(user).Select(role => role.Slug).Contains("reviewer");
@@ -199,7 +199,7 @@ namespace App.Controller
         }
 
         /// <summary>
-        /// 
+        /// update a proposal
         /// </summary>
         /// <param name="proposal"></param>
         public void UpdateProposal(Proposal proposal)
@@ -208,7 +208,7 @@ namespace App.Controller
         }
 
         /// <summary>
-        /// 
+        /// add a section for a room 
         /// </summary>
         /// <param name="section"></param>
         /// <param name="roomName"></param>
@@ -219,7 +219,7 @@ namespace App.Controller
         }
 
         /// <summary>
-        /// 
+        /// Will return a list with sections without leader
         /// </summary>
         /// <returns></returns>
         public List<Section> FindAllSectionsWithoutLeader()
@@ -228,7 +228,7 @@ namespace App.Controller
         }
 
         /// <summary>
-        /// 
+        /// Will return a list with sections without room
         /// </summary>
         /// <returns></returns>
         public List<Section> FindAllSectionsWithoutRoom()
@@ -243,7 +243,9 @@ namespace App.Controller
                 ReviewRepository.Delete(review);
             }
         }
-
+        /// <summary>
+        /// Delete a proposal
+        /// </summary>
         public void deleteProposals()
         {
             foreach(Proposal proposal in ProposalRepository.All())
@@ -252,6 +254,9 @@ namespace App.Controller
             }
         }
 
+        /// <summary>
+        /// Delete a topic
+        /// </summary>
         public void deleteTopics()
         {
             foreach (Topic topic in TopicRepository.All())
@@ -260,6 +265,9 @@ namespace App.Controller
             }
         }
 
+        /// <summary>
+        /// Delete a conference
+        /// </summary>
         public void deleteConferences()
         {
             foreach (Conference conference in ConferenceRepository.All())
@@ -268,6 +276,9 @@ namespace App.Controller
             }
         }
 
+        /// <summary>
+        /// delete a phase
+        /// </summary>
         public void deletePhases()
         {
             foreach (Phase phase in PhaseRepository.All())

@@ -35,5 +35,6 @@ namespace App.Controller
         List<Role> GetUserRoles(User user);
         User GetUserByEmail(string email);
         void ChangePassword(string email, string password);
+        Conference ActiveConference();
     }
 }
