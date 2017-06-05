@@ -17,10 +17,7 @@ namespace App
             //Use this for dummy data
             UserContextSeed.Seed();
             TopicSeed.Seed();
-            ProposalSeed.Seed();
             SectionSeed.Seed();
-            PhaseSeed.Seed();
-            ConferenceSeed.Seed();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

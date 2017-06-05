@@ -207,9 +207,6 @@
     <Compile Include="Migrations\20170604071541_Fix.designer.cs">
       <DependentUpon>20170604071541_Fix.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Seed\ConferenceSeed.cs" />
-    <Compile Include="Migrations\Seed\PhaseSeed.cs" />
-    <Compile Include="Migrations\Seed\ProposalSeed.cs" />
     <Compile Include="Migrations\Seed\SectionSeed.cs" />
     <Compile Include="Repository\Impl\SectionRepository.cs" />
     <Compile Include="Controller\IPhaseOneController.cs" />

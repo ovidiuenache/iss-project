@@ -61,7 +61,7 @@ namespace App.UI
             {
                 if(dataGridViewProposals.Rows.Count != 0)
                 {
-                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.SelectedRows[0].Cells[0].Value.ToString())), false, textBoxAbstract.Text);
+                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.Rows[0].Cells[0].Value.ToString())), false, textBoxAbstract.Text);
                     mt.Show();
 
                 }
@@ -196,6 +196,8 @@ namespace App.UI
                 activeConference.ActivePhase = nextPhase;
 
                 controller.UpdateConference(activeConference);
+                controller.deleteProposalsWithoutFull();
+                controller.updateUserRoles();
 
                 MessageBox.Show("Next phase has successfully started!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();

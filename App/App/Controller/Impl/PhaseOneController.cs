@@ -75,5 +75,37 @@ namespace App.Controller
         {
             return proposalRepository.All().Where(proposal => proposal.Authors.Contains(userRepository.Find(userId))).ToList().FirstOrDefault();
         }
+
+        public void deleteProposalsWithoutFull()
+        {
+            List<Proposal> proposalsWithoutFull = proposalRepository.getProposalsWithoutFull();
+            foreach (Proposal prop in proposalsWithoutFull)
+            {
+                proposalRepository.Delete(prop);
+            }
+        }
+
+        public void updateUserRoles()
+        {
+            List<Proposal> allProposals = proposalRepository.All();
+
+            foreach (User user in userRepository.All())
+            {
+                bool isAuthor = false;
+
+                foreach (Proposal proposal in allProposals)
+                {
+                    if (proposal.Authors.Select(author => author.UserId).Contains(user.UserId))
+                    {
+                        isAuthor = true;
+                    }
+                }
+
+                if (isAuthor)
+                {
+                    //Make the motherfucker an author
+                }
+            }
+        }
     }
 }
