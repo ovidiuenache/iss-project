@@ -1,0 +1,4 @@
+As a regular not logged user,
+When I start the application,
+I should see the "ConferenceDetails" form containing the "Login" button, the "Register button" and
+the textbox with the conference details
