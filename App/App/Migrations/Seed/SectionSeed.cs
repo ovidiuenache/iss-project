@@ -29,26 +29,23 @@ namespace App.Migrations.Seed
             {
                 if (!db.Sections.Any())
                 {
-                    var sectionLeader = db.Users.Find(1);
-                    List<Topic> topics = new List<Topic>();
-                    topics.Add(db.Topics.Find(1));
-                    topics.Add(db.Topics.Find(4));
-                    topics.Add(db.Topics.Find(5));
+                    List<Topic> topics = new List<Topic> { db.Topics.Find(1), db.Topics.Find(4), db.Topics.Find(5) };
                     List<User> listeners = new List<User>();
-                    List<User> authors = new List<User>();
-                    authors.Add(db.Users.Find(2));
-                    authors.Add(db.Users.Find(3));
+                    List<User> authors = new List<User> { db.Users.Find(2) };
+
                     db.Sections.Add(
                         new Section("Web", null, topics, authors, "Aula")
                     );
 
-                    sectionLeader = db.Users.Find(5);
-                    topics = new List<Topic>();
+                    sectionLeader = db.Users.Find(2);
                     topics.Add(db.Topics.Find(2));
                     topics.Add(db.Topics.Find(3));
                     listeners = new List<User>();
-                    authors = new List<User>();
                     authors.Add(db.Users.Find(1));
+                  
+                    topics = new List<Topic> { db.Topics.Find(2), db.Topics.Find(3) };
+                    authors = new List<User> { db.Users.Find(3) };
+                  
                     db.Sections.Add(
                         new Section("Desktop", null, topics, authors, "Mare")
                     );

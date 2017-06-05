@@ -19,13 +19,19 @@ namespace App.Controller
         private IProposalRepository ProposalRepository;
         private IConferenceRepository ConferenceRepository;
         private IUserSectionRepository UserSectionRepository;
+        private IReviewRepository ReviewRepository;
+        private IPhaseRepository PhaseRepository;
+        private ITopicRepository TopicRepository;
 
         public PhaseThreeController(
             ISectionRepository sectionRepository,
             IUserRepository userRepository,
             IProposalRepository proposalRepository,
             IConferenceRepository conferenceRepository,
-            IUserSectionRepository userSectionRepository
+            IUserSectionRepository userSectionRepository,
+            IReviewRepository reviewRepository,
+            IPhaseRepository phaseRepository,
+            ITopicRepository topicRepository
         )
         {
             SectionRepository = sectionRepository;
@@ -33,6 +39,9 @@ namespace App.Controller
             ProposalRepository = proposalRepository;
             ConferenceRepository = conferenceRepository;
             UserSectionRepository = userSectionRepository;
+            ReviewRepository = reviewRepository;
+            PhaseRepository = phaseRepository;
+            TopicRepository = topicRepository;
         }
 
         /// <summary>
@@ -225,6 +234,46 @@ namespace App.Controller
         public List<Section> FindAllSectionsWithoutRoom()
         {
             return SectionRepository.FindAllSectionsWithoutRoom();
+        }
+
+        public void deleteReviews()
+        {
+            foreach (Review review in ReviewRepository.All())
+            {
+                ReviewRepository.Delete(review);
+            }
+        }
+
+        public void deleteProposals()
+        {
+            foreach(Proposal proposal in ProposalRepository.All())
+            {
+                ProposalRepository.Delete(proposal);
+            }
+        }
+
+        public void deleteTopics()
+        {
+            foreach (Topic topic in TopicRepository.All())
+            {
+                TopicRepository.Delete(topic);
+            }
+        }
+
+        public void deleteConferences()
+        {
+            foreach (Conference conference in ConferenceRepository.All())
+            {
+                ConferenceRepository.Delete(conference);
+            }
+        }
+
+        public void deletePhases()
+        {
+            foreach (Phase phase in PhaseRepository.All())
+            {
+                PhaseRepository.Delete(phase);
+            }
         }
     }
 }
