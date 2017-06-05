@@ -1,0 +1,6 @@
+As a logged chair user,
+When I am on "Preliminary Phase" form,
+And there is an active conference,
+And I click on "Start Conference" button,
+I should see a message box saying that the conference has been moved to the next phase,
+And the conference is updated in the database

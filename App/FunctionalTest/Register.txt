@@ -1,5 +1,5 @@
 As a regular not logged user,
-When I start the application,a
+When I start the application,
 And I am on "Conference Details" form,
 And I click the "Register" button,
 And I am on "Register" form,

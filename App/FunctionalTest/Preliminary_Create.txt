@@ -1,0 +1,13 @@
+As a logged chair user,
+When I am on "Preliminary Phase" form,
+And I click the "Create Conference" button,
+And I am on "Create Conference" form,
+And I type in a valid name in the name text box,
+And I select the end date in the end date text box,
+And I select the commitee members in the commitee members combobox,
+And I select the topics in the topics listbox,
+And I type in a valid fee in the fee text box,
+And I click "Create Conference" button,
+I should see a message box saying that the conference has been created successfully,
+And the conference has been saved in the database
+And a conference is now active and is in preliminary phase

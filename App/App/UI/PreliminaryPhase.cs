@@ -100,5 +100,12 @@ namespace App.UI
                 //do nothing
             }
         }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Show();
+            Close();
+        }
     }
 }

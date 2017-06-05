@@ -1,0 +1,15 @@
+As a logged chair user,
+When I am on "Preliminary Phase" form,
+And a conference is already active,
+And I click the "Update Conference" button,
+And I am on "Update Conference" form,
+And I see the active conference details loaded in the inputs,
+And I type in a valid name in the name text box,
+And I select the end date in the end date text box,
+And I select the commitee members in the commitee members combobox,
+And I select the topics in the topics listbox,
+And I type in a valid fee in the fee text box,
+And I click "Update Conference" button,
+I should see a message box saying that the conference has been updated successfully,
+And the conference has been saved in the database
+And a conference is now active and is in preliminary phase with the details updated
