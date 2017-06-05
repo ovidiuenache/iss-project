@@ -34,42 +34,42 @@
             this.btnAddRoomName = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBoxSections
             // 
             this.comboBoxSections.FormattingEnabled = true;
-            this.comboBoxSections.Location = new System.Drawing.Point(24, 24);
-            this.comboBoxSections.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxSections.Location = new System.Drawing.Point(32, 30);
+            this.comboBoxSections.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxSections.Name = "comboBoxSections";
-            this.comboBoxSections.Size = new System.Drawing.Size(92, 21);
+            this.comboBoxSections.Size = new System.Drawing.Size(121, 24);
             this.comboBoxSections.TabIndex = 0;
             // 
             // textBoxRoomName
             // 
-            this.textBoxRoomName.Location = new System.Drawing.Point(24, 78);
-            this.textBoxRoomName.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxRoomName.Location = new System.Drawing.Point(32, 96);
+            this.textBoxRoomName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxRoomName.Name = "textBoxRoomName";
-            this.textBoxRoomName.Size = new System.Drawing.Size(111, 20);
+            this.textBoxRoomName.Size = new System.Drawing.Size(147, 22);
             this.textBoxRoomName.TabIndex = 1;
             this.textBoxRoomName.TextChanged += new System.EventHandler(this.textBoxRoomName_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 61);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(29, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.Size = new System.Drawing.Size(84, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Room name";
             // 
             // btnAddRoomName
             // 
-            this.btnAddRoomName.Location = new System.Drawing.Point(162, 76);
-            this.btnAddRoomName.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddRoomName.Location = new System.Drawing.Point(216, 94);
+            this.btnAddRoomName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddRoomName.Name = "btnAddRoomName";
-            this.btnAddRoomName.Size = new System.Drawing.Size(120, 23);
+            this.btnAddRoomName.Size = new System.Drawing.Size(160, 28);
             this.btnAddRoomName.TabIndex = 3;
             this.btnAddRoomName.Text = "Add";
             this.btnAddRoomName.UseVisualStyleBackColor = true;
@@ -77,9 +77,10 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(24, 113);
+            this.buttonBack.Location = new System.Drawing.Point(32, 139);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(103, 39);
+            this.buttonBack.Size = new System.Drawing.Size(137, 48);
             this.buttonBack.TabIndex = 6;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -87,31 +88,41 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(162, 113);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSubmit.Location = new System.Drawing.Point(216, 139);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(120, 39);
+            this.btnSubmit.Size = new System.Drawing.Size(160, 48);
             this.btnSubmit.TabIndex = 7;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(29, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 17);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Sections";
+            // 
             // ChooseRoom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 164);
+            this.ClientSize = new System.Drawing.Size(399, 192);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.btnAddRoomName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxRoomName);
             this.Controls.Add(this.comboBoxSections);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(317, 203);
+            this.MaximumSize = new System.Drawing.Size(417, 239);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(317, 203);
+            this.MinimumSize = new System.Drawing.Size(417, 239);
             this.Name = "ChooseRoom";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -129,5 +140,6 @@
         private System.Windows.Forms.Button btnAddRoomName;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Label label2;
     }
 }
