@@ -63,6 +63,8 @@ namespace App.UI.PhaseTwo
                 phaseTwoController.deleteRejectedProposals();
 
                 MessageBox.Show("Switch to the next phase has been done successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+                parentForm.Show();
                 Close();
             }
             else if (dialogResult == DialogResult.No)
@@ -80,6 +82,7 @@ namespace App.UI.PhaseTwo
 
         private void ChairMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+            phaseTwoController.saveChanges();
         }
     }
 }

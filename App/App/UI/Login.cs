@@ -92,12 +92,18 @@ namespace App
                             {
                                 toBeShown = new RoomsDistribution(this);
                             }
+                            else
+                            {
+                                MessageBox.Show("Conference is current commencing", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                             break;
                     }
-
-                    toBeShown.Location = new System.Drawing.Point(Location.X, Location.Y);
-                    toBeShown.Show();
-                    Hide();
+                    if (toBeShown != null)
+                    {
+                        toBeShown.Location = new System.Drawing.Point(Location.X, Location.Y);
+                        toBeShown.Show();
+                        Hide();
+                    }
                 }
                 else
                 {

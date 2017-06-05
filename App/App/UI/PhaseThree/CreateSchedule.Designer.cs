@@ -38,28 +38,30 @@
             // comboBoxSections
             // 
             this.comboBoxSections.FormattingEnabled = true;
-            this.comboBoxSections.Location = new System.Drawing.Point(11, 21);
-            this.comboBoxSections.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxSections.Location = new System.Drawing.Point(15, 26);
+            this.comboBoxSections.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxSections.Name = "comboBoxSections";
-            this.comboBoxSections.Size = new System.Drawing.Size(92, 21);
+            this.comboBoxSections.Size = new System.Drawing.Size(121, 24);
             this.comboBoxSections.TabIndex = 0;
             this.comboBoxSections.SelectedIndexChanged += new System.EventHandler(this.comboBoxSections_SelectedIndexChanged);
             // 
             // listBoxProposals
             // 
             this.listBoxProposals.FormattingEnabled = true;
-            this.listBoxProposals.Location = new System.Drawing.Point(11, 58);
-            this.listBoxProposals.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxProposals.ItemHeight = 16;
+            this.listBoxProposals.Location = new System.Drawing.Point(15, 71);
+            this.listBoxProposals.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxProposals.Name = "listBoxProposals";
-            this.listBoxProposals.Size = new System.Drawing.Size(348, 121);
+            this.listBoxProposals.Size = new System.Drawing.Size(463, 148);
             this.listBoxProposals.TabIndex = 1;
+            this.listBoxProposals.SelectedIndexChanged += new System.EventHandler(this.listBoxProposals_SelectedIndexChanged);
             // 
             // btnAddToSection
             // 
-            this.btnAddToSection.Location = new System.Drawing.Point(11, 198);
-            this.btnAddToSection.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddToSection.Location = new System.Drawing.Point(15, 244);
+            this.btnAddToSection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddToSection.Name = "btnAddToSection";
-            this.btnAddToSection.Size = new System.Drawing.Size(348, 28);
+            this.btnAddToSection.Size = new System.Drawing.Size(464, 34);
             this.btnAddToSection.TabIndex = 2;
             this.btnAddToSection.Text = "Add to section";
             this.btnAddToSection.UseVisualStyleBackColor = true;
@@ -67,10 +69,10 @@
             // 
             // btnChooseRoom
             // 
-            this.btnChooseRoom.Location = new System.Drawing.Point(189, 248);
-            this.btnChooseRoom.Margin = new System.Windows.Forms.Padding(2);
+            this.btnChooseRoom.Location = new System.Drawing.Point(252, 305);
+            this.btnChooseRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChooseRoom.Name = "btnChooseRoom";
-            this.btnChooseRoom.Size = new System.Drawing.Size(170, 39);
+            this.btnChooseRoom.Size = new System.Drawing.Size(227, 48);
             this.btnChooseRoom.TabIndex = 3;
             this.btnChooseRoom.Text = "Submit";
             this.btnChooseRoom.UseVisualStyleBackColor = true;
@@ -78,9 +80,10 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(11, 247);
+            this.buttonBack.Location = new System.Drawing.Point(15, 304);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(170, 39);
+            this.buttonBack.Size = new System.Drawing.Size(227, 48);
             this.buttonBack.TabIndex = 5;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -88,19 +91,19 @@
             // 
             // CreateSchedule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 298);
+            this.ClientSize = new System.Drawing.Size(491, 357);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.btnChooseRoom);
             this.Controls.Add(this.btnAddToSection);
             this.Controls.Add(this.listBoxProposals);
             this.Controls.Add(this.comboBoxSections);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(386, 337);
+            this.MaximumSize = new System.Drawing.Size(509, 404);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(386, 337);
+            this.MinimumSize = new System.Drawing.Size(509, 404);
             this.Name = "CreateSchedule";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

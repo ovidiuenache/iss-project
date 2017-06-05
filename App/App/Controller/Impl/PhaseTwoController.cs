@@ -78,6 +78,11 @@ namespace App.Controller
             return proposalRepo.All();
         }
 
+        public List<Review> getReviews()
+        {
+            return reviewRepo.All();
+        }
+
         /// <summary>
         /// Returns a proposal with the given ID
         /// </summary>
@@ -127,6 +132,11 @@ namespace App.Controller
             return reviewRepo.All().Where(review => review.Reviewer.UserId == reviewerId).ToList();
         }
 
+        public List<User> getReviewersThatAcceptedProposal(int idProposal)
+        {
+            return getReviewers().Where(reviewer => (getReviews().Where(review => (review.Reviewer.UserId == reviewer.UserId && review.Proposal.ProposalId == idProposal)).ToList().Count > 0)).ToList();
+        }
+
         /// <summary>
         /// Return a review with the given ID
         /// </summary>
@@ -158,7 +168,7 @@ namespace App.Controller
 
         public List<User> getReviewers()
         {
-            return userRepo.All().Where(user => userRoleRepo.All().Where(role => role.RoleId == roleRepository.getBySlug("reviewer").RoleId).ToList().First().UserId == user.UserId).ToList();
+            return userRepo.All().Where(user => userRoleRepo.All().Where(role => role.RoleId == roleRepository.getBySlug("reviewer").RoleId).ToList().Where(userRole => userRole.UserId == user.UserId).ToList().Count > 0).ToList();
         }
 
         public void deleteRejectedProposals()
@@ -167,8 +177,27 @@ namespace App.Controller
 
             foreach (int id in rejectedProposalsIds)
             {
+
+                foreach (User author in getProposal(id).Authors)
+                {
+                    Role role = roleRepository.getBySlug("listner");
+                    author.UserRoles = new List<UserRole>() { new UserRole() { Role = role, RoleId = role.RoleId, User = author, UserId = author.UserId } };
+                    userRepo.Update(author);
+
+                }
+
                 proposalRepo.Delete(proposalRepo.Find(id));
             }
+        }
+
+        public void saveChanges()
+        {
+            reviewRepo.saveChanges();
+            roleRepository.saveChanges();
+            conferenceRepository.saveChanges();
+            proposalRepo.saveChanges();
+            userRepo.saveChanges();
+            userRoleRepo.saveChanges();
         }
     }
 }

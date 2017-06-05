@@ -26,10 +26,11 @@ namespace App.UI.PhaseTwo
             this.proposals = phaseTwoController.getProposals();
             this.reviewer = reviewer;
             this.phaseTwoController = phaseTwoController;
-            
             InitializeComponent();
 
             proposalsDataGridView.DataSource = proposals;
+            //proposalsDataGridView.Columns.Remove("Authors");
+            proposalsDataGridView.Columns["Authors"].Visible = false;
         }
         private void initProposalsDataGridView()
         {
@@ -37,6 +38,7 @@ namespace App.UI.PhaseTwo
             BindingSource source = new BindingSource(bindingList, null);
             proposalsDataGridView = new DataGridView();
             proposalsDataGridView.DataSource = source;
+            proposalsDataGridView.Columns.Remove("Authors");
         }
 
         private void submitButton_Click(object sender, EventArgs e)
@@ -57,12 +59,17 @@ namespace App.UI.PhaseTwo
         {
             if (phaseTwoController.getReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()), reviewer.UserId) != null)
             {
+                submitButton.Enabled = true;
+            }
+            else
+            {
                 submitButton.Enabled = false;
             }
         }
 
         private void PCMemberBidProposals_FormClosing(object sender, FormClosingEventArgs e)
         {
+            phaseTwoController.saveChanges();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)

@@ -2,6 +2,8 @@
 using App.Repository.Impl;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using System.Windows.Forms;
 
 namespace App.Controller
 {
@@ -13,7 +15,7 @@ namespace App.Controller
     /// Author : Alexandru Emil Popa
     /// 
     /// </summary>
-    public class PhaseOneController
+    public class PhaseOneController : IPhaseOneController
     {
         private ProposalRepository proposalRepository;
         private UserRepository userRepository;
@@ -88,6 +90,13 @@ namespace App.Controller
             List<Proposal> proposalsWithoutFull = proposalRepository.getProposalsWithoutFull();
             foreach (Proposal prop in proposalsWithoutFull)
             {
+                foreach (User author in prop.Authors)
+                {
+                    Role role = roleRepository.getBySlug("listner");
+                    author.UserRoles = new List<UserRole>() { new UserRole() { Role = role, RoleId = role.RoleId, User = author, UserId = author.UserId } };
+                    userRepository.Update(author);
+
+                }
                 proposalRepository.Delete(prop);
             }
         }
@@ -116,5 +125,7 @@ namespace App.Controller
                 }
             }
         }
+
+      
     }
 }

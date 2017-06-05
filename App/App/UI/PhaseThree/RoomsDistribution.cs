@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using App.Controller;
+using App.Factory;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App.UI.PhaseThree
@@ -13,11 +9,13 @@ namespace App.UI.PhaseThree
     public partial class RoomsDistribution : Form
     {
         private Form ParentForm;
+        private PhaseThreeController phaseThreeController;
 
         public RoomsDistribution(Form parentForm)
         {
             InitializeComponent();
             ParentForm = parentForm;
+            phaseThreeController = ApplicationFactory.GetPhaseThreeController();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
@@ -49,6 +47,19 @@ namespace App.UI.PhaseThree
             choseRoomForm.Location = new Point(Location.X, Location.Y);
             choseRoomForm.Show();
             Hide();
+        }
+
+        private void buttonEndConference_Click(object sender, EventArgs e)
+        {
+            phaseThreeController.deleteReviews();
+            phaseThreeController.deleteProposals();
+            phaseThreeController.deleteTopics();
+            phaseThreeController.deleteConferences();
+            phaseThreeController.deletePhases();
+
+            MessageBox.Show("Conference has successfully ended!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Close();
+            Application.Exit();
         }
     }
 }

@@ -19,13 +19,19 @@ namespace App.Controller
         private IProposalRepository ProposalRepository;
         private IConferenceRepository ConferenceRepository;
         private IUserSectionRepository UserSectionRepository;
+        private IReviewRepository ReviewRepository;
+        private IPhaseRepository PhaseRepository;
+        private ITopicRepository TopicRepository;
 
         public PhaseThreeController(
             ISectionRepository sectionRepository,
             IUserRepository userRepository,
             IProposalRepository proposalRepository,
             IConferenceRepository conferenceRepository,
-            IUserSectionRepository userSectionRepository
+            IUserSectionRepository userSectionRepository,
+            IReviewRepository reviewRepository,
+            IPhaseRepository phaseRepository,
+            ITopicRepository topicRepository
         )
         {
             SectionRepository = sectionRepository;
@@ -33,6 +39,9 @@ namespace App.Controller
             ProposalRepository = proposalRepository;
             ConferenceRepository = conferenceRepository;
             UserSectionRepository = userSectionRepository;
+            ReviewRepository = reviewRepository;
+            PhaseRepository = phaseRepository;
+            TopicRepository = topicRepository;
         }
 
         /// <summary>
@@ -116,7 +125,7 @@ namespace App.Controller
             return comiteeMembersWithoutSection;
         }
 
-        private bool IsComiteeMemberWithoutSection(User user)
+        public bool IsComiteeMemberWithoutSection(User user)
         {
             var a = UserRepository.GetRoles(user).Select(role => role.Slug).Contains("chair");
             var b = UserRepository.GetRoles(user).Select(role => role.Slug).Contains("reviewer");
@@ -190,7 +199,7 @@ namespace App.Controller
         }
 
         /// <summary>
-        /// 
+        /// update a proposal
         /// </summary>
         /// <param name="proposal"></param>
         public void UpdateProposal(Proposal proposal)
@@ -199,7 +208,7 @@ namespace App.Controller
         }
 
         /// <summary>
-        /// 
+        /// add a section for a room 
         /// </summary>
         /// <param name="section"></param>
         /// <param name="roomName"></param>
@@ -210,7 +219,7 @@ namespace App.Controller
         }
 
         /// <summary>
-        /// 
+        /// Will return a list with sections without leader
         /// </summary>
         /// <returns></returns>
         public List<Section> FindAllSectionsWithoutLeader()
@@ -219,12 +228,63 @@ namespace App.Controller
         }
 
         /// <summary>
-        /// 
+        /// Will return a list with sections without room
         /// </summary>
         /// <returns></returns>
         public List<Section> FindAllSectionsWithoutRoom()
         {
             return SectionRepository.FindAllSectionsWithoutRoom();
+        }
+
+        public void deleteReviews()
+        {
+            foreach (Review review in ReviewRepository.All())
+            {
+                ReviewRepository.Delete(review);
+            }
+        }
+        /// <summary>
+        /// Delete a proposal
+        /// </summary>
+        public void deleteProposals()
+        {
+            foreach(Proposal proposal in ProposalRepository.All())
+            {
+                ProposalRepository.Delete(proposal);
+            }
+        }
+
+        /// <summary>
+        /// Delete a topic
+        /// </summary>
+        public void deleteTopics()
+        {
+            foreach (Topic topic in TopicRepository.All())
+            {
+                TopicRepository.Delete(topic);
+            }
+        }
+
+        /// <summary>
+        /// Delete a conference
+        /// </summary>
+        public void deleteConferences()
+        {
+            foreach (Conference conference in ConferenceRepository.All())
+            {
+                ConferenceRepository.Delete(conference);
+            }
+        }
+
+        /// <summary>
+        /// delete a phase
+        /// </summary>
+        public void deletePhases()
+        {
+            foreach (Phase phase in PhaseRepository.All())
+            {
+                PhaseRepository.Delete(phase);
+            }
         }
     }
 }
