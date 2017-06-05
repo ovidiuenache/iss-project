@@ -23,7 +23,8 @@ namespace App.UI.PhaseTwo
 
             InitializeComponent();
             proposalsDataGridView.DataSource = phaseTwoController.getProposals();
-            reviewersDataGridView.DataSource = phaseTwoController.getReviewers();
+            //if (phaseTwoController.getReviewersThatAcceptedProposal(Int32.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString())).Count > 0)
+               // reviewersDataGridView.DataSource = phaseTwoController.getReviewersThatAcceptedProposal(Int32.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
         }
 
         private void submitButton_Click(object sender, EventArgs e)
@@ -49,6 +50,7 @@ namespace App.UI.PhaseTwo
 
         private void ChairAssignementToReviewer_FormClosing(object sender, FormClosingEventArgs e)
         {
+            phaseTwoController.saveChanges();
         }
 
         private void ChairAssignementToReviewer_Load(object sender, EventArgs e)
@@ -58,9 +60,15 @@ namespace App.UI.PhaseTwo
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
+            phaseTwoController.saveChanges();
             parent.Location = new System.Drawing.Point(Location.X, Location.Y);
             parent.Show();
             Close();
+        }
+
+        private void proposalsDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            reviewersDataGridView.DataSource = phaseTwoController.getReviewersThatAcceptedProposal(Int32.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
         }
     }
 }
