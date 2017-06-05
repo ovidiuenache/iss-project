@@ -23,30 +23,6 @@ namespace App.UI.PhaseTwo
             InitializeComponent();
         }
 
-
-
-        private void buttonUploadFull_Click(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "")
-                MessageBox.Show("Please select a file to upload");
-            else
-            {   
-                MetaInformation mt = new MetaInformation(proposal, true, textBox1.Text);
-                mt.Show();
-            }
-        }
-
-        private void buttonBrowseFull_Click(object sender, EventArgs e)
-        {
-            openFileDialogBrowse = new OpenFileDialog();
-            openFileDialogBrowse.Title = "Upload full paper";
-            openFileDialogBrowse.Filter = "PDF files (*.pdf)|*.pdf|Microsoft Word Files (*.docx)|*.docx";
-            if (openFileDialogBrowse.ShowDialog() == DialogResult.OK)
-            {
-                textBox1.Text = openFileDialogBrowse.FileName;
-            }
-        }
-
         private void AuthorMain_Load(object sender, EventArgs e)
         {
 
@@ -61,6 +37,28 @@ namespace App.UI.PhaseTwo
 
         private void AuthorMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+        }
+
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+            openFileDialogBrowse = new OpenFileDialog();
+            openFileDialogBrowse.Title = "Upload full paper";
+            openFileDialogBrowse.Filter = "PDF files (*.pdf)|*.pdf|Microsoft Word Files (*.docx)|*.docx";
+            if (openFileDialogBrowse.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = openFileDialogBrowse.FileName;
+            }
+        }
+
+        private void uploadButton_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+                MessageBox.Show("Please select a file to upload");
+            else
+            {
+                MetaInformation mt = new MetaInformation(proposal, true, textBox1.Text);
+                mt.Show();
+            }
         }
     }
 }

@@ -43,6 +43,8 @@ namespace App.UI.PhaseTwo
                     phaseTwoController.removeReview(rev.ReviewId);
                 }
             }
+
+            MessageBox.Show("Proposal assigned successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ChairAssignementToReviewer_FormClosing(object sender, FormClosingEventArgs e)

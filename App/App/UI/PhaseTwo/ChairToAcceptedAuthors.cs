@@ -56,6 +56,8 @@ namespace App.UI.PhaseTwo
                     mailSender.sendMail(receiver, mailBody, mailSubject);
                 }
             }
+
+            MessageBox.Show("Mails have been sent successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ChairToAcceptedAuthors_FormClosing(object sender, FormClosingEventArgs e)

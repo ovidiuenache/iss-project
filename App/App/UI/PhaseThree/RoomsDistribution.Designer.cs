@@ -37,10 +37,9 @@
             // btnPickSectionLeader
             // 
             this.btnPickSectionLeader.BackColor = System.Drawing.SystemColors.Control;
-            this.btnPickSectionLeader.Location = new System.Drawing.Point(93, 13);
-            this.btnPickSectionLeader.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPickSectionLeader.Location = new System.Drawing.Point(28, 12);
             this.btnPickSectionLeader.Name = "btnPickSectionLeader";
-            this.btnPickSectionLeader.Size = new System.Drawing.Size(172, 46);
+            this.btnPickSectionLeader.Size = new System.Drawing.Size(129, 37);
             this.btnPickSectionLeader.TabIndex = 6;
             this.btnPickSectionLeader.Text = "Pick Section Leader";
             this.btnPickSectionLeader.UseVisualStyleBackColor = false;
@@ -49,10 +48,9 @@
             // btnScheduleSetup
             // 
             this.btnScheduleSetup.BackColor = System.Drawing.SystemColors.Control;
-            this.btnScheduleSetup.Location = new System.Drawing.Point(93, 90);
-            this.btnScheduleSetup.Margin = new System.Windows.Forms.Padding(4);
+            this.btnScheduleSetup.Location = new System.Drawing.Point(28, 55);
             this.btnScheduleSetup.Name = "btnScheduleSetup";
-            this.btnScheduleSetup.Size = new System.Drawing.Size(172, 46);
+            this.btnScheduleSetup.Size = new System.Drawing.Size(129, 37);
             this.btnScheduleSetup.TabIndex = 7;
             this.btnScheduleSetup.Text = "Schedule";
             this.btnScheduleSetup.UseVisualStyleBackColor = false;
@@ -61,10 +59,9 @@
             // btnChooseRooms
             // 
             this.btnChooseRooms.BackColor = System.Drawing.SystemColors.Control;
-            this.btnChooseRooms.Location = new System.Drawing.Point(93, 163);
-            this.btnChooseRooms.Margin = new System.Windows.Forms.Padding(4);
+            this.btnChooseRooms.Location = new System.Drawing.Point(28, 98);
             this.btnChooseRooms.Name = "btnChooseRooms";
-            this.btnChooseRooms.Size = new System.Drawing.Size(172, 46);
+            this.btnChooseRooms.Size = new System.Drawing.Size(129, 37);
             this.btnChooseRooms.TabIndex = 8;
             this.btnChooseRooms.Text = "Choose Rooms";
             this.btnChooseRooms.UseVisualStyleBackColor = false;
@@ -72,27 +69,33 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(13, 255);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonBack.MaximumSize = new System.Drawing.Size(115, 53);
-            this.buttonBack.MinimumSize = new System.Drawing.Size(115, 53);
+            this.buttonBack.Location = new System.Drawing.Point(50, 141);
+            this.buttonBack.MaximumSize = new System.Drawing.Size(86, 43);
+            this.buttonBack.MinimumSize = new System.Drawing.Size(86, 43);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(115, 53);
+            this.buttonBack.Size = new System.Drawing.Size(86, 43);
             this.buttonBack.TabIndex = 9;
-            this.buttonBack.Text = "Back";
+            this.buttonBack.Text = "Logout";
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // RoomsDistribution
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 312);
+            this.ClientSize = new System.Drawing.Size(188, 199);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.btnChooseRooms);
             this.Controls.Add(this.btnScheduleSetup);
             this.Controls.Add(this.btnPickSectionLeader);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(204, 238);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(204, 238);
             this.Name = "RoomsDistribution";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "RoomsDistribution";
             this.ResumeLayout(false);
 

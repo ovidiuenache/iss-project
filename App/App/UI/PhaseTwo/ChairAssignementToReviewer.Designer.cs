@@ -41,23 +41,23 @@
             this.proposalsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.proposalsDataGridView.Location = new System.Drawing.Point(13, 13);
             this.proposalsDataGridView.Name = "proposalsDataGridView";
-            this.proposalsDataGridView.Size = new System.Drawing.Size(189, 494);
+            this.proposalsDataGridView.Size = new System.Drawing.Size(570, 227);
             this.proposalsDataGridView.TabIndex = 0;
             // 
             // reviewersDataGridView
             // 
             this.reviewersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.reviewersDataGridView.Location = new System.Drawing.Point(227, 13);
+            this.reviewersDataGridView.Location = new System.Drawing.Point(13, 246);
             this.reviewersDataGridView.Name = "reviewersDataGridView";
-            this.reviewersDataGridView.Size = new System.Drawing.Size(200, 360);
+            this.reviewersDataGridView.Size = new System.Drawing.Size(570, 212);
             this.reviewersDataGridView.TabIndex = 1;
             // 
             // submitButton
             // 
             this.submitButton.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.submitButton.Location = new System.Drawing.Point(274, 395);
+            this.submitButton.Location = new System.Drawing.Point(602, 13);
             this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(120, 44);
+            this.submitButton.Size = new System.Drawing.Size(183, 227);
             this.submitButton.TabIndex = 2;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = false;
@@ -65,9 +65,9 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(274, 454);
+            this.buttonBack.Location = new System.Drawing.Point(602, 246);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(120, 44);
+            this.buttonBack.Size = new System.Drawing.Size(183, 212);
             this.buttonBack.TabIndex = 3;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -77,15 +77,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 519);
+            this.ClientSize = new System.Drawing.Size(797, 470);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.reviewersDataGridView);
             this.Controls.Add(this.proposalsDataGridView);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(456, 558);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(456, 558);
             this.Name = "ChairAssignementToReviewer";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

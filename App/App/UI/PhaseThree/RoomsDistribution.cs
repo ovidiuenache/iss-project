@@ -30,6 +30,7 @@ namespace App.UI.PhaseThree
         private void btnPickSectionLeader_Click(object sender, EventArgs e)
         {
             Form programComitee = new ProgramComitee(this);
+            programComitee.Location = new Point(Location.X, Location.Y);
             programComitee.Show();
             Hide();
         }
@@ -37,6 +38,7 @@ namespace App.UI.PhaseThree
         private void btnScheduleSetup_Click(object sender, EventArgs e)
         {
             Form scheduleForm = new CreateSchedule(this);
+            scheduleForm.Location = new Point(Location.X, Location.Y);
             scheduleForm.Show();
             Hide();
         }
@@ -44,6 +46,7 @@ namespace App.UI.PhaseThree
         private void btnChooseRooms_Click(object sender, EventArgs e)
         {
             Form choseRoomForm = new ChooseRoom(this);
+            choseRoomForm.Location = new Point(Location.X, Location.Y);
             choseRoomForm.Show();
             Hide();
         }

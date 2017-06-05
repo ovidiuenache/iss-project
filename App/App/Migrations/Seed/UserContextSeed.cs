@@ -47,9 +47,20 @@ namespace App.Migrations.Seed
                 var user1 = new User("Andu", "Popa", "popa@gmail.com", encrypter.encryptPassword("parola"), "ro");
                 var userRole = new UserRole() {Role = chair, RoleId = chair.RoleId, User = user1, UserId = user1.UserId};
                 user1.UserRoles = new List<UserRole>() {userRole};
+
+                var user2 = new User("Haba", "Baba", "haba@gmail.com", encrypter.encryptPassword("parola"), "ro");
+                var userRole2 = new UserRole() { Role = reviewer, RoleId = reviewer.RoleId, User = user2, UserId = user2.UserId };
+                user2.UserRoles = new List<UserRole>() { userRole2 };
+
+                var user3 = new User("Yolo", "Swag", "swag@gmail.com", encrypter.encryptPassword("parola"), "ro");
+                var userRole3 = new UserRole() { Role = reviewer, RoleId = reviewer.RoleId, User = user3, UserId = user3.UserId };
+                user3.UserRoles = new List<UserRole>() { userRole3 };
+
                 if (!db.Users.Any())
                 {
                     db.Users.Add(user1);
+                    db.Users.Add(user2);
+                    db.Users.Add(user3);
                 }
 
                 db.SaveChanges();

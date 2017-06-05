@@ -18,12 +18,19 @@ namespace App.Controller
         private ProposalRepository proposalRepository;
         private UserRepository userRepository;
         private ConferenceRepository conferenceRepository;
+        private RoleRepository roleRepository;
 
-        public PhaseOneController(ProposalRepository proposalRepository, UserRepository userRepository, ConferenceRepository conferenceRepository)
+        public PhaseOneController(
+            ProposalRepository proposalRepository,
+            UserRepository userRepository,
+            ConferenceRepository conferenceRepository,
+            RoleRepository roleRepository
+        )
         {
             this.proposalRepository = proposalRepository;
             this.userRepository = userRepository;
             this.conferenceRepository = conferenceRepository;
+            this.roleRepository = roleRepository;
         }
 
         public void addProposal(Proposal proposal)
@@ -103,7 +110,9 @@ namespace App.Controller
 
                 if (isAuthor)
                 {
-                    //Make the motherfucker an author
+                    Role role = roleRepository.getBySlug("author");
+                    user.UserRoles = new List<UserRole>() { new UserRole() { Role = role, RoleId = role.RoleId, User = user, UserId = user.UserId } };
+                    userRepository.Update(user);
                 }
             }
         }

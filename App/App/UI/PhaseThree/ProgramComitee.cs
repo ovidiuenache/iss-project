@@ -96,5 +96,12 @@ namespace App.UI.PhaseThree
             ParentForm.Show();
             Close();
         }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            ParentForm.Location = new Point(Location.X, Location.Y);
+            ParentForm.Show();
+            Close();
+        }
     }
 }

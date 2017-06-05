@@ -36,17 +36,19 @@
             // labelProposalTitle
             // 
             this.labelProposalTitle.AutoSize = true;
-            this.labelProposalTitle.Location = new System.Drawing.Point(12, 49);
+            this.labelProposalTitle.Location = new System.Drawing.Point(11, 28);
+            this.labelProposalTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelProposalTitle.Name = "labelProposalTitle";
-            this.labelProposalTitle.Size = new System.Drawing.Size(46, 17);
+            this.labelProposalTitle.Size = new System.Drawing.Size(35, 13);
             this.labelProposalTitle.TabIndex = 0;
             this.labelProposalTitle.Text = "label1";
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(130, 119);
+            this.btnDone.Location = new System.Drawing.Point(14, 86);
+            this.btnDone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(85, 30);
+            this.btnDone.Size = new System.Drawing.Size(148, 29);
             this.btnDone.TabIndex = 2;
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = true;
@@ -54,20 +56,28 @@
             // 
             // dateTimePickerProposalTime
             // 
-            this.dateTimePickerProposalTime.Location = new System.Drawing.Point(15, 81);
+            this.dateTimePickerProposalTime.Location = new System.Drawing.Point(14, 53);
+            this.dateTimePickerProposalTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerProposalTime.Name = "dateTimePickerProposalTime";
-            this.dateTimePickerProposalTime.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerProposalTime.Size = new System.Drawing.Size(151, 20);
             this.dateTimePickerProposalTime.TabIndex = 1;
             // 
             // AddStartTime
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.ClientSize = new System.Drawing.Size(183, 128);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.dateTimePickerProposalTime);
             this.Controls.Add(this.labelProposalTitle);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(199, 167);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(199, 167);
             this.Name = "AddStartTime";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "AddStartTime";
             this.Load += new System.EventHandler(this.AddStartTime_Load);
             this.ResumeLayout(false);

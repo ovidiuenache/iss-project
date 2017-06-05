@@ -51,6 +51,7 @@
             this.browseButton.TabIndex = 1;
             this.browseButton.Text = "BROWSE";
             this.browseButton.UseVisualStyleBackColor = false;
+            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
             // 
             // uploadButton
             // 
@@ -61,6 +62,7 @@
             this.uploadButton.TabIndex = 2;
             this.uploadButton.Text = "Upload information";
             this.uploadButton.UseVisualStyleBackColor = false;
+            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
             // 
             // openFileDialogBrowse
             // 

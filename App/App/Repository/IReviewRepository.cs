@@ -1,5 +1,5 @@
 ﻿using App.Entity;
-
+using System.Collections.Generic;
 
 namespace App.Repository
 {
@@ -11,5 +11,6 @@ namespace App.Repository
     /// </summary>
     public interface IReviewRepository : IRepository<Review>
     {
+        List<int> getRejectedProposalsIds();
     }
 }
