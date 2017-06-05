@@ -1179,7 +1179,7 @@
 													"height": 13,
 													"autoResize": false,
 													"underline": false,
-													"text": "DatabaseSet",
+													"text": "AppContext",
 													"horizontalAlignment": 2,
 													"verticalAlignment": 5,
 													"wordWrap": false
@@ -1355,7 +1355,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "2 : IntroduceConferenceName()",
+											"text": "2 : IntroduceConferenceName",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1525,7 +1525,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "3 : IntroduceEndDate()",
+											"text": "3 : IntroduceEndDate",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1897,7 +1897,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "4 : IntroduceCommiteeMembers()",
+											"text": "4 : IntroduceCommiteeMembers",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2067,7 +2067,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "5 : IntroduceTopics()",
+											"text": "5 : IntroduceTopics",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2237,7 +2237,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "6 : IntroduceConferenceFee()",
+											"text": "6 : IntroduceConferenceFee",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2407,7 +2407,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "7 : CreateConfereceButtonClick()",
+											"text": "7 : CreateConfereceButtonClick",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2747,7 +2747,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "9 : AlertInvalidData() [data is invalid]",
+											"text": "9 : AlertInvalidData [data is invalid]",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2906,7 +2906,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 400,
-											"top": 440,
+											"top": 448,
 											"width": 210.26611328125,
 											"height": 13,
 											"autoResize": false,
@@ -2941,7 +2941,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 504,
-											"top": 433,
+											"top": 441,
 											"width": 0,
 											"height": 13,
 											"autoResize": false,
@@ -2975,7 +2975,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 504,
-											"top": 468,
+											"top": 476,
 											"width": 0,
 											"height": 13,
 											"autoResize": false,
@@ -3009,7 +3009,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 622,
-											"top": 464,
+											"top": 472,
 											"width": 14,
 											"height": 60,
 											"autoResize": false
@@ -3031,7 +3031,7 @@
 										"$ref": "AAAAAAFb7DSkKznhHac="
 									},
 									"lineStyle": 0,
-									"points": "387:464;622:464",
+									"points": "387:472;622:472",
 									"nameLabel": {
 										"$ref": "AAAAAAFcb3EeCC2n9c4="
 									},
@@ -4139,7 +4139,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "16 : AlertConferenceInProgress() [conference in progress]",
+											"text": "16 : AlertConferenceInProgress [conference in progress]",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -4649,7 +4649,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "19 : AlertConferenceCreated() [conference created]",
+											"text": "19 : AlertConferenceCreated [conference created]",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -4810,7 +4810,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFb7DCzvDmogNw="
 							},
-							"name": "IntroduceConferenceName()",
+							"name": "IntroduceConferenceName",
 							"source": {
 								"$ref": "AAAAAAFb7DPe6jm5eVc="
 							},
@@ -4827,7 +4827,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFb7DCzvDmogNw="
 							},
-							"name": "IntroduceEndDate()",
+							"name": "IntroduceEndDate",
 							"source": {
 								"$ref": "AAAAAAFb7DPe6jm5eVc="
 							},
@@ -4844,7 +4844,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFb7DCzvDmogNw="
 							},
-							"name": "IntroduceCommiteeMembers()",
+							"name": "IntroduceCommiteeMembers",
 							"source": {
 								"$ref": "AAAAAAFb7DPe6jm5eVc="
 							},
@@ -4861,7 +4861,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFb7DCzvDmogNw="
 							},
-							"name": "IntroduceTopics()",
+							"name": "IntroduceTopics",
 							"source": {
 								"$ref": "AAAAAAFb7DPe6jm5eVc="
 							},
@@ -4878,7 +4878,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFb7DCzvDmogNw="
 							},
-							"name": "IntroduceConferenceFee()",
+							"name": "IntroduceConferenceFee",
 							"source": {
 								"$ref": "AAAAAAFb7DPe6jm5eVc="
 							},
@@ -4895,7 +4895,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFb7DCzvDmogNw="
 							},
-							"name": "CreateConfereceButtonClick()",
+							"name": "CreateConfereceButtonClick",
 							"source": {
 								"$ref": "AAAAAAFb7DPe6jm5eVc="
 							},
@@ -4929,7 +4929,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFb7DCzvDmogNw="
 							},
-							"name": "AlertInvalidData() [data is invalid]",
+							"name": "AlertInvalidData [data is invalid]",
 							"source": {
 								"$ref": "AAAAAAFb7DSkKzna4yI="
 							},
@@ -5052,7 +5052,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFb7DCzvDmogNw="
 							},
-							"name": "AlertConferenceInProgress() [conference in progress]",
+							"name": "AlertConferenceInProgress [conference in progress]",
 							"source": {
 								"$ref": "AAAAAAFb7Dg0czoxGfM="
 							},
@@ -5103,7 +5103,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFb7DCzvDmogNw="
 							},
-							"name": "AlertConferenceCreated() [conference created]",
+							"name": "AlertConferenceCreated [conference created]",
 							"source": {
 								"$ref": "AAAAAAFb7DSkKzna4yI="
 							},
@@ -5174,7 +5174,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFb7DCzvDmogNw="
 							},
-							"name": "DatabaseSet",
+							"name": "AppContext",
 							"visibility": "public",
 							"represent": {
 								"$ref": "AAAAAAFb7Dim9Dpz794="

@@ -177,6 +177,15 @@ namespace App.Controller
 
             foreach (int id in rejectedProposalsIds)
             {
+
+                foreach (User author in getProposal(id).Authors)
+                {
+                    Role role = roleRepository.getBySlug("listner");
+                    author.UserRoles = new List<UserRole>() { new UserRole() { Role = role, RoleId = role.RoleId, User = author, UserId = author.UserId } };
+                    userRepo.Update(author);
+
+                }
+
                 proposalRepo.Delete(proposalRepo.Find(id));
             }
         }
