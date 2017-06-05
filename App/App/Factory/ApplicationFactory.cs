@@ -95,7 +95,10 @@ namespace App.Factory
                 getUserRepository(),
                 getProposalRepository(), 
                 getConferenceRepository(),
-                GetUserSectionRepository()
+                GetUserSectionRepository(),
+                getReviewRepository(),
+                getPhaseRepository(),
+                getTopicRepository()
             );
         }
 
