@@ -11,108 +11,63 @@ namespace App.Controller
     /// </summary>
     public interface IPhaseThreeController
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        List<Section> FindAllSections();
+    
+        void deletePhases();
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="loggedUser"></param>
-        /// <returns></returns>
-        List<Section> FindAllUnassignedSections(User loggedUser);
+        void deleteConferences();
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sectionName"></param>
-        /// <returns></returns>
-        Section FindSectionByName(string sectionName);
+       
+        void deleteTopics();
 
-        /// <summary>
-        /// Iterate all sections and add the user.
-        /// </summary>
-        /// <param name="sections"></param>
-        /// <param name="loggedUser"></param>
-        void AddListenerToSections(List<Section> sections, User loggedUser);
+        void deleteProposals();
 
-        /// <summary>
-        /// Add the leader of section.
-        /// </summary>
-        /// <param name="scection"></param>
-        /// <param name="sectionLeader"></param>
-        void AddSectionLeader(Section scection, User sectionLeader);
+        void deleteReviews();
 
-        /// <summary>
-        /// All users that have the following roles: chair or reviewer.
-        /// </summary>
-        /// <returns></returns>
-        List<User> FindAllComiteeMemberWithoutSection();
+   
+        List<Section> FindAllSectionsWithoutRoom();
 
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="section"></param>
-        /// <returns></returns>
-        List<Proposal> FindAllProposalsBySection(Section section);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        List<Proposal> FindAllProposals();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        List<Proposal> FindAllProposalsWithoutSection();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="proposalName"></param>
-        /// <returns></returns>
-        Proposal FindProposalByName(string proposalName);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="section"></param>
-        /// <param name="proposal"></param>
-        void AddProposalToSection(Section section, Proposal proposal);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        Conference GetActiveConference();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="proposal"></param>
-        void UpdateProposal(Proposal proposal);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="section"></param>
-        /// <param name="roomName"></param>
-        void AddSectionRoom(Section section, string roomName);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         List<Section> FindAllSectionsWithoutLeader();
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        List<Section> FindAllSectionsWithoutRoom();
+        void AddSectionRoom(Section section, string roomName);
+
+
+        void UpdateProposal(Proposal proposal);
+
+        Conference GetActiveConference();
+
+        void AddProposalToSection(Section section, Proposal proposal);
+
+  
+        Proposal FindProposalByName(string proposalName);
+
+ 
+        List<Proposal> FindAllProposals();
+
+        
+        List<Proposal> FindAllProposalsWithoutSection();
+
+       
+        List<Proposal> FindAllProposalsBySection(Section section);
+
+   
+        bool IsComiteeMemberWithoutSection(User user);
+
+    
+        List<User> FindAllComiteeMemberWithoutSection();
+
+        
+        void AddSectionLeader(Section section, User sectionLeader);
+
+        void AddListenerToSections(List<Section> sections, User loggedUser);
+
+        Section FindSectionByName(string sectionName);
+
+
+        List<Section> FindAllUnassignedSections(User loggedUser);
+
+
+        List<Section> FindAllSections();
+
     }
 }

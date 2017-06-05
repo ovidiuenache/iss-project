@@ -47,5 +47,12 @@ namespace App.Controller
         /// </summary>
         /// <returns></returns>
         List<Section> FindAllSectionsWithoutRoom();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="section"></param>
+        /// <returns></returns>
+        List<User> FindAllAuthors(Section section);
     }
 }

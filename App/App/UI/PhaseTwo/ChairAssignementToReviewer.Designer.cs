@@ -43,6 +43,7 @@
             this.proposalsDataGridView.Name = "proposalsDataGridView";
             this.proposalsDataGridView.Size = new System.Drawing.Size(570, 227);
             this.proposalsDataGridView.TabIndex = 0;
+            this.proposalsDataGridView.SelectionChanged += new System.EventHandler(this.proposalsDataGridView_SelectionChanged);
             // 
             // reviewersDataGridView
             // 
