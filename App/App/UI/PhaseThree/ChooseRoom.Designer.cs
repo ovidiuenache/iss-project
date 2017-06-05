@@ -33,7 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddRoomName = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -78,24 +77,13 @@
             // buttonBack
             // 
             this.buttonBack.Location = new System.Drawing.Point(32, 139);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(137, 48);
             this.buttonBack.TabIndex = 6;
-            this.buttonBack.Text = "Back";
+            this.buttonBack.Text = "Logout";
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(216, 139);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(160, 48);
-            this.btnSubmit.TabIndex = 7;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // label2
             // 
@@ -112,7 +100,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 192);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.btnAddRoomName);
             this.Controls.Add(this.label1);
@@ -139,7 +126,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddRoomName;
         private System.Windows.Forms.Button buttonBack;
-        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label label2;
     }
 }
