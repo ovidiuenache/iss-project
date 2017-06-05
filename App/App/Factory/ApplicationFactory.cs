@@ -67,7 +67,8 @@ namespace App.Factory
                 getConferenceRepository(),
                 getTopicRepository(),
                 getPhaseRepository(),
-                getConferenceUserRepository()
+                getConferenceUserRepository(),
+                getUserRoleRepository()
             );
         }
 
