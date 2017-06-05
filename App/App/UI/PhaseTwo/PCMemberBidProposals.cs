@@ -49,6 +49,8 @@ namespace App.UI.PhaseTwo
                 Review review = new Review("", "", reviewer, prop, new DateTime(2000,01,01));
                 phaseTwoController.addReview(review);
             }
+
+            MessageBox.Show("Bid was made successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void proposalsDataGridView_SelectionChanged(object sender, EventArgs e)

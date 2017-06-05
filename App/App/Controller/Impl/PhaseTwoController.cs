@@ -19,13 +19,15 @@ namespace App.Controller
         private ProposalRepository proposalRepo;
         private UserRepository userRepo;
         private UserRoleRepository userRoleRepo;
+        private RoleRepository roleRepository;
 
         public PhaseTwoController(
             ReviewRepository reviewRepo,
             ProposalRepository proposalRepo,
             UserRepository userRepo,
             ConferenceRepository conferenceRepository,
-            UserRoleRepository userRoleRepo
+            UserRoleRepository userRoleRepo,
+            RoleRepository roleRepository
         )
         {
             this.reviewRepo = reviewRepo;
@@ -33,6 +35,7 @@ namespace App.Controller
             this.userRepo = userRepo;
             this.conferenceRepository = conferenceRepository;
             this.userRoleRepo = userRoleRepo;
+            this.roleRepository = roleRepository;
         }
 
         /// <summary>
@@ -155,7 +158,17 @@ namespace App.Controller
 
         public List<User> getReviewers()
         {
-            return userRepo.All().Where(user => userRoleRepo.All().Where(role => role.RoleId == 5).ToList().First().UserId == user.UserId).ToList();
+            return userRepo.All().Where(user => userRoleRepo.All().Where(role => role.RoleId == roleRepository.getBySlug("reviewer").RoleId).ToList().First().UserId == user.UserId).ToList();
+        }
+
+        public void deleteRejectedProposals()
+        {
+            List<int> rejectedProposalsIds = reviewRepo.getRejectedProposalsIds();
+
+            foreach (int id in rejectedProposalsIds)
+            {
+                proposalRepo.Delete(proposalRepo.Find(id));
+            }
         }
     }
 }

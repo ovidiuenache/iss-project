@@ -18,12 +18,19 @@ namespace App.Controller
         private ProposalRepository proposalRepository;
         private UserRepository userRepository;
         private ConferenceRepository conferenceRepository;
+        private RoleRepository roleRepository;
 
-        public PhaseOneController(ProposalRepository proposalRepository, UserRepository userRepository, ConferenceRepository conferenceRepository)
+        public PhaseOneController(
+            ProposalRepository proposalRepository,
+            UserRepository userRepository,
+            ConferenceRepository conferenceRepository,
+            RoleRepository roleRepository
+        )
         {
             this.proposalRepository = proposalRepository;
             this.userRepository = userRepository;
             this.conferenceRepository = conferenceRepository;
+            this.roleRepository = roleRepository;
         }
 
         public void addProposal(Proposal proposal)
@@ -74,6 +81,40 @@ namespace App.Controller
         public Proposal getProposalByUser(int userId)
         {
             return proposalRepository.All().Where(proposal => proposal.Authors.Contains(userRepository.Find(userId))).ToList().FirstOrDefault();
+        }
+
+        public void deleteProposalsWithoutFull()
+        {
+            List<Proposal> proposalsWithoutFull = proposalRepository.getProposalsWithoutFull();
+            foreach (Proposal prop in proposalsWithoutFull)
+            {
+                proposalRepository.Delete(prop);
+            }
+        }
+
+        public void updateUserRoles()
+        {
+            List<Proposal> allProposals = proposalRepository.All();
+
+            foreach (User user in userRepository.All())
+            {
+                bool isAuthor = false;
+
+                foreach (Proposal proposal in allProposals)
+                {
+                    if (proposal.Authors.Select(author => author.UserId).Contains(user.UserId))
+                    {
+                        isAuthor = true;
+                    }
+                }
+
+                if (isAuthor)
+                {
+                    Role role = roleRepository.getBySlug("author");
+                    user.UserRoles = new List<UserRole>() { new UserRole() { Role = role, RoleId = role.RoleId, User = user, UserId = user.UserId } };
+                    userRepository.Update(user);
+                }
+            }
         }
     }
 }

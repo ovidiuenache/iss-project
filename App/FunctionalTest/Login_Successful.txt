@@ -1,0 +1,9 @@
+As a regular not logged user,
+When I start the application,
+And I am on "Conference Details" form,
+And I click the "Login" button,
+And I am on "Login" form,
+And I type a valid email address in the email text box,
+And I type a valid password in the password text box,
+And I press the Login button,
+I should see the form of the active phase of the conference

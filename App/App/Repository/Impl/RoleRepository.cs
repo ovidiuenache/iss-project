@@ -1,5 +1,6 @@
 ﻿using App.Context;
 using App.Entity;
+using System.Linq;
 
 namespace App.Repository.Impl
 {
@@ -13,6 +14,11 @@ namespace App.Repository.Impl
     {
         public RoleRepository(AppContext context) : base(context)
         {
+        }
+
+        public Role getBySlug(string slug)
+        {
+            return Context.Roles.Where(r => r.Slug == slug).ToList().Last();
         }
     }
 }

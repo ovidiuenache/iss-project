@@ -49,13 +49,13 @@
             this.proposalsDataGridView.MultiSelect = false;
             this.proposalsDataGridView.Name = "proposalsDataGridView";
             this.proposalsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.proposalsDataGridView.Size = new System.Drawing.Size(219, 490);
+            this.proposalsDataGridView.Size = new System.Drawing.Size(482, 490);
             this.proposalsDataGridView.TabIndex = 0;
             this.proposalsDataGridView.SelectionChanged += new System.EventHandler(this.proposalsDataGridView_SelectionChanged);
             // 
             // commentsRichTextBox
             // 
-            this.commentsRichTextBox.Location = new System.Drawing.Point(249, 13);
+            this.commentsRichTextBox.Location = new System.Drawing.Point(516, 22);
             this.commentsRichTextBox.Name = "commentsRichTextBox";
             this.commentsRichTextBox.Size = new System.Drawing.Size(207, 229);
             this.commentsRichTextBox.TabIndex = 1;
@@ -64,7 +64,7 @@
             // strongAccceptButton
             // 
             this.strongAccceptButton.AutoSize = true;
-            this.strongAccceptButton.Location = new System.Drawing.Point(249, 260);
+            this.strongAccceptButton.Location = new System.Drawing.Point(519, 270);
             this.strongAccceptButton.Name = "strongAccceptButton";
             this.strongAccceptButton.Size = new System.Drawing.Size(92, 17);
             this.strongAccceptButton.TabIndex = 2;
@@ -75,7 +75,7 @@
             // acceptRadioButton
             // 
             this.acceptRadioButton.AutoSize = true;
-            this.acceptRadioButton.Location = new System.Drawing.Point(249, 284);
+            this.acceptRadioButton.Location = new System.Drawing.Point(519, 294);
             this.acceptRadioButton.Name = "acceptRadioButton";
             this.acceptRadioButton.Size = new System.Drawing.Size(59, 17);
             this.acceptRadioButton.TabIndex = 3;
@@ -86,7 +86,7 @@
             // weakAcceptRadioButton
             // 
             this.weakAcceptRadioButton.AutoSize = true;
-            this.weakAcceptRadioButton.Location = new System.Drawing.Point(249, 308);
+            this.weakAcceptRadioButton.Location = new System.Drawing.Point(519, 318);
             this.weakAcceptRadioButton.Name = "weakAcceptRadioButton";
             this.weakAcceptRadioButton.Size = new System.Drawing.Size(90, 17);
             this.weakAcceptRadioButton.TabIndex = 4;
@@ -97,7 +97,7 @@
             // borderlineRadioButton
             // 
             this.borderlineRadioButton.AutoSize = true;
-            this.borderlineRadioButton.Location = new System.Drawing.Point(249, 332);
+            this.borderlineRadioButton.Location = new System.Drawing.Point(519, 342);
             this.borderlineRadioButton.Name = "borderlineRadioButton";
             this.borderlineRadioButton.Size = new System.Drawing.Size(102, 17);
             this.borderlineRadioButton.TabIndex = 5;
@@ -108,7 +108,7 @@
             // weakRejectRadioButton
             // 
             this.weakRejectRadioButton.AutoSize = true;
-            this.weakRejectRadioButton.Location = new System.Drawing.Point(249, 356);
+            this.weakRejectRadioButton.Location = new System.Drawing.Point(519, 366);
             this.weakRejectRadioButton.Name = "weakRejectRadioButton";
             this.weakRejectRadioButton.Size = new System.Drawing.Size(83, 17);
             this.weakRejectRadioButton.TabIndex = 6;
@@ -119,7 +119,7 @@
             // rejectRadioButton
             // 
             this.rejectRadioButton.AutoSize = true;
-            this.rejectRadioButton.Location = new System.Drawing.Point(249, 380);
+            this.rejectRadioButton.Location = new System.Drawing.Point(519, 390);
             this.rejectRadioButton.Name = "rejectRadioButton";
             this.rejectRadioButton.Size = new System.Drawing.Size(56, 17);
             this.rejectRadioButton.TabIndex = 7;
@@ -130,7 +130,7 @@
             // strongRejectRadioButton
             // 
             this.strongRejectRadioButton.AutoSize = true;
-            this.strongRejectRadioButton.Location = new System.Drawing.Point(249, 404);
+            this.strongRejectRadioButton.Location = new System.Drawing.Point(519, 414);
             this.strongRejectRadioButton.Name = "strongRejectRadioButton";
             this.strongRejectRadioButton.Size = new System.Drawing.Size(85, 17);
             this.strongRejectRadioButton.TabIndex = 8;
@@ -141,7 +141,7 @@
             // submitButton
             // 
             this.submitButton.BackColor = System.Drawing.SystemColors.Control;
-            this.submitButton.Location = new System.Drawing.Point(249, 451);
+            this.submitButton.Location = new System.Drawing.Point(516, 461);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(95, 37);
             this.submitButton.TabIndex = 9;
@@ -151,7 +151,7 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(361, 451);
+            this.buttonBack.Location = new System.Drawing.Point(628, 461);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(95, 37);
             this.buttonBack.TabIndex = 10;
@@ -163,7 +163,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 515);
+            this.ClientSize = new System.Drawing.Size(751, 515);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.strongRejectRadioButton);
@@ -176,9 +176,9 @@
             this.Controls.Add(this.commentsRichTextBox);
             this.Controls.Add(this.proposalsDataGridView);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(484, 554);
+            this.MaximumSize = new System.Drawing.Size(767, 554);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(484, 554);
+            this.MinimumSize = new System.Drawing.Size(767, 554);
             this.Name = "PCMemberRateProposals";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

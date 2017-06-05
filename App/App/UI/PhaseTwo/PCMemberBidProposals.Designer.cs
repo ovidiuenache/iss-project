@@ -42,13 +42,13 @@
             this.proposalsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.proposalsDataGridView.Location = new System.Drawing.Point(13, 13);
             this.proposalsDataGridView.Name = "proposalsDataGridView";
-            this.proposalsDataGridView.Size = new System.Drawing.Size(227, 483);
+            this.proposalsDataGridView.Size = new System.Drawing.Size(598, 258);
             this.proposalsDataGridView.TabIndex = 0;
             // 
             // radioButtonDa
             // 
             this.radioButtonDa.AutoSize = true;
-            this.radioButtonDa.Location = new System.Drawing.Point(272, 43);
+            this.radioButtonDa.Location = new System.Drawing.Point(35, 302);
             this.radioButtonDa.Name = "radioButtonDa";
             this.radioButtonDa.Size = new System.Drawing.Size(54, 17);
             this.radioButtonDa.TabIndex = 1;
@@ -59,7 +59,7 @@
             // radioButtonPot
             // 
             this.radioButtonPot.AutoSize = true;
-            this.radioButtonPot.Location = new System.Drawing.Point(272, 82);
+            this.radioButtonPot.Location = new System.Drawing.Point(95, 302);
             this.radioButtonPot.Name = "radioButtonPot";
             this.radioButtonPot.Size = new System.Drawing.Size(49, 17);
             this.radioButtonPot.TabIndex = 2;
@@ -70,7 +70,7 @@
             // radioButtonNuVreau
             // 
             this.radioButtonNuVreau.AutoSize = true;
-            this.radioButtonNuVreau.Location = new System.Drawing.Point(272, 120);
+            this.radioButtonNuVreau.Location = new System.Drawing.Point(150, 302);
             this.radioButtonNuVreau.Name = "radioButtonNuVreau";
             this.radioButtonNuVreau.Size = new System.Drawing.Size(80, 17);
             this.radioButtonNuVreau.TabIndex = 3;
@@ -81,9 +81,9 @@
             // submitButton
             // 
             this.submitButton.BackColor = System.Drawing.SystemColors.Control;
-            this.submitButton.Location = new System.Drawing.Point(272, 168);
+            this.submitButton.Location = new System.Drawing.Point(272, 292);
             this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(99, 37);
+            this.submitButton.Size = new System.Drawing.Size(155, 37);
             this.submitButton.TabIndex = 4;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = false;
@@ -91,9 +91,9 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(272, 211);
+            this.buttonBack.Location = new System.Drawing.Point(456, 292);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(99, 37);
+            this.buttonBack.Size = new System.Drawing.Size(155, 37);
             this.buttonBack.TabIndex = 5;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -103,7 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 508);
+            this.ClientSize = new System.Drawing.Size(623, 344);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.radioButtonNuVreau);
@@ -111,9 +111,9 @@
             this.Controls.Add(this.radioButtonDa);
             this.Controls.Add(this.proposalsDataGridView);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(404, 547);
+            this.MaximumSize = new System.Drawing.Size(639, 383);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(404, 547);
+            this.MinimumSize = new System.Drawing.Size(639, 383);
             this.Name = "PCMemberBidProposals";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

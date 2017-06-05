@@ -22,6 +22,8 @@ namespace App.Controller
         private ITopicRepository TopicRepository;
         private IPhaseRepository PhaseRepository;
         private IConferenceUserRepository ConferenceUserRepository;
+        private IUserRoleRepository UserRoleRepository;
+        private IRoleRepository roleRepository;
         private MailSender MailSender;
 
         public PreliminaryPhaseController(
@@ -29,7 +31,9 @@ namespace App.Controller
             IConferenceRepository conferenceRepository, 
             ITopicRepository topicRepository, 
             IPhaseRepository phaseRepository,
-            IConferenceUserRepository conferenceUserRepository
+            IConferenceUserRepository conferenceUserRepository,
+            IUserRoleRepository userRoleRepository,
+            IRoleRepository roleRepository
         )
         {
             UserRepository = userRepository;
@@ -37,6 +41,8 @@ namespace App.Controller
             TopicRepository = topicRepository;
             PhaseRepository = phaseRepository;
             ConferenceUserRepository = conferenceUserRepository;
+            UserRoleRepository = userRoleRepository;
+            this.roleRepository = roleRepository;
             MailSender = new MailSender();
         }
 
@@ -51,7 +57,11 @@ namespace App.Controller
             {
                 var encrypt = new EncryptDecrypt();
                 user.Password = encrypt.encryptPassword(user.Password);
+
                 UserRepository.Add(user);
+                Role role = roleRepository.getBySlug("listner");
+                UserRoleRepository.Add(new UserRole { UserId = user.UserId, User = user, Role = role, RoleId = role.RoleId });
+
                 MailAddress sender = new MailAddress("iss.cmsmailer@gmail.com");
                 MailAddress receiver = new MailAddress(user.Email);
                 string mailBody = "Thank you for your registration. Your account " +

@@ -33,5 +33,10 @@ namespace App.Repository.Impl
         {
             return Context.Proposals.SingleOrDefault(p => p.Title == name);
         }
+
+        public List<Proposal> getProposalsWithoutFull()
+        {
+            return Context.Proposals.Where(proposal => proposal.FullPaper.Length == 0).ToList();
+        }
     }
 }

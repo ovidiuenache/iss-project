@@ -55,13 +55,15 @@ namespace App.UI.PhaseTwo
 
                 Phase nextPhase = new Phase();
                 nextPhase.Deadline = activeConference.EndDate;
-                nextPhase.Name = "PHASETWO";
+                nextPhase.Name = "PHASETHREE";
 
                 activeConference.ActivePhase = nextPhase;
 
                 phaseTwoController.UpdateConference(activeConference);
+                phaseTwoController.deleteRejectedProposals();
 
                 MessageBox.Show("Switch to the next phase has been done successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
             else if (dialogResult == DialogResult.No)
             {

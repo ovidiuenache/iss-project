@@ -1,0 +1,5 @@
+As a regular not logged user,
+When I start the application,
+And I am on "Conference Details" form,
+And I click the "Login" button,
+I should see the "Login form"

@@ -48,7 +48,7 @@ namespace App.Migrations
                 column: "ProposalId",
                 principalTable: "Proposals",
                 principalColumn: "ProposalId",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.SetNull);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

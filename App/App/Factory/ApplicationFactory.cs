@@ -67,7 +67,9 @@ namespace App.Factory
                 getConferenceRepository(),
                 getTopicRepository(),
                 getPhaseRepository(),
-                getConferenceUserRepository()
+                getConferenceUserRepository(),
+                getUserRoleRepository(),
+                getRoleRepository()
             );
         }
 
@@ -78,12 +80,12 @@ namespace App.Factory
 
         public static PhaseOneController getPhaseOneController()
         {
-            return new PhaseOneController(getProposalRepository(), getUserRepository(), getConferenceRepository());
+            return new PhaseOneController(getProposalRepository(), getUserRepository(), getConferenceRepository(), getRoleRepository());
         }
 
         public static PhaseTwoController getPhaseTwoController()
         {
-            return new PhaseTwoController(getReviewRepository(), getProposalRepository(), getUserRepository(), getConferenceRepository(),getUserRoleRepository());
+            return new PhaseTwoController(getReviewRepository(), getProposalRepository(), getUserRepository(), getConferenceRepository(),getUserRoleRepository(), getRoleRepository());
         }
 
         public static PhaseThreeController GetPhaseThreeController()
@@ -112,5 +114,9 @@ namespace App.Factory
             return new UserSectionRepository(getAppContext());
         }
 
+        public static RoleRepository getRoleRepository()
+        {
+            return new RoleRepository(getAppContext());
+        }
     }
 }

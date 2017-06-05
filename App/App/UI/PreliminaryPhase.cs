@@ -29,10 +29,6 @@ namespace App.UI
             updateStatus();
         }
 
-        private void Preliminary_Load(object sender, EventArgs e)
-        {
-        }
-
         public void updateStatus()
         {
             Conference conference = preliminaryController.ActiveConference();
@@ -40,6 +36,8 @@ namespace App.UI
             {
                 Size = new System.Drawing.Size(347, 194);
                 buttonCreateConference.Visible = true;
+                buttonLogout.Size = new System.Drawing.Size(278, 102);
+                buttonLogout.Location = new System.Drawing.Point(27, 159);
                 labelConferenceDetails.Text = "No conference has been created!";
             }
             else
@@ -47,6 +45,8 @@ namespace App.UI
                 Size = new System.Drawing.Size(347, 262);
                 buttonUpdateConference.Visible = true;
                 buttonStartConference.Visible = true;
+                buttonLogout.Size = new System.Drawing.Size(278, 43);
+                buttonLogout.Location = new System.Drawing.Point(27, 218);
                 labelConferenceDetails.Text = "A conference has been created is waiting to be submitted!";
             }
 
@@ -99,6 +99,18 @@ namespace App.UI
             {
                 //do nothing
             }
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);
+            parentForm.Show();
+            Close();
+        }
+
+        private void Preliminary_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

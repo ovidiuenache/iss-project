@@ -50,6 +50,8 @@ namespace App.UI.PhaseTwo
             review.Comment = commentsRichTextBox.Text;
             review.DateCreated = DateTime.Now;
             phaseTwoController.updateReview(review);
+
+            MessageBox.Show("Review was made successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 

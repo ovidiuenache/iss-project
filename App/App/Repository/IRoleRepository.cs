@@ -15,5 +15,6 @@ namespace App.Repository
     /// </summary>
     public interface IRoleRepository : IRepository<Role>
     {
+        Role getBySlug(string slug);
     }
 }

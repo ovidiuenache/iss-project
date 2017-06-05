@@ -33,6 +33,7 @@
             this.labelWelcome = new System.Windows.Forms.Label();
             this.labelConferenceDetails = new System.Windows.Forms.Label();
             this.buttonStartConference = new System.Windows.Forms.Button();
+            this.buttonLogout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonCreateConference
@@ -86,20 +87,31 @@
             this.buttonStartConference.Visible = false;
             this.buttonStartConference.Click += new System.EventHandler(this.buttonStartConference_Click);
             // 
+            // buttonLogout
+            // 
+            this.buttonLogout.Location = new System.Drawing.Point(27, 218);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(278, 43);
+            this.buttonLogout.TabIndex = 5;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            // 
             // PreliminaryPhase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 223);
+            this.ClientSize = new System.Drawing.Size(331, 273);
+            this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.buttonStartConference);
             this.Controls.Add(this.labelConferenceDetails);
             this.Controls.Add(this.labelWelcome);
             this.Controls.Add(this.buttonUpdateConference);
             this.Controls.Add(this.buttonCreateConference);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(347, 262);
+            this.MaximumSize = new System.Drawing.Size(347, 312);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(347, 194);
+            this.MinimumSize = new System.Drawing.Size(347, 312);
             this.Name = "PreliminaryPhase";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -118,5 +130,6 @@
         private System.Windows.Forms.Label labelWelcome;
         private System.Windows.Forms.Label labelConferenceDetails;
         private System.Windows.Forms.Button buttonStartConference;
+        private System.Windows.Forms.Button buttonLogout;
     }
 }

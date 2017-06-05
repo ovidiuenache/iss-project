@@ -130,5 +130,10 @@ namespace App.UI
             comboBoxAuthors.DisplayMember = "LastName";
             comboBoxAuthors.ValueSeparator = ", ";
         }
+
+        private void MetaInformation_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

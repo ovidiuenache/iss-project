@@ -36,7 +36,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 28);
+            this.label1.Location = new System.Drawing.Point(15, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 13);
             this.label1.TabIndex = 0;
@@ -45,17 +45,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 51);
+            this.label2.Location = new System.Drawing.Point(15, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(239, 52);
             this.label2.TabIndex = 1;
-            this.label2.Text = "     Proposals are being checked by out team of \r\nprofessionals. Please stand by " +
-    "until the end \r\nof this phase. The presentations of the proposals \r\nare due to c" +
-    "ome. Thank you for your patience.";
+            this.label2.Text = "Proposals are being checked by out team of \r\nprofessionals. Please stand by until" +
+    " the end \r\nof this phase. The presentations of the proposals \r\nare due to come. " +
+    "Thank you for your patience.";
             // 
             // buttonLogout
             // 
-            this.buttonLogout.Location = new System.Drawing.Point(32, 117);
+            this.buttonLogout.Location = new System.Drawing.Point(18, 97);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(222, 53);
             this.buttonLogout.TabIndex = 2;
@@ -67,12 +67,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 182);
+            this.ClientSize = new System.Drawing.Size(260, 160);
             this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(276, 199);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(276, 199);
             this.Name = "ListenerMain";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

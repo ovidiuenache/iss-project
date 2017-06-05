@@ -1,0 +1,14 @@
+As a regular not logged user,
+When I start the application,a
+And I am on "Conference Details" form,
+And I click the "Register" button,
+And I am on "Register" form,
+And I type a firstname on the firstname text box,
+And I type a lastname on the lastname text box,
+And I type a country on the country text box,
+And I type a email on the email text box,
+And I type a password on the password text box,
+And I type the same password on the password confirmation text box,
+And some of the above inputs are invalid
+And I click the "Register" button,
+Then I should see a message box saying that the data provided is invalid

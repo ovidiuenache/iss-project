@@ -1,0 +1,9 @@
+As a regular not logged user,
+When I start the application,
+And I am on "Conference Details" form,
+And I click the "Login" button,
+And I am on "Login" form,
+And I type a invalid email address in the email text box,
+And I type a invalid password in the password text box,
+And I press the Login button,
+I should see a message box saying that "The credentials are not valid"

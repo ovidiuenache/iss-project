@@ -38,27 +38,29 @@
             // listBoxTopics
             // 
             this.listBoxTopics.FormattingEnabled = true;
-            this.listBoxTopics.ItemHeight = 16;
-            this.listBoxTopics.Location = new System.Drawing.Point(12, 54);
+            this.listBoxTopics.Location = new System.Drawing.Point(14, 49);
+            this.listBoxTopics.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxTopics.Name = "listBoxTopics";
             this.listBoxTopics.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBoxTopics.Size = new System.Drawing.Size(159, 180);
+            this.listBoxTopics.Size = new System.Drawing.Size(318, 82);
             this.listBoxTopics.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 34);
+            this.label1.Location = new System.Drawing.Point(11, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 17);
+            this.label1.Size = new System.Drawing.Size(156, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Pick interesting sections for you";
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(12, 240);
+            this.btnConfirm.Location = new System.Drawing.Point(14, 146);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(183, 35);
+            this.btnConfirm.Size = new System.Drawing.Size(318, 28);
             this.btnConfirm.TabIndex = 2;
             this.btnConfirm.Text = "Confirm selections";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -66,12 +68,11 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(329, 161);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonBack.MaximumSize = new System.Drawing.Size(115, 53);
-            this.buttonBack.MinimumSize = new System.Drawing.Size(115, 53);
+            this.buttonBack.Location = new System.Drawing.Point(14, 185);
+            this.buttonBack.MaximumSize = new System.Drawing.Size(86, 43);
+            this.buttonBack.MinimumSize = new System.Drawing.Size(86, 43);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(115, 53);
+            this.buttonBack.Size = new System.Drawing.Size(86, 43);
             this.buttonBack.TabIndex = 3;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -79,9 +80,10 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(308, 233);
+            this.btnSubmit.Location = new System.Drawing.Point(105, 185);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(137, 48);
+            this.btnSubmit.Size = new System.Drawing.Size(227, 43);
             this.btnSubmit.TabIndex = 4;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -89,15 +91,22 @@
             // 
             // ListenerMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 298);
+            this.ClientSize = new System.Drawing.Size(343, 242);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBoxTopics);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(359, 281);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(359, 281);
             this.Name = "ListenerMain";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ListenerMain";
             this.Load += new System.EventHandler(this.ListenerMain_Load);
             this.ResumeLayout(false);

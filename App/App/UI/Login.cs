@@ -49,7 +49,17 @@ namespace App
                     switch (activePhaseName)
                     {
                         case "PRELIMINARY":
-                            toBeShown = new PreliminaryPhase(this, loggedUser);
+                            if (loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("chair") ||
+                                loginController.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("reviewer"))
+                            {
+                                toBeShown = new PreliminaryPhase(this, loggedUser);
+                            }
+                            else
+                            {
+                                //User is a non-chair member and is restricted to access the website
+                                MessageBox.Show("The conference is yet in preliminary phase!\nPlease wait until the set up is complete!");
+                                return;
+                            }
                             break;
                         case "PHASEONE":
                             toBeShown = new UserAccount(this, loggedUser);
