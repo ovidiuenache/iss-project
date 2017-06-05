@@ -1,4 +1,5 @@
-﻿using App.Entity;
+﻿using System;
+using App.Entity;
 
 namespace App.Repository
 {

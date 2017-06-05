@@ -29,7 +29,7 @@ namespace Test.Repository
         public void TestAdd()
         {
             int initialValues = phaseRepository.All().Count;
-            Assert.AreEqual(initialValues, 2);
+            Assert.AreEqual(initialValues, 0);
             phaseRepository.Add(phase);
             Assert.AreEqual(phaseRepository.All().Count, (initialValues + 1));
             phaseRepository.Delete(phase);
