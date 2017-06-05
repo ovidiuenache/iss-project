@@ -48,7 +48,7 @@ namespace App.Migrations.Seed
                     topics.Add(db.Topics.Find(3));
                     listeners = new List<User>();
                     authors = new List<User>();
-                    authors.Add(db.Users.Find(4));
+                    authors.Add(db.Users.Find(1));
                     db.Sections.Add(
                         new Section("Desktop", null, topics, authors, "Mare")
                     );

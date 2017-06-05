@@ -80,6 +80,7 @@ namespace App.UI.PhaseTwo
 
         private void ChairMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+            phaseTwoController.saveChanges();
         }
     }
 }
