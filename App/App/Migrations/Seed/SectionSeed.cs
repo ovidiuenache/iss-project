@@ -37,8 +37,15 @@ namespace App.Migrations.Seed
                         new Section("Web", null, topics, authors, "Aula")
                     );
 
+                    sectionLeader = db.Users.Find(2);
+                    topics.Add(db.Topics.Find(2));
+                    topics.Add(db.Topics.Find(3));
+                    listeners = new List<User>();
+                    authors.Add(db.Users.Find(1));
+                  
                     topics = new List<Topic> { db.Topics.Find(2), db.Topics.Find(3) };
                     authors = new List<User> { db.Users.Find(3) };
+                  
                     db.Sections.Add(
                         new Section("Desktop", null, topics, authors, "Mare")
                     );

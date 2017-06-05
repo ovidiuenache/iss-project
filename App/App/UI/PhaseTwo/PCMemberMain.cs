@@ -28,6 +28,15 @@ namespace App.UI.PhaseTwo
             this.reviewer = reviewer;
             this.parentForm = parentForm;
 
+           /* if(phaseTwoController.getReviewsByIdReviewer(reviewer.UserId).Count > 0)
+            {
+                this.rateButton.Enabled = true;
+            }
+            else
+            {
+                this.rateButton.Enabled = false;
+            }*/
+            
             InitializeComponent();
         }
 
@@ -41,7 +50,7 @@ namespace App.UI.PhaseTwo
 
         private void buttonRefreshReviews_Click(object sender, EventArgs e)
         {
-            if(phaseTwoController.getReviewsByIdReviewer(reviewer.UserId).Count > 0)
+            if(phaseTwoController.getReviewsByIdReviewer(reviewer.UserId).Where(review => (review.Qualifier != "") ).ToList().Count > 0)
             {
                 initRatingsGridView();
             }
@@ -49,7 +58,7 @@ namespace App.UI.PhaseTwo
 
         private void initRatingsGridView()
         {
-            BindingList<Review> bindingList = new BindingList<Review>(phaseTwoController.getReviewsByIdReviewer(reviewer.UserId));
+            BindingList<Review> bindingList = new BindingList<Review>(phaseTwoController.getReviews().Where(review => (review.Qualifier != "")).ToList());
             BindingSource source = new BindingSource(bindingList, null);
             ratingsGridView.DataSource = source;
         }
@@ -64,7 +73,14 @@ namespace App.UI.PhaseTwo
 
         private void PCMemberMain_Load(object sender, EventArgs e)
         {
-
+            if (phaseTwoController.getReviewsByIdReviewer(reviewer.UserId).Count > 0)
+            {
+                this.rateButton.Enabled = true;
+            }
+            else
+            {
+                this.rateButton.Enabled = false;
+            }
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -76,6 +92,7 @@ namespace App.UI.PhaseTwo
 
         private void PCMemberMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+            phaseTwoController.saveChanges();
         }
     }
 }
