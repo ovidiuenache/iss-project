@@ -19,6 +19,7 @@ namespace App.UI.PhaseThree
             PhaseThreeController = ApplicationFactory.GetPhaseThreeController();
             LoadSections();
             btnAddToSection.Enabled = false;
+
             ParentForm = parentForm;
         }
 
@@ -51,7 +52,6 @@ namespace App.UI.PhaseThree
             {
                 listBoxProposals.Items.Add(proposal.Title);
             }
-            btnAddToSection.Enabled = true;
         }
 
         private void btnAddToSection_Click(object sender, EventArgs e)
@@ -88,6 +88,11 @@ namespace App.UI.PhaseThree
             ParentForm.Location = new Point(Location.X, Location.Y);
             ParentForm.Show();
             Close();
+        }
+
+        private void listBoxProposals_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnAddToSection.Enabled = true;
         }
     }
 }
