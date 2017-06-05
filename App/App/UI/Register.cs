@@ -20,7 +20,7 @@ namespace App
 
             this.parentForm = parentForm;
             userValidator = new UserValidator();
-            preliminaryController = ApplicationFactory.getPreliminaryPhaseController();
+            preliminaryController = ApplicationFactory.GetPreliminaryPhaseController();
         }
 
         private void buttonRegister_Click(object sender, EventArgs e)
@@ -32,14 +32,14 @@ namespace App
                     throw new ValidationException("Passwords do not match!");
                 }
 
-                User newUser = new User();
+                var newUser = new User();
                 newUser.FirstName = textFirstName.Text;
                 newUser.LastName = textLastName.Text;
                 newUser.Country = textCountry.Text;
                 newUser.Email = textEmail.Text;
                 newUser.Password = textPassword.Text;
 
-                userValidator.validate(newUser);
+                userValidator.Validate(newUser);
 
                 preliminaryController.Register(newUser);
 

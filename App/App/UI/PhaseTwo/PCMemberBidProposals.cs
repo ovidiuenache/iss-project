@@ -23,31 +23,31 @@ namespace App.UI.PhaseTwo
         public PCMemberBidProposals(PCMemberMain parent, PhaseTwoController phaseTwoController, User reviewer)
         {
             this.parent = parent;
-            this.proposals = phaseTwoController.getProposals();
+            this.proposals = phaseTwoController.GetProposals();
             this.reviewer = reviewer;
             this.phaseTwoController = phaseTwoController;
-            
+
             InitializeComponent();
 
             proposalsDataGridView.DataSource = proposals;
         }
         private void initProposalsDataGridView()
         {
-            BindingList<Proposal> bindingList = new BindingList<Proposal>(proposals);
-            BindingSource source = new BindingSource(bindingList, null);
+            var bindingList = new BindingList<Proposal>(proposals);
+            var source = new BindingSource(bindingList, null);
             proposalsDataGridView = new DataGridView();
             proposalsDataGridView.DataSource = source;
         }
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            RadioButton checkedReviewButton = this.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            Proposal prop = phaseTwoController.getProposal(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
+            var checkedReviewButton = this.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+            var prop = phaseTwoController.GetProposal(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
 
             if (checkedReviewButton.Text.Equals("I want") || checkedReviewButton.Text.Equals("I can"))
             {
-                Review review = new Review("", "", reviewer, prop, new DateTime(2000,01,01));
-                phaseTwoController.addReview(review);
+                var review = new Review("", "", reviewer, prop, new DateTime(2000, 01, 01));
+                phaseTwoController.AddReview(review);
             }
 
             MessageBox.Show("Bid was made successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -55,7 +55,7 @@ namespace App.UI.PhaseTwo
 
         private void proposalsDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if (phaseTwoController.getReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()), reviewer.UserId) != null)
+            if (phaseTwoController.GetReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()), reviewer.UserId) != null)
             {
                 submitButton.Enabled = false;
             }

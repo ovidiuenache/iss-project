@@ -2,7 +2,6 @@
 using App.Entity;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 
 namespace App.Repository.Impl
 {
@@ -24,7 +23,7 @@ namespace App.Repository.Impl
             return Context.Proposals.Where(proposal => proposal.Authors.Select(author => author.UserId).Contains(userId)).ToList();
         }
 
-        public void saveChanges()
+        public void SaveChanges()
         {
             Context.SaveChanges();
         }
@@ -34,7 +33,7 @@ namespace App.Repository.Impl
             return Context.Proposals.SingleOrDefault(p => p.Title == name);
         }
 
-        public List<Proposal> getProposalsWithoutFull()
+        public List<Proposal> GetProposalsWithoutFull()
         {
             return Context.Proposals.Where(proposal => proposal.FullPaper.Length == 0).ToList();
         }

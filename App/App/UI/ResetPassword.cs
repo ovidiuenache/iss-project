@@ -30,7 +30,7 @@ namespace App.UI
                 emailTextBox.Text = "";
 
         }
-        private void autoCompleteText(object sender, EventArgs e)
+        private void AutoCompleteText(object sender, EventArgs e)
         {
             if (emailTextBox.Text == "")
                 emailTextBox.Text = "Enter your email adress:";
@@ -39,19 +39,19 @@ namespace App.UI
 
         private void resetPass_Click(object sender, EventArgs e)
         {
-            MailSender mailSender = new MailSender();
-            PasswordGenerator randomString = new PasswordGenerator();
-            String finalString = randomString.GetString(8);
-            String messageToSent = "Your new password is: " + finalString;
-            AppContext appContext = new AppContext();
+            var mailSender = new MailSender();
+            var randomString = new PasswordGenerator();
+            var finalString = randomString.GetString(8);
+            var messageToSent = "Your new password is: " + finalString;
+            var appContext = new AppContext();
            
             if (loginController.GetUserByEmail(emailTextBox.Text)!=null)
             {
                 try
                 {
-                    MailAddress receiverMail = new MailAddress(emailTextBox.Text);
+                    var receiverMail = new MailAddress(emailTextBox.Text);
                     loginController.ChangePassword(emailTextBox.Text, finalString);
-                    mailSender.sendMail(receiverMail, messageToSent, "Conference Login Password");
+                    mailSender.SendMail(receiverMail, messageToSent, "Conference Login Password");
                     MessageBox.Show("We've sent a new password to this email address.", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 #pragma warning disable CS0168 // Variable is declared but never used

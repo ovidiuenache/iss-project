@@ -10,7 +10,7 @@
 
         public BaseException(string message) : base(message) { }
 
-        public string getMessage()
+        public string GetMessage()
         {
             return message;
         }

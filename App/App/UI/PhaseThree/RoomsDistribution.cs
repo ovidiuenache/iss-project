@@ -27,7 +27,7 @@ namespace App.UI.PhaseThree
 
         private void btnPickSectionLeader_Click(object sender, EventArgs e)
         {
-            Form programComitee = new ProgramComitee(this);
+            var programComitee = new ProgramComitee(this);
             programComitee.Location = new Point(Location.X, Location.Y);
             programComitee.Show();
             Hide();
@@ -51,11 +51,11 @@ namespace App.UI.PhaseThree
 
         private void buttonEndConference_Click(object sender, EventArgs e)
         {
-            phaseThreeController.deleteReviews();
+            phaseThreeController.DeleteReviews();
             phaseThreeController.deleteProposals();
             phaseThreeController.deleteTopics();
-            phaseThreeController.deleteConferences();
-            phaseThreeController.deletePhases();
+            phaseThreeController.DeleteConferences();
+            phaseThreeController.DeletePhases();
 
             MessageBox.Show("Conference has successfully ended!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();

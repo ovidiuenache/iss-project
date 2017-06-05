@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using App.Controller;
 using App.Entity;
@@ -32,7 +27,7 @@ namespace App.UI.PhaseThree
             comboBoxSections.Items.Clear();
             if (PhaseThreeController != null)
             {
-                List<Section> sections = PhaseThreeController.FindAllSectionsWithoutRoom();
+                var sections = PhaseThreeController.FindAllSectionsWithoutRoom();
                 foreach (var section in sections)
                 {
                     comboBoxSections.Items.Add(section);
@@ -46,7 +41,7 @@ namespace App.UI.PhaseThree
         {
             if (!string.IsNullOrEmpty(textBoxRoomName.Text))
             {
-                Section section = (Section)comboBoxSections.SelectedItem;
+                var section = (Section)comboBoxSections.SelectedItem;
                 try
                 {
                     PhaseThreeController.AddSectionRoom(section, textBoxRoomName.Text.Trim());

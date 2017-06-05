@@ -2,13 +2,8 @@
 using App.Entity;
 using App.Factory;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App.UI.PhaseTwo
@@ -24,7 +19,7 @@ namespace App.UI.PhaseTwo
 
         public PCMemberMain(Form parentForm, User reviewer)
         {
-            phaseTwoController = ApplicationFactory.getPhaseTwoController();
+            phaseTwoController = ApplicationFactory.GetPhaseTwoController();
             this.reviewer = reviewer;
             this.parentForm = parentForm;
 
@@ -33,32 +28,32 @@ namespace App.UI.PhaseTwo
 
         private void rateButton_Click(object sender, EventArgs e)
         {
-            PCMemberRateProposals rateView = new PCMemberRateProposals(this,phaseTwoController.getReviewsByIdReviewer(reviewer.UserId), reviewer, phaseTwoController);
+            PCMemberRateProposals rateView = new PCMemberRateProposals(this, phaseTwoController.GetReviewsByIdReviewer(reviewer.UserId), reviewer, phaseTwoController);
             this.Hide();
-            rateView.SetDesktopLocation(this.Location.X,this.Location.Y);
+            rateView.SetDesktopLocation(this.Location.X, this.Location.Y);
             rateView.Show();
         }
 
         private void buttonRefreshReviews_Click(object sender, EventArgs e)
         {
-            if(phaseTwoController.getReviewsByIdReviewer(reviewer.UserId).Count > 0)
+            if (phaseTwoController.GetReviewsByIdReviewer(reviewer.UserId).Count > 0)
             {
-                initRatingsGridView();
+                InitRatingsGridView();
             }
         }
 
-        private void initRatingsGridView()
+        private void InitRatingsGridView()
         {
-            BindingList<Review> bindingList = new BindingList<Review>(phaseTwoController.getReviewsByIdReviewer(reviewer.UserId));
-            BindingSource source = new BindingSource(bindingList, null);
+            var bindingList = new BindingList<Review>(phaseTwoController.GetReviewsByIdReviewer(reviewer.UserId));
+            var source = new BindingSource(bindingList, null);
             ratingsGridView.DataSource = source;
         }
 
         private void bidButton_Click(object sender, EventArgs e)
         {
-            PCMemberBidProposals bidView = new PCMemberBidProposals(this,phaseTwoController, reviewer);
+            var bidView = new PCMemberBidProposals(this, phaseTwoController, reviewer);
             this.Hide();
-            bidView.SetDesktopLocation(this.Location.X,this.Location.Y);
+            bidView.SetDesktopLocation(this.Location.X, this.Location.Y);
             bidView.Show();
         }
 

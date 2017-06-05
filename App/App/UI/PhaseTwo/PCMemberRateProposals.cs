@@ -3,11 +3,8 @@ using App.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App.UI.PhaseTwo
@@ -34,22 +31,22 @@ namespace App.UI.PhaseTwo
             proposalsDataGridView.DataSource = reviews;
         }
 
-        private void initProposalsDataGridView()
+        private void InitProposalsDataGridView()
         {
-            BindingList<Review> bindingList = new BindingList<Review>(reviews);
-            BindingSource source = new BindingSource(bindingList, null);
+            var bindingList = new BindingList<Review>(reviews);
+            var source = new BindingSource(bindingList, null);
             proposalsDataGridView = new DataGridView();
             proposalsDataGridView.DataSource = source;
         }
         
         private void submitButton_Click(object sender, EventArgs e)
         {
-            RadioButton checkedReviewButton = this.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            Review review = phaseTwoController.getReview(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
+            var checkedReviewButton = this.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+            var review = phaseTwoController.GetReview(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
             review.Qualifier = checkedReviewButton.Text;
             review.Comment = commentsRichTextBox.Text;
             review.DateCreated = DateTime.Now;
-            phaseTwoController.updateReview(review);
+            phaseTwoController.UpdateReview(review);
 
             MessageBox.Show("Review was made successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

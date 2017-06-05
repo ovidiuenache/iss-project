@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace App.Entity
 {
@@ -19,7 +17,7 @@ namespace App.Entity
         public List<User> Authors { get; set; }
         public List<Proposal> Proposals { get; set; }
         public string Room { get; set; }
-        public List<UserSection>  UserSections { get; set; }
+        public List<UserSection> UserSections { get; set; }
 
         public Section()
         {

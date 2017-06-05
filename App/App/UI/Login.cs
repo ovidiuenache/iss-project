@@ -26,16 +26,16 @@ namespace App
         {
             InitializeComponent();
 
-            loginController = ApplicationFactory.getLoginController();
+            loginController = ApplicationFactory.GetLoginController();
             this.parentForm = parentForm;
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string username = UserNameTextBox.Text;
-            string password = PasswordTextBox.Text;
+            var username = UserNameTextBox.Text;
+            var password = PasswordTextBox.Text;
 
-            User loggedUser = loginController.GetUser(username, password);
+            var loggedUser = loginController.GetUser(username, password);
             if (loggedUser == null)
             {
                 MessageBox.Show("The credentials are not valid");
@@ -44,7 +44,7 @@ namespace App
             {
                 if (loginController.IsConferenceActive() == true)
                 {
-                    string activePhaseName = loginController.ActiveConference().ActivePhase.Name;
+                    var activePhaseName = loginController.ActiveConference().ActivePhase.Name;
                     Form toBeShown = null;
                     switch (activePhaseName)
                     {
@@ -136,7 +136,7 @@ namespace App
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ResetPassword resetPasswordForm = new ResetPassword(this, loginController);
+            var resetPasswordForm = new ResetPassword(this, loginController);
             resetPasswordForm.Location = new System.Drawing.Point(Location.X, Location.Y);
             Hide();
             resetPasswordForm.Show();

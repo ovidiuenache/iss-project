@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using App.Entity;
 using App.Migrations.Seed;
-using App.UI.PhaseThree;
 
 namespace App
 {

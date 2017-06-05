@@ -19,7 +19,7 @@ namespace Test.Repository
         [TestInitialize()]
         public void Initialize()
         {
-            phaseRepository = ApplicationFactory.getPhaseRepository();
+            phaseRepository = ApplicationFactory.GetPhaseRepository();
             phase = new Phase();
             phase.Name = "Test";
             phase.Deadline = DateTime.Now;
@@ -28,7 +28,7 @@ namespace Test.Repository
         [TestMethod]
         public void TestAdd()
         {
-            int initialValues = phaseRepository.All().Count;
+            var initialValues = phaseRepository.All().Count;
             Assert.AreEqual(initialValues, 2);
             phaseRepository.Add(phase);
             Assert.AreEqual(phaseRepository.All().Count, (initialValues + 1));
@@ -39,7 +39,7 @@ namespace Test.Repository
         public void TestDelete()
         {
             phaseRepository.Add(phase);
-            int initialValues = phaseRepository.All().Count;
+            var initialValues = phaseRepository.All().Count;
             phaseRepository.Delete(phase);
             Assert.AreEqual(phaseRepository.All().Count, (initialValues - 1));
         }
@@ -47,7 +47,7 @@ namespace Test.Repository
         [TestMethod]
         public void TestAll()
         {
-            int initialValues = phaseRepository.All().Count;
+            var initialValues = phaseRepository.All().Count;
             phaseRepository.Add(phase);
             Assert.AreEqual(phaseRepository.All().Count, (initialValues + 1));
             phaseRepository.Delete(phase);

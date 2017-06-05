@@ -60,8 +60,8 @@ namespace App.Controller
         /// <returns></returns>
         public List<Section> FindAllUnassignedSections(User loggedUser)
         {
-            List<Section> assigned = UserSectionRepository.AllSectionsAssigned(loggedUser);
-            List<Section> all = SectionRepository.All();
+            var assigned = UserSectionRepository.AllSectionsAssigned(loggedUser);
+            var all = SectionRepository.All();
             if (!assigned.IsNullOrEmpty())
             {
                 all = all.Except(assigned).ToList();
@@ -86,7 +86,7 @@ namespace App.Controller
         /// <param name="loggedUser"></param>
         public void AddListenerToSections(List<Section> sections, User loggedUser)
         {
-            UserSection userSection = new UserSection();
+            var userSection = new UserSection();
             userSection.User = loggedUser;
             foreach (var section in sections)
             {
@@ -114,7 +114,7 @@ namespace App.Controller
         public List<User> FindAllComiteeMemberWithoutSection()
         {
             var users = UserRepository.All();
-            List<User> comiteeMembersWithoutSection = new List<User>();
+            var comiteeMembersWithoutSection = new List<User>();
             foreach (var user in users)
             {
                 if (IsComiteeMemberWithoutSection(user))
@@ -142,7 +142,7 @@ namespace App.Controller
         /// <returns></returns>
         public List<Proposal> FindAllProposalsBySection(Section section)
         {
-            List<Proposal> proposals = new List<Proposal>();
+            var proposals = new List<Proposal>();
 
             return proposals;
         }
@@ -155,7 +155,7 @@ namespace App.Controller
             var allProposals = ProposalRepository.All();
             var proposalsExistingInSections = SectionRepository.FindAllProposalsExistingInSections();
 
-            List<Proposal> proposals = allProposals.Except(proposalsExistingInSections).ToList();
+            var proposals = allProposals.Except(proposalsExistingInSections).ToList();
 
             return proposals;
         }
@@ -236,9 +236,9 @@ namespace App.Controller
             return SectionRepository.FindAllSectionsWithoutRoom();
         }
 
-        public void deleteReviews()
+        public void DeleteReviews()
         {
-            foreach (Review review in ReviewRepository.All())
+            foreach (var review in ReviewRepository.All())
             {
                 ReviewRepository.Delete(review);
             }
@@ -246,7 +246,7 @@ namespace App.Controller
 
         public void deleteProposals()
         {
-            foreach(Proposal proposal in ProposalRepository.All())
+            foreach (var proposal in ProposalRepository.All())
             {
                 ProposalRepository.Delete(proposal);
             }
@@ -254,23 +254,23 @@ namespace App.Controller
 
         public void deleteTopics()
         {
-            foreach (Topic topic in TopicRepository.All())
+            foreach (var topic in TopicRepository.All())
             {
                 TopicRepository.Delete(topic);
             }
         }
 
-        public void deleteConferences()
+        public void DeleteConferences()
         {
-            foreach (Conference conference in ConferenceRepository.All())
+            foreach (var conference in ConferenceRepository.All())
             {
                 ConferenceRepository.Delete(conference);
             }
         }
 
-        public void deletePhases()
+        public void DeletePhases()
         {
-            foreach (Phase phase in PhaseRepository.All())
+            foreach (var phase in PhaseRepository.All())
             {
                 PhaseRepository.Delete(phase);
             }

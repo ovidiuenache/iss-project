@@ -1,5 +1,4 @@
-﻿using App.Entity;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace App.Controller
 {
@@ -14,6 +13,6 @@ namespace App.Controller
     {
         BindingSource ProposalsAuthoredByUser(int userId);
 
-        void saveChanges();
+        void SaveChanges();
     }
 }

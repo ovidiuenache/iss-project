@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net.Mail;
 
 namespace App.Utils
 {
@@ -28,12 +22,12 @@ namespace App.Utils
         /// <param name="receiver"></param>
         /// <param name="mailBody"></param>
         /// <param name="mailSubject"></param>
-        public void sendMail(MailAddress receiver, string mailBody, string mailSubject)
+        public void SendMail(MailAddress receiver, string mailBody, string mailSubject)
         {
            
-            MailMessage mail = new MailMessage();
-            SmtpClient client = new SmtpClient();
-            MailAddress senderMail = new MailAddress("iss.cmsmailer@gmail.com");
+            var mail = new MailMessage();
+            var client = new SmtpClient();
+            var senderMail = new MailAddress("iss.cmsmailer@gmail.com");
             mail.From = senderMail;
             mail.To.Add(receiver);
             mail.Subject = mailSubject;

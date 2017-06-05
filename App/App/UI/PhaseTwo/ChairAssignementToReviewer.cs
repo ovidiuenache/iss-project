@@ -19,28 +19,28 @@ namespace App.UI.PhaseTwo
         public ChairAssignementToReviewer(ChairMain parent)
         {
             this.parent = parent;
-            phaseTwoController = ApplicationFactory.getPhaseTwoController();
+            phaseTwoController = ApplicationFactory.GetPhaseTwoController();
 
             InitializeComponent();
-            proposalsDataGridView.DataSource = phaseTwoController.getProposals();
-            reviewersDataGridView.DataSource = phaseTwoController.getReviewers();
+            proposalsDataGridView.DataSource = phaseTwoController.GetProposals();
+            reviewersDataGridView.DataSource = phaseTwoController.GetReviewers();
         }
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            List<User> reviewers = new List<User>();
+            var reviewers = new List<User>();
             List<Review> reviews;
-            reviews = phaseTwoController.getReviewsByProposalId(Int32.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
+            reviews = phaseTwoController.GetReviewsByProposalId(Int32.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
             foreach (DataGridViewRow row in reviewersDataGridView.SelectedRows)
             {
-                User reviewer = phaseTwoController.getReviewer(Int32.Parse(row.Cells[0].Value.ToString()));
+                var reviewer = phaseTwoController.GetReviewer(Int32.Parse(row.Cells[0].Value.ToString()));
                 reviewers.Add(reviewer);
             }
-            foreach(Review rev in reviews)
+            foreach(var rev in reviews)
             {
                 if(!reviewers.Contains(rev.Reviewer))
                 {
-                    phaseTwoController.removeReview(rev.ReviewId);
+                    phaseTwoController.RemoveReview(rev.ReviewId);
                 }
             }
 

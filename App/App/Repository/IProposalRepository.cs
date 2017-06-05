@@ -13,7 +13,7 @@ namespace App.Repository
     {
         List<Proposal> ProposalsAuthoredByUser(int userId);
 
-        void saveChanges();
+        void SaveChanges();
 
         Proposal FindProposalByName(string name);
     }

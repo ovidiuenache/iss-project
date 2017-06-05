@@ -16,7 +16,7 @@ namespace App
         public ConferenceDetails()
         {
             InitializeComponent();
-            PreliminaryPhaseController preliminaryController = ApplicationFactory.getPreliminaryPhaseController();
+            var preliminaryController = ApplicationFactory.GetPreliminaryPhaseController();
 
             activeConference = preliminaryController.ActiveConference();
             if (activeConference == null)
@@ -30,15 +30,15 @@ namespace App
                 richTextBox1.Text += "Conference fee: " + activeConference.ConferenceFee + "\n\n";
                 richTextBox1.Text += "Conference commitee:\n";
 
-                foreach (ConferenceUser confUser in activeConference.Users)
+                foreach (var confUser in activeConference.Users)
                 {
-                    User user = preliminaryController.FindUserById(confUser.UserId);
+                    var user = preliminaryController.FindUserById(confUser.UserId);
                     richTextBox1.Text += user.LastName + " " + user.FirstName + "\n";
                 }
 
                 richTextBox1.Text += "\n\nConference topics:\n";
 
-                foreach (Topic topic in activeConference.Topics)
+                foreach (var topic in activeConference.Topics)
                 {
                     richTextBox1.Text += topic.Name + "\n";
                 }

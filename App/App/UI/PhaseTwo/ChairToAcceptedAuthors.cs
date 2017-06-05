@@ -21,7 +21,7 @@ namespace App.UI.PhaseTwo
         public ChairToAcceptedAuthors(ChairMain parent)
         {
             this.parent = parent;
-            phaseTwoController = ApplicationFactory.getPhaseTwoController();
+            phaseTwoController = ApplicationFactory.GetPhaseTwoController();
             mailSender = new MailSender();
             InitializeComponent();
         }
@@ -30,30 +30,30 @@ namespace App.UI.PhaseTwo
         {
             List<Proposal> proposals;
             List<Review> reviews;
-            List<User> authors = new List<User>();
-            
+            var authors = new List<User>();
 
-            proposals = phaseTwoController.getProposals();
-            foreach(Proposal proposal in proposals)
+
+            proposals = phaseTwoController.GetProposals();
+            foreach (var proposal in proposals)
             {
-                String result = "";
-                reviews = phaseTwoController.getReviewsByProposalId(proposal.ProposalId);
-                foreach(Review review in reviews)
+                var result = "";
+                reviews = phaseTwoController.GetReviewsByProposalId(proposal.ProposalId);
+                foreach (var review in reviews)
                 {
                     result += review.Qualifier + " " + review.Comment;
                 }
-                
-                foreach(User author in proposal.Authors)
+
+                foreach (var author in proposal.Authors)
                 {
                     authors.Add(author);
                 }
-                foreach(User author in authors)
+                foreach (var author in authors)
                 {
-                    MailAddress senderM = new MailAddress("iss.cmsmailer@gmail.com");
-                    MailAddress receiver = new MailAddress(author.Email);
-                    string mailBody = "Thank you for your application. \n Here are your results: \n" + result;                    
-                    string mailSubject = "Proposal Review";
-                    mailSender.sendMail(receiver, mailBody, mailSubject);
+                    var senderM = new MailAddress("iss.cmsmailer@gmail.com");
+                    var receiver = new MailAddress(author.Email);
+                    var mailBody = "Thank you for your application. \n Here are your results: \n" + result;
+                    var mailSubject = "Proposal Review";
+                    mailSender.SendMail(receiver, mailBody, mailSubject);
                 }
             }
 

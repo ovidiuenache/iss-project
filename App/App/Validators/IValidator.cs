@@ -14,6 +14,6 @@
         /// Throws ValdationException if one of the fields is not valid 
         /// </summary>
         /// <param name="entity"></param>
-        void validate(T entity);
+        void Validate(T entity);
     }
 }

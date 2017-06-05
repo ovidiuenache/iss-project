@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace App.Exception
+﻿namespace App.Exception
 {
 
     /// <summary>
@@ -17,7 +11,7 @@ namespace App.Exception
     {
         public ConferenceInProgressException(string message) : base(message)
         {
-            
+
         }
     }
 }

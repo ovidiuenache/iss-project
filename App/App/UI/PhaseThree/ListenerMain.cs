@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using App.Controller;
 using App.Entity;
@@ -35,9 +30,9 @@ namespace App.UI.PhaseThree
         private void LoadSections()
         {
             listBoxTopics.Items.Clear();
-            List<Section> topics = PhaseThreeController.FindAllUnassignedSections(LoggedUser);
+            var topics = PhaseThreeController.FindAllUnassignedSections(LoggedUser);
 
-            foreach (Section section in topics)
+            foreach (var section in topics)
             {
                 listBoxTopics.Items.Add(section.Name);
             }
@@ -47,10 +42,10 @@ namespace App.UI.PhaseThree
         {
             try
             {
-                List<Section> selectedSections = new List<Section>();
+                var selectedSections = new List<Section>();
                 foreach (int i in listBoxTopics.SelectedIndices)
                 {
-                    string sectionName = listBoxTopics.Items[i].ToString();
+                    var sectionName = listBoxTopics.Items[i].ToString();
                     selectedSections.Add(PhaseThreeController.FindSectionByName(sectionName));
                 }
                 PhaseThreeController.AddListenerToSections(selectedSections, LoggedUser);
@@ -72,7 +67,7 @@ namespace App.UI.PhaseThree
 
         private void btnChooseRoom_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

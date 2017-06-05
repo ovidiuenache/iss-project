@@ -1,6 +1,5 @@
 ﻿using App.Entity;
 using App.Exception;
-using System;
 using System.Text.RegularExpressions;
 
 namespace App.Validators
@@ -18,9 +17,9 @@ namespace App.Validators
         /// If a single field is not valid, ValidationException will be thrown
         /// </summary>
         /// <param name="entity"></param>
-        public void validate(User entity)
+        public void Validate(User entity)
         {
-            string errors = "";
+            var errors = "";
             if (!validateName(entity.FirstName))
             {
                 errors += "The firstname must have between 2 and 30 letters!\n";
@@ -29,16 +28,16 @@ namespace App.Validators
             {
                 errors += "The lastname must have between 2 and 30 letters!\n";
             }
-            if (!validateEmail(entity.Email))
+            if (!ValidateEmail(entity.Email))
             {
                 errors += "You have introduced an invalid email !\n";
             }
-            if (!validatePassword(entity.Password))
+            if (!ValidatePassword(entity.Password))
             {
                 errors += "The password must have between 8 and 30 characters and at least one number, one uppercase and one " +
                     "lowercase characer!\n";
             }
-            if (!validateCountry(entity.Country))
+            if (!ValidateCountry(entity.Country))
             {
                 errors += "The country must have between 3 and 25 letters !\n";
             }
@@ -73,16 +72,16 @@ namespace App.Validators
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        private bool validateEmail(string email)
+        private bool ValidateEmail(string email)
         {
             try
             {
-                System.Net.Mail.MailAddress addr = new System.Net.Mail.MailAddress(email);
+                var addr = new System.Net.Mail.MailAddress(email);
                 return addr.Address == email;
             }
-            #pragma warning disable CS0168 // Variable is declared but never used
+#pragma warning disable CS0168 // Variable is declared but never used
             catch (System.Exception exception)
-            #pragma warning restore CS0168 // Variable is declared but never used
+#pragma warning restore CS0168 // Variable is declared but never used
             {
                 return false;
             }
@@ -95,7 +94,7 @@ namespace App.Validators
         /// </summary>
         /// <param name="password"></param>
         /// <returns></returns>
-        private bool validatePassword(string password)
+        private bool ValidatePassword(string password)
         {
             if (password.Length < 8 || password.Length > 30)
             {
@@ -115,7 +114,7 @@ namespace App.Validators
         /// </summary>
         /// <param name="country"></param>
         /// <returns></returns>
-        public bool validateCountry(string country)
+        public bool ValidateCountry(string country)
         {
             if (country.Length < 3 || country.Length > 25)
             {

@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using App.Controller;
 using App.Entity;
@@ -32,7 +27,7 @@ namespace App.UI.PhaseThree
             comboBoxSections.Items.Clear();
             if (PhaseThreeController != null)
             {
-                List<Section> sections = PhaseThreeController.FindAllSectionsWithoutLeader();
+                var sections = PhaseThreeController.FindAllSectionsWithoutLeader();
                 foreach (var section in sections)
                 {
                     comboBoxSections.Items.Add(section);
@@ -47,7 +42,7 @@ namespace App.UI.PhaseThree
             try
             {
                 PhaseThreeController.AddSectionLeader(
-                    (Section)comboBoxSections.SelectedItem, 
+                    (Section)comboBoxSections.SelectedItem,
                     (User)comboBoxComiteeMembers.SelectedItem
                     );
                 LoadSections();
@@ -70,7 +65,7 @@ namespace App.UI.PhaseThree
         {
             comboBoxComiteeMembers.Items.Clear();
 
-            List<User> comiteeMembers = PhaseThreeController.FindAllComiteeMemberWithoutSection();
+            var comiteeMembers = PhaseThreeController.FindAllComiteeMemberWithoutSection();
 
             foreach (var member in comiteeMembers)
             {

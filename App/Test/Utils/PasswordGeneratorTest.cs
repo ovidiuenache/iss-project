@@ -14,10 +14,10 @@ namespace Test
         [TestMethod]
         public void TestGetString()
         {
-            PasswordGenerator generator = new PasswordGenerator();
-            Regex regex = new Regex(@"^[a-zA-Z0-9]+$");
+            var generator = new PasswordGenerator();
+            var regex = new Regex(@"^[a-zA-Z0-9]+$");
 
-            string password = generator.GetString(8);
+            var password = generator.GetString(8);
 
             Assert.IsTrue(regex.IsMatch(password));
             Assert.IsTrue(password.Length == 8);

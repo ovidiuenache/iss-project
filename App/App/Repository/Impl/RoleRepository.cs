@@ -16,7 +16,7 @@ namespace App.Repository.Impl
         {
         }
 
-        public Role getBySlug(string slug)
+        public Role GetBySlug(string slug)
         {
             return Context.Roles.Where(r => r.Slug == slug).ToList().Last();
         }

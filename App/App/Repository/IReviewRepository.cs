@@ -11,6 +11,6 @@ namespace App.Repository
     /// </summary>
     public interface IReviewRepository : IRepository<Review>
     {
-        List<int> getRejectedProposalsIds();
+        List<int> GetRejectedProposalsIds();
     }
 }

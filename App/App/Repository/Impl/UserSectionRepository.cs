@@ -24,7 +24,7 @@ namespace App.Repository.Impl
         public List<Section> AllSectionsAssigned(User loggedUser)
         {
             var all = base.All();
-            List<Section> sections = new List<Section>();
+            var sections = new List<Section>();
             foreach (var userSection in all)
             {
                 if (userSection.User.Equals(loggedUser))

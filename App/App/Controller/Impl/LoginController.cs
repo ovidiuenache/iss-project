@@ -1,5 +1,4 @@
 ﻿using App.Entity;
-using System;
 using System.Collections.Generic;
 using App.Repository;
 using App.Utils;
@@ -30,12 +29,12 @@ namespace App.Controller
         public User GetUser(string email, string password)
         {
             var decrypt = new EncryptDecrypt();
-            User user = UserRepository.FindUserByEmail(email);
+            var user = UserRepository.FindUserByEmail(email);
             if (user == null)
             {
                 return null;
-            } 
-            else if (decrypt.decryptPassword(user.Password) != password)
+            }
+            else if (decrypt.DecryptPassword(user.Password) != password)
             {
                 user.Password = password;
                 return null;
@@ -56,12 +55,12 @@ namespace App.Controller
             return UserRepository.GetRoles(user);
         }
 
-        public User GetUserByEmail(String email)
+        public User GetUserByEmail(string email)
         {
             return UserRepository.FindUserByEmail(email);
         }
 
-        public void ChangePassword(string email,string password)
+        public void ChangePassword(string email, string password)
         {
             UserRepository.ChangePassword(email, password);
         }

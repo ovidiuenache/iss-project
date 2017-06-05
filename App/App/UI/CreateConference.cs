@@ -26,14 +26,14 @@ namespace App.UI
             InitializeComponent();
             Location = new Point(positionX, positionY);
             this.parent = parent;
-            preliminaryController = ApplicationFactory.getPreliminaryPhaseController();
+            preliminaryController = ApplicationFactory.GetPreliminaryPhaseController();
             validator = new ConferenceValidator();
         }
 
         private void CreateConferenceUI_Load(object sender, EventArgs e)
         {
-            loadUsers();
-            loadTopics();
+            LoadUsers();
+            LoadTopics();
         }
 
 
@@ -44,9 +44,9 @@ namespace App.UI
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            string conferenceName = textBoxName.Text;
-            DateTime endDate = dateTimePicker.Value;
-            List<User> commiteeMembers = new List<User>();
+            var conferenceName = textBoxName.Text;
+            var endDate = dateTimePicker.Value;
+            var commiteeMembers = new List<User>();
             for (int i = 0; i < comboBoxCheckedListCreate.Items.Count; i++)
             {
                 if (comboBoxCheckedListCreate.GetItemChecked(i))
@@ -55,24 +55,24 @@ namespace App.UI
                 }
             }
 
-            List<Topic> selectedTopics = new List<Topic>();
+            var selectedTopics = new List<Topic>();
             foreach (int i in listBoxTopics.SelectedIndices)
             {
-                string topicName = listBoxTopics.Items[i].ToString();
+                var topicName = listBoxTopics.Items[i].ToString();
                 selectedTopics.Add(preliminaryController.FindTopicByName(topicName));
             }
-            string fee = textBoxFee.Text;
+            var fee = textBoxFee.Text;
 
             try
             {
-                Conference conference = new Conference();
+                var conference = new Conference();
                 conference.Name = conferenceName;
                 conference.EndDate = endDate;
                 conference.Topics = selectedTopics;
                 conference.ConferenceFee = float.Parse(fee);
-                validator.validate(conference);
+                validator.Validate(conference);
 
-                Phase preliminaryPhase = new Phase();
+                var preliminaryPhase = new Phase();
                 preliminaryPhase.Name = "PRELIMINARY";
                 preliminaryPhase.Deadline = endDate;
                 preliminaryController.CreatePhase(preliminaryPhase);
@@ -96,11 +96,11 @@ namespace App.UI
             parent.Show();
         }
 
-        private void loadUsers()
+        private void LoadUsers()
         {
-            List<User> users = preliminaryController.FindAllUsers();
+            var users = preliminaryController.FindAllUsers();
 
-            foreach (User user in users)
+            foreach (var user in users)
             {
                 comboBoxCheckedListCreate.Items.Add(user);
             }
@@ -112,11 +112,11 @@ namespace App.UI
             comboBoxCheckedListCreate.ValueSeparator = ", ";
         }
 
-        private void loadTopics()
+        private void LoadTopics()
         {
-            List<Topic> topics = preliminaryController.FindAllTopics();
+            var topics = preliminaryController.FindAllTopics();
 
-            foreach (Topic topic in topics)
+            foreach (var topic in topics)
             {
                 listBoxTopics.Items.Add(topic.Name);
             }

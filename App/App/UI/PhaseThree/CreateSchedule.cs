@@ -26,7 +26,7 @@ namespace App.UI.PhaseThree
         {
             if (PhaseThreeController != null)
             {
-                List<Section> sections = PhaseThreeController.FindAllSections();
+                var sections = PhaseThreeController.FindAllSections();
                 foreach (var section in sections)
                 {
                     comboBoxSections.Items.Add(section);
@@ -44,7 +44,7 @@ namespace App.UI.PhaseThree
         private void LoadProposals()
         {
             listBoxProposals.Items.Clear();
-            List<Proposal> proposals =
+            var proposals =
                 PhaseThreeController.FindAllProposalsWithoutSection();
 
             foreach (var proposal in proposals)
@@ -56,8 +56,8 @@ namespace App.UI.PhaseThree
 
         private void btnAddToSection_Click(object sender, EventArgs e)
         {
-            Section section = (Section)comboBoxSections.SelectedItem;
-            Proposal proposal = PhaseThreeController.FindProposalByName(listBoxProposals.SelectedItem.ToString());
+            var section = (Section)comboBoxSections.SelectedItem;
+            var proposal = PhaseThreeController.FindProposalByName(listBoxProposals.SelectedItem.ToString());
             try
             {
                 PhaseThreeController.AddProposalToSection(section, proposal);

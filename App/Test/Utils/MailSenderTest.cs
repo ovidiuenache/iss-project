@@ -1,7 +1,4 @@
-﻿using App.Entity;
-using App.Factory;
-using App.Repository.Impl;
-using App.Utils;
+﻿using App.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -17,11 +14,11 @@ namespace Test.Utils
         [TestMethod]
         public void TestSendMail()
         {
-            MailSender sender = new MailSender();
+            var sender = new MailSender();
 
             try
             {
-                sender.sendMail(new System.Net.Mail.MailAddress("test@yahoo.com"), "Test Body", "Test Subject");
+                sender.SendMail(new System.Net.Mail.MailAddress("test@yahoo.com"), "Test Body", "Test Subject");
                 Assert.IsTrue(true);
             }
             #pragma warning disable CS0168 // Variable is declared but never used

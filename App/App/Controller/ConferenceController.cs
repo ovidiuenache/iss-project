@@ -13,14 +13,14 @@ namespace App.Controller
         {
             var listeners = new List<ConferenceUser>();
             var emptyArray = new ConferenceUser[0];
-            foreach (ConferenceUser user in conference.Users)
+            foreach (var user in conference.Users)
             {
-                if(user.User.UserRoles.Equals("Listener"))
+                if (user.User.UserRoles.Equals("Listener"))
                 {
                     listeners.Add(user);
                 }
             }
-            if (listeners.Count!=0)
+            if (listeners.Count != 0)
             {
                 return listeners;
             }
@@ -31,7 +31,7 @@ namespace App.Controller
         {
             var authors = new List<ConferenceUser>();
             var emptyArray = new ConferenceUser[0];
-            foreach (ConferenceUser user in conference.Users)
+            foreach (var user in conference.Users)
             {
                 if (user.User.UserRoles.Equals("Authors"))
                 {

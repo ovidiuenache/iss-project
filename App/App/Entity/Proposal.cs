@@ -32,11 +32,11 @@ namespace App.Entity
         }
 
         public Proposal(
-            string title, 
-            IList<User> authors, 
-            int year, 
+            string title,
+            IList<User> authors,
+            int year,
             string description,
-            string fullPaper, 
+            string fullPaper,
             string abstractPaper
         )
         {

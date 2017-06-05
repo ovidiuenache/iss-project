@@ -4,7 +4,6 @@ using App.Repository;
 using App.Utils;
 using System.Collections.Generic;
 using System.Net.Mail;
-using App.Factory;
 
 namespace App.Controller
 {
@@ -27,9 +26,9 @@ namespace App.Controller
         private MailSender MailSender;
 
         public PreliminaryPhaseController(
-            IUserRepository userRepository, 
-            IConferenceRepository conferenceRepository, 
-            ITopicRepository topicRepository, 
+            IUserRepository userRepository,
+            IConferenceRepository conferenceRepository,
+            ITopicRepository topicRepository,
             IPhaseRepository phaseRepository,
             IConferenceUserRepository conferenceUserRepository,
             IUserRoleRepository userRoleRepository,
@@ -56,20 +55,20 @@ namespace App.Controller
             else
             {
                 var encrypt = new EncryptDecrypt();
-                user.Password = encrypt.encryptPassword(user.Password);
+                user.Password = encrypt.EncryptPassword(user.Password);
 
                 UserRepository.Add(user);
-                Role role = roleRepository.getBySlug("listner");
+                var role = roleRepository.GetBySlug("listner");
                 UserRoleRepository.Add(new UserRole { UserId = user.UserId, User = user, Role = role, RoleId = role.RoleId });
 
-                MailAddress sender = new MailAddress("iss.cmsmailer@gmail.com");
-                MailAddress receiver = new MailAddress(user.Email);
-                string mailBody = "Thank you for your registration. Your account " +
+                var sender = new MailAddress("iss.cmsmailer@gmail.com");
+                var receiver = new MailAddress(user.Email);
+                var mailBody = "Thank you for your registration. Your account " +
                                   "has been created succesfully.\nYour credentials are : \n" +
                                   "Username : " + user.Email +
-                                  "\nPassword : " + encrypt.decryptPassword(user.Password);
-                string mailSubject = "Registration complete";
-                MailSender.sendMail(receiver, mailBody, mailSubject);
+                                  "\nPassword : " + encrypt.DecryptPassword(user.Password);
+                var mailSubject = "Registration complete";
+                MailSender.SendMail(receiver, mailBody, mailSubject);
             }
         }
 

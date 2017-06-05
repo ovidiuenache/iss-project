@@ -24,14 +24,14 @@ namespace App.UI
 
             this.loggedUser = loggedUser;
             this.parentForm = parentForm;
-            preliminaryController = ApplicationFactory.getPreliminaryPhaseController();
+            preliminaryController = ApplicationFactory.GetPreliminaryPhaseController();
 
             updateStatus();
         }
 
         public void updateStatus()
         {
-            Conference conference = preliminaryController.ActiveConference();
+            var conference = preliminaryController.ActiveConference();
             if (conference == null)
             {
                 Size = new System.Drawing.Size(347, 194);
@@ -79,12 +79,12 @@ namespace App.UI
 
         private void buttonStartConference_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to start the conference?", "Start Conference", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("Are you sure you want to start the conference?", "Start Conference", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Conference activeConference = preliminaryController.ActiveConference();
+                var activeConference = preliminaryController.ActiveConference();
 
-                Phase nextPhase = new Phase();
+                var nextPhase = new Phase();
                 nextPhase.Deadline = activeConference.EndDate;
                 nextPhase.Name = "PHASEONE";
 

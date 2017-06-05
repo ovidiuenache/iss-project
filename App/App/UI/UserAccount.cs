@@ -20,7 +20,7 @@ namespace App.UI
 
         public UserAccount(Form parentForm, User loggedUser)
         {
-            controller = ApplicationFactory.getPhaseOneController();
+            controller = ApplicationFactory.GetPhaseOneController();
             this.loggedUser = loggedUser;
             this.parentForm = parentForm;
 
@@ -61,13 +61,13 @@ namespace App.UI
             {
                 if(dataGridViewProposals.Rows.Count != 0)
                 {
-                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.Rows[0].Cells[0].Value.ToString())), false, textBoxAbstract.Text);
+                    var mt = new MetaInformation(controller.GetProposal(Int32.Parse(dataGridViewProposals.Rows[0].Cells[0].Value.ToString())), false, textBoxAbstract.Text);
                     mt.Show();
 
                 }
                 else
                 {
-                    MetaInformation mt= new MetaInformation(null, false, textBoxAbstract.Text);
+                    var mt= new MetaInformation(null, false, textBoxAbstract.Text);
                     mt.Show();
 
                 }
@@ -85,12 +85,12 @@ namespace App.UI
             {
                 if(dataGridViewProposals.Rows.Count != 0)
                 {
-                    MetaInformation mt = new MetaInformation(controller.getProposal(Int32.Parse(dataGridViewProposals.Rows[0].Cells[0].Value.ToString())), true, textBoxFull.Text);
+                    var mt = new MetaInformation(controller.GetProposal(Int32.Parse(dataGridViewProposals.Rows[0].Cells[0].Value.ToString())), true, textBoxFull.Text);
                     mt.Show();
                 }
                 else
                 {
-                    MetaInformation mt = new MetaInformation(null, true, textBoxFull.Text);
+                    var mt = new MetaInformation(null, true, textBoxFull.Text);
                     mt.Show();
 
                 }
@@ -123,7 +123,7 @@ namespace App.UI
             if (proposals.Count != 0)
             {
                 
-                foreach (Proposal proposal in proposals)
+                foreach (var proposal in proposals)
                 {
                     if(!proposal.FullPaper.Equals(""))
                     {
@@ -136,7 +136,7 @@ namespace App.UI
                 return emptyArray;       
         }
 
-        private IList<Proposal> getProposalsToTheNextPhase(Phase phase)
+        private IList<Proposal> GetProposalsToTheNextPhase(Phase phase)
         {
             var emptyArray = new Proposal[0];
             if (DateTime.Now > phase.Deadline)
@@ -159,7 +159,7 @@ namespace App.UI
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridViewProposals.EndEdit();
-            controller.saveChanges();
+            controller.SaveChanges();
 
             MessageBox.Show("Database has been updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -184,12 +184,12 @@ namespace App.UI
 
         private void buttonNextPhase_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to start the next phase?", "Next Phase", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("Are you sure you want to start the next phase?", "Next Phase", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Conference activeConference = controller.ActiveConference();
+                var activeConference = controller.ActiveConference();
 
-                Phase nextPhase = new Phase();
+                var nextPhase = new Phase();
                 nextPhase.Deadline = activeConference.EndDate;
                 nextPhase.Name = "PHASETWO";
 
@@ -197,7 +197,7 @@ namespace App.UI
 
                 controller.UpdateConference(activeConference);
                 controller.deleteProposalsWithoutFull();
-                controller.updateUserRoles();
+                controller.UpdateUserRoles();
 
                 MessageBox.Show("Next phase has successfully started!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();

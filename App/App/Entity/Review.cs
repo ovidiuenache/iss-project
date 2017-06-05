@@ -35,7 +35,7 @@ namespace App.Entity
             this.Proposal = proposal;
             this.DateCreated = dateCreated;
         }
-        
+
 
         public override bool Equals(object obj)
         {

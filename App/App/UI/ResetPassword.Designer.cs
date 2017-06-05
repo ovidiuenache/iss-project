@@ -92,7 +92,7 @@
             this.Text = "ResetPassword";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ResetPassword_FormClosing);
             this.Load += new System.EventHandler(this.ResetPassword_Load);
-            this.Click += new System.EventHandler(this.autoCompleteText);
+            this.Click += new System.EventHandler(this.AutoCompleteText);
             this.ResumeLayout(false);
             this.PerformLayout();
 

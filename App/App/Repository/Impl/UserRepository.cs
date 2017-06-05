@@ -3,7 +3,6 @@ using App.Entity;
 using App.Utils;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 
 namespace App.Repository.Impl
 {
@@ -34,15 +33,17 @@ namespace App.Repository.Impl
             return queryRole.ToList();
 
         }
-        public void ChangePassword(string email,string password)
+        public void ChangePassword(string email, string password)
         {
             var encrypt = new EncryptDecrypt();
             if (email != null)
             {
-                User userImplicated = Context.Users.SingleOrDefault(user => user.Email == email);
-                if (userImplicated != null) {
-                    userImplicated.Password = encrypt.encryptPassword(password);
-                    Context.SaveChanges(); }
+                var userImplicated = Context.Users.SingleOrDefault(user => user.Email == email);
+                if (userImplicated != null)
+                {
+                    userImplicated.Password = encrypt.EncryptPassword(password);
+                    Context.SaveChanges();
+                }
             }
         }
     }

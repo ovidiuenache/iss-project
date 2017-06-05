@@ -21,17 +21,17 @@ namespace App.UI
         {
             InitializeComponent();
 
-            controller = ApplicationFactory.getPhaseOneController();
+            controller = ApplicationFactory.GetPhaseOneController();
             this.proposal = proposal;
             this.fullPaper = fullPaper;
             this.paperLink = paperLink;
-            loadAuthors();
+            LoadAuthors();
             if (this.proposal != null)
             {
                 textBoxName.Text = proposal.Title;
                 textBoxKeywords.Text = proposal.Description;
 
-                foreach (User us in proposal.Authors)
+                foreach (var us in proposal.Authors)
                 {
                     for (int i = 0; i < comboBoxAuthors.Items.Count; i++)
                     {
@@ -60,7 +60,7 @@ namespace App.UI
                 proposal.Year = dateTimePickerAnPublicare.Value.Year;
                 proposal.Description = textBoxKeywords.Text;
                 
-                List<User> authors = new List<User>();
+                var authors = new List<User>();
                 for (int i = 0; i < comboBoxAuthors.Items.Count; i++)
                 {
                     if (comboBoxAuthors.GetItemChecked(i))
@@ -79,7 +79,7 @@ namespace App.UI
                     proposal.FullPaper = paperLink;
                 }
 
-                controller.addProposal(proposal);
+                controller.AddProposal(proposal);
 
                 MessageBox.Show("Proposal created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
@@ -90,7 +90,7 @@ namespace App.UI
                 proposal.Year = dateTimePickerAnPublicare.Value.Year;
                 proposal.Description = textBoxKeywords.Text;
 
-                List<User> authors = new List<User>();
+                var authors = new List<User>();
                 for (int i = 0; i < comboBoxAuthors.Items.Count; i++)
                 {
                     if (comboBoxAuthors.GetItemChecked(i))
@@ -109,17 +109,17 @@ namespace App.UI
                     proposal.FullPaper = paperLink;
                 }
 
-                controller.updateProposal(proposal);
+                controller.UpdateProposal(proposal);
 
                 MessageBox.Show("Proposal updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
         }
 
-        private void loadAuthors()
+        private void LoadAuthors()
         {
-            List<User> users = controller.getAllUsers();
-            foreach (User user in users)
+            var users = controller.GetAllUsers();
+            foreach (var user in users)
             {
                 comboBoxAuthors.Items.Add(user);
             }

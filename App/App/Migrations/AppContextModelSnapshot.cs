@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using App.Context;
 
 namespace App.Migrations
@@ -275,7 +274,7 @@ namespace App.Migrations
                         .WithMany()
                         .HasForeignKey("SectionLeaderUserId");
                 });
-                
+
             modelBuilder.Entity("App.Entity.Topic", b =>
                 {
                     b.HasOne("App.Entity.Conference")

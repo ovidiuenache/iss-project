@@ -35,7 +35,7 @@ namespace App.Repository.Impl
         /// Persists the entity got as parameter in the database 
         /// </summary>
         /// <param name="entity"></param>
-        public void Add(T entity) 
+        public void Add(T entity)
         {
             DatabaseSet.Add(entity);
             Context.SaveChanges();

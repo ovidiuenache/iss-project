@@ -15,9 +15,9 @@ namespace App.UI.PhaseTwo
 
         public AuthorMain(Form parentForm, User loggedUser)
         {
-            this.controller = ApplicationFactory.getPhaseOneController();
+            this.controller = ApplicationFactory.GetPhaseOneController();
             this.loggedUser = loggedUser;
-            this.proposal = controller.getProposalByUser(loggedUser.UserId);
+            this.proposal = controller.GetProposalByUser(loggedUser.UserId);
             this.parentForm = parentForm;
 
             InitializeComponent();
@@ -56,7 +56,7 @@ namespace App.UI.PhaseTwo
                 MessageBox.Show("Please select a file to upload");
             else
             {
-                MetaInformation mt = new MetaInformation(proposal, true, textBox1.Text);
+                var mt = new MetaInformation(proposal, true, textBox1.Text);
                 mt.Show();
             }
         }

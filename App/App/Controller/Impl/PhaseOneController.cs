@@ -33,12 +33,12 @@ namespace App.Controller
             this.roleRepository = roleRepository;
         }
 
-        public void addProposal(Proposal proposal)
+        public void AddProposal(Proposal proposal)
         {
             proposalRepository.Add(proposal);
         }
 
-        public void updateProposal(Proposal proposal)
+        public void UpdateProposal(Proposal proposal)
         {
             proposalRepository.Update(proposal);
         }
@@ -58,7 +58,7 @@ namespace App.Controller
             return userRepository.GetRoles(user);
         }
 
-        public Proposal getProposal(int proposalId)
+        public Proposal GetProposal(int proposalId)
         {
             return proposalRepository.Find(proposalId);
         }
@@ -68,39 +68,39 @@ namespace App.Controller
             return proposalRepository.ProposalsAuthoredByUser(userId);
         }
 
-        public void saveChanges()
+        public void SaveChanges()
         {
-            proposalRepository.saveChanges();
+            proposalRepository.SaveChanges();
         }
 
-        public List<User> getAllUsers()
+        public List<User> GetAllUsers()
         {
             return userRepository.All();
         }
 
-        public Proposal getProposalByUser(int userId)
+        public Proposal GetProposalByUser(int userId)
         {
             return proposalRepository.All().Where(proposal => proposal.Authors.Contains(userRepository.Find(userId))).ToList().FirstOrDefault();
         }
 
         public void deleteProposalsWithoutFull()
         {
-            List<Proposal> proposalsWithoutFull = proposalRepository.getProposalsWithoutFull();
-            foreach (Proposal prop in proposalsWithoutFull)
+            var proposalsWithoutFull = proposalRepository.GetProposalsWithoutFull();
+            foreach (var prop in proposalsWithoutFull)
             {
                 proposalRepository.Delete(prop);
             }
         }
 
-        public void updateUserRoles()
+        public void UpdateUserRoles()
         {
-            List<Proposal> allProposals = proposalRepository.All();
+            var allProposals = proposalRepository.All();
 
-            foreach (User user in userRepository.All())
+            foreach (var user in userRepository.All())
             {
-                bool isAuthor = false;
+                var isAuthor = false;
 
-                foreach (Proposal proposal in allProposals)
+                foreach (var proposal in allProposals)
                 {
                     if (proposal.Authors.Select(author => author.UserId).Contains(user.UserId))
                     {
@@ -110,7 +110,7 @@ namespace App.Controller
 
                 if (isAuthor)
                 {
-                    Role role = roleRepository.getBySlug("author");
+                    var role = roleRepository.GetBySlug("author");
                     user.UserRoles = new List<UserRole>() { new UserRole() { Role = role, RoleId = role.RoleId, User = user, UserId = user.UserId } };
                     userRepository.Update(user);
                 }

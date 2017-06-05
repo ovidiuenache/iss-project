@@ -1,6 +1,5 @@
 ﻿using App.Entity;
 using App.Repository.Impl;
-using App.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -43,9 +42,9 @@ namespace App.Controller
         /// </summary>
         /// <param name="proposalId"></param>
         /// <returns></returns>
-        public List<Review> getReviewsByProposalId(int proposalId)
+        public List<Review> GetReviewsByProposalId(int proposalId)
         {
-            List<Review> reviews = reviewRepo.All();
+            var reviews = reviewRepo.All();
             reviews = reviews.Where(rev => rev.Proposal.ProposalId == proposalId).ToList();
             return reviews;
         }
@@ -55,7 +54,7 @@ namespace App.Controller
         /// </summary>
         /// <param name="reviewerId"></param>
         /// <returns></returns>
-        public User getReviewer(int reviewerId)
+        public User GetReviewer(int reviewerId)
         {
             return userRepo.Find(reviewerId);
         }
@@ -64,7 +63,7 @@ namespace App.Controller
         /// Removes the review with the given ID from the database
         /// </summary>
         /// <param name="reviewId"></param>
-        public void removeReview(int reviewId)
+        public void RemoveReview(int reviewId)
         {
             reviewRepo.Delete(reviewRepo.Find(reviewId));
         }
@@ -73,7 +72,7 @@ namespace App.Controller
         /// Returns a list of all the proposals
         /// </summary>
         /// <returns></returns>
-        public List<Proposal> getProposals()
+        public List<Proposal> GetProposals()
         {
             return proposalRepo.All();
         }
@@ -83,7 +82,7 @@ namespace App.Controller
         /// </summary>
         /// <param name="proposalId"></param>
         /// <returns></returns>
-        public Proposal getProposal(int proposalId)
+        public Proposal GetProposal(int proposalId)
         {
             return proposalRepo.Find(proposalId);
         }
@@ -92,7 +91,7 @@ namespace App.Controller
         /// Saves the given review in the database
         /// </summary>
         /// <param name="review"></param>
-        public void addReview(Review review)
+        public void AddReview(Review review)
         {
             reviewRepo.Add(review);
         }
@@ -103,18 +102,17 @@ namespace App.Controller
         /// <param name="proposalId"></param>
         /// <param name="reviewerId"></param>
         /// <returns></returns>
-        public Review getReviewByIdProposalIdReviewer(int proposalId, int reviewerId)
+        public Review GetReviewByIdProposalIdReviewer(int proposalId, int reviewerId)
         {
-            List<Review> reviews = reviewRepo.All();
-            List<Review> result = reviews.Where(review => review.Proposal.ProposalId == proposalId && review.Reviewer.UserId == reviewerId).ToList();
-            if(result.Count > 0)
+            var reviews = reviewRepo.All();
+            var result = reviews.Where(review => review.Proposal.ProposalId == proposalId && review.Reviewer.UserId == reviewerId).ToList();
+            if (result.Count > 0)
             {
                 return result.First();
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
+
         }
 
         /// <summary>
@@ -122,7 +120,7 @@ namespace App.Controller
         /// </summary>
         /// <param name="reviewerId"></param>
         /// <returns></returns>
-        public List<Review> getReviewsByIdReviewer(int reviewerId)
+        public List<Review> GetReviewsByIdReviewer(int reviewerId)
         {
             return reviewRepo.All().Where(review => review.Reviewer.UserId == reviewerId).ToList();
         }
@@ -132,7 +130,7 @@ namespace App.Controller
         /// </summary>
         /// <param name="reviewId"></param>
         /// <returns></returns>
-        public Review getReview(int reviewId)
+        public Review GetReview(int reviewId)
         {
             return reviewRepo.Find(reviewId);
         }
@@ -141,7 +139,7 @@ namespace App.Controller
         /// Updates the review with the same id as the one given as parameter to the new one.
         /// </summary>
         /// <param name="review"></param>
-        public void updateReview(Review review)
+        public void UpdateReview(Review review)
         {
             reviewRepo.Update(review);
         }
@@ -156,16 +154,16 @@ namespace App.Controller
             conferenceRepository.Update(conference);
         }
 
-        public List<User> getReviewers()
+        public List<User> GetReviewers()
         {
-            return userRepo.All().Where(user => userRoleRepo.All().Where(role => role.RoleId == roleRepository.getBySlug("reviewer").RoleId).ToList().First().UserId == user.UserId).ToList();
+            return userRepo.All().Where(user => userRoleRepo.All().Where(role => role.RoleId == roleRepository.GetBySlug("reviewer").RoleId).ToList().First().UserId == user.UserId).ToList();
         }
 
-        public void deleteRejectedProposals()
+        public void DeleteRejectedProposals()
         {
-            List<int> rejectedProposalsIds = reviewRepo.getRejectedProposalsIds();
+            var rejectedProposalsIds = reviewRepo.GetRejectedProposalsIds();
 
-            foreach (int id in rejectedProposalsIds)
+            foreach (var id in rejectedProposalsIds)
             {
                 proposalRepo.Delete(proposalRepo.Find(id));
             }

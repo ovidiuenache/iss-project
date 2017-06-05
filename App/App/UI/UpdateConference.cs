@@ -27,21 +27,21 @@ namespace App.UI
             InitializeComponent();
             Location = new Point(positionX, positionY);
             this.parent = parent;
-            preliminaryController = ApplicationFactory.getPreliminaryPhaseController();
+            preliminaryController = ApplicationFactory.GetPreliminaryPhaseController();
             activeConference = preliminaryController.ActiveConference();
             validator = new ConferenceValidator();
         }
 
         private void UpdateConferenceUI_Load(object sender, EventArgs e)
         {
-            loadUsers();
-            loadTopics();
+            LoadUsers();
+            LoadTopics();
 
             textBoxName.Text = activeConference.Name;
             textBoxFee.Text = activeConference.ConferenceFee.ToString();
             dateTimePicker.Value = activeConference.EndDate;
 
-            foreach (ConferenceUser conferenceUser in activeConference.Users)
+            foreach (var conferenceUser in activeConference.Users)
             {
                 for (int i = 0; i < comboBoxCheckedListUpdate.Items.Count; i++)
                 {
@@ -52,7 +52,7 @@ namespace App.UI
                 }
             }
 
-            foreach (Topic topic in activeConference.Topics)
+            foreach (var topic in activeConference.Topics)
             {
                 for (int i = 0; i < listBoxTopics.Items.Count; i++)
                 {
@@ -71,7 +71,7 @@ namespace App.UI
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            List<User> commiteeMembers = new List<User>();
+            var commiteeMembers = new List<User>();
             for (int i = 0; i < comboBoxCheckedListUpdate.Items.Count; i++)
             {
                 if (comboBoxCheckedListUpdate.GetItemChecked(i))
@@ -80,10 +80,10 @@ namespace App.UI
                 }
             }
 
-            List<Topic> selectedTopics = new List<Topic>();
+            var selectedTopics = new List<Topic>();
             foreach (int i in listBoxTopics.SelectedIndices)
             {
-                string topicName = listBoxTopics.Items[i].ToString();
+                var topicName = listBoxTopics.Items[i].ToString();
                 selectedTopics.Add(preliminaryController.FindTopicByName(topicName));
             }
 
@@ -93,7 +93,7 @@ namespace App.UI
                 activeConference.EndDate = dateTimePicker.Value;
                 activeConference.Topics = selectedTopics;
                 activeConference.ConferenceFee = float.Parse(textBoxFee.Text);
-                validator.validate(activeConference);
+                validator.Validate(activeConference);
 
                 preliminaryController.UpdateConference(activeConference);
                 MessageBox.Show("Conference has been successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -110,11 +110,11 @@ namespace App.UI
             parent.Show();
         }
 
-        private void loadUsers()
+        private void LoadUsers()
         {
-            List<User> users = preliminaryController.FindAllUsers();
+            var users = preliminaryController.FindAllUsers();
 
-            foreach (User user in users)
+            foreach (var user in users)
             {
                 comboBoxCheckedListUpdate.Items.Add(user);
             }
@@ -126,11 +126,11 @@ namespace App.UI
             comboBoxCheckedListUpdate.ValueSeparator = ", ";
         }
 
-        private void loadTopics()
+        private void LoadTopics()
         {
-            List<Topic> topics = preliminaryController.FindAllTopics();
+            var topics = preliminaryController.FindAllTopics();
 
-            foreach (Topic topic in topics)
+            foreach (var topic in topics)
             {
                 listBoxTopics.Items.Add(topic.Name);
             }

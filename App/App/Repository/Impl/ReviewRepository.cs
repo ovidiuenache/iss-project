@@ -17,9 +17,9 @@ namespace App.Repository.Impl
         {
         }
 
-        public List<int> getRejectedProposalsIds()
+        public List<int> GetRejectedProposalsIds()
         {
             return Context.Reviews.Where(r => r.Qualifier.ToLower().IndexOf("accept") == -1).Select(r => r.Proposal.ProposalId).ToList();
-        } 
+        }
     }
 }

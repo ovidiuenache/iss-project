@@ -1,9 +1,4 @@
 ﻿using App.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace App.Repository
 {
@@ -15,6 +10,6 @@ namespace App.Repository
     /// </summary>
     public interface IRoleRepository : IRepository<Role>
     {
-        Role getBySlug(string slug);
+        Role GetBySlug(string slug);
     }
 }

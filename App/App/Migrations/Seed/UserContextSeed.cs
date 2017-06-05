@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using App.Context;
 using App.Entity;
-using Microsoft.EntityFrameworkCore.Migrations;
 using App.Utils;
 
 namespace App.Migrations.Seed
@@ -44,15 +39,15 @@ namespace App.Migrations.Seed
                     db.Roles.Add(reviewer);
                 }
 
-                var user1 = new User("Andu", "Popa", "popa@gmail.com", encrypter.encryptPassword("parola"), "ro");
-                var userRole = new UserRole() {Role = chair, RoleId = chair.RoleId, User = user1, UserId = user1.UserId};
-                user1.UserRoles = new List<UserRole>() {userRole};
+                var user1 = new User("Andu", "Popa", "popa@gmail.com", encrypter.EncryptPassword("parola"), "ro");
+                var userRole = new UserRole() { Role = chair, RoleId = chair.RoleId, User = user1, UserId = user1.UserId };
+                user1.UserRoles = new List<UserRole>() { userRole };
 
-                var user2 = new User("Haba", "Baba", "haba@gmail.com", encrypter.encryptPassword("parola"), "ro");
+                var user2 = new User("Haba", "Baba", "haba@gmail.com", encrypter.EncryptPassword("parola"), "ro");
                 var userRole2 = new UserRole() { Role = reviewer, RoleId = reviewer.RoleId, User = user2, UserId = user2.UserId };
                 user2.UserRoles = new List<UserRole>() { userRole2 };
 
-                var user3 = new User("Yolo", "Swag", "swag@gmail.com", encrypter.encryptPassword("parola"), "ro");
+                var user3 = new User("Yolo", "Swag", "swag@gmail.com", encrypter.EncryptPassword("parola"), "ro");
                 var userRole3 = new UserRole() { Role = reviewer, RoleId = reviewer.RoleId, User = user3, UserId = user3.UserId };
                 user3.UserRoles = new List<UserRole>() { userRole3 };
 

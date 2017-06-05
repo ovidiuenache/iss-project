@@ -13,10 +13,10 @@ namespace App.Validators
     /// </summary>
     public class ConferenceValidator : IValidator<Conference>
     {
-        public void validate(Conference entity)
+        public void Validate(Conference entity)
         {
-            string errors = "";
-            if (!validateName(entity.Name))
+            var errors = "";
+            if (!ValidateName(entity.Name))
             {
                 errors += "The Conference Name must have between 2 and 30 letters!\n";
                 errors += "The Conference Name must be start with an uppercase!";
@@ -27,7 +27,7 @@ namespace App.Validators
                 throw new ValidationException(errors);
             }
         }
-        private bool validateName(string name)
+        private bool ValidateName(string name)
         {
             if (name.Length < 2 || name.Length > 30)
             {
@@ -41,14 +41,14 @@ namespace App.Validators
             {
                 return false;
             }
-                
+
             return true;
         }
 
-        private bool validateFee(string fee)
+        private bool ValidateFee(string fee)
         {
             int n;
-            bool isNumeric = int.TryParse(fee, out n);
+            var isNumeric = int.TryParse(fee, out n);
 
             if (isNumeric == false)
             {

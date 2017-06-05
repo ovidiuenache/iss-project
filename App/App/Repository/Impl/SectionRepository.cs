@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using App.Context;
 using App.Entity;
 using App.Repository.Impl;
@@ -47,10 +44,10 @@ namespace App.Controller.Impl
 
         public List<Proposal> FindAllProposalsExistingInSections()
         {
-            List<Section> sections = Context.Sections
+            var sections = Context.Sections
                 .Include(p => p.Proposals)
                 .ToList();
-            List<Proposal> proposals = new List<Proposal>();
+            var proposals = new List<Proposal>();
 
             foreach (var section in sections)
             {

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using App.Context;
 using App.Entity;
 
@@ -30,12 +27,12 @@ namespace App.Migrations.Seed
                 if (!db.Sections.Any())
                 {
                     var sectionLeader = db.Users.Find(1);
-                    List<Topic> topics = new List<Topic>();
+                    var topics = new List<Topic>();
                     topics.Add(db.Topics.Find(1));
                     topics.Add(db.Topics.Find(4));
                     topics.Add(db.Topics.Find(5));
-                    List<User> listeners = new List<User>();
-                    List<User> authors = new List<User>();
+                    var listeners = new List<User>();
+                    var authors = new List<User>();
                     authors.Add(db.Users.Find(2));
                     authors.Add(db.Users.Find(3));
                     db.Sections.Add(

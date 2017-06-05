@@ -18,7 +18,7 @@ namespace App.UI.PhaseTwo
 
         public ChairMain(Form parentForm, User loggedUser)
         {
-            phaseTwoController = ApplicationFactory.getPhaseTwoController();
+            phaseTwoController = ApplicationFactory.GetPhaseTwoController();
             this.parentForm = parentForm;
             this.loggedUser = loggedUser;
 
@@ -27,7 +27,7 @@ namespace App.UI.PhaseTwo
 
         private void sendEmailsButton_Click(object sender, EventArgs e)
         {
-            ChairToAcceptedAuthors sendMailView = new ChairToAcceptedAuthors(this);
+            var sendMailView = new ChairToAcceptedAuthors(this);
             sendMailView.Location = new System.Drawing.Point(Location.X, Location.Y);
             sendMailView.Show();
             Hide();
@@ -35,7 +35,7 @@ namespace App.UI.PhaseTwo
 
         private void assignButton_Click(object sender, EventArgs e)
         {
-            ChairAssignementToReviewer assignmentView = new ChairAssignementToReviewer(this);
+            var assignmentView = new ChairAssignementToReviewer(this);
             assignmentView.Location = new System.Drawing.Point(Location.X, Location.Y);
             assignmentView.Show();
             Hide();
@@ -48,19 +48,19 @@ namespace App.UI.PhaseTwo
 
         private void buttonNextPhase_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to end this phase and start the next one?", "Start Next Phase", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show("Are you sure you want to end this phase and start the next one?", "Start Next Phase", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Conference activeConference = phaseTwoController.ActiveConference();
+                var activeConference = phaseTwoController.ActiveConference();
 
-                Phase nextPhase = new Phase();
+                var nextPhase = new Phase();
                 nextPhase.Deadline = activeConference.EndDate;
                 nextPhase.Name = "PHASETHREE";
 
                 activeConference.ActivePhase = nextPhase;
 
                 phaseTwoController.UpdateConference(activeConference);
-                phaseTwoController.deleteRejectedProposals();
+                phaseTwoController.DeleteRejectedProposals();
 
                 MessageBox.Show("Switch to the next phase has been done successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 parentForm.Location = new System.Drawing.Point(Location.X, Location.Y);

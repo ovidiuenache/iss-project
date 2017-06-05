@@ -13,113 +13,113 @@ namespace App.Factory
     /// </summary>
     public class ApplicationFactory
     {
-        private static AppContext context = null;
+        private static AppContext _context = null;
 
-        public static AppContext getAppContext()
+        public static AppContext GetAppContext()
         {
-            if (context == null)
+            if (_context == null)
             {
-                context = new AppContext();
+                _context = new AppContext();
             }
 
-            return context;
+            return _context;
         }
 
-        public static UserRepository getUserRepository()
+        public static UserRepository GetUserRepository()
         {
-            return new UserRepository(getAppContext());
+            return new UserRepository(GetAppContext());
         }
 
-        public static TopicRepository getTopicRepository()
+        public static TopicRepository GetTopicRepository()
         {
-            return new TopicRepository(getAppContext());
+            return new TopicRepository(GetAppContext());
         }
 
-        public static ConferenceRepository getConferenceRepository()
+        public static ConferenceRepository GetConferenceRepository()
         {
-            return new ConferenceRepository(getAppContext());
+            return new ConferenceRepository(GetAppContext());
         }
 
-        public static PhaseRepository getPhaseRepository()
+        public static PhaseRepository GetPhaseRepository()
         {
-            return new PhaseRepository(getAppContext());
+            return new PhaseRepository(GetAppContext());
         }
 
-        public static ProposalRepository getProposalRepository()
+        public static ProposalRepository GetProposalRepository()
         {
-            return new ProposalRepository(getAppContext());
+            return new ProposalRepository(GetAppContext());
         }
 
-        public static ReviewRepository getReviewRepository()
+        public static ReviewRepository GetReviewRepository()
         {
-            return new ReviewRepository(getAppContext());
+            return new ReviewRepository(GetAppContext());
         }
 
-        public static UserRoleRepository getUserRoleRepository()
+        public static UserRoleRepository GetUserRoleRepository()
         {
-            return new UserRoleRepository(getAppContext());
+            return new UserRoleRepository(GetAppContext());
         }
 
-        public static PreliminaryPhaseController getPreliminaryPhaseController()
+        public static PreliminaryPhaseController GetPreliminaryPhaseController()
         {
             return new PreliminaryPhaseController(
-                getUserRepository(),
-                getConferenceRepository(),
-                getTopicRepository(),
-                getPhaseRepository(),
-                getConferenceUserRepository(),
-                getUserRoleRepository(),
-                getRoleRepository()
+                GetUserRepository(),
+                GetConferenceRepository(),
+                GetTopicRepository(),
+                GetPhaseRepository(),
+                GetConferenceUserRepository(),
+                GetUserRoleRepository(),
+                GetRoleRepository()
             );
         }
 
-        public static LoginController getLoginController()
+        public static LoginController GetLoginController()
         {
-            return new LoginController(getUserRepository(), getConferenceRepository());
+            return new LoginController(GetUserRepository(), GetConferenceRepository());
         }
 
-        public static PhaseOneController getPhaseOneController()
+        public static PhaseOneController GetPhaseOneController()
         {
-            return new PhaseOneController(getProposalRepository(), getUserRepository(), getConferenceRepository(), getRoleRepository());
+            return new PhaseOneController(GetProposalRepository(), GetUserRepository(), GetConferenceRepository(), GetRoleRepository());
         }
 
-        public static PhaseTwoController getPhaseTwoController()
+        public static PhaseTwoController GetPhaseTwoController()
         {
-            return new PhaseTwoController(getReviewRepository(), getProposalRepository(), getUserRepository(), getConferenceRepository(),getUserRoleRepository(), getRoleRepository());
+            return new PhaseTwoController(GetReviewRepository(), GetProposalRepository(), GetUserRepository(), GetConferenceRepository(), GetUserRoleRepository(), GetRoleRepository());
         }
 
         public static PhaseThreeController GetPhaseThreeController()
         {
             return new PhaseThreeController(
                 GetSectionRepository(),
-                getUserRepository(),
-                getProposalRepository(), 
-                getConferenceRepository(),
+                GetUserRepository(),
+                GetProposalRepository(),
+                GetConferenceRepository(),
                 GetUserSectionRepository(),
-                getReviewRepository(),
-                getPhaseRepository(),
-                getTopicRepository()
+                GetReviewRepository(),
+                GetPhaseRepository(),
+                GetTopicRepository()
             );
         }
 
         public static SectionRepository GetSectionRepository()
         {
-            return new SectionRepository(getAppContext());
+            return new SectionRepository(GetAppContext());
         }
 
-        public static ConferenceUserRepository getConferenceUserRepository()
+        public static ConferenceUserRepository GetConferenceUserRepository()
         {
-            return new ConferenceUserRepository(getAppContext());
+            return new ConferenceUserRepository(GetAppContext());
         }
 
         public static UserSectionRepository GetUserSectionRepository()
         {
-            return new UserSectionRepository(getAppContext());
+            return new UserSectionRepository(GetAppContext());
         }
 
-        public static RoleRepository getRoleRepository()
+        public static RoleRepository GetRoleRepository()
         {
-            return new RoleRepository(getAppContext());
+            return new RoleRepository(GetAppContext());
         }
     }
 }
