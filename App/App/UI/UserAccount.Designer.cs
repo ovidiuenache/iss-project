@@ -65,7 +65,7 @@
             // 
             this.buttonUploadAbstract.Location = new System.Drawing.Point(422, 327);
             this.buttonUploadAbstract.Name = "buttonUploadAbstract";
-            this.buttonUploadAbstract.Size = new System.Drawing.Size(324, 36);
+            this.buttonUploadAbstract.Size = new System.Drawing.Size(247, 36);
             this.buttonUploadAbstract.TabIndex = 3;
             this.buttonUploadAbstract.Text = "Upload Abstract";
             this.buttonUploadAbstract.UseVisualStyleBackColor = true;
@@ -92,7 +92,7 @@
             // 
             this.buttonUploadFull.Location = new System.Drawing.Point(422, 372);
             this.buttonUploadFull.Name = "buttonUploadFull";
-            this.buttonUploadFull.Size = new System.Drawing.Size(324, 35);
+            this.buttonUploadFull.Size = new System.Drawing.Size(247, 35);
             this.buttonUploadFull.TabIndex = 6;
             this.buttonUploadFull.Text = "Upload Full";
             this.buttonUploadFull.UseVisualStyleBackColor = true;
@@ -111,7 +111,7 @@
             this.dataGridViewProposals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProposals.Location = new System.Drawing.Point(12, 27);
             this.dataGridViewProposals.Name = "dataGridViewProposals";
-            this.dataGridViewProposals.Size = new System.Drawing.Size(762, 237);
+            this.dataGridViewProposals.Size = new System.Drawing.Size(657, 237);
             this.dataGridViewProposals.TabIndex = 0;
             // 
             // buttonUpdate
@@ -128,7 +128,7 @@
             // 
             this.buttonLogout.Location = new System.Drawing.Point(422, 418);
             this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(324, 35);
+            this.buttonLogout.Size = new System.Drawing.Size(247, 35);
             this.buttonLogout.TabIndex = 8;
             this.buttonLogout.Text = "Logout";
             this.buttonLogout.UseVisualStyleBackColor = true;
@@ -148,7 +148,7 @@
             // 
             this.buttonNextPhase.Location = new System.Drawing.Point(422, 280);
             this.buttonNextPhase.Name = "buttonNextPhase";
-            this.buttonNextPhase.Size = new System.Drawing.Size(324, 34);
+            this.buttonNextPhase.Size = new System.Drawing.Size(247, 34);
             this.buttonNextPhase.TabIndex = 10;
             this.buttonNextPhase.Text = "Next Phase";
             this.buttonNextPhase.UseVisualStyleBackColor = true;
@@ -159,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 465);
+            this.ClientSize = new System.Drawing.Size(681, 465);
             this.Controls.Add(this.buttonNextPhase);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonLogout);
@@ -173,7 +173,6 @@
             this.Controls.Add(this.dataGridViewProposals);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(735, 458);
             this.Name = "UserAccount";
             this.ShowIcon = false;
             this.Text = "Phase One";

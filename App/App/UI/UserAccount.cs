@@ -27,8 +27,10 @@ namespace App.UI
             InitializeComponent();
 
             dataGridViewProposals.DataSource = controller.ProposalsAuthoredByUser(loggedUser.UserId);
+            dataGridViewProposals.Columns[2].Visible = false;
+            dataGridViewProposals.Columns[7].Visible = false;
 
-            buttonUpdate.Size = new System.Drawing.Size(710, 34);
+            buttonUpdate.Size = new System.Drawing.Size(633, 34);
             buttonUpdate.Location = new System.Drawing.Point(36, 280);
 
             if (controller.GetUserRoles(loggedUser).Select(role => role.Slug).Contains("chair"))
