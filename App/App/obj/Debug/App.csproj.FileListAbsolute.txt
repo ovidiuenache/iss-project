@@ -481,10 +481,10 @@ C:\Users\Andu\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseThree.ChooseRoom
 C:\Users\Andu\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseThree.CreateSchedule.resources
 C:\Users\Andu\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseThree.ListenerMain.resources
 C:\Users\Andu\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseThree.ProgramComitee.resources
-C:\Users\Andu\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseThree.RoomsDistribution.res
 C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseThree.AddStartTime.resources
 C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseThree.ChooseRoom.resources
 C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseThree.CreateSchedule.resources
 C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseThree.ListenerMain.resources
 C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseThree.ProgramComitee.resources
 C:\Users\John\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseThree.RoomsDistribution.resources
+C:\Users\Andu\Desktop\iss-project\App\App\obj\Debug\App.UI.PhaseThree.RoomsDistribution.resources

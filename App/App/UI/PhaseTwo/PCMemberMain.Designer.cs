@@ -28,28 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.proposalListGridView = new System.Windows.Forms.DataGridView();
             this.ratingsGridView = new System.Windows.Forms.DataGridView();
             this.bidButton = new System.Windows.Forms.Button();
             this.rateButton = new System.Windows.Forms.Button();
             this.buttonRefreshReviews = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.proposalListGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ratingsGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // proposalListGridView
-            // 
-            this.proposalListGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.proposalListGridView.Location = new System.Drawing.Point(13, 13);
-            this.proposalListGridView.Name = "proposalListGridView";
-            this.proposalListGridView.Size = new System.Drawing.Size(803, 144);
-            this.proposalListGridView.TabIndex = 0;
             // 
             // ratingsGridView
             // 
             this.ratingsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ratingsGridView.Location = new System.Drawing.Point(13, 280);
+            this.ratingsGridView.Location = new System.Drawing.Point(12, 119);
             this.ratingsGridView.Name = "ratingsGridView";
             this.ratingsGridView.Size = new System.Drawing.Size(803, 144);
             this.ratingsGridView.TabIndex = 1;
@@ -58,7 +48,7 @@
             // 
             this.bidButton.BackColor = System.Drawing.SystemColors.Control;
             this.bidButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bidButton.Location = new System.Drawing.Point(169, 194);
+            this.bidButton.Location = new System.Drawing.Point(168, 33);
             this.bidButton.Name = "bidButton";
             this.bidButton.Size = new System.Drawing.Size(94, 51);
             this.bidButton.TabIndex = 2;
@@ -70,7 +60,7 @@
             // 
             this.rateButton.BackColor = System.Drawing.SystemColors.Control;
             this.rateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rateButton.Location = new System.Drawing.Point(287, 194);
+            this.rateButton.Location = new System.Drawing.Point(286, 33);
             this.rateButton.Name = "rateButton";
             this.rateButton.Size = new System.Drawing.Size(94, 49);
             this.rateButton.TabIndex = 3;
@@ -82,7 +72,7 @@
             // 
             this.buttonRefreshReviews.BackColor = System.Drawing.SystemColors.Control;
             this.buttonRefreshReviews.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRefreshReviews.Location = new System.Drawing.Point(405, 194);
+            this.buttonRefreshReviews.Location = new System.Drawing.Point(404, 33);
             this.buttonRefreshReviews.Name = "buttonRefreshReviews";
             this.buttonRefreshReviews.Size = new System.Drawing.Size(94, 49);
             this.buttonRefreshReviews.TabIndex = 4;
@@ -93,7 +83,7 @@
             // buttonLogout
             // 
             this.buttonLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogout.Location = new System.Drawing.Point(526, 194);
+            this.buttonLogout.Location = new System.Drawing.Point(525, 33);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(94, 49);
             this.buttonLogout.TabIndex = 5;
@@ -111,7 +101,6 @@
             this.Controls.Add(this.rateButton);
             this.Controls.Add(this.bidButton);
             this.Controls.Add(this.ratingsGridView);
-            this.Controls.Add(this.proposalListGridView);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(844, 483);
             this.MinimizeBox = false;
@@ -121,15 +110,12 @@
             this.Text = "PCMemberMain";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PCMemberMain_FormClosing);
             this.Load += new System.EventHandler(this.PCMemberMain_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.proposalListGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ratingsGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView proposalListGridView;
         private System.Windows.Forms.DataGridView ratingsGridView;
         private System.Windows.Forms.Button bidButton;
         private System.Windows.Forms.Button rateButton;
