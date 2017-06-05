@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{55087FEB-416C-4EA4-AE1E-4488C9ACF8C5}</ProjectGuid>
+    <ProjectGuid>{2CDB4F1F-EC8F-4917-BF6A-B02E7B3EE5E9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Test</RootNamespace>
-    <AssemblyName>Test</AssemblyName>
+    <RootNamespace>TestRepository</RootNamespace>
+    <AssemblyName>TestRepository</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -65,6 +65,10 @@
     </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore.Relational.Design, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.Design.1.1.2\lib\net451\Microsoft.EntityFrameworkCore.Relational.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.SqlServer, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.SqlServer.1.1.2\lib\net451\Microsoft.EntityFrameworkCore.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
@@ -154,24 +158,13 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-          <Private>False</Private>
-        </Reference>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ReviewRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\PhaseRepositoryTest.cs" />
-    <Compile Include="Repository\ConferenceRepositoryTest.cs" />
-    <Compile Include="Repository\ProposalRepositoryTest.cs" />
-    <Compile Include="Repository\ReviewRepositoryTest.cs" />
-    <Compile Include="Repository\RoleRepositoryTest.cs" />
-    <Compile Include="Repository\SectionRepositoryTest.cs" />
-    <Compile Include="Repository\TopicRepositoryTest.cs" />
-    <Compile Include="Repository\UserRepositoryTest.cs" />
-    <Compile Include="Utils\MailSenderTest.cs" />
-    <Compile Include="Utils\PasswordGeneratorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App\App.csproj">
