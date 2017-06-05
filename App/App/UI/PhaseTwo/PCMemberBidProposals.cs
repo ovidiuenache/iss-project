@@ -26,7 +26,6 @@ namespace App.UI.PhaseTwo
             this.proposals = phaseTwoController.getProposals();
             this.reviewer = reviewer;
             this.phaseTwoController = phaseTwoController;
-            
             InitializeComponent();
 
             proposalsDataGridView.DataSource = proposals;
@@ -59,10 +58,15 @@ namespace App.UI.PhaseTwo
             {
                 submitButton.Enabled = false;
             }
+            else
+            {
+                submitButton.Enabled = true;
+            }
         }
 
         private void PCMemberBidProposals_FormClosing(object sender, FormClosingEventArgs e)
         {
+            phaseTwoController.saveChanges();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)

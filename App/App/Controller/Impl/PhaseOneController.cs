@@ -2,6 +2,8 @@
 using App.Repository.Impl;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using System.Windows.Forms;
 
 namespace App.Controller
 {
@@ -13,7 +15,7 @@ namespace App.Controller
     /// Author : Alexandru Emil Popa
     /// 
     /// </summary>
-    public class PhaseOneController
+    public class PhaseOneController : IPhaseOneController
     {
         private ProposalRepository proposalRepository;
         private UserRepository userRepository;
@@ -116,5 +118,7 @@ namespace App.Controller
                 }
             }
         }
+
+      
     }
 }

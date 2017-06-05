@@ -32,6 +32,7 @@
             this.btnScheduleSetup = new System.Windows.Forms.Button();
             this.btnChooseRooms = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
+            this.buttonEndConference = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPickSectionLeader
@@ -69,7 +70,7 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(50, 141);
+            this.buttonBack.Location = new System.Drawing.Point(50, 184);
             this.buttonBack.MaximumSize = new System.Drawing.Size(86, 43);
             this.buttonBack.MinimumSize = new System.Drawing.Size(86, 43);
             this.buttonBack.Name = "buttonBack";
@@ -79,20 +80,29 @@
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
+            // buttonEndConference
+            // 
+            this.buttonEndConference.Location = new System.Drawing.Point(28, 141);
+            this.buttonEndConference.Name = "buttonEndConference";
+            this.buttonEndConference.Size = new System.Drawing.Size(129, 37);
+            this.buttonEndConference.TabIndex = 10;
+            this.buttonEndConference.Text = "End Conference";
+            this.buttonEndConference.UseVisualStyleBackColor = true;
+            this.buttonEndConference.Click += new System.EventHandler(this.buttonEndConference_Click);
+            // 
             // RoomsDistribution
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(188, 199);
+            this.ClientSize = new System.Drawing.Size(188, 238);
+            this.Controls.Add(this.buttonEndConference);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.btnChooseRooms);
             this.Controls.Add(this.btnScheduleSetup);
             this.Controls.Add(this.btnPickSectionLeader);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(204, 238);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(204, 238);
             this.Name = "RoomsDistribution";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -107,5 +117,6 @@
         private System.Windows.Forms.Button btnScheduleSetup;
         private System.Windows.Forms.Button btnChooseRooms;
         private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.Button buttonEndConference;
     }
 }

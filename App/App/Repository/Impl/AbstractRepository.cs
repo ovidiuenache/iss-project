@@ -31,6 +31,11 @@ namespace App.Repository.Impl
             this.DatabaseSet = context.Set<T>();
         }
 
+        public void saveChanges()
+        {
+            Context.SaveChanges();
+        }
+
         /// <summary>
         /// Persists the entity got as parameter in the database 
         /// </summary>

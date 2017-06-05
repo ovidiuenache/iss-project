@@ -62,6 +62,7 @@ namespace App.UI.PhaseTwo
 
         private void ChairToAcceptedAuthors_FormClosing(object sender, FormClosingEventArgs e)
         {
+            phaseTwoController.saveChanges();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)

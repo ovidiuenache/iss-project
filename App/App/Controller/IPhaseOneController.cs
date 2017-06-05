@@ -1,4 +1,5 @@
 ﻿using App.Entity;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace App.Controller
@@ -12,8 +13,30 @@ namespace App.Controller
     /// </summary>
     public interface IPhaseOneController
     {
-        BindingSource ProposalsAuthoredByUser(int userId);
-
         void saveChanges();
+
+        void updateUserRoles();
+
+        void deleteProposalsWithoutFull();
+
+        Proposal getProposalByUser(int userId);
+
+        List<User> getAllUsers();
+
+        List<Proposal> ProposalsAuthoredByUser(int userId);
+
+        Proposal getProposal(int proposalId);
+
+        List<Role> GetUserRoles(User user);
+
+        void UpdateConference(Conference conference);
+
+        Conference ActiveConference();
+
+        void updateProposal(Proposal proposal);
+
+        void addProposal(Proposal proposal);
+
+
     }
 }
