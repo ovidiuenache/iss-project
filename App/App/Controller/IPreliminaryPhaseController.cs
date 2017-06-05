@@ -26,5 +26,21 @@ namespace App.Controller
         /// <param name="conference"></param>
         /// <param name="comiteeMembers"></param>
         void CreateConference(Conference conference, List<User> comiteeMembers);
+
+        void CreatePhase(Phase phase);
+
+        void UpdateConference(Conference conference);
+
+        User FindUserById(int id);
+
+        Conference ActiveConference();
+
+        Topic FindTopicByName(string topicName);
+
+        List<User> FindAllUsers();
+
+        List<Topic> FindAllTopics();
+
+
     }
 }
