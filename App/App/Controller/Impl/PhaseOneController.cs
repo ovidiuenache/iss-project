@@ -90,6 +90,13 @@ namespace App.Controller
             List<Proposal> proposalsWithoutFull = proposalRepository.getProposalsWithoutFull();
             foreach (Proposal prop in proposalsWithoutFull)
             {
+                foreach (User author in prop.Authors)
+                {
+                    Role role = roleRepository.getBySlug("listner");
+                    author.UserRoles = new List<UserRole>() { new UserRole() { Role = role, RoleId = role.RoleId, User = author, UserId = author.UserId } };
+                    userRepository.Update(author);
+
+                }
                 proposalRepository.Delete(prop);
             }
         }

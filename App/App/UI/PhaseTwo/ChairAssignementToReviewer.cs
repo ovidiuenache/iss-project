@@ -23,8 +23,9 @@ namespace App.UI.PhaseTwo
 
             InitializeComponent();
             proposalsDataGridView.DataSource = phaseTwoController.getProposals();
+            proposalsDataGridView.Columns["Authors"].Visible = false;
             //if (phaseTwoController.getReviewersThatAcceptedProposal(Int32.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString())).Count > 0)
-               // reviewersDataGridView.DataSource = phaseTwoController.getReviewersThatAcceptedProposal(Int32.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
+            // reviewersDataGridView.DataSource = phaseTwoController.getReviewersThatAcceptedProposal(Int32.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()));
         }
 
         private void submitButton_Click(object sender, EventArgs e)

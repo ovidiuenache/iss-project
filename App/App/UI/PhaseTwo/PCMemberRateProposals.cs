@@ -57,10 +57,14 @@ namespace App.UI.PhaseTwo
 
         private void proposalsDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            //if(phaseTwoController.getReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()),this.reviewer.UserId)!=null)
-            //{
+            /*if(phaseTwoController.getReviewByIdProposalIdReviewer(int.Parse(proposalsDataGridView.CurrentRow.Cells[0].Value.ToString()),reviewer.UserId)!=null)
+            {
                 submitButton.Enabled = true;
-            //}
+            }
+            else
+            {
+                submitButton.Enabled = false;
+            }*/
         }
 
         private void PCMemberRateProposals_FormClosing(object sender, FormClosingEventArgs e)
