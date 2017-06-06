@@ -1,5 +1,6 @@
 ﻿using App.Entity;
 using App.Exception;
+using System;
 using System.Text.RegularExpressions;
 
 namespace App.Validators
@@ -21,11 +22,20 @@ namespace App.Validators
                 errors += "The Conference Name must have between 2 and 30 letters!\n";
                 errors += "The Conference Name must be start with an uppercase!";
             }
+            if (!validateDate(entity.EndDate))
+            {
+                errors += "The End Date must be bigger than Start Date!";
+            }
+            if (!validateFee(entity.ConferenceFee.ToString()))
+            {
+                errors += "The Conference Fee must be a positive number!!";
+            }
 
-            if (errors.Length != 0)
+                if (errors.Length != 0)
             {
                 throw new ValidationException(errors);
             }
+            
         }
         private bool validateName(string name)
         {
@@ -60,6 +70,13 @@ namespace App.Validators
                 return false;
             }
 
+            return true;
+        }
+        private bool validateDate(DateTime date)
+        {
+            DateTime curentDate = DateTime.Now;
+            if (date < curentDate)
+                return false;
             return true;
         }
     }

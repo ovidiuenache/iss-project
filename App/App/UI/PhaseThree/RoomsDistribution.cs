@@ -59,6 +59,7 @@ namespace App.UI.PhaseThree
 
             MessageBox.Show("Conference has successfully ended!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
+            Application.Exit();
         }
     }
 }
