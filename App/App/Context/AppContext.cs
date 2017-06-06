@@ -66,7 +66,7 @@ namespace App.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Data Source=DESKTOP-E1OR0KS\SQLEXPRESS;Initial Catalog=iss;Integrated Security=True");
+                @"Data Source=JOHNNY;Initial Catalog=iss;Integrated Security=True");
         }
     }
 }
