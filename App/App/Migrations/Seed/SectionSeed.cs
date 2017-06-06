@@ -34,7 +34,7 @@ namespace App.Migrations.Seed
                     List<User> authors = new List<User> { db.Users.Find(2) };
 
                     db.Sections.Add(
-                        new Section("Web", null, topics, authors, "Aula")
+                        new Section("Web", null, topics, authors, null)
                     );
 
                     User sectionLeader = db.Users.Find(2);
@@ -47,7 +47,7 @@ namespace App.Migrations.Seed
                     authors = new List<User> { db.Users.Find(3) };
                   
                     db.Sections.Add(
-                        new Section("Desktop", null, topics, authors, "Mare")
+                        new Section("Desktop", null, topics, authors, null)
                     );
 
                     db.SaveChanges();
